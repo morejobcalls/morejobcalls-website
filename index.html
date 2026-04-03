@@ -4,35 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>More Job Calls — Exclusive Job Calls for Home Service Contractors</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy:       #111111;
-            --navy-mid:   #1A1A1A;
-            --navy-light: #252525;
-            --orange:     #E8271A;
-            --orange-lt:  #FF3C2C;
-            --gold:       #F9DE3B;
-            --white:      #FFFFFF;
-            --gray-50:    #F8FAFC;
-            --gray-100:   #F1F5F9;
-            --gray-200:   #E2E8F0;
-            --gray-400:   #94A3B8;
-            --gray-600:   #475569;
-            --gray-800:   #1E293B;
-            --green:      #22C55E;
-            --red:        #EF4444;
+            /* ─── Brand Palette ─── */
+            --ivory:       #F7F3EE;   /* Contractor Ivory  */
+            --charcoal:    #2D2D2D;   /* Ironwork Charcoal */
+            --blue:        #4D87C8;   /* Blueprint Blue    */
+            --gold:        #F5C518;   /* Job Gold          */
+
+            /* ─── Supporting ─── */
+            --white:       #FFFFFF;
+            --ash:         #6B7280;
+            --pebble:      #E8E3DB;
+            --blue-deep:   #2F6DB5;
+            --blue-tint:   #EBF3FB;
+            --gold-dark:   #D4AA10;
+
+            /* ─── Legacy Aliases (keeps all existing CSS working) ─── */
+            --navy:        var(--charcoal);
+            --navy-mid:    #383838;
+            --navy-light:  #3D3D3D;
+            --orange:      var(--blue);
+            --orange-lt:   var(--blue-deep);
+            --gray-50:     var(--ivory);
+            --gray-100:    #EDE7DC;
+            --gray-200:    var(--pebble);
+            --gray-400:    var(--ash);
+            --gray-600:    var(--ash);
+            --gray-800:    var(--charcoal);
+            --green:       #22C55E;
+            --red:         #EF4444;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
+            background: var(--ivory);
             color: var(--gray-800);
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; }
 
         .container {
             max-width: 1200px;
@@ -42,7 +56,7 @@
 
         .section-label {
             display: block;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 3px;
@@ -62,7 +76,7 @@
             display: inline-block;
             background: var(--orange);
             color: #fff;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 15px;
             padding: 15px 34px;
@@ -78,7 +92,7 @@
             display: inline-block;
             background: transparent;
             color: rgba(255,255,255,.85);
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 15px;
             padding: 13px 30px;
@@ -91,17 +105,17 @@
 
         .btn-white {
             display: inline-block;
-            background: #fff;
-            color: var(--orange);
-            font-family: 'Montserrat', sans-serif;
+            background: var(--gold);
+            color: var(--charcoal);
+            font-family: 'Poppins', sans-serif;
             font-weight: 800;
             font-size: 17px;
             padding: 18px 44px;
             border-radius: 6px;
             text-decoration: none;
-            transition: transform .1s;
+            transition: all .15s;
         }
-        .btn-white:hover { transform: translateY(-2px); }
+        .btn-white:hover { transform: translateY(-2px); background: var(--gold-dark); }
 
         /* ─── 1. NAV ─────────────────────────────────── */
         nav {
@@ -122,7 +136,7 @@
             gap: 24px;
         }
         .nav-logo {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 900;
             font-size: 20px;
             color: #fff;
@@ -152,7 +166,7 @@
             color: #fff !important;
             padding: 9px 22px !important;
             border-radius: 6px !important;
-            font-family: 'Montserrat', sans-serif !important;
+            font-family: 'Poppins', sans-serif !important;
             font-weight: 700 !important;
             font-size: 13px !important;
         }
@@ -184,15 +198,15 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,92,26,.09) 0%, transparent 70%);
+            background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(77,135,200,.09) 0%, transparent 70%);
             pointer-events: none;
         }
         .hero-badge {
             display: inline-block;
-            background: rgba(255,92,26,.14);
-            border: 1px solid rgba(255,92,26,.3);
+            background: rgba(77,135,200,.14);
+            border: 1px solid rgba(77,135,200,.3);
             color: var(--orange);
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 12px;
             font-weight: 700;
             letter-spacing: 2px;
@@ -210,7 +224,7 @@
             margin: 0 auto 22px;
             letter-spacing: -1.5px;
         }
-        .hero h1 .hl { color: var(--orange); }
+        .hero h1 .hl { color: var(--gold); }
         .hero-sub {
             font-size: 18px;
             color: rgba(255,255,255,.6);
@@ -240,7 +254,7 @@
         }
         .trust-bar-label {
             text-align: center;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 10px;
             font-weight: 700;
             letter-spacing: 3px;
@@ -259,7 +273,7 @@
             background: rgba(255,255,255,.05);
             border: 1px solid rgba(255,255,255,.09);
             color: rgba(255,255,255,.65);
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 12px;
             font-weight: 600;
             padding: 7px 16px;
@@ -303,7 +317,7 @@
         }
         .service-icon {
             width: 48px; height: 48px;
-            background: rgba(255,92,26,.1);
+            background: rgba(77,135,200,.1);
             border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
             font-size: 22px;
@@ -337,10 +351,10 @@
         }
         .p-card-type {
             display: block;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 10px; font-weight: 700;
             letter-spacing: 2px; text-transform: uppercase;
-            color: var(--orange);
+            color: var(--gold);
             margin-bottom: 8px;
         }
         .p-card h4 { color: #fff; font-size: 15px; font-weight: 700; }
@@ -376,7 +390,7 @@
             border-radius: 12px 12px 0 0;
         }
         .result-metric {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 42px; font-weight: 900;
             color: var(--orange);
             line-height: 1;
@@ -400,7 +414,7 @@
             border-radius: 50%;
             background: var(--navy);
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 700; font-size: 14px;
             color: var(--orange);
             flex-shrink: 0;
@@ -471,9 +485,9 @@
             text-align: left;
         }
         .diff-metric {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 50px; font-weight: 900;
-            color: var(--orange); line-height: 1;
+            color: var(--gold); line-height: 1;
             margin-bottom: 8px;
         }
         .diff-card h3 { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 10px; }
@@ -501,7 +515,7 @@
         .step-bg-num {
             position: absolute;
             top: 16px; right: 20px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 72px; font-weight: 900;
             color: var(--gray-100);
             line-height: 1;
@@ -512,7 +526,7 @@
             background: var(--orange);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 15px; font-weight: 800;
             color: #fff;
             margin-bottom: 18px;
@@ -546,7 +560,7 @@
             background: rgba(255,255,255,.06);
             border: 2px solid var(--orange);
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 700; font-size: 14px;
             color: var(--orange);
             flex-shrink: 0;
@@ -565,7 +579,7 @@
             display: flex; align-items: center; justify-content: center;
             transition: background .2s;
         }
-        .t-btn:hover { background: rgba(255,92,26,.3); border-color: var(--orange); }
+        .t-btn:hover { background: rgba(77,135,200,.3); border-color: var(--orange); }
 
         /* ─── 13. NINE REASONS ───────────────────────── */
         .nine-reasons { background: var(--gray-50); padding: 88px 24px; }
@@ -623,7 +637,7 @@
             position: absolute; top: 12px; left: 12px;
             background: var(--orange);
             color: #fff;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 10px; font-weight: 700;
             letter-spacing: 1px; text-transform: uppercase;
             padding: 4px 10px; border-radius: 4px;
@@ -665,7 +679,7 @@
         }
         .comp-table th {
             padding: 18px 22px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 13px; font-weight: 700;
             text-transform: uppercase; letter-spacing: 1px;
         }
@@ -679,7 +693,7 @@
             font-size: 14px;
         }
         .comp-table td:first-child { color: rgba(255,255,255,.7); font-weight: 500; }
-        .comp-table td:nth-child(2) { text-align: center; background: rgba(255,92,26,.05); }
+        .comp-table td:nth-child(2) { text-align: center; background: rgba(77,135,200,.05); }
         .comp-table td:nth-child(3), .comp-table td:nth-child(4) { text-align: center; color: rgba(255,255,255,.35); }
 
         .yes { color: var(--green); font-size: 18px; font-weight: 700; }
@@ -688,7 +702,7 @@
 
         /* ─── 16. MAIN CTA ───────────────────────────── */
         .main-cta {
-            background: var(--orange);
+            background: var(--charcoal);
             padding: 88px 24px;
             text-align: center;
         }
@@ -728,7 +742,7 @@
             background: var(--orange);
             border-radius: 8px;
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 13px; font-weight: 800;
             color: #fff; flex-shrink: 0;
         }
@@ -780,7 +794,7 @@
             text-align: center;
         }
         .about-stat-num {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 36px; font-weight: 900;
             color: var(--orange); line-height: 1; margin-bottom: 6px;
         }
@@ -809,7 +823,7 @@
             width: 72px; height: 72px;
             background: var(--orange); border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 28px; font-weight: 900; color: #fff;
             margin: 0 auto 14px;
         }
@@ -842,7 +856,7 @@
         .footer-brand p { font-size: 13px; color: rgba(255,255,255,.38); line-height: 1.7; max-width: 260px; }
 
         .footer-col h4 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 11px; font-weight: 700;
             letter-spacing: 2px; text-transform: uppercase;
             color: rgba(255,255,255,.3);
