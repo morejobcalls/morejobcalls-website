@@ -298,6 +298,121 @@
             color: var(--gray-400);
         }
 
+        /* ── VIDEO CASE STUDIES ── */
+        .video-section {
+            background: var(--dark);
+            padding: 72px 24px 80px;
+        }
+        .video-section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .video-section-header {
+            margin-bottom: 40px;
+        }
+        .video-section-header .section-label {
+            color: var(--yellow);
+        }
+        .video-section-header h2 {
+            font-size: clamp(24px, 3.5vw, 38px);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+        .video-section-header p {
+            font-size: 15px;
+            color: rgba(255,255,255,.5);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .video-card {
+            background: var(--dark-light);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .video-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,.4);
+        }
+        .video-thumb {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .3s;
+        }
+        .video-card:hover .video-thumb img {
+            transform: scale(1.03);
+        }
+        .video-play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+        .video-card:hover .video-play-overlay { opacity: 1; }
+        .video-play-btn {
+            width: 52px; height: 52px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .video-play-btn::after {
+            content: '';
+            width: 0; height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 17px solid #fff;
+            margin-left: 4px;
+        }
+        .video-duration {
+            position: absolute;
+            bottom: 8px; right: 8px;
+            background: rgba(0,0,0,.8);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 7px;
+            border-radius: 4px;
+        }
+        .video-body {
+            padding: 16px;
+        }
+        .video-body h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+        .video-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .video-channel {
+            font-size: 12px;
+            color: rgba(255,255,255,.35);
+        }
+
         /* ── CTA ── */
         .wins-cta {
             background: var(--red);
@@ -478,6 +593,152 @@
         <p>Send Spencer a screenshot and it'll show up here within minutes.</p>
     </div>
 </div>
+
+<!-- VIDEO CASE STUDIES -->
+<section class="video-section">
+    <div class="video-section-inner">
+        <div class="video-section-header">
+            <span class="section-label" style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--yellow);display:block;margin-bottom:12px;">Client Case Studies</span>
+            <h2>Real Clients. Real Numbers. On Camera.</h2>
+            <p>Full interviews and case studies from contractors who went through the system — in their own words.</p>
+        </div>
+        <div class="video-grid">
+
+            <a href="https://www.youtube.com/watch?v=djsZ_YNn7wY" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/djsZ_YNn7wY/maxresdefault.jpg" alt="He Spent $1,000 on Ads. He Closed $105,000 in Jobs.">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">3:05</span>
+                </div>
+                <div class="video-body">
+                    <h3>He Spent $1,000 on Ads. He Closed $105,000 in Jobs.</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright · Contractor Ads Week 1</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=NV836FEEIcU" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/NV836FEEIcU/maxresdefault.jpg" alt="He Spent $12,000 on Ads. He Made $225,000 PROFIT.">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">1:41</span>
+                </div>
+                <div class="video-body">
+                    <h3>He Spent $12,000 on Ads. He Made $225,000 PROFIT.</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright · Contractor Ads</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=vxqYn1E86LA" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/vxqYn1E86LA/maxresdefault.jpg" alt="52 Appointments in First 10 Days">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">5:52</span>
+                </div>
+                <div class="video-body">
+                    <h3>52 Appointments in First 10 Days (Home Service Contractor)</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=_djYzxfITps" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/_djYzxfITps/maxresdefault.jpg" alt="Deck Builder Closed $1.2M in Slow Season">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">4:06</span>
+                </div>
+                <div class="video-body">
+                    <h3>Deck Builder Closed $1.2M in "Slow Season" (Jan–Feb)</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=kK3oXzLb4-0" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/kK3oXzLb4-0/maxresdefault.jpg" alt="Contractor Gets 65-70 Appointments/Week With Meta Ads">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">1:28</span>
+                </div>
+                <div class="video-body">
+                    <h3>Contractor Gets 65–70 Appointments/Week With Meta Ads</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=ERQ84Dgz-Ow" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/ERQ84Dgz-Ow/maxresdefault.jpg" alt="Ads That Actually Work in 2026">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">15:13</span>
+                </div>
+                <div class="video-body">
+                    <h3>Ads That Actually Work in 2026 — $200k+ in New Jobs in 21 Days</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=thmY9E9PYqY" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/thmY9E9PYqY/maxresdefault.jpg" alt="Facebook Ads for Home Services: $80K to $500K/Month in 120 Days">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">20:30</span>
+                </div>
+                <div class="video-body">
+                    <h3>Facebook Ads for Home Services: $80K to $500K/Month in 120 Days</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=2Wci-fQufSo" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/2Wci-fQufSo/maxresdefault.jpg" alt="Deck Builder Went From 7 Leads/Week to 100+ Leads/Month">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">48:55</span>
+                </div>
+                <div class="video-body">
+                    <h3>How This Deck Builder Went From 7 Leads/Week to 100+ Leads/Month (Full Interview)</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=YJQxX5ZQ3aI" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/YJQxX5ZQ3aI/maxresdefault.jpg" alt="From $400 to $30 Per Lead in 14 Days">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">13:16</span>
+                </div>
+                <div class="video-body">
+                    <h3>From $400 to $30 Per Lead in 14 Days (Contractor Reveals All)</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=_PsPKnTYCUo" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/_PsPKnTYCUo/maxresdefault.jpg" alt="Deck Builder Case Study: 7 to 100+ Leads Per Month">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">37:47</span>
+                </div>
+                <div class="video-body">
+                    <h3>Deck Builder Case Study: 7 to 100+ Leads Per Month Using Facebook Ads</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright · Full Interview</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=JrEHxqhy4ds" target="_blank" rel="noopener" class="video-card">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/JrEHxqhy4ds/maxresdefault.jpg" alt="From 1 to 8 Roofs/Week: How I 3X a Contractor's Revenue">
+                    <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+                    <span class="video-duration">37:48</span>
+                </div>
+                <div class="video-body">
+                    <h3>From 1 to 8 Roofs/Week: How I 3X'd a Contractor's Revenue</h3>
+                    <div class="video-meta"><span class="video-channel">Spencer Wright</span></div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
 
 <!-- CTA -->
 <section class="wins-cta">
