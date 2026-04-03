@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Job Calls — Exclusive Job Calls for Home Service Contractors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy:       #0A0F1E;
+            --navy-mid:   #0F1929;
+            --navy-light: #1A2744;
+            --orange:     #FF5C1A;
+            --orange-lt:  #FF7A3D;
+            --gold:       #F5A623;
+            --white:      #FFFFFF;
+            --gray-50:    #F8FAFC;
+            --gray-100:   #F1F5F9;
+            --gray-200:   #E2E8F0;
+            --gray-400:   #94A3B8;
+            --gray-600:   #475569;
+            --gray-800:   #1E293B;
+            --green:      #22C55E;
+            --red:        #EF4444;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 14px;
+        }
+
+        .section-heading {
+            font-size: clamp(24px, 3.5vw, 40px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--orange);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 15px 34px;
+            border-radius: 6px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background .2s, transform .1s;
+        }
+        .btn-primary:hover { background: var(--orange-lt); transform: translateY(-1px); }
+
+        .btn-ghost {
+            display: inline-block;
+            background: transparent;
+            color: rgba(255,255,255,.85);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 13px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,.3);
+            transition: border-color .2s;
+        }
+        .btn-ghost:hover { border-color: rgba(255,255,255,.75); }
+
+        .btn-white {
+            display: inline-block;
+            background: #fff;
+            color: var(--orange);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 17px;
+            padding: 18px 44px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: transform .1s;
+        }
+        .btn-white:hover { transform: translateY(-2px); }
+
+        /* ─── 1. NAV ─────────────────────────────────── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: var(--navy);
+            border-bottom: 1px solid rgba(255,255,255,.07);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+        .nav-logo span { color: var(--orange); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,.65);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color .2s;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-cta {
+            background: var(--orange) !important;
+            color: #fff !important;
+            padding: 9px 22px !important;
+            border-radius: 6px !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 13px !important;
+        }
+        .nav-cta:hover { background: var(--orange-lt) !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+        @media (max-width: 820px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        /* ─── 2. HERO ────────────────────────────────── */
+        .hero {
+            background: var(--navy);
+            padding: 100px 24px 88px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,92,26,.09) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,92,26,.14);
+            border: 1px solid rgba(255,92,26,.3);
+            color: var(--orange);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+        .hero h1 {
+            font-size: clamp(34px, 5.5vw, 66px);
+            font-weight: 900;
+            line-height: 1.08;
+            color: #fff;
+            max-width: 920px;
+            margin: 0 auto 22px;
+            letter-spacing: -1.5px;
+        }
+        .hero h1 .hl { color: var(--orange); }
+        .hero-sub {
+            font-size: 18px;
+            color: rgba(255,255,255,.6);
+            max-width: 580px;
+            margin: 0 auto 40px;
+            line-height: 1.75;
+        }
+        .hero-btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .hero-note {
+            font-size: 13px;
+            color: rgba(255,255,255,.35);
+            margin-top: 18px;
+        }
+
+        /* ─── 3. TRUST BAR ───────────────────────────── */
+        .trust-bar {
+            background: var(--navy-mid);
+            border-top: 1px solid rgba(255,255,255,.05);
+            border-bottom: 1px solid rgba(255,255,255,.05);
+            padding: 28px 24px;
+        }
+        .trust-bar-label {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.3);
+            margin-bottom: 18px;
+        }
+        .trade-pills {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+        }
+        .trade-pill {
+            background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.09);
+            color: rgba(255,255,255,.65);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 7px 16px;
+            border-radius: 100px;
+        }
+
+        /* ─── 4. METHODOLOGY ─────────────────────────── */
+        .methodology {
+            background: var(--gray-50);
+            padding: 88px 24px;
+            text-align: center;
+        }
+        .methodology .section-heading { max-width: 680px; margin: 0 auto 20px; }
+        .methodology p {
+            max-width: 680px;
+            margin: 0 auto 36px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--gray-600);
+        }
+
+        /* ─── 5. SERVICES ────────────────────────────── */
+        .services {
+            background: #fff;
+            padding: 88px 24px;
+        }
+        .services-header { text-align: center; margin-bottom: 52px; }
+        .services-header .section-heading { margin-bottom: 12px; }
+        .services-header p { font-size: 16px; color: var(--gray-600); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .service-icon {
+            width: 48px; height: 48px;
+            background: rgba(255,92,26,.1);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+        .service-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+        .service-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
+
+        /* ─── 6. PORTFOLIO ───────────────────────────── */
+        .portfolio {
+            background: var(--navy);
+            padding: 88px 24px;
+        }
+        .portfolio-header { text-align: center; margin-bottom: 48px; }
+        .portfolio-header .section-heading { color: #fff; }
+        .portfolio-sub { color: rgba(255,255,255,.55); font-size: 17px; max-width: 560px; margin: 12px auto 0; }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
+        .p-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 10px;
+            aspect-ratio: 4/3;
+            display: flex; align-items: center; justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+        .p-card-type {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 8px;
+        }
+        .p-card h4 { color: #fff; font-size: 15px; font-weight: 700; }
+        .p-card p { color: rgba(255,255,255,.45); font-size: 12px; margin-top: 6px; }
+
+        /* ─── 7. CASE STUDIES ────────────────────────── */
+        .case-studies {
+            background: var(--gray-50);
+            padding: 88px 24px;
+        }
+        .case-studies-header { text-align: center; margin-bottom: 52px; }
+        .case-studies-header .section-heading { margin-bottom: 12px; }
+        .case-studies-header p { font-size: 16px; color: var(--gray-600); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+        .result-card {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+        }
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--orange);
+            border-radius: 12px 12px 0 0;
+        }
+        .result-metric {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px; font-weight: 900;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .result-label {
+            font-size: 12px; font-weight: 700;
+            color: var(--gray-400);
+            text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+        .result-quote {
+            font-size: 14px; line-height: 1.75;
+            color: var(--gray-600);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .result-client { display: flex; align-items: center; gap: 12px; }
+        .client-avatar {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            background: var(--navy);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 14px;
+            color: var(--orange);
+            flex-shrink: 0;
+        }
+        .client-name { font-weight: 700; font-size: 14px; }
+        .client-trade { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+
+        /* ─── 8. PROBLEM ─────────────────────────────── */
+        .problem {
+            background: var(--navy);
+            padding: 100px 24px;
+        }
+        .problem-inner { max-width: 780px; margin: 0 auto; }
+        .problem h2 {
+            font-size: clamp(28px, 4.5vw, 50px);
+            font-weight: 900; line-height: 1.1;
+            color: #fff; margin-bottom: 32px;
+            letter-spacing: -1px;
+        }
+        .problem p {
+            font-size: 17px; line-height: 1.9;
+            color: rgba(255,255,255,.7);
+            margin-bottom: 22px;
+        }
+        .problem p strong { color: #fff; }
+
+        /* ─── 9. QUALIFICATION ───────────────────────── */
+        .qualification { background: var(--gray-50); padding: 88px 24px; }
+        .qualification-inner { max-width: 720px; margin: 0 auto; }
+        .qualification-header { margin-bottom: 36px; }
+        .qualification-header .section-heading { margin-bottom: 12px; }
+        .qualification-header p { font-size: 16px; color: var(--gray-600); line-height: 1.7; }
+
+        .check-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .check-item {
+            display: flex; align-items: flex-start; gap: 14px;
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 18px 22px;
+        }
+        .check-dot {
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            background: rgba(34,197,94,.1);
+            border: 1.5px solid var(--green);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; margin-top: 1px;
+            color: var(--green);
+            font-size: 13px; font-weight: 700;
+        }
+        .check-item p { font-size: 15px; line-height: 1.6; }
+
+        /* ─── 10. DIFFERENTIATION ────────────────────── */
+        .differentiation { background: #fff; padding: 88px 24px; text-align: center; }
+        .differentiation .section-heading { margin-bottom: 12px; }
+        .differentiation > .container > p { font-size: 16px; color: var(--gray-600); max-width: 560px; margin: 0 auto 48px; line-height: 1.7; }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 22px;
+        }
+        .diff-card {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 36px 28px;
+            text-align: left;
+        }
+        .diff-metric {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 50px; font-weight: 900;
+            color: var(--orange); line-height: 1;
+            margin-bottom: 8px;
+        }
+        .diff-card h3 { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+        .diff-card p { color: rgba(255,255,255,.55); font-size: 14px; line-height: 1.7; }
+
+        /* ─── 11. HOW IT WORKS ───────────────────────── */
+        .how-it-works { background: var(--gray-50); padding: 88px 24px; }
+        .how-it-works-header { text-align: center; margin-bottom: 52px; }
+        .how-it-works-header .section-heading { margin-bottom: 12px; }
+        .how-it-works-header p { font-size: 16px; color: var(--gray-600); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .step-card {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 36px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .step-bg-num {
+            position: absolute;
+            top: 16px; right: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 72px; font-weight: 900;
+            color: var(--gray-100);
+            line-height: 1;
+            pointer-events: none;
+        }
+        .step-badge {
+            width: 36px; height: 36px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px; font-weight: 800;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+        .step-card h3 { font-size: 19px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+        .step-card p { font-size: 14px; color: var(--gray-600); line-height: 1.75; }
+
+        /* ─── 12. TESTIMONIALS ───────────────────────── */
+        .testimonials { background: var(--navy); padding: 88px 24px; overflow: hidden; }
+        .testimonials-header { text-align: center; margin-bottom: 44px; }
+        .testimonials-header h2 { color: #fff; }
+
+        .t-wrapper { overflow: hidden; }
+        .t-track {
+            display: flex; gap: 22px;
+            transition: transform .45s ease;
+        }
+        .t-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 12px;
+            padding: 30px;
+            min-width: 360px; max-width: 360px;
+            flex-shrink: 0;
+        }
+        .stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+        .t-quote { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,.75); font-style: italic; margin-bottom: 22px; }
+        .t-author { display: flex; align-items: center; gap: 12px; }
+        .t-avatar {
+            width: 42px; height: 42px; border-radius: 50%;
+            background: rgba(255,255,255,.06);
+            border: 2px solid var(--orange);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 14px;
+            color: var(--orange);
+            flex-shrink: 0;
+        }
+        .t-name { font-weight: 700; font-size: 14px; color: #fff; }
+        .t-trade { font-size: 12px; color: rgba(255,255,255,.4); margin-top: 2px; }
+
+        .t-nav { display: flex; justify-content: center; gap: 12px; margin-top: 32px; }
+        .t-btn {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.1);
+            color: #fff; font-size: 18px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background .2s;
+        }
+        .t-btn:hover { background: rgba(255,92,26,.3); border-color: var(--orange); }
+
+        /* ─── 13. NINE REASONS ───────────────────────── */
+        .nine-reasons { background: var(--gray-50); padding: 88px 24px; }
+        .nine-reasons-header { text-align: center; margin-bottom: 52px; }
+        .nine-reasons-header .section-heading { margin-bottom: 12px; }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        @media (max-width: 900px) { .reasons-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .reasons-grid { grid-template-columns: 1fr; } }
+
+        .reason-card {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 26px 22px;
+        }
+        .reason-icon { font-size: 26px; margin-bottom: 12px; display: block; }
+        .reason-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+        .reason-card p { font-size: 13px; color: var(--gray-600); line-height: 1.65; }
+
+        /* ─── 14. FREE TRAINING ──────────────────────── */
+        .free-training { background: #fff; padding: 88px 24px; }
+        .free-training-header { text-align: center; margin-bottom: 48px; }
+        .free-training-header .section-heading { margin-bottom: 12px; }
+        .free-training-header p { font-size: 16px; color: var(--gray-600); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .training-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .training-thumb {
+            background: var(--navy);
+            aspect-ratio: 16/9;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .training-type-badge {
+            position: absolute; top: 12px; left: 12px;
+            background: var(--orange);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase;
+            padding: 4px 10px; border-radius: 4px;
+        }
+        .play-btn {
+            width: 52px; height: 52px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+        }
+        .play-btn::after {
+            content: '';
+            width: 0; height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 17px solid #fff;
+            margin-left: 3px;
+        }
+        .training-body { padding: 22px; }
+        .training-body h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--navy); line-height: 1.4; }
+        .training-body p { font-size: 13px; color: var(--gray-600); line-height: 1.65; margin-bottom: 14px; }
+        .training-link { color: var(--orange); font-weight: 600; font-size: 13px; text-decoration: none; }
+        .training-link:hover { text-decoration: underline; }
+
+        /* ─── 15. COMPARISON ─────────────────────────── */
+        .comparison { background: var(--navy); padding: 88px 24px; }
+        .comparison-header { text-align: center; margin-bottom: 44px; }
+        .comparison-header h2 { color: #fff; margin-bottom: 12px; }
+        .comparison-sub { color: rgba(255,255,255,.55); font-size: 16px; }
+
+        .comparison-table-wrap { overflow-x: auto; }
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--navy-light);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .comp-table th {
+            padding: 18px 22px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .comp-table th:first-child { text-align: left; color: rgba(255,255,255,.4); width: 40%; }
+        .comp-table th:nth-child(2) { background: var(--orange); color: #fff; }
+        .comp-table th:nth-child(3), .comp-table th:nth-child(4) { color: rgba(255,255,255,.3); }
+
+        .comp-table td {
+            padding: 15px 22px;
+            border-top: 1px solid rgba(255,255,255,.04);
+            font-size: 14px;
+        }
+        .comp-table td:first-child { color: rgba(255,255,255,.7); font-weight: 500; }
+        .comp-table td:nth-child(2) { text-align: center; background: rgba(255,92,26,.05); }
+        .comp-table td:nth-child(3), .comp-table td:nth-child(4) { text-align: center; color: rgba(255,255,255,.35); }
+
+        .yes { color: var(--green); font-size: 18px; font-weight: 700; }
+        .no  { color: var(--red); font-size: 18px; }
+        .maybe { color: var(--gold); font-size: 13px; }
+
+        /* ─── 16. MAIN CTA ───────────────────────────── */
+        .main-cta {
+            background: var(--orange);
+            padding: 88px 24px;
+            text-align: center;
+        }
+        .main-cta h2 {
+            font-size: clamp(28px, 4.5vw, 50px);
+            font-weight: 900; color: #fff;
+            max-width: 700px; margin: 0 auto 22px;
+            line-height: 1.12; letter-spacing: -0.5px;
+        }
+        .main-cta p {
+            font-size: 18px; color: rgba(255,255,255,.85);
+            max-width: 540px; margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+
+        /* ─── 17. SESSION BENEFITS ───────────────────── */
+        .session-benefits { background: var(--gray-50); padding: 88px 24px; }
+        .session-inner { max-width: 800px; margin: 0 auto; }
+        .session-header { margin-bottom: 36px; }
+        .session-header h2 {
+            font-size: clamp(22px, 3vw, 36px);
+            font-weight: 800; color: var(--navy);
+            margin-bottom: 10px; line-height: 1.25;
+        }
+        .session-header p { font-size: 15px; color: var(--gray-600); }
+
+        .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .benefit-item {
+            display: flex; align-items: flex-start; gap: 16px;
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 20px 22px;
+        }
+        .benefit-num {
+            width: 32px; height: 32px;
+            background: var(--orange);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 800;
+            color: #fff; flex-shrink: 0;
+        }
+        .benefit-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--navy); }
+        .benefit-item p { font-size: 13px; color: var(--gray-600); line-height: 1.65; }
+
+        /* ─── 18. ELIGIBILITY ────────────────────────── */
+        .eligibility {
+            background: #fff;
+            padding: 40px 24px;
+            border-top: 1px solid var(--gray-200);
+            text-align: center;
+        }
+        .eligibility p {
+            font-size: 15px; color: var(--gray-600);
+            max-width: 620px; margin: 0 auto; line-height: 1.75;
+        }
+        .eligibility strong { color: var(--navy); }
+        .eligibility a { color: var(--orange); font-weight: 600; text-decoration: none; }
+        .eligibility a:hover { text-decoration: underline; }
+
+        /* ─── 19. ABOUT ──────────────────────────────── */
+        .about { background: var(--gray-50); padding: 88px 24px; }
+        .about-inner { max-width: 800px; margin: 0 auto; }
+        .about-inner h2 {
+            font-size: clamp(24px, 3vw, 38px);
+            font-weight: 800; color: var(--navy);
+            margin-bottom: 28px;
+        }
+        .about-inner p {
+            font-size: 16px; color: var(--gray-600);
+            line-height: 1.85; margin-bottom: 20px;
+        }
+        .about-inner p strong { color: var(--navy); }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 40px;
+        }
+        @media (max-width: 560px) { .about-stats { grid-template-columns: 1fr; } }
+
+        .about-stat {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+        }
+        .about-stat-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px; font-weight: 900;
+            color: var(--orange); line-height: 1; margin-bottom: 6px;
+        }
+        .about-stat-label { font-size: 13px; color: var(--gray-600); }
+
+        /* ─── 20. FOUNDER ────────────────────────────── */
+        .founder { background: #fff; padding: 88px 24px; }
+        .founder-inner { max-width: 900px; margin: 0 auto; }
+
+        .founder-card {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        @media (max-width: 680px) { .founder-card { grid-template-columns: 1fr; } }
+
+        .founder-photo {
+            width: 200px; height: 256px;
+            background: var(--navy-light);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .founder-photo-inner { text-align: center; padding: 20px; }
+        .founder-initials {
+            width: 72px; height: 72px;
+            background: var(--orange); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px; font-weight: 900; color: #fff;
+            margin: 0 auto 14px;
+        }
+        .founder-photo-inner p { color: rgba(255,255,255,.4); font-size: 12px; line-height: 1.5; }
+
+        .founder-content .section-label { margin-bottom: 8px; }
+        .founder-content h2 { font-size: 32px; font-weight: 900; color: var(--navy); margin-bottom: 4px; }
+        .founder-title { font-size: 15px; color: var(--gray-600); margin-bottom: 24px; }
+        .founder-content p { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 16px; }
+        .founder-content strong { color: var(--navy); }
+
+        /* ─── 21. FOOTER ─────────────────────────────── */
+        footer {
+            background: var(--navy);
+            padding: 60px 24px 32px;
+            border-top: 1px solid rgba(255,255,255,.05);
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        @media (max-width: 820px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } }
+
+        .footer-brand .nav-logo { display: block; font-size: 20px; margin-bottom: 14px; }
+        .footer-brand p { font-size: 13px; color: rgba(255,255,255,.38); line-height: 1.7; max-width: 260px; }
+
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: rgba(255,255,255,.3);
+            margin-bottom: 16px;
+        }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-col a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 14px; transition: color .2s; }
+        .footer-col a:hover { color: #fff; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.05);
+            padding-top: 24px;
+            display: flex; align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; gap: 12px;
+        }
+        .footer-legal { font-size: 12px; color: rgba(255,255,255,.25); }
+        .footer-legal a { color: rgba(255,255,255,.25); text-decoration: none; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { color: rgba(255,255,255,.35); font-size: 13px; text-decoration: none; transition: color .2s; }
+        .footer-social a:hover { color: #fff; }
+
+        /* ─── SCROLL ANIMATIONS ──────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     1. NAVIGATION
+════════════════════════════════════════════════ -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">More<span>Job</span>Calls</a>
+        <ul class="nav-links">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#training">Free Training</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#book" class="nav-cta">Book a Strategy Call</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     2. HERO
+════════════════════════════════════════════════ -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">100% Done-For-You · Exclusive Calls · No Contracts</div>
+        <h1>
+            Home Service Contractors:<br>
+            We Fill Your Calendar With<br>
+            <span class="hl">Exclusive Job Calls</span><br>
+            in 30 Days
+        </h1>
+        <p class="hero-sub">
+            No shared leads. No agencies that ghost you. No six-month runways.
+            Just a predictable pipeline of qualified homeowners calling your number.
+        </p>
+        <div class="hero-btns">
+            <a href="#book" class="btn-primary">Apply for a Free Strategy Call</a>
+            <a href="#results" class="btn-ghost">See Real Results</a>
+        </div>
+        <p class="hero-note">Free 30-minute call. No obligation. We'll tell you exactly what we'd do for your market.</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     3. TRUST / TRADE BAR
+════════════════════════════════════════════════ -->
+<div class="trust-bar">
+    <div class="container">
+        <p class="trust-bar-label">Built for contractors across every trade</p>
+        <div class="trade-pills">
+            <span class="trade-pill">🔧 HVAC</span>
+            <span class="trade-pill">🏠 Roofing</span>
+            <span class="trade-pill">🪛 Plumbing</span>
+            <span class="trade-pill">⚡ Electrical</span>
+            <span class="trade-pill">🌿 Landscaping</span>
+            <span class="trade-pill">🏗️ Decking</span>
+            <span class="trade-pill">🎨 Painting</span>
+            <span class="trade-pill">🏊 Pool &amp; Spa</span>
+            <span class="trade-pill">🪟 Windows &amp; Doors</span>
+            <span class="trade-pill">🔥 Concrete &amp; Hardscaping</span>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     4. METHODOLOGY
+════════════════════════════════════════════════ -->
+<section class="methodology reveal" id="methodology">
+    <div class="container">
+        <span class="section-label">How We Work</span>
+        <h2 class="section-heading">How We Fill Your Calendar With Exclusive Job Calls</h2>
+        <p>
+            Most contractor marketing fails for one reason: the lead goes to five people at once.
+            You race on price, the homeowner ghosts, and you're left holding the bill.
+            We do it different. We build a targeted paid ad system for your exact market,
+            funneled into a page built for one job — getting them to call <em>you</em>.
+            Every lead is exclusive. Every call is tracked. No guesswork, no shared lists.
+        </p>
+        <a href="#book" class="btn-primary">See How It Works for Your Trade →</a>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     5. SERVICES
+════════════════════════════════════════════════ -->
+<section class="services reveal" id="services">
+    <div class="container">
+        <div class="services-header">
+            <span class="section-label">What We Do</span>
+            <h2 class="section-heading">Here's What's Included</h2>
+            <p>We don't hand you a tool and wish you luck. We build the whole system and run it for you.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Market Targeting</h3>
+                <p>We identify who's ready to hire in your zip codes — by income, homeownership, and intent signals. Your ads only reach people who can actually write a check.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📸</div>
+                <h3>Ad Creative &amp; Copy</h3>
+                <p>Ads that stop the scroll and qualify the prospect before they ever click. We write them, design them, and test them until the numbers move.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏁</div>
+                <h3>High-Converting Landing Pages</h3>
+                <p>Custom pages built for one goal: get the homeowner to book or call. No generic templates, no distraction — just a clear path to your calendar.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>CRM &amp; Automation</h3>
+                <p>Every lead gets followed up with automatically — SMS, email, and voicemail drops. Nobody falls through the cracks while you're on a job.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📞</div>
+                <h3>Appointment Setting</h3>
+                <p>We handle outbound follow-up on warm leads so you're only picking up for confirmed, qualified conversations — not cold calls you didn't ask for.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Pipeline Reporting</h3>
+                <p>You see exactly what's happening — calls booked, show rates, cost per lead. Real numbers. No impressions, no vanity metrics, no "trust us."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     6. PORTFOLIO
+════════════════════════════════════════════════ -->
+<section class="portfolio reveal" id="portfolio">
+    <div class="container">
+        <div class="portfolio-header">
+            <span class="section-label" style="color:var(--gold)">Our Work</span>
+            <h2 class="section-heading">We Build High-Converting Ads &amp; Funnels for Contractors</h2>
+            <p class="portfolio-sub">Every ad, every page — built and tested for your specific trade.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="p-card">
+                <div>
+                    <span class="p-card-type">Meta Ad</span>
+                    <h4>HVAC Summer Campaign</h4>
+                    <p>CPL: $18.40 &nbsp;·&nbsp; CTR: 4.2%</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <div>
+                    <span class="p-card-type">Landing Page</span>
+                    <h4>Roofing Inspection Funnel</h4>
+                    <p>Conversion Rate: 38%</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <div>
+                    <span class="p-card-type">Meta Ad</span>
+                    <h4>Deck Builder Lead Campaign</h4>
+                    <p>CPL: $24.80 &nbsp;·&nbsp; 67 calls / 30 days</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <div>
+                    <span class="p-card-type">Landing Page</span>
+                    <h4>Plumbing Emergency Funnel</h4>
+                    <p>Conversion Rate: 41%</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <div>
+                    <span class="p-card-type">Full Funnel</span>
+                    <h4>Electrical Panel Upgrade</h4>
+                    <p>ROAS: 6.8x &nbsp;·&nbsp; $21 CPL</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <div>
+                    <span class="p-card-type">Full Funnel</span>
+                    <h4>Landscaping Seasonal Push</h4>
+                    <p>47 booked calls in first 3 weeks</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     7. CASE STUDIES / RESULTS
+════════════════════════════════════════════════ -->
+<section class="case-studies reveal" id="results">
+    <div class="container">
+        <div class="case-studies-header">
+            <span class="section-label">Real Results</span>
+            <h2 class="section-heading">What Happens When It Works</h2>
+            <p>These aren't impressions or clicks. These are contractors who filled their calendars.</p>
+        </div>
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="result-metric">63</div>
+                <div class="result-label">Exclusive Calls in 30 Days</div>
+                <p class="result-quote">"January was supposed to be dead. I had more calls booked in January than I did in October. The crew didn't miss a single day. Never happened before."</p>
+                <div class="result-client">
+                    <div class="client-avatar">RM</div>
+                    <div>
+                        <div class="client-name">Randy M.</div>
+                        <div class="client-trade">HVAC Contractor · Phoenix, AZ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="result-card">
+                <div class="result-metric">$240K</div>
+                <div class="result-label">New Jobs — First 60 Days</div>
+                <p class="result-quote">"I'd been through three agencies before this. Same pitch, nothing to show for it. These guys actually built something. I can point to every dollar and see what it turned into."</p>
+                <div class="result-client">
+                    <div class="client-avatar">DK</div>
+                    <div>
+                        <div class="client-name">Dave K.</div>
+                        <div class="client-trade">Roofing Contractor · Dallas, TX</div>
+                    </div>
+                </div>
+            </div>
+            <div class="result-card">
+                <div class="result-metric">8 Wks</div>
+                <div class="result-label">Booked Solid in 45 Days</div>
+                <p class="result-quote">"I went from refreshing my email waiting for referrals to turning jobs down because we were full. That's a completely different problem to have."</p>
+                <div class="result-client">
+                    <div class="client-avatar">MT</div>
+                    <div>
+                        <div class="client-name">Mike T.</div>
+                        <div class="client-trade">Deck Builder · Atlanta, GA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="result-card">
+                <div class="result-metric">4.1x</div>
+                <div class="result-label">Return on Ad Spend</div>
+                <p class="result-quote">"I was skeptical. I told them I needed to see results in 30 days or I was out. They hit the number in 22. I've been a client for 8 months."</p>
+                <div class="result-client">
+                    <div class="client-avatar">TC</div>
+                    <div>
+                        <div class="client-name">Tony C.</div>
+                        <div class="client-trade">Electrical Contractor · Charlotte, NC</div>
+                    </div>
+                </div>
+            </div>
+            <div class="result-card">
+                <div class="result-metric">Zero</div>
+                <div class="result-label">Shared Leads. Ever.</div>
+                <p class="result-quote">"I was done with Angi. Done paying $400 for a lead I had to race four other guys to. Every call I get through this is mine. Nobody else is calling them."</p>
+                <div class="result-client">
+                    <div class="client-avatar">JL</div>
+                    <div>
+                        <div class="client-name">Jimmy L.</div>
+                        <div class="client-trade">Plumbing · Tampa, FL</div>
+                    </div>
+                </div>
+            </div>
+            <div class="result-card">
+                <div class="result-metric">47</div>
+                <div class="result-label">Booked Calls — Month One</div>
+                <p class="result-quote">"My wife stopped asking me if business was okay. That's the real metric. She can tell the difference between a husband who's white-knuckling it and one who's not."</p>
+                <div class="result-client">
+                    <div class="client-avatar">BR</div>
+                    <div>
+                        <div class="client-name">Brian R.</div>
+                        <div class="client-trade">Landscaping · Nashville, TN</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     8. PROBLEM SECTION
+════════════════════════════════════════════════ -->
+<section class="problem reveal" id="problem">
+    <div class="container">
+        <div class="problem-inner">
+            <span class="section-label" style="color:var(--gold)">Sound Familiar?</span>
+            <h2>Are You Tired of the Feast-or-Famine Cycle?</h2>
+            <p>
+                <strong>Here's the thing about referrals.</strong> They built your business. You're proud of that — and you should be. But they don't fill January. They don't keep your crews busy when the season turns. And you can't scale something you don't control.
+            </p>
+            <p>
+                So you tried to fix it. Google ads, Angi, HomeAdvisor, a few agencies. Every time you threw money at it, you got burned. The leads were garbage — same number going to four other contractors. The agencies disappeared after the first invoice. The SEO company sent you a report that said "one million impressions" and couldn't name a single job that came from it.
+            </p>
+            <p>
+                <strong>Now your jaw locks</strong> every time someone new pitches you. You've heard it before. Same slide deck, same promises, same result: a bill and a voicemail you'll never get returned.
+            </p>
+            <p>
+                The problem isn't that marketing doesn't work for contractors. <strong>The problem is that most marketing was built for clicks, not calls.</strong> For traffic, not jobs. For agencies who get paid whether you win or lose.
+            </p>
+            <p>
+                More Job Calls exists because we got tired of watching contractors with great work and empty calendars get taken by people who didn't know the difference between a roofing lead and a roofing job.
+            </p>
+            <a href="#book" class="btn-primary" style="margin-top:8px;">Let's Fix That — Book a Strategy Call</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     9. QUALIFICATION
+════════════════════════════════════════════════ -->
+<section class="qualification reveal" id="qualify">
+    <div class="container">
+        <div class="qualification-inner">
+            <span class="section-label">Are You In The Right Place?</span>
+            <div class="qualification-header">
+                <h2 class="section-heading">Let's Check If This Is a Fit...</h2>
+                <p style="margin-top:10px;">We don't work with everyone. Here's who actually gets results with More Job Calls:</p>
+            </div>
+            <ul class="check-list">
+                <li class="check-item">
+                    <div class="check-dot">✓</div>
+                    <p>You run an established home service company doing at least $500K/year. You have crews, you've proven the work — you just need the phone to ring consistently.</p>
+                </li>
+                <li class="check-item">
+                    <div class="check-dot">✓</div>
+                    <p>You're done sharing leads. You want calls that come exclusively to your business — not the same number going to four of your competitors down the street.</p>
+                </li>
+                <li class="check-item">
+                    <div class="check-dot">✓</div>
+                    <p>You've been burned by at least one agency. You're skeptical — that's fine. You just need a system that shows you results fast, not promises that take six months to verify.</p>
+                </li>
+                <li class="check-item">
+                    <div class="check-dot">✓</div>
+                    <p>You don't want a babysitting project. You want someone to build the system and run it while you stay focused on your jobs.</p>
+                </li>
+                <li class="check-item">
+                    <div class="check-dot">✓</div>
+                    <p>You have a closer or you take the calls yourself. The calls we book are qualified — you just need to show up and close them.</p>
+                </li>
+                <li class="check-item">
+                    <div class="check-dot">✓</div>
+                    <p>You want to stop surviving the slow season and start owning your market year-round — including January.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     10. DIFFERENTIATION
+════════════════════════════════════════════════ -->
+<section class="differentiation reveal" id="different">
+    <div class="container">
+        <span class="section-label">Why We're Different</span>
+        <h2 class="section-heading">How Is More Job Calls Different?</h2>
+        <p>Because we actually deliver calls. Real ones. With real contractors. Not traffic reports — jobs.</p>
+        <div class="diff-grid">
+            <div class="diff-card">
+                <div class="diff-metric">100%</div>
+                <h3>Exclusive Leads</h3>
+                <p>Your leads go to one company: yours. We don't resell the same lead to five contractors or run the same funnel for your competitor across town.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-metric">30</div>
+                <h3>Days to First Results</h3>
+                <p>We give you a 30-day milestone — not a six-month runway of excuses. If you don't see movement, we put it right. That's how confident we are in the system.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-metric">0</div>
+                <h3>Lock-In Contracts</h3>
+                <p>Month-to-month. No holding your accounts hostage. You own your ad account, your CRM, your data. We earn your business every single month.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-metric">DFY</div>
+                <h3>Done-For-You System</h3>
+                <p>We build it. We run it. We optimize it. You don't learn ads, build pages, or manage automations. You answer the calls we put on your calendar.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-metric">1</div>
+                <h3>Trade Per Market</h3>
+                <p>We only work with one contractor per trade per metro area. Your competitor can't buy in after you do. You get the territory — and we protect it.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-metric">Real</div>
+                <h3>Industry Knowledge</h3>
+                <p>We know the difference between an HVAC quote and a roofing inspection. The copy, targeting, and follow-up all reflect what actually matters in your trade.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     11. HOW IT WORKS — 3 STEPS
+════════════════════════════════════════════════ -->
+<section class="how-it-works reveal" id="how-it-works">
+    <div class="container">
+        <div class="how-it-works-header">
+            <span class="section-label">The Process</span>
+            <h2 class="section-heading">Three Steps to a Full Calendar</h2>
+            <p>Simple on your end. A lot of work on ours.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-bg-num">01</div>
+                <div class="step-badge">1</div>
+                <h3>Apply for a Strategy Call</h3>
+                <p>We spend 30 minutes on your market, your trade, and your current situation. You walk away with a specific plan — what we'd target, what we'd build, and what realistic results look like for your area. No pitch, just the plan.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-bg-num">02</div>
+                <div class="step-badge">2</div>
+                <h3>We Build Your Call Machine</h3>
+                <p>In 7–10 days we build your full system: targeted ads, landing page, CRM, follow-up automations, and appointment flow. Everything lives in your account. You see it, you own it, you can log in anytime.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-bg-num">03</div>
+                <div class="step-badge">3</div>
+                <h3>Calls Come In. You Close Them.</h3>
+                <p>We launch the ads and manage everything from there — testing, optimizing, following up on leads. You focus on running your business. The calls land on your calendar. You show up and close them.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     12. TESTIMONIALS
+════════════════════════════════════════════════ -->
+<section class="testimonials reveal" id="testimonials">
+    <div class="container">
+        <div class="testimonials-header">
+            <span class="section-label" style="color:var(--gold)">What Contractors Say</span>
+            <h2 class="section-heading">In Their Own Words</h2>
+        </div>
+        <div class="t-wrapper" id="tWrapper">
+            <div class="t-track" id="tTrack">
+                <div class="t-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="t-quote">"I told them straight up: I've been burned before, I'm skeptical, and I need to see something real in 30 days or I'm done. They hit the number in three weeks. I've referred two other guys since."</p>
+                    <div class="t-author">
+                        <div class="t-avatar">JW</div>
+                        <div>
+                            <div class="t-name">Justin W.</div>
+                            <div class="t-trade">Deck Builder · Houston, TX</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p>
+                    <div class="t-author">
+                        <div class="t-avatar">CP</div>
+                        <div>
+                            <div class="t-name">Chip P.</div>
+                            <div class="t-trade">HVAC · Memphis, TN</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="t-quote">"I'd thrown $60K at agencies over four years. Nothing. This is the first time I've been able to point to a campaign and say that's exactly where that job came from."</p>
+                    <div class="t-author">
+                        <div class="t-avatar">SB</div>
+                        <div>
+                            <div class="t-name">Scott B.</div>
+                            <div class="t-trade">Roofing · Denver, CO</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other plumbers to the same homeowner. When they call me, they called me — not the list."</p>
+                    <div class="t-author">
+                        <div class="t-avatar">FG</div>
+                        <div>
+                            <div class="t-name">Frank G.</div>
+                            <div class="t-trade">Plumbing · Orlando, FL</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p>
+                    <div class="t-author">
+                        <div class="t-avatar">AD</div>
+                        <div>
+                            <div class="t-name">Andrew D.</div>
+                            <div class="t-trade">Electrical · Phoenix, AZ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="t-quote">"I was the skeptic. My wife talked me into the call. Three months later she's the one asking why I didn't do this sooner."</p>
+                    <div class="t-author">
+                        <div class="t-avatar">KH</div>
+                        <div>
+                            <div class="t-name">Kevin H.</div>
+                            <div class="t-trade">Landscaping · Austin, TX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="t-nav">
+            <button class="t-btn" id="tPrev">‹</button>
+            <button class="t-btn" id="tNext">›</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     13. NINE REASONS
+════════════════════════════════════════════════ -->
+<section class="nine-reasons reveal" id="reasons">
+    <div class="container">
+        <div class="nine-reasons-header">
+            <span class="section-label">Why Contractors Choose Us</span>
+            <h2 class="section-heading">9 Reasons Why Contractors Trust More Job Calls</h2>
+        </div>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <span class="reason-icon">🔒</span>
+                <h3>Exclusive Leads Only</h3>
+                <p>Every lead is yours alone. We don't resell, we don't share, and we don't run the same funnel for a competitor in your market.</p>
+            </div>
+            <div class="reason-card">
+                <span class="reason-icon">🏗️</span>
+                <h3>Built for Your Trade</h3>
+                <p>We know contractors. The seasonality, the job economics, the vocabulary. This isn't a generalist agency that happens to take contractor clients.</p>
+            </div>
+            <div class="reason-card">
+                <span class="reason-icon">⚡</span>
+                <h3>Results in 30 Days</h3>
+                <p>A concrete 30-day milestone — not a six-month runway of excuses. You'll know it's working (or we'll fix it) within the first month.</p>
+            </div>
+            <div class="reason-card">
+                <span class="reason-icon">🧰</span>
+                <h3>Fully Done-For-You</h3>
+                <p>Ads, pages, CRM, follow-up — we build and run the whole thing. You don't touch any of it unless you want to.</p>
+            </div>
+            <div class="reason-card">
+                <span class="reason-icon">📋</span>
+                <h3>No Long-Term Contracts</h3>
+                <p>Month-to-month. You stay because it's working, not because you're locked in. Most clients don't leave — but the choice is always yours.</p>
+            </div>
+            <div class="reason-card">
+                <span class="reason-icon">🔑</span>
+                <h3>You Own Everything</h3>
+                <p>Your ad account, your CRM, your leads, your data. Nobody holds your logins hostage. If we part ways, you walk away with everything we built.</p>
+            </div>
+            <div class="reason-card">
+                <span class="reason-icon">📈</span>
+                <h3>Full-System Approach</h3>
+                <p>Not just ads. Not just a page. A complete pipeline from first impression to booked call — built, connected, and running together.</p>
+            </div>
+            <div class="reason-card">
+                <span class="reason-icon">🪟</span>
+                <h3>Complete Transparency</h3>
+                <p>You get a real dashboard. Cost per lead, show rates, close rates. No mystery metrics. No "trust us" reporting with nothing to back it up.</p>
+            </div>
+            <div class="reason-card">
+                <span class="reason-icon">🎯</span>
+                <h3>One Contractor Per Market</h3>
+                <p>We only work with one trade per metro. Your competitor can't buy in after you. You get the territory — and we protect it.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     14. FREE TRAINING
+════════════════════════════════════════════════ -->
+<section class="free-training reveal" id="training">
+    <div class="container">
+        <div class="free-training-header">
+            <span class="section-label">Free Training</span>
+            <h2 class="section-heading">Want to Learn How This Works?</h2>
+            <p>Three free resources built specifically for home service contractors.</p>
+        </div>
+        <div class="training-grid">
+            <div class="training-card">
+                <div class="training-thumb">
+                    <span class="training-type-badge">Video</span>
+                    <div class="play-btn"></div>
+                </div>
+                <div class="training-body">
+                    <h3>Why 90% of Contractor Ads Fail (And What to Do Instead)</h3>
+                    <p>The three reasons most paid campaigns produce nothing but clicks — and the one shift that changes everything.</p>
+                    <a href="#" class="training-link">Watch Free →</a>
+                </div>
+            </div>
+            <div class="training-card">
+                <div class="training-thumb">
+                    <span class="training-type-badge">Guide</span>
+                    <div class="play-btn"></div>
+                </div>
+                <div class="training-body">
+                    <h3>The 3-Part Follow-Up System That Doubles Show Rates</h3>
+                    <p>Most contractors lose half their leads between booking and the actual call. Here's exactly how we fix it with automation.</p>
+                    <a href="#" class="training-link">Get the Guide →</a>
+                </div>
+            </div>
+            <div class="training-card">
+                <div class="training-thumb">
+                    <span class="training-type-badge">Training</span>
+                    <div class="play-btn"></div>
+                </div>
+                <div class="training-body">
+                    <h3>How to Stop Competing on Price and Start Winning on Proof</h3>
+                    <p>When calls are exclusive, the conversation changes. Here's how to close at higher margins once the leads are flowing.</p>
+                    <a href="#" class="training-link">Watch Free →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     15. COMPARISON TABLE
+════════════════════════════════════════════════ -->
+<section class="comparison reveal" id="compare">
+    <div class="container">
+        <div class="comparison-header">
+            <span class="section-label" style="color:var(--gold)">How We Compare</span>
+            <h2 class="section-heading">More Job Calls vs. The Alternatives</h2>
+            <p class="comparison-sub">You've probably already tried at least one of these.</p>
+        </div>
+        <div class="comparison-table-wrap">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>More Job Calls</th>
+                        <th>Typical Agency</th>
+                        <th>Shared Lead Sites</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Exclusive leads — yours only</td>
+                        <td><span class="yes">✓</span></td>
+                        <td><span class="no">✗</span></td>
+                        <td><span class="no">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td>Fully done-for-you system</td>
+                        <td><span class="yes">✓</span></td>
+                        <td><span class="maybe">Varies</span></td>
+                        <td><span class="no">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td>No lock-in contract</td>
+                        <td><span class="yes">✓</span></td>
+                        <td><span class="no">✗</span></td>
+                        <td><span class="maybe">Varies</span></td>
+                    </tr>
+                    <tr>
+                        <td>You own your accounts &amp; data</td>
+                        <td><span class="yes">✓</span></td>
+                        <td><span class="no">✗</span></td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>30-day milestone guarantee</td>
+                        <td><span class="yes">✓</span></td>
+                        <td><span class="no">✗</span></td>
+                        <td><span class="no">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td>One trade per market</td>
+                        <td><span class="yes">✓</span></td>
+                        <td><span class="no">✗</span></td>
+                        <td><span class="no">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td>Transparent reporting (real numbers)</td>
+                        <td><span class="yes">✓</span></td>
+                        <td><span class="maybe">Sometimes</span></td>
+                        <td><span class="no">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td>Industry-specific knowledge</td>
+                        <td><span class="yes">✓</span></td>
+                        <td><span class="no">✗</span></td>
+                        <td><span class="maybe">Partial</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     16. MAIN CTA
+════════════════════════════════════════════════ -->
+<section class="main-cta" id="book">
+    <div class="container">
+        <h2>Apply to Work With More Job Calls</h2>
+        <p>
+            We only take on contractors whose market has room to grow. The strategy call is free
+            and takes 30 minutes. We'll tell you exactly what we'd do.
+        </p>
+        <a href="#" class="btn-white">Book Your Free Strategy Call</a>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     17. STRATEGY SESSION BENEFITS
+════════════════════════════════════════════════ -->
+<section class="session-benefits reveal" id="session">
+    <div class="container">
+        <div class="session-inner">
+            <span class="section-label">What to Expect on the Call</span>
+            <div class="session-header">
+                <h2>Here's What You'll Walk Away With From the Strategy Call:</h2>
+                <p>This isn't a sales call in disguise. By the end of 30 minutes, you'll have something real.</p>
+            </div>
+            <ul class="benefit-list">
+                <li class="benefit-item">
+                    <div class="benefit-num">1</div>
+                    <div>
+                        <h4>A Market Analysis for Your Trade and Territory</h4>
+                        <p>We'll look at what's actually working in your market right now — competitor activity, ad saturation, targeting opportunities — and tell you honestly whether it's a strong market for us to run in.</p>
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-num">2</div>
+                    <div>
+                        <h4>A Specific Funnel Recommendation</h4>
+                        <p>We'll show you exactly what we'd build — what ad angle, what landing page structure, what offer — based on your trade, your ticket size, and your market. Not a template. A real plan.</p>
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-num">3</div>
+                    <div>
+                        <h4>A Realistic Call Volume Projection</h4>
+                        <p>We'll give you an honest number of exclusive calls you could expect in the first 30 days based on your budget and market. No inflated promises — a number we're willing to stand behind.</p>
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-num">4</div>
+                    <div>
+                        <h4>Results From Contractors in Your Trade</h4>
+                        <p>We'll show you what we've done for contractors doing similar work at a similar revenue level — real numbers, real markets, real timelines.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     18. ELIGIBILITY
+════════════════════════════════════════════════ -->
+<section class="eligibility">
+    <div class="container">
+        <p>
+            <strong>This is for established contractors only.</strong> We work with home service companies doing $500K/year or more who have the capacity to handle consistent call volume. We take on a limited number of new contractors each month — and once a trade is claimed in a market, it's closed.
+            <a href="#book">Check if your market is still available →</a>
+        </p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     19. ABOUT
+════════════════════════════════════════════════ -->
+<section class="about reveal" id="about">
+    <div class="container">
+        <div class="about-inner">
+            <span class="section-label">About More Job Calls</span>
+            <h2>Why We Built This</h2>
+            <p>
+                <strong>Home service contractors are the most lied-to business owners in America.</strong>
+                Every agency that calls them promises leads. Almost none deliver. And when they don't,
+                they find a way to make it the contractor's fault — not enough reviews, wrong photos,
+                website wasn't ready. The excuses are endless. The results aren't.
+            </p>
+            <p>
+                We started More Job Calls because we got tired of watching guys who were genuinely
+                good at their trade — five-star work, clients who refer without being asked — watching
+                those same guys eat the slow season in silence because nobody built them a system that worked.
+            </p>
+            <p>
+                <strong>The offer is simple:</strong> we build a done-for-you system that puts exclusive
+                job calls on your calendar. We do it fast, we show you the numbers, and we earn your business
+                every month. No long contracts, no shared leads, no hiding behind reports full of vanity metrics.
+            </p>
+            <p>
+                The contractors we work with are in HVAC, roofing, plumbing, electrical, decking, landscaping,
+                painting, and more. Different trades, same problem: great work, inconsistent calendar. We fix the second half.
+            </p>
+            <div class="about-stats">
+                <div class="about-stat">
+                    <div class="about-stat-num">10+</div>
+                    <div class="about-stat-label">Trades Served</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-num">30</div>
+                    <div class="about-stat-label">Days to First Results</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-num">100%</div>
+                    <div class="about-stat-label">Exclusive Leads</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     20. FOUNDER
+════════════════════════════════════════════════ -->
+<section class="founder reveal" id="founder">
+    <div class="container">
+        <div class="founder-inner">
+            <div class="founder-card">
+                <div class="founder-photo">
+                    <div class="founder-photo-inner">
+                        <div class="founder-initials">S</div>
+                        <p>Add your<br>photo here</p>
+                    </div>
+                </div>
+                <div class="founder-content">
+                    <span class="section-label">Founder</span>
+                    <h2>Spencer</h2>
+                    <div class="founder-title">Owner-Operator, More Job Calls</div>
+                    <p>
+                        I build done-for-you marketing systems for home service contractors. I got into this work after watching agency after agency take money from guys who just needed their phone to ring.
+                    </p>
+                    <p>
+                        My clients aren't big brands with massive budgets and full marketing teams. They're owner-operators with crews to keep busy, families to take care of, and a business they built with their hands. They don't need strategy decks. They need calls.
+                    </p>
+                    <p>
+                        I'm not the hero of this story — they are. I just build the pipeline that lets their work speak for itself.
+                    </p>
+                    <p>
+                        <strong>If you want to know what I can do for your trade and your market, book a call. I'll tell you straight what I see.</strong>
+                    </p>
+                    <a href="#book" class="btn-primary" style="margin-top:10px;">Book a Strategy Call</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     21. FOOTER
+════════════════════════════════════════════════ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">More<span>Job</span>Calls</a>
+                <p>Done-for-you lead systems for home service contractors. Exclusive calls. No shared leads. Results in 30 days or we fix it.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Paid Ads</a></li>
+                    <li><a href="#">Landing Pages</a></li>
+                    <li><a href="#">CRM &amp; Automation</a></li>
+                    <li><a href="#">Appointment Setting</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Results</a></li>
+                    <li><a href="#">Free Training</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Trades We Serve</h4>
+                <ul>
+                    <li><a href="#">HVAC</a></li>
+                    <li><a href="#">Roofing</a></li>
+                    <li><a href="#">Plumbing</a></li>
+                    <li><a href="#">Electrical</a></li>
+                    <li><a href="#">Decking</a></li>
+                    <li><a href="#">Landscaping</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                © 2026 More Job Calls. All rights reserved.
+                &nbsp;·&nbsp; <a href="#">Privacy Policy</a>
+                &nbsp;·&nbsp; <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+                <a href="#">Facebook</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // ── Testimonial Carousel ────────────────────────────────
+    const track   = document.getElementById('tTrack');
+    const prevBtn = document.getElementById('tPrev');
+    const nextBtn = document.getElementById('tNext');
+    let idx = 0;
+
+    function cardWidth() {
+        const card = track.querySelector('.t-card');
+        return card ? card.offsetWidth + 22 : 382; // 360 + gap
+    }
+
+    function visibleCount() {
+        const w = window.innerWidth;
+        if (w >= 1160) return 3;
+        if (w >= 760)  return 2;
+        return 1;
+    }
+
+    function maxIdx() {
+        return Math.max(0, track.querySelectorAll('.t-card').length - visibleCount());
+    }
+
+    function slide() {
+        track.style.transform = `translateX(-${idx * cardWidth()}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => { idx = Math.min(idx + 1, maxIdx()); slide(); });
+    prevBtn.addEventListener('click', () => { idx = Math.max(idx - 1, 0); slide(); });
+    window.addEventListener('resize', () => { idx = 0; slide(); });
+
+
+    // ── Scroll Reveal ──────────────────────────────────────
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+
+    // ── Smooth Anchor Scroll ──────────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
