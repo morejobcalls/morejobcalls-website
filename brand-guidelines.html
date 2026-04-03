@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More Job Calls — Brand Guidelines 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    /* ══════════════════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════════════════ */
+    :root {
+      /* ─── Primary Palette ─── */
+      --ivory:       #F7F3EE;   /* Contractor Ivory   */
+      --charcoal:    #2D2D2D;   /* Ironwork Charcoal  */
+      --blue:        #4D87C8;   /* Blueprint Blue     */
+      --gold:        #F5C518;   /* Job Gold           */
+
+      /* ─── Supporting Palette ─── */
+      --white:       #FFFFFF;
+      --ash:         #6B7280;   /* secondary text     */
+      --pebble:      #E8E3DB;   /* borders, dividers  */
+      --blue-deep:   #2F6DB5;   /* hover/active blue  */
+      --blue-tint:   #EBF3FB;   /* light blue bg      */
+      --gold-dark:   #D4AA10;   /* hover/active gold  */
+      --ivory-dark:  #EDE7DC;   /* ivory border       */
+
+      /* ─── Typography ─── */
+      --font-head: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+
+      /* ─── Spacing (8px grid) ─── */
+      --sp-1:  8px;
+      --sp-2:  16px;
+      --sp-3:  24px;
+      --sp-4:  32px;
+      --sp-5:  40px;
+      --sp-6:  48px;
+      --sp-8:  64px;
+      --sp-10: 80px;
+      --sp-12: 96px;
+
+      /* ─── Border Radius ─── */
+      --r-sm:  4px;
+      --r-md:  8px;
+      --r-lg:  12px;
+      --r-xl:  20px;
+      --r-pill: 100px;
+
+      /* ─── Shadows ─── */
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.05);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,.10), 0 4px 10px rgba(0,0,0,.06);
+    }
+
+    /* ══════════════════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══════════════════════════════════════════════════
+       LAYOUT HELPERS
+    ══════════════════════════════════════════════════ */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 var(--sp-3);
+    }
+
+    .section {
+      padding: var(--sp-12) var(--sp-3);
+    }
+    .section-alt {
+      padding: var(--sp-12) var(--sp-3);
+      background: var(--white);
+    }
+    .section-dark {
+      padding: var(--sp-12) var(--sp-3);
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .section-blue {
+      padding: var(--sp-12) var(--sp-3);
+      background: var(--blue-tint);
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-3); }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .grid-2-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       SECTION HEADER
+    ══════════════════════════════════════════════════ */
+    .sec-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      margin-bottom: var(--sp-1);
+    }
+    .sec-label-light { color: rgba(255,255,255,.5); }
+    .sec-label-gold  { color: var(--gold); }
+
+    .sec-title {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: var(--sp-2);
+    }
+    .sec-sub {
+      font-size: 16px;
+      color: var(--ash);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+    .sec-sub-light { color: rgba(255,255,255,.6); }
+
+    .divider {
+      height: 1px;
+      background: var(--pebble);
+      margin: var(--sp-6) 0;
+    }
+    .divider-light {
+      height: 1px;
+      background: rgba(255,255,255,.1);
+      margin: var(--sp-6) 0;
+    }
+
+    /* ══════════════════════════════════════════════════
+       COVER
+    ══════════════════════════════════════════════════ */
+    .cover {
+      background: var(--charcoal);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: var(--sp-6) var(--sp-6);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 80% 20%, rgba(77,135,200,.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(245,197,24,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .cover-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .cover-logo span { color: var(--blue); }
+    .cover-badge {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 6px 14px;
+      border-radius: var(--r-pill);
+    }
+    .cover-body {
+      max-width: 720px;
+    }
+    .cover-eyebrow {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: var(--sp-3);
+      display: block;
+    }
+    .cover-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(40px, 6vw, 80px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: #fff;
+      margin-bottom: var(--sp-3);
+    }
+    .cover-h1 .accent { color: var(--gold); }
+    .cover-desc {
+      font-size: 18px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+      max-width: 500px;
+    }
+    .cover-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+    }
+    .cover-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,.3);
+    }
+    .cover-meta strong { color: rgba(255,255,255,.6); font-weight: 500; }
+    .cover-palette {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .cover-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.15);
+    }
+
+    /* ══════════════════════════════════════════════════
+       TOC
+    ══════════════════════════════════════════════════ */
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-2);
+    }
+    @media (max-width: 768px) {
+      .toc-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .toc-item {
+      background: var(--ivory);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-lg);
+      padding: var(--sp-3);
+    }
+    .toc-num {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--blue);
+      opacity: .25;
+      line-height: 1;
+      margin-bottom: var(--sp-1);
+    }
+    .toc-name {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    /* ══════════════════════════════════════════════════
+       01 — BRAND IDENTITY
+    ══════════════════════════════════════════════════ */
+    .identity-mission {
+      background: var(--charcoal);
+      border-radius: var(--r-xl);
+      padding: var(--sp-6);
+      position: relative;
+      overflow: hidden;
+    }
+    .identity-mission::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      right: 32px;
+      font-family: var(--font-head);
+      font-size: 200px;
+      font-weight: 900;
+      color: rgba(77,135,200,.1);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .identity-mission p {
+      font-family: var(--font-head);
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 600;
+      line-height: 1.5;
+      color: #fff;
+      max-width: 720px;
+    }
+    .identity-mission p em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-lg);
+      padding: var(--sp-4);
+    }
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--blue-tint);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--sp-2);
+      font-size: 20px;
+    }
+    .pillar-title {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .pillar-desc {
+      font-size: 14px;
+      color: var(--ash);
+      line-height: 1.6;
+    }
+
+    .audience-card {
+      background: var(--blue-tint);
+      border: 1px solid rgba(77,135,200,.2);
+      border-radius: var(--r-lg);
+      padding: var(--sp-4);
+    }
+    .audience-title {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--blue-deep);
+      margin-bottom: var(--sp-2);
+    }
+    .audience-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .audience-list li {
+      font-size: 14px;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .audience-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════════════════
+       02 — COLOR SYSTEM
+    ══════════════════════════════════════════════════ */
+    .color-primary {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .color-swatch-lg {
+      height: 200px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--sp-3);
+    }
+    .color-meta {
+      padding: var(--sp-3);
+      background: var(--white);
+    }
+    .color-name {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .color-role {
+      font-size: 12px;
+      color: var(--ash);
+      margin-bottom: var(--sp-2);
+    }
+    .color-values {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .color-tag {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--ivory);
+      border: 1px solid var(--pebble);
+      padding: 3px 9px;
+      border-radius: var(--r-sm);
+      color: var(--charcoal);
+    }
+    .color-hex-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,.8);
+      background: rgba(0,0,0,.2);
+      padding: 4px 10px;
+      border-radius: var(--r-sm);
+      font-family: 'Courier New', monospace;
+    }
+    .color-hex-badge-dark {
+      color: rgba(0,0,0,.5);
+      background: rgba(0,0,0,.08);
+    }
+
+    .color-support-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--sp-2);
+    }
+    @media (max-width: 768px) {
+      .color-support-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .color-support-item {
+      text-align: center;
+    }
+    .color-support-swatch {
+      height: 64px;
+      border-radius: var(--r-md);
+      margin-bottom: 8px;
+      border: 1px solid var(--pebble);
+    }
+    .color-support-name {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 2px;
+    }
+    .color-support-hex {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: var(--ash);
+    }
+
+    .color-usage-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .color-usage-table th {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ash);
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 2px solid var(--pebble);
+    }
+    .color-usage-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--pebble);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .color-usage-table tr:last-child td { border-bottom: none; }
+    .color-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 6px;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+
+    /* ══════════════════════════════════════════════════
+       03 — TYPOGRAPHY
+    ══════════════════════════════════════════════════ */
+    .font-specimen {
+      background: var(--white);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+    }
+    .font-specimen-head {
+      padding: var(--sp-4) var(--sp-5);
+      border-bottom: 1px solid var(--pebble);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+    }
+    .font-specimen-name {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .font-specimen-role {
+      font-size: 13px;
+      color: var(--ash);
+    }
+    .font-tag {
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--blue-tint);
+      color: var(--blue-deep);
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+    }
+    .font-specimen-body {
+      padding: var(--sp-4) var(--sp-5);
+    }
+    .font-weights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-4);
+    }
+    .font-weight-item span {
+      display: block;
+      font-size: 11px;
+      color: var(--ash);
+      margin-bottom: 2px;
+    }
+    .font-weight-item p {
+      font-size: 24px;
+      line-height: 1.2;
+    }
+    .weight-400 { font-weight: 400; }
+    .weight-500 { font-weight: 500; }
+    .weight-600 { font-weight: 600; }
+    .weight-700 { font-weight: 700; }
+    .weight-800 { font-weight: 800; }
+
+    .type-scale-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--sp-4);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--pebble);
+      flex-wrap: wrap;
+    }
+    .type-scale-row:last-child { border-bottom: none; }
+    .type-scale-meta {
+      min-width: 140px;
+      flex-shrink: 0;
+    }
+    .type-scale-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+    .type-scale-spec {
+      font-size: 11px;
+      color: var(--ash);
+      opacity: .7;
+      font-family: 'Courier New', monospace;
+    }
+    .type-scale-sample { flex: 1; min-width: 0; line-height: 1.2; }
+
+    /* Scale sizes */
+    .ts-display   { font-family: var(--font-head); font-size: 60px; font-weight: 800; letter-spacing: -2px; }
+    .ts-h1        { font-family: var(--font-head); font-size: 44px; font-weight: 700; letter-spacing: -1px; }
+    .ts-h2        { font-family: var(--font-head); font-size: 34px; font-weight: 700; letter-spacing: -0.5px; }
+    .ts-h3        { font-family: var(--font-head); font-size: 26px; font-weight: 600; }
+    .ts-h4        { font-family: var(--font-head); font-size: 20px; font-weight: 600; }
+    .ts-h5        { font-family: var(--font-head); font-size: 16px; font-weight: 600; }
+    .ts-body-lg   { font-family: var(--font-body); font-size: 18px; font-weight: 400; line-height: 1.7; }
+    .ts-body      { font-family: var(--font-body); font-size: 16px; font-weight: 400; line-height: 1.7; }
+    .ts-small     { font-family: var(--font-body); font-size: 14px; font-weight: 400; line-height: 1.6; }
+    .ts-label     { font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+    .ts-caption   { font-family: var(--font-body); font-size: 12px; font-weight: 400; color: var(--ash); }
+
+    .pairing-example {
+      background: var(--ivory);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-lg);
+      padding: var(--sp-5);
+    }
+    .pairing-example .label { color: var(--blue); }
+
+    /* ══════════════════════════════════════════════════
+       04 — LOGO GUIDELINES
+    ══════════════════════════════════════════════════ */
+    .logo-zone {
+      background: var(--white);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+    }
+    .logo-zone-dark {
+      background: var(--charcoal);
+      border: none;
+    }
+    .logo-zone-blue {
+      background: var(--blue);
+      border: none;
+    }
+    .logo-lockup {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: -1px;
+      line-height: 1;
+      text-align: center;
+    }
+    .logo-lockup .wordmark-more  { color: var(--charcoal); }
+    .logo-lockup .wordmark-job   { color: var(--blue); }
+    .logo-lockup .wordmark-calls { color: var(--charcoal); }
+    .logo-lockup-light .wordmark-more  { color: #fff; }
+    .logo-lockup-light .wordmark-job   { color: var(--gold); }
+    .logo-lockup-light .wordmark-calls { color: #fff; }
+    .logo-lockup .wordmark-tagline {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-top: 8px;
+    }
+    .logo-lockup-light .wordmark-tagline { color: rgba(255,255,255,.5); }
+
+    .logo-rule {
+      background: var(--ivory);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-lg);
+      padding: var(--sp-3) var(--sp-4);
+    }
+    .logo-rule-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+    .do-label   { color: #22C55E; }
+    .dont-label { color: #EF4444; }
+    .logo-rule p { font-size: 13px; color: var(--ash); line-height: 1.5; }
+
+    /* ══════════════════════════════════════════════════
+       05 — SPACING & LAYOUT
+    ══════════════════════════════════════════════════ */
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--pebble);
+    }
+    .spacing-row:last-child { border-bottom: none; }
+    .spacing-bar-wrap { width: 220px; flex-shrink: 0; }
+    .spacing-bar {
+      background: var(--blue);
+      border-radius: var(--r-sm);
+      opacity: .7;
+    }
+    .spacing-meta { flex: 1; }
+    .spacing-token {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .spacing-value {
+      font-size: 12px;
+      color: var(--ash);
+    }
+
+    .radius-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--sp-3);
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .radius-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .radius-box {
+      background: var(--blue-tint);
+      border: 2px solid var(--blue);
+      width: 72px;
+      height: 72px;
+      margin: 0 auto var(--sp-1);
+    }
+    .radius-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    .radius-spec {
+      font-size: 10px;
+      color: var(--ash);
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ══════════════════════════════════════════════════
+       06 — VOICE & TONE
+    ══════════════════════════════════════════════════ */
+    .tone-card {
+      background: var(--white);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-lg);
+      padding: var(--sp-4);
+      border-left: 4px solid var(--blue);
+    }
+    .tone-word {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .tone-desc {
+      font-size: 13px;
+      color: var(--ash);
+      line-height: 1.6;
+    }
+
+    .writing-do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-3);
+    }
+    @media (max-width: 600px) {
+      .writing-do-dont { grid-template-columns: 1fr; }
+    }
+    .writing-col {
+      border-radius: var(--r-lg);
+      padding: var(--sp-4);
+    }
+    .writing-col-do   { background: #F0FDF4; border: 1px solid #BBF7D0; }
+    .writing-col-dont { background: #FFF1F2; border: 1px solid #FECDD3; }
+    .writing-col-head {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-2);
+    }
+    .col-do-head   { color: #16A34A; }
+    .col-dont-head { color: #DC2626; }
+    .writing-item {
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .writing-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .writing-col-do   .writing-item { color: #166534; }
+    .writing-col-dont .writing-item { color: #991B1B; }
+    .writing-item::before { margin-right: 8px; }
+    .writing-col-do   .writing-item::before { content: '✓'; color: #22C55E; font-weight: 700; }
+    .writing-col-dont .writing-item::before { content: '✕'; color: #EF4444; font-weight: 700; }
+
+    /* ══════════════════════════════════════════════════
+       07 — CONTENT PILLARS
+    ══════════════════════════════════════════════════ */
+    .pillar-authority {
+      background: var(--white);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+    }
+    .pillar-authority-head {
+      background: var(--charcoal);
+      padding: var(--sp-4) var(--sp-5);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .pillar-num {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--gold);
+      min-width: 28px;
+    }
+    .pillar-authority-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .pillar-authority-body {
+      padding: var(--sp-4) var(--sp-5);
+    }
+    .pillar-authority-body p {
+      font-size: 14px;
+      color: var(--ash);
+      line-height: 1.6;
+      margin-bottom: var(--sp-2);
+    }
+    .pillar-examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pillar-tag {
+      font-size: 12px;
+      font-weight: 600;
+      font-family: var(--font-head);
+      background: var(--ivory);
+      border: 1px solid var(--pebble);
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+      color: var(--charcoal);
+    }
+
+    /* ══════════════════════════════════════════════════
+       08 — COMPONENTS
+    ══════════════════════════════════════════════════ */
+    .component-canvas {
+      background: var(--ivory);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-xl);
+      padding: var(--sp-5);
+    }
+    .component-canvas-dark {
+      background: var(--charcoal);
+      border: none;
+    }
+    .component-label {
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: var(--sp-3);
+    }
+    .component-label-light {
+      color: rgba(255,255,255,.35);
+    }
+
+    /* Buttons */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all .15s ease;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-lg { padding: 16px 36px; border-radius: var(--r-md); font-size: 15px; }
+    .btn-md { padding: 12px 26px; border-radius: var(--r-md); }
+    .btn-sm { padding: 8px 18px; border-radius: var(--r-sm); font-size: 13px; }
+
+    .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 2px 8px rgba(77,135,200,.35); }
+    .btn-primary:hover { background: var(--blue-deep); transform: translateY(-1px); }
+
+    .btn-gold { background: var(--gold); color: var(--charcoal); box-shadow: 0 2px 8px rgba(245,197,24,.4); }
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    .btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .btn-outline:hover { background: var(--blue-tint); }
+
+    .btn-ghost-light { background: transparent; color: rgba(255,255,255,.8); border: 2px solid rgba(255,255,255,.25); }
+    .btn-ghost-light:hover { border-color: rgba(255,255,255,.6); }
+
+    .btn-charcoal { background: var(--charcoal); color: #fff; }
+    .btn-charcoal:hover { background: #3d3d3d; transform: translateY(-1px); }
+
+    /* Badges */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .badge {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-blue    { background: var(--blue-tint); color: var(--blue-deep); border: 1px solid rgba(77,135,200,.25); }
+    .badge-gold    { background: rgba(245,197,24,.15); color: #A07D00; border: 1px solid rgba(245,197,24,.4); }
+    .badge-green   { background: #F0FDF4; color: #16A34A; border: 1px solid #BBF7D0; }
+    .badge-charcoal { background: var(--charcoal); color: #fff; border: none; }
+
+    /* Cards */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--pebble);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-head {
+      padding: var(--sp-4) var(--sp-4) 0;
+    }
+    .card-body {
+      padding: var(--sp-3) var(--sp-4) var(--sp-4);
+    }
+    .card-stat {
+      font-family: var(--font-head);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--charcoal);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .card-stat .unit { font-size: 20px; color: var(--blue); }
+    .card-label {
+      font-size: 13px;
+      color: var(--ash);
+      line-height: 1.4;
+    }
+    .card-accent-bar {
+      height: 4px;
+      background: var(--blue);
+    }
+    .card-accent-bar-gold { background: var(--gold); }
+
+    /* Testimonial */
+    .testimonial-card {
+      background: var(--charcoal);
+      border-radius: var(--r-xl);
+      padding: var(--sp-5);
+    }
+    .testimonial-quote {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.6;
+      margin-bottom: var(--sp-3);
+    }
+    .testimonial-quote em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .testimonial-attribution {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .testimonial-trade {
+      font-size: 12px;
+      color: rgba(255,255,255,.45);
+    }
+
+    /* Alert/Notice */
+    .notice {
+      border-radius: var(--r-md);
+      padding: 14px var(--sp-3);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .notice-blue  { background: var(--blue-tint); border-left: 4px solid var(--blue); color: var(--charcoal); }
+    .notice-gold  { background: rgba(245,197,24,.12); border-left: 4px solid var(--gold); color: var(--charcoal); }
+    .notice-icon  { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ══════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════ */
+    .guide-footer {
+      background: var(--charcoal);
+      padding: var(--sp-8) var(--sp-6);
+      text-align: center;
+    }
+    .guide-footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+      line-height: 1.7;
+    }
+    .guide-footer strong { color: rgba(255,255,255,.6); font-weight: 500; }
+
+    /* ══════════════════════════════════════════════════
+       PRINT / UTILITIES
+    ══════════════════════════════════════════════════ */
+    @media print {
+      .cover { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     COVER PAGE
+════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">MORE<span>JOB</span>CALLS</div>
+    <div class="cover-badge">Brand Guidelines 2026</div>
+  </div>
+
+  <div class="cover-body">
+    <span class="cover-eyebrow">Visual Identity System</span>
+    <h1 class="cover-h1">
+      Built for<br>
+      <span class="accent">Authority.</span>
+    </h1>
+    <p class="cover-desc">
+      A complete brand system designed to build trust with home service contractors — consistent, professional, and built to convert.
+    </p>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      <strong>Version 1.0</strong> &nbsp;·&nbsp; Updated April 2026 &nbsp;·&nbsp; morejobcalls.com
+    </div>
+    <div class="cover-palette">
+      <div class="cover-swatch" style="background:#F7F3EE; border-color:rgba(255,255,255,.3)"></div>
+      <div class="cover-swatch" style="background:#2D2D2D"></div>
+      <div class="cover-swatch" style="background:#4D87C8"></div>
+      <div class="cover-swatch" style="background:#F5C518"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     TABLE OF CONTENTS
+════════════════════════════════════════════ -->
+<div class="section-alt">
+  <div class="container">
+    <span class="sec-label">Contents</span>
+    <h2 class="sec-title">What's in this guide</h2>
+    <p class="sec-sub" style="margin-bottom:var(--sp-5)">Everything you need to create consistent, on-brand materials — from a social post to a full landing page.</p>
+
+    <div class="toc-grid">
+      <div class="toc-item"><div class="toc-num">01</div><div class="toc-name">Brand Identity</div></div>
+      <div class="toc-item"><div class="toc-num">02</div><div class="toc-name">Color System</div></div>
+      <div class="toc-item"><div class="toc-num">03</div><div class="toc-name">Typography</div></div>
+      <div class="toc-item"><div class="toc-num">04</div><div class="toc-name">Logo Guidelines</div></div>
+      <div class="toc-item"><div class="toc-num">05</div><div class="toc-name">Spacing &amp; Layout</div></div>
+      <div class="toc-item"><div class="toc-num">06</div><div class="toc-name">Voice &amp; Tone</div></div>
+      <div class="toc-item"><div class="toc-num">07</div><div class="toc-name">Content Pillars</div></div>
+      <div class="toc-item"><div class="toc-num">08</div><div class="toc-name">Components</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     01 — BRAND IDENTITY
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="container">
+    <span class="sec-label">01 — Brand Identity</span>
+    <h2 class="sec-title">Who we are &amp; why it matters</h2>
+    <p class="sec-sub" style="margin-bottom:var(--sp-5)">Before colors and fonts, brand is built on a clear point of view. This is ours.</p>
+
+    <div class="identity-mission" style="margin-bottom:var(--sp-5)">
+      <p>More Job Calls exists to give <em>home service contractors</em> a predictable, exclusive source of inbound calls — so the best tradespeople win more work, <em>every single month.</em></p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:var(--sp-5)">
+      <div>
+        <h3 style="font-family:var(--font-head); font-size:18px; font-weight:700; margin-bottom:var(--sp-2)">Brand Personality</h3>
+        <p style="font-size:14px; color:var(--ash); line-height:1.7; margin-bottom:var(--sp-3)">Five words that define every piece of content we produce. When something feels off, check it against these.</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div class="tone-card"><div class="tone-word">Authoritative</div><div class="tone-desc">We know lead generation for contractors. We lead, we don't follow.</div></div>
+          <div class="tone-card"><div class="tone-word">Direct</div><div class="tone-desc">Contractors are busy. Say what you mean. Cut the fluff.</div></div>
+          <div class="tone-card"><div class="tone-word">Results-Driven</div><div class="tone-desc">Every claim we make is tied to a real, measurable outcome.</div></div>
+          <div class="tone-card" style="border-left-color:var(--gold)"><div class="tone-word">Trustworthy</div><div class="tone-desc">We don't oversell. We under-promise and over-deliver.</div></div>
+          <div class="tone-card" style="border-left-color:var(--gold)"><div class="tone-word">Human</div><div class="tone-desc">We're talking to real people who run real businesses — not corporations.</div></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-head); font-size:18px; font-weight:700; margin-bottom:var(--sp-2)">Target Audience</h3>
+        <p style="font-size:14px; color:var(--ash); line-height:1.7; margin-bottom:var(--sp-3)">Our content speaks to owners and operators of home service businesses. Know them deeply.</p>
+        <div class="audience-card" style="margin-bottom:var(--sp-2)">
+          <div class="audience-title">Primary — Owner-Operators</div>
+          <ul class="audience-list">
+            <li>HVAC, Plumbing, Electrical, Roofing, Landscaping</li>
+            <li>1–10 employees, owner actively involved in the work</li>
+            <li>Wants consistent, high-quality job calls — not tire-kickers</li>
+            <li>Skeptical of marketing agencies, has been burned before</li>
+            <li>Values exclusivity — doesn't want to compete for the same lead</li>
+          </ul>
+        </div>
+        <div class="audience-card">
+          <div class="audience-title">Secondary — Growing Operations</div>
+          <ul class="audience-list">
+            <li>10–50 employees, dedicated office staff</li>
+            <li>Looking to scale specific service lines or territories</li>
+            <li>Cares about cost-per-job and ROI tracking</li>
+            <li>May be comparing with in-house marketing teams</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="pillar-card">
+        <div class="pillar-icon">📍</div>
+        <div class="pillar-title">Exclusive Territories</div>
+        <div class="pillar-desc">One contractor per trade per area. No split leads.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">📞</div>
+        <div class="pillar-title">Real Phone Calls</div>
+        <div class="pillar-desc">Live calls, not form fills. Homeowners already want help.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">📈</div>
+        <div class="pillar-title">Predictable Volume</div>
+        <div class="pillar-desc">Consistent monthly call flow you can build a schedule around.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🛠️</div>
+        <div class="pillar-title">Trade Specialists</div>
+        <div class="pillar-desc">We know the trades. Generic marketing agencies don't.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     02 — COLOR SYSTEM
+════════════════════════════════════════════ -->
+<div class="section-alt">
+  <div class="container">
+    <span class="sec-label">02 — Color System</span>
+    <h2 class="sec-title">The Palette</h2>
+    <p class="sec-sub" style="margin-bottom:var(--sp-5)">Four primary colors, each with a defined role. Use them with intention — not interchangeably.</p>
+
+    <!-- Primary Four -->
+    <div class="grid-4" style="margin-bottom:var(--sp-6)">
+
+      <!-- Ivory -->
+      <div class="color-primary">
+        <div class="color-swatch-lg" style="background:#F7F3EE; border:1px solid #E8E3DB;">
+          <span class="color-hex-badge color-hex-badge-dark">#F7F3EE</span>
+        </div>
+        <div class="color-meta">
+          <div class="color-name">Contractor Ivory</div>
+          <div class="color-role">Primary background · Canvas</div>
+          <div class="color-values">
+            <span class="color-tag">#F7F3EE</span>
+            <span class="color-tag">247 243 238</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charcoal -->
+      <div class="color-primary">
+        <div class="color-swatch-lg" style="background:#2D2D2D;">
+          <span class="color-hex-badge">#2D2D2D</span>
+        </div>
+        <div class="color-meta">
+          <div class="color-name">Ironwork Charcoal</div>
+          <div class="color-role">Primary text · Dark sections</div>
+          <div class="color-values">
+            <span class="color-tag">#2D2D2D</span>
+            <span class="color-tag">45 45 45</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blue -->
+      <div class="color-primary">
+        <div class="color-swatch-lg" style="background:#4D87C8;">
+          <span class="color-hex-badge">#4D87C8</span>
+        </div>
+        <div class="color-meta">
+          <div class="color-name">Blueprint Blue</div>
+          <div class="color-role">Primary brand · CTAs · Links</div>
+          <div class="color-values">
+            <span class="color-tag">#4D87C8</span>
+            <span class="color-tag">77 135 200</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gold -->
+      <div class="color-primary">
+        <div class="color-swatch-lg" style="background:#F5C518;">
+          <span class="color-hex-badge color-hex-badge-dark">#F5C518</span>
+        </div>
+        <div class="color-meta">
+          <div class="color-name">Job Gold</div>
+          <div class="color-role">Accent · Urgency · Highlights</div>
+          <div class="color-values">
+            <span class="color-tag">#F5C518</span>
+            <span class="color-tag">245 197 24</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Supporting Colors -->
+    <h3 style="font-family:var(--font-head); font-size:16px; font-weight:700; margin-bottom:var(--sp-3)">Supporting Palette</h3>
+    <div class="color-support-grid" style="margin-bottom:var(--sp-6)">
+      <div class="color-support-item">
+        <div class="color-support-swatch" style="background:#FFFFFF"></div>
+        <div class="color-support-name">True White</div>
+        <div class="color-support-hex">#FFFFFF</div>
+      </div>
+      <div class="color-support-item">
+        <div class="color-support-swatch" style="background:#6B7280"></div>
+        <div class="color-support-name">Ash Gray</div>
+        <div class="color-support-hex">#6B7280</div>
+      </div>
+      <div class="color-support-item">
+        <div class="color-support-swatch" style="background:#E8E3DB"></div>
+        <div class="color-support-name">Pebble Gray</div>
+        <div class="color-support-hex">#E8E3DB</div>
+      </div>
+      <div class="color-support-item">
+        <div class="color-support-swatch" style="background:#2F6DB5"></div>
+        <div class="color-support-name">Deep Blueprint</div>
+        <div class="color-support-hex">#2F6DB5</div>
+      </div>
+      <div class="color-support-item">
+        <div class="color-support-swatch" style="background:#EBF3FB"></div>
+        <div class="color-support-name">Blueprint Tint</div>
+        <div class="color-support-hex">#EBF3FB</div>
+      </div>
+      <div class="color-support-item">
+        <div class="color-support-swatch" style="background:#D4AA10"></div>
+        <div class="color-support-name">Gold Dark</div>
+        <div class="color-support-hex">#D4AA10</div>
+      </div>
+    </div>
+
+    <!-- Color Usage Rules -->
+    <h3 style="font-family:var(--font-head); font-size:16px; font-weight:700; margin-bottom:var(--sp-3)">Color Usage Rules</h3>
+    <div style="background:var(--white); border:1px solid var(--pebble); border-radius:var(--r-lg); overflow:hidden;">
+      <table class="color-usage-table">
+        <thead>
+          <tr>
+            <th>Color</th>
+            <th>Use it for</th>
+            <th>Never use it for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="color-dot" style="background:#F7F3EE; border-color:#E8E3DB"></span><strong>Ivory</strong></td>
+            <td>Page backgrounds, section alternates, form backgrounds</td>
+            <td>Text (too low contrast), button fills, important UI states</td>
+          </tr>
+          <tr>
+            <td><span class="color-dot" style="background:#2D2D2D"></span><strong>Charcoal</strong></td>
+            <td>All body text, headlines on light backgrounds, dark sections/footers</td>
+            <td>Text on dark backgrounds (use white), decorative elements</td>
+          </tr>
+          <tr>
+            <td><span class="color-dot" style="background:#4D87C8"></span><strong>Blueprint Blue</strong></td>
+            <td>Primary CTAs, links, nav highlights, feature icons, trust elements</td>
+            <td>Body text, backgrounds covering large areas, error states</td>
+          </tr>
+          <tr>
+            <td><span class="color-dot" style="background:#F5C518"></span><strong>Job Gold</strong></td>
+            <td>Urgency badges, stat callouts, testimonial highlights, the one accent that demands attention</td>
+            <td>Primary CTAs (use blue), backgrounds of large areas, body text</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Contrast Note -->
+    <div class="notice notice-blue" style="margin-top:var(--sp-3)">
+      <span class="notice-icon">♿</span>
+      <div><strong>Accessibility:</strong> White or Ivory text on Blueprint Blue (#4D87C8) passes WCAG AA at 16px+. Charcoal on Ivory passes AAA. Always check contrast before using new combinations — Job Gold (#F5C518) requires dark (Charcoal) text to be legible.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     COLOR — USAGE IN CONTEXT
+════════════════════════════════════════════ -->
+<div class="section-blue">
+  <div class="container">
+    <span class="sec-label">02 — Color in Context</span>
+    <h2 class="sec-title" style="margin-bottom:var(--sp-5)">Approved background pairings</h2>
+
+    <div class="grid-3">
+      <!-- Light section -->
+      <div style="background:var(--ivory); border:1px solid var(--pebble); border-radius:var(--r-xl); padding:var(--sp-4);">
+        <div style="font-family:var(--font-head); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ash); margin-bottom:var(--sp-2)">Light Section</div>
+        <div style="font-family:var(--font-head); font-size:22px; font-weight:700; color:var(--charcoal); margin-bottom:8px;">Headline in Charcoal</div>
+        <div style="font-size:14px; color:var(--ash); margin-bottom:var(--sp-2); line-height:1.6">Body text in Ash Gray. Readable, warm, never stark.</div>
+        <span style="display:inline-block; font-size:12px; font-weight:700; font-family:var(--font-head); background:var(--blue); color:#fff; padding:6px 16px; border-radius:var(--r-sm)">Blueprint CTA</span>
+      </div>
+
+      <!-- White card -->
+      <div style="background:var(--white); border:1px solid var(--pebble); border-radius:var(--r-xl); padding:var(--sp-4);">
+        <div style="font-family:var(--font-head); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--blue); margin-bottom:var(--sp-2)">White Card</div>
+        <div style="font-family:var(--font-head); font-size:22px; font-weight:700; color:var(--charcoal); margin-bottom:8px;">Headline in Charcoal</div>
+        <div style="font-size:14px; color:var(--ash); margin-bottom:var(--sp-2); line-height:1.6">Cards sit on Ivory backgrounds. White cards create depth and hierarchy.</div>
+        <span style="display:inline-block; font-size:12px; font-weight:600; font-family:var(--font-head); background:rgba(245,197,24,.15); color:#A07D00; border:1px solid rgba(245,197,24,.4); padding:4px 12px; border-radius:var(--r-pill)">Gold Badge</span>
+      </div>
+
+      <!-- Dark section -->
+      <div style="background:var(--charcoal); border-radius:var(--r-xl); padding:var(--sp-4);">
+        <div style="font-family:var(--font-head); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:var(--sp-2)">Dark Section</div>
+        <div style="font-family:var(--font-head); font-size:22px; font-weight:700; color:#fff; margin-bottom:8px;">White on Charcoal</div>
+        <div style="font-size:14px; color:rgba(255,255,255,.55); margin-bottom:var(--sp-2); line-height:1.6">Used for hero sections, CTAs, and testimonial blocks. Never overuse — reserve for impact.</div>
+        <span style="display:inline-block; font-size:12px; font-weight:700; font-family:var(--font-head); background:var(--gold); color:var(--charcoal); padding:6px 16px; border-radius:var(--r-sm)">Gold CTA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     03 — TYPOGRAPHY
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="container">
+    <span class="sec-label">03 — Typography</span>
+    <h2 class="sec-title">Type System</h2>
+    <p class="sec-sub" style="margin-bottom:var(--sp-5)">Two fonts. One for impact, one for clarity. Never mix in a third without a strong reason.</p>
+
+    <div class="grid-2" style="margin-bottom:var(--sp-6)">
+
+      <!-- Poppins -->
+      <div class="font-specimen">
+        <div class="font-specimen-head">
+          <div>
+            <div class="font-specimen-name" style="font-family:'Poppins',sans-serif;">Poppins</div>
+            <div class="font-specimen-role">Headings · CTAs · Labels · UI elements</div>
+          </div>
+          <span class="font-tag">Primary</span>
+        </div>
+        <div class="font-specimen-body">
+          <div class="font-weights">
+            <div class="font-weight-item">
+              <span>400 Regular</span>
+              <p style="font-family:'Poppins',sans-serif; font-weight:400">Aa</p>
+            </div>
+            <div class="font-weight-item">
+              <span>600 SemiBold</span>
+              <p style="font-family:'Poppins',sans-serif; font-weight:600">Aa</p>
+            </div>
+            <div class="font-weight-item">
+              <span>700 Bold</span>
+              <p style="font-family:'Poppins',sans-serif; font-weight:700">Aa</p>
+            </div>
+            <div class="font-weight-item">
+              <span>800 ExtraBold</span>
+              <p style="font-family:'Poppins',sans-serif; font-weight:800">Aa</p>
+            </div>
+          </div>
+          <p style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; color:var(--ash); line-height:1.5">
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+            abcdefghijklmnopqrstuvwxyz<br>
+            0123456789 !@#$%&amp;
+          </p>
+        </div>
+      </div>
+
+      <!-- Inter -->
+      <div class="font-specimen">
+        <div class="font-specimen-head">
+          <div>
+            <div class="font-specimen-name" style="font-family:'Inter',sans-serif;">Inter</div>
+            <div class="font-specimen-role">Body copy · Paragraphs · Captions · Data</div>
+          </div>
+          <span class="font-tag" style="background:rgba(245,197,24,.15); color:#A07D00;">Body</span>
+        </div>
+        <div class="font-specimen-body">
+          <div class="font-weights">
+            <div class="font-weight-item">
+              <span>400 Regular</span>
+              <p style="font-family:'Inter',sans-serif; font-weight:400">Aa</p>
+            </div>
+            <div class="font-weight-item">
+              <span>500 Medium</span>
+              <p style="font-family:'Inter',sans-serif; font-weight:500">Aa</p>
+            </div>
+            <div class="font-weight-item">
+              <span>600 SemiBold</span>
+              <p style="font-family:'Inter',sans-serif; font-weight:600">Aa</p>
+            </div>
+          </div>
+          <p style="font-family:'Inter',sans-serif; font-size:15px; font-weight:400; color:var(--ash); line-height:1.5">
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+            abcdefghijklmnopqrstuvwxyz<br>
+            0123456789 !@#$%&amp;
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type Scale -->
+    <h3 style="font-family:var(--font-head); font-size:18px; font-weight:700; margin-bottom:var(--sp-3)">Type Scale</h3>
+    <div style="background:var(--white); border:1px solid var(--pebble); border-radius:var(--r-xl); padding:var(--sp-4) var(--sp-5); margin-bottom:var(--sp-6);">
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Display</div>
+          <div class="type-scale-spec">Poppins 800 / 60px / -2px</div>
+        </div>
+        <div class="type-scale-sample ts-display">More Job Calls</div>
+      </div>
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Heading 1</div>
+          <div class="type-scale-spec">Poppins 700 / 44px / -1px</div>
+        </div>
+        <div class="type-scale-sample ts-h1">Get More Calls</div>
+      </div>
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Heading 2</div>
+          <div class="type-scale-spec">Poppins 700 / 34px / -0.5px</div>
+        </div>
+        <div class="type-scale-sample ts-h2">Exclusive Territories</div>
+      </div>
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Heading 3</div>
+          <div class="type-scale-spec">Poppins 600 / 26px</div>
+        </div>
+        <div class="type-scale-sample ts-h3">How It Works</div>
+      </div>
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Heading 4</div>
+          <div class="type-scale-spec">Poppins 600 / 20px</div>
+        </div>
+        <div class="type-scale-sample ts-h4">HVAC · Plumbing · Roofing</div>
+      </div>
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Body Large</div>
+          <div class="type-scale-spec">Inter 400 / 18px / 1.7lh</div>
+        </div>
+        <div class="type-scale-sample ts-body-lg">Real calls from homeowners already looking for your services.</div>
+      </div>
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Body</div>
+          <div class="type-scale-spec">Inter 400 / 16px / 1.7lh</div>
+        </div>
+        <div class="type-scale-sample ts-body">We route inbound calls from homeowners in your area directly to your phone — no split leads, no competitors.</div>
+      </div>
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Small / Caption</div>
+          <div class="type-scale-spec">Inter 400 / 14px / 1.6lh</div>
+        </div>
+        <div class="type-scale-sample ts-small" style="color:var(--ash)">No long-term contracts required. Cancel anytime with 30 days notice.</div>
+      </div>
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Label / Tag</div>
+          <div class="type-scale-spec">Poppins 700 / 11px / 3px LS</div>
+        </div>
+        <div class="type-scale-sample ts-label" style="color:var(--blue)">Exclusive Territory</div>
+      </div>
+
+      <div class="type-scale-row">
+        <div class="type-scale-meta">
+          <div class="type-scale-label">Caption</div>
+          <div class="type-scale-spec">Inter 400 / 12px</div>
+        </div>
+        <div class="type-scale-sample ts-caption">Last updated April 2026</div>
+      </div>
+
+    </div>
+
+    <!-- Live Pairing Example -->
+    <h3 style="font-family:var(--font-head); font-size:18px; font-weight:700; margin-bottom:var(--sp-3)">Fonts in context</h3>
+    <div class="pairing-example">
+      <span class="ts-label label" style="display:block; margin-bottom:var(--sp-2)">Home Service Leads</span>
+      <h2 class="ts-h2" style="margin-bottom:var(--sp-2)">Stop chasing leads.<br>Start getting calls.</h2>
+      <p class="ts-body-lg" style="color:var(--ash); margin-bottom:var(--sp-4); max-width:540px">We fill your phone with exclusive, inbound job calls from homeowners in your area. One contractor per trade. No shared leads.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+        <span class="btn btn-primary btn-md">Check Your Territory</span>
+        <span style="font-size:14px; color:var(--ash)">or <a href="#" style="color:var(--blue); font-weight:600; text-decoration:none">see how it works →</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     04 — LOGO GUIDELINES
+════════════════════════════════════════════ -->
+<div class="section-alt">
+  <div class="container">
+    <span class="sec-label">04 — Logo Guidelines</span>
+    <h2 class="sec-title">Logo Usage</h2>
+    <p class="sec-sub" style="margin-bottom:var(--sp-5)">Until a custom logomark exists, the wordmark serves as the primary brand identifier. Apply it consistently.</p>
+
+    <div class="grid-3" style="margin-bottom:var(--sp-4)">
+      <!-- Light BG -->
+      <div>
+        <div style="font-size:12px; color:var(--ash); margin-bottom:8px; font-family:var(--font-head); font-weight:600">On Light / White</div>
+        <div class="logo-zone">
+          <div class="logo-lockup">
+            <span class="wordmark-more">MORE</span><span class="wordmark-job" style="color:var(--blue)">JOB</span><span class="wordmark-calls">CALLS</span>
+            <span class="wordmark-tagline">Exclusive Calls for Home Service Pros</span>
+          </div>
+        </div>
+      </div>
+      <!-- Dark BG -->
+      <div>
+        <div style="font-size:12px; color:var(--ash); margin-bottom:8px; font-family:var(--font-head); font-weight:600">On Charcoal</div>
+        <div class="logo-zone logo-zone-dark">
+          <div class="logo-lockup logo-lockup-light">
+            <span class="wordmark-more">MORE</span><span class="wordmark-job" style="color:var(--gold)">JOB</span><span class="wordmark-calls">CALLS</span>
+            <span class="wordmark-tagline">Exclusive Calls for Home Service Pros</span>
+          </div>
+        </div>
+      </div>
+      <!-- Blue BG -->
+      <div>
+        <div style="font-size:12px; color:var(--ash); margin-bottom:8px; font-family:var(--font-head); font-weight:600">On Blueprint Blue</div>
+        <div class="logo-zone logo-zone-blue">
+          <div class="logo-lockup logo-lockup-light">
+            <span class="wordmark-more">MORE</span><span class="wordmark-job" style="color:var(--gold)">JOB</span><span class="wordmark-calls">CALLS</span>
+            <span class="wordmark-tagline">Exclusive Calls for Home Service Pros</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rules -->
+    <h3 style="font-family:var(--font-head); font-size:16px; font-weight:700; margin-bottom:var(--sp-3)">Logo Do's &amp; Don'ts</h3>
+    <div class="grid-2">
+      <div class="grid-2" style="gap:var(--sp-2)">
+        <div class="logo-rule">
+          <div class="logo-rule-label do-label">✓ DO</div>
+          <p>Use the approved color versions above — light, dark, or blue background.</p>
+        </div>
+        <div class="logo-rule">
+          <div class="logo-rule-label do-label">✓ DO</div>
+          <p>Maintain minimum clearspace equal to the cap-height of "M" on all sides.</p>
+        </div>
+        <div class="logo-rule">
+          <div class="logo-rule-label do-label">✓ DO</div>
+          <p>Scale proportionally. Never stretch or compress the wordmark.</p>
+        </div>
+        <div class="logo-rule">
+          <div class="logo-rule-label do-label">✓ DO</div>
+          <p>Minimum size: 120px wide on screen, 1 inch wide in print.</p>
+        </div>
+      </div>
+      <div class="grid-2" style="gap:var(--sp-2)">
+        <div class="logo-rule" style="border-color:var(--pebble)">
+          <div class="logo-rule-label dont-label">✕ DON'T</div>
+          <p>Don't place the logo on busy photography without an overlay.</p>
+        </div>
+        <div class="logo-rule" style="border-color:var(--pebble)">
+          <div class="logo-rule-label dont-label">✕ DON'T</div>
+          <p>Don't recolor the wordmark in Job Gold on a light background (low contrast).</p>
+        </div>
+        <div class="logo-rule" style="border-color:var(--pebble)">
+          <div class="logo-rule-label dont-label">✕ DON'T</div>
+          <p>Don't add drop shadows, outlines, gradients, or effects to the wordmark.</p>
+        </div>
+        <div class="logo-rule" style="border-color:var(--pebble)">
+          <div class="logo-rule-label dont-label">✕ DON'T</div>
+          <p>Don't change the font. Poppins 800 only — no substitutions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     05 — SPACING & LAYOUT
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="container">
+    <span class="sec-label">05 — Spacing &amp; Layout</span>
+    <h2 class="sec-title">Spacing System</h2>
+    <p class="sec-sub" style="margin-bottom:var(--sp-5)">An 8px base grid. Every spacing decision should be a multiple of 8 — this creates natural visual rhythm.</p>
+
+    <div class="grid-2" style="margin-bottom:var(--sp-6)">
+      <div style="background:var(--white); border:1px solid var(--pebble); border-radius:var(--r-xl); padding:var(--sp-4)">
+        <h3 style="font-family:var(--font-head); font-size:15px; font-weight:700; margin-bottom:var(--sp-3)">Spacing Scale</h3>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px; height:16px;"></div></div>
+          <div class="spacing-meta"><span class="spacing-token">--sp-1</span> <span class="spacing-value">= 8px</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px; height:16px;"></div></div>
+          <div class="spacing-meta"><span class="spacing-token">--sp-2</span> <span class="spacing-value">= 16px</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px; height:16px;"></div></div>
+          <div class="spacing-meta"><span class="spacing-token">--sp-3</span> <span class="spacing-value">= 24px</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px; height:16px;"></div></div>
+          <div class="spacing-meta"><span class="spacing-token">--sp-4</span> <span class="spacing-value">= 32px</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:40px; height:16px;"></div></div>
+          <div class="spacing-meta"><span class="spacing-token">--sp-5</span> <span class="spacing-value">= 40px</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:48px; height:16px;"></div></div>
+          <div class="spacing-meta"><span class="spacing-token">--sp-6</span> <span class="spacing-value">= 48px</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:64px; height:16px;"></div></div>
+          <div class="spacing-meta"><span class="spacing-token">--sp-8</span> <span class="spacing-value">= 64px</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:96px; height:16px;"></div></div>
+          <div class="spacing-meta"><span class="spacing-token">--sp-12</span> <span class="spacing-value">= 96px — full section padding</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="background:var(--white); border:1px solid var(--pebble); border-radius:var(--r-xl); padding:var(--sp-4); margin-bottom:var(--sp-3)">
+          <h3 style="font-family:var(--font-head); font-size:15px; font-weight:700; margin-bottom:var(--sp-3)">Border Radius</h3>
+          <div class="radius-grid">
+            <div>
+              <div class="radius-box" style="border-radius:var(--r-sm)"></div>
+              <div class="radius-label">Small</div>
+              <div class="radius-spec">4px</div>
+            </div>
+            <div>
+              <div class="radius-box" style="border-radius:var(--r-md)"></div>
+              <div class="radius-label">Medium</div>
+              <div class="radius-spec">8px</div>
+            </div>
+            <div>
+              <div class="radius-box" style="border-radius:var(--r-lg)"></div>
+              <div class="radius-label">Large</div>
+              <div class="radius-spec">12px</div>
+            </div>
+            <div>
+              <div class="radius-box" style="border-radius:var(--r-xl)"></div>
+              <div class="radius-label">XLarge</div>
+              <div class="radius-spec">20px</div>
+            </div>
+            <div>
+              <div class="radius-box" style="border-radius:var(--r-pill)"></div>
+              <div class="radius-label">Pill</div>
+              <div class="radius-spec">100px</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--white); border:1px solid var(--pebble); border-radius:var(--r-xl); padding:var(--sp-4)">
+          <h3 style="font-family:var(--font-head); font-size:15px; font-weight:700; margin-bottom:var(--sp-3)">Layout Grid</h3>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; gap:var(--sp-2);">
+              <div style="width:10px; height:10px; background:var(--blue); border-radius:50%; flex-shrink:0"></div>
+              <div style="font-size:14px; color:var(--charcoal)"><strong>Max width:</strong> 1080px content / 1440px edge-to-edge</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:var(--sp-2);">
+              <div style="width:10px; height:10px; background:var(--blue); border-radius:50%; flex-shrink:0"></div>
+              <div style="font-size:14px; color:var(--charcoal)"><strong>Gutter:</strong> 24px on mobile, 32px on desktop</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:var(--sp-2);">
+              <div style="width:10px; height:10px; background:var(--blue); border-radius:50%; flex-shrink:0"></div>
+              <div style="font-size:14px; color:var(--charcoal)"><strong>Section padding:</strong> 96px top/bottom (desktop), 64px (mobile)</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:var(--sp-2);">
+              <div style="width:10px; height:10px; background:var(--blue); border-radius:50%; flex-shrink:0"></div>
+              <div style="font-size:14px; color:var(--charcoal)"><strong>Breakpoints:</strong> Mobile &lt;768px, Tablet 768–1024px, Desktop &gt;1024px</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:var(--sp-2);">
+              <div style="width:10px; height:10px; background:var(--gold); border-radius:50%; flex-shrink:0"></div>
+              <div style="font-size:14px; color:var(--charcoal)"><strong>Section alternation:</strong> Ivory → White → Ivory → Dark. Never same background twice in a row.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     06 — VOICE & TONE
+════════════════════════════════════════════ -->
+<div class="section-dark">
+  <div class="container">
+    <span class="sec-label sec-label-gold">06 — Voice &amp; Tone</span>
+    <h2 class="sec-title" style="color:#fff;">How we sound</h2>
+    <p class="sec-sub sec-sub-light" style="margin-bottom:var(--sp-5)">Our voice is consistent — our tone adapts. A landing page hero is confident and direct. A support email is warm and helpful. Same brand, different register.</p>
+
+    <div class="grid-4" style="margin-bottom:var(--sp-6)">
+      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-lg); padding:var(--sp-3);">
+        <div style="font-size:22px; margin-bottom:8px">📣</div>
+        <div style="font-family:var(--font-head); font-size:15px; font-weight:700; color:#fff; margin-bottom:6px">Confident</div>
+        <div style="font-size:13px; color:rgba(255,255,255,.5); line-height:1.6">We make claims and back them up. No "we might", "possibly", or "could help". Own the result.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-lg); padding:var(--sp-3);">
+        <div style="font-size:22px; margin-bottom:8px">✂️</div>
+        <div style="font-family:var(--font-head); font-size:15px; font-weight:700; color:#fff; margin-bottom:6px">Direct</div>
+        <div style="font-size:13px; color:rgba(255,255,255,.5); line-height:1.6">Contractors don't have time for fluff. Lead with the point. Short sentences. Active verbs.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-lg); padding:var(--sp-3);">
+        <div style="font-size:22px; margin-bottom:8px">🤝</div>
+        <div style="font-family:var(--font-head); font-size:15px; font-weight:700; color:#fff; margin-bottom:6px">Peer-to-Peer</div>
+        <div style="font-size:13px; color:rgba(255,255,255,.5); line-height:1.6">Talk like a colleague who happens to know marketing — not a salesperson reading a script.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-lg); padding:var(--sp-3);">
+        <div style="font-size:22px; margin-bottom:8px">🔢</div>
+        <div style="font-family:var(--font-head); font-size:15px; font-weight:700; color:#fff; margin-bottom:6px">Specific</div>
+        <div style="font-size:13px; color:rgba(255,255,255,.5); line-height:1.6">"47 calls in 30 days" beats "lots of calls". Numbers create credibility. Vague claims don't.</div>
+      </div>
+    </div>
+
+    <div class="divider-light"></div>
+
+    <h3 style="font-family:var(--font-head); font-size:18px; font-weight:700; color:#fff; margin-bottom:var(--sp-4)">Writing Do's &amp; Don'ts</h3>
+    <div class="writing-do-dont">
+      <div class="writing-col writing-col-do">
+        <div class="writing-col-head col-do-head">Write this</div>
+        <div class="writing-item">Get 15–40 exclusive job calls per month in your territory.</div>
+        <div class="writing-item">Your area might already be taken — check availability now.</div>
+        <div class="writing-item">Real calls. Real homeowners. No shared leads.</div>
+        <div class="writing-item">We work with HVAC, plumbing, electrical, and roofing contractors.</div>
+        <div class="writing-item">If calls don't come, you don't pay. Simple as that.</div>
+      </div>
+      <div class="writing-col writing-col-dont">
+        <div class="writing-col-head col-dont-head">Not this</div>
+        <div class="writing-item">We leverage synergistic lead generation solutions for your business.</div>
+        <div class="writing-item">Hurry! Limited time offer! Act now before it's too late!</div>
+        <div class="writing-item">We might be able to potentially help grow your customer base.</div>
+        <div class="writing-item">Our platform utilizes cutting-edge AI to optimize your pipeline.</div>
+        <div class="writing-item">We provide comprehensive multi-channel marketing services.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     07 — CONTENT PILLARS
+════════════════════════════════════════════ -->
+<div class="section-blue">
+  <div class="container">
+    <span class="sec-label">07 — Content Pillars</span>
+    <h2 class="sec-title">Building Authority Through Content</h2>
+    <p class="sec-sub" style="margin-bottom:var(--sp-5)">Every piece of content should live inside one of these five pillars. If it doesn't fit, question whether to make it.</p>
+
+    <div style="display:grid; grid-template-columns:1fr; gap:var(--sp-3);">
+
+      <div class="pillar-authority">
+        <div class="pillar-authority-head">
+          <div class="pillar-num">01</div>
+          <div class="pillar-authority-title">Proof &amp; Results</div>
+        </div>
+        <div class="pillar-authority-body">
+          <p>Real numbers from real contractors. The most powerful authority signal is someone who looks like your audience saying "this worked." Every result you share builds the case before a prospect even reaches your sales page.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">Contractor case studies</span>
+            <span class="pillar-tag">Monthly call volume screenshots</span>
+            <span class="pillar-tag">Before/after revenue comparisons</span>
+            <span class="pillar-tag">Testimonial clips</span>
+            <span class="pillar-tag">Call recording breakdowns</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar-authority">
+        <div class="pillar-authority-head">
+          <div class="pillar-num">02</div>
+          <div class="pillar-authority-title">Education &amp; Expertise</div>
+        </div>
+        <div class="pillar-authority-body">
+          <p>Show you understand the trades better than any generic agency. Educate contractors on how lead generation works, what questions to ask vendors, what metrics matter. Teaching trust is the fastest path to buying trust.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">How we source calls (no BS breakdown)</span>
+            <span class="pillar-tag">What makes a good call vs. a bad lead</span>
+            <span class="pillar-tag">Why shared leads kill close rates</span>
+            <span class="pillar-tag">Cost-per-job math for each trade</span>
+            <span class="pillar-tag">Seasonal demand patterns by market</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar-authority">
+        <div class="pillar-authority-head">
+          <div class="pillar-num">03</div>
+          <div class="pillar-authority-title">Exclusivity &amp; Urgency</div>
+        </div>
+        <div class="pillar-authority-body">
+          <p>Territory-based exclusivity is the core product differentiator. Content in this pillar makes that real — showing specific cities locking up, contractors securing their market, and the cost of waiting. Urgency built on truth, not manufactured scarcity.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">Territory availability updates</span>
+            <span class="pillar-tag">"[City] just claimed" announcements</span>
+            <span class="pillar-tag">Why your neighbor gets your calls if you wait</span>
+            <span class="pillar-tag">Waitlist for sold-out markets</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar-authority">
+        <div class="pillar-authority-head">
+          <div class="pillar-num">04</div>
+          <div class="pillar-authority-title">Behind the Business</div>
+        </div>
+        <div class="pillar-authority-body">
+          <p>Authority requires a face. Content that shows the humans behind More Job Calls — your process, your standards, your values — builds the trust that polished marketing alone never can. Don't hide the machine; let people see it working.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">How we qualify calls before they hit your phone</span>
+            <span class="pillar-tag">Our vetting process for contractors</span>
+            <span class="pillar-tag">Day in the life / operations content</span>
+            <span class="pillar-tag">Founder perspective on the trades industry</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar-authority">
+        <div class="pillar-authority-head">
+          <div class="pillar-num">05</div>
+          <div class="pillar-authority-title">Industry POV &amp; Hot Takes</div>
+        </div>
+        <div class="pillar-authority-body">
+          <p>The trades industry is full of bad marketing advice. Take a stand. Agree with what works, call out what doesn't. Opinions that resonate with contractors position More Job Calls as the voice they trust — not just a vendor they use.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">Why most contractor marketing fails</span>
+            <span class="pillar-tag">The problem with shared lead marketplaces</span>
+            <span class="pillar-tag">What every plumber should know about Google</span>
+            <span class="pillar-tag">Responding to industry news or trends</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     08 — COMPONENTS
+════════════════════════════════════════════ -->
+<div class="section-alt">
+  <div class="container">
+    <span class="sec-label">08 — UI Components</span>
+    <h2 class="sec-title">Building Blocks</h2>
+    <p class="sec-sub" style="margin-bottom:var(--sp-5)">The core components that make up every page. Use these consistently — don't invent variations without reason.</p>
+
+    <!-- Buttons -->
+    <h3 style="font-family:var(--font-head); font-size:16px; font-weight:700; margin-bottom:var(--sp-3)">Buttons</h3>
+    <div class="grid-2" style="margin-bottom:var(--sp-5)">
+      <div class="component-canvas">
+        <div class="component-label">On Light Backgrounds</div>
+        <div class="btn-row" style="margin-bottom:var(--sp-3)">
+          <a href="#" class="btn btn-primary btn-lg">Check Your Territory</a>
+          <a href="#" class="btn btn-outline btn-lg">See How It Works</a>
+        </div>
+        <div class="btn-row" style="margin-bottom:var(--sp-3)">
+          <a href="#" class="btn btn-primary btn-md">Get Started</a>
+          <a href="#" class="btn btn-outline btn-md">Learn More</a>
+          <a href="#" class="btn btn-charcoal btn-md">View Pricing</a>
+        </div>
+        <div class="btn-row">
+          <a href="#" class="btn btn-primary btn-sm">Claim Territory</a>
+          <a href="#" class="btn btn-outline btn-sm">Details</a>
+        </div>
+      </div>
+      <div class="component-canvas component-canvas-dark">
+        <div class="component-label component-label-light">On Dark Backgrounds</div>
+        <div class="btn-row" style="margin-bottom:var(--sp-3)">
+          <a href="#" class="btn btn-gold btn-lg">Check Your Territory</a>
+          <a href="#" class="btn btn-ghost-light btn-lg">See How It Works</a>
+        </div>
+        <div class="btn-row">
+          <a href="#" class="btn btn-gold btn-md">Get Started Free</a>
+          <a href="#" class="btn btn-ghost-light btn-md">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <h3 style="font-family:var(--font-head); font-size:16px; font-weight:700; margin-bottom:var(--sp-3)">Badges &amp; Tags</h3>
+    <div class="component-canvas" style="margin-bottom:var(--sp-5)">
+      <div class="component-label">Use badges to signal status, trade, exclusivity, or category</div>
+      <div class="badge-row">
+        <span class="badge badge-blue">Exclusive Territory</span>
+        <span class="badge badge-blue">HVAC</span>
+        <span class="badge badge-blue">Plumbing</span>
+        <span class="badge badge-gold">⚡ 3 Spots Left</span>
+        <span class="badge badge-gold">Top Performer</span>
+        <span class="badge badge-green">✓ Territory Available</span>
+        <span class="badge badge-charcoal">New Market</span>
+      </div>
+    </div>
+
+    <!-- Stat Cards -->
+    <h3 style="font-family:var(--font-head); font-size:16px; font-weight:700; margin-bottom:var(--sp-3)">Stat Cards</h3>
+    <div class="grid-4" style="margin-bottom:var(--sp-5)">
+      <div class="card">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-stat">47<span class="unit">+</span></div>
+          <div class="card-label">Exclusive calls per month, on average</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent-bar card-accent-bar-gold"></div>
+        <div class="card-body">
+          <div class="card-stat" style="color:var(--blue)">$0</div>
+          <div class="card-label">Setup fees. Pay for results only.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-stat">1<span class="unit">×</span></div>
+          <div class="card-label">Contractor per trade per territory. Exclusive.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent-bar card-accent-bar-gold"></div>
+        <div class="card-body">
+          <div class="card-stat" style="color:var(--charcoal)">48<span class="unit">h</span></div>
+          <div class="card-label">Average time to your first inbound call</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial -->
+    <h3 style="font-family:var(--font-head); font-size:16px; font-weight:700; margin-bottom:var(--sp-3)">Testimonial Block</h3>
+    <div class="grid-2" style="margin-bottom:var(--sp-5)">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"I was skeptical at first — I'd tried lead services before and got burned. But these calls are <em>different.</em> The homeowners already want the job done. <em>I closed 11 out of my first 14 calls.</em>"</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-avatar">MR</div>
+          <div>
+            <div class="testimonial-name">Mike R.</div>
+            <div class="testimonial-trade">HVAC Owner · Phoenix, AZ</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" style="background:var(--blue)">
+        <p class="testimonial-quote" style="color:#fff;">"My territory was almost taken when I signed up. <em>Glad I didn't wait.</em> I've been getting 30–40 calls a month and it's completely changed how I plan my schedule."</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-avatar" style="background:var(--gold); color:var(--charcoal)">JT</div>
+          <div>
+            <div class="testimonial-name" style="color:#fff">Jamie T.</div>
+            <div class="testimonial-trade" style="color:rgba(255,255,255,.5)">Plumber · Austin, TX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notice / Alert -->
+    <h3 style="font-family:var(--font-head); font-size:16px; font-weight:700; margin-bottom:var(--sp-3)">Notices &amp; Callouts</h3>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div class="notice notice-blue">
+        <span class="notice-icon">ℹ️</span>
+        <div><strong>Informational:</strong> Territories are exclusive — once a contractor claims an area, it's off the market for that trade. Check yours before reaching out.</div>
+      </div>
+      <div class="notice notice-gold">
+        <span class="notice-icon">⚡</span>
+        <div><strong>Urgency:</strong> Dallas, TX (HVAC) and Chicago, IL (Plumbing) have 1 spot remaining each. These markets move fast.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     QUICK REFERENCE
+════════════════════════════════════════════ -->
+<div class="section-dark">
+  <div class="container">
+    <span class="sec-label sec-label-gold">Quick Reference</span>
+    <h2 class="sec-title" style="color:#fff; margin-bottom:var(--sp-5)">The whole system at a glance</h2>
+
+    <div class="grid-2">
+      <!-- Colors -->
+      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-xl); padding:var(--sp-4)">
+        <div style="font-family:var(--font-head); font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:var(--sp-3)">Colors</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px; height:36px; border-radius:var(--r-sm); background:#F7F3EE; border:1px solid rgba(255,255,255,.2); flex-shrink:0"></div>
+            <div>
+              <div style="font-family:var(--font-head); font-size:14px; font-weight:700; color:#fff">Contractor Ivory</div>
+              <div style="font-family:'Courier New',monospace; font-size:12px; color:rgba(255,255,255,.4)">#F7F3EE — Backgrounds</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px; height:36px; border-radius:var(--r-sm); background:#2D2D2D; border:1px solid rgba(255,255,255,.2); flex-shrink:0"></div>
+            <div>
+              <div style="font-family:var(--font-head); font-size:14px; font-weight:700; color:#fff">Ironwork Charcoal</div>
+              <div style="font-family:'Courier New',monospace; font-size:12px; color:rgba(255,255,255,.4)">#2D2D2D — Text &amp; Dark Sections</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px; height:36px; border-radius:var(--r-sm); background:#4D87C8; border:1px solid rgba(255,255,255,.2); flex-shrink:0"></div>
+            <div>
+              <div style="font-family:var(--font-head); font-size:14px; font-weight:700; color:#fff">Blueprint Blue</div>
+              <div style="font-family:'Courier New',monospace; font-size:12px; color:rgba(255,255,255,.4)">#4D87C8 — Primary Brand &amp; CTAs</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px; height:36px; border-radius:var(--r-sm); background:#F5C518; border:1px solid rgba(255,255,255,.2); flex-shrink:0"></div>
+            <div>
+              <div style="font-family:var(--font-head); font-size:14px; font-weight:700; color:#fff">Job Gold</div>
+              <div style="font-family:'Courier New',monospace; font-size:12px; color:rgba(255,255,255,.4)">#F5C518 — Accents &amp; Highlights</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Type + Rules -->
+      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-xl); padding:var(--sp-4)">
+        <div style="font-family:var(--font-head); font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:var(--sp-3)">Typography</div>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:var(--sp-4)">
+          <div style="font-family:'Poppins',sans-serif; font-size:20px; font-weight:800; color:#fff; line-height:1">Poppins — Headings, CTAs, Labels</div>
+          <div style="font-family:'Inter',sans-serif; font-size:15px; font-weight:400; color:rgba(255,255,255,.55)">Inter — Body text, paragraphs, captions</div>
+        </div>
+        <div class="divider-light" style="margin:var(--sp-2) 0 var(--sp-3)"></div>
+        <div style="font-family:var(--font-head); font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:var(--sp-2)">Core Rules</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:13px; color:rgba(255,255,255,.6); display:flex; gap:8px;"><span style="color:var(--gold)">→</span>Ivory backgrounds, never pure white as the page color</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.6); display:flex; gap:8px;"><span style="color:var(--gold)">→</span>Poppins 800 for display — never below 600 weight for headings</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.6); display:flex; gap:8px;"><span style="color:var(--gold)">→</span>Gold is an accent — max one gold element per section</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.6); display:flex; gap:8px;"><span style="color:var(--gold)">→</span>8px spacing grid — always multiples of 8</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.6); display:flex; gap:8px;"><span style="color:var(--gold)">→</span>Sections alternate: Ivory → White → Ivory → Dark</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.6); display:flex; gap:8px;"><span style="color:var(--gold)">→</span>Be specific with numbers — they build trust</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<div class="guide-footer">
+  <div class="container">
+    <p style="margin-bottom:8px"><strong>More Job Calls — Brand Guidelines</strong></p>
+    <p>Version 1.0 &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; Internal use only</p>
+    <p style="margin-top:var(--sp-3)">Questions about brand usage? Refer to these guidelines first. For new use cases not covered here, default to the principles in Section 01: <strong>authoritative, direct, results-driven, trustworthy, human.</strong></p>
+  </div>
+</div>
+
+</body>
+</html>
