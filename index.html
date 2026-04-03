@@ -7,12 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy:       #0A0F1E;
-            --navy-mid:   #0F1929;
-            --navy-light: #1A2744;
-            --orange:     #FF5C1A;
-            --orange-lt:  #FF7A3D;
-            --gold:       #F5A623;
+            --navy:       #111111;
+            --navy-mid:   #1A1A1A;
+            --navy-light: #252525;
+            --orange:     #E8271A;
+            --orange-lt:  #FF3C2C;
+            --gold:       #F9DE3B;
             --white:      #FFFFFF;
             --gray-50:    #F8FAFC;
             --gray-100:   #F1F5F9;
@@ -612,6 +612,12 @@
             aspect-ratio: 16/9;
             display: flex; align-items: center; justify-content: center;
             position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        .training-thumb:hover .play-btn {
+            transform: scale(1.1);
+            transition: transform .2s;
         }
         .training-type-badge {
             position: absolute; top: 12px; left: 12px;
@@ -1459,36 +1465,39 @@
         </div>
         <div class="training-grid">
             <div class="training-card">
-                <div class="training-thumb">
-                    <span class="training-type-badge">Video</span>
-                    <div class="play-btn"></div>
-                </div>
+                <a href="https://www.youtube.com/watch?v=0RyiYW0d8ts" target="_blank" rel="noopener" class="training-thumb">
+                    <span class="training-type-badge">13 min · Video</span>
+                    <img src="https://img.youtube.com/vi/0RyiYW0d8ts/maxresdefault.jpg" alt="Why Contractors Burn $10K on Facebook Ads" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                    <div class="play-btn" style="position:relative;z-index:1;"></div>
+                </a>
                 <div class="training-body">
-                    <h3>Why 90% of Contractor Ads Fail (And What to Do Instead)</h3>
-                    <p>The three reasons most paid campaigns produce nothing but clicks — and the one shift that changes everything.</p>
-                    <a href="#" class="training-link">Watch Free →</a>
+                    <h3>Why Contractors Burn $10K on Facebook Ads (4 Costly Mistakes)</h3>
+                    <p>The four reasons most paid campaigns produce nothing but clicks — and exactly what to do instead.</p>
+                    <a href="https://www.youtube.com/watch?v=0RyiYW0d8ts" target="_blank" rel="noopener" class="training-link">Watch Free →</a>
                 </div>
             </div>
             <div class="training-card">
-                <div class="training-thumb">
-                    <span class="training-type-badge">Guide</span>
-                    <div class="play-btn"></div>
-                </div>
+                <a href="https://www.youtube.com/watch?v=XVUzif4h49A" target="_blank" rel="noopener" class="training-thumb">
+                    <span class="training-type-badge">10 min · Video</span>
+                    <img src="https://img.youtube.com/vi/XVUzif4h49A/maxresdefault.jpg" alt="Why Your Home Service Leads Don't Pick Up" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                    <div class="play-btn" style="position:relative;z-index:1;"></div>
+                </a>
                 <div class="training-body">
-                    <h3>The 3-Part Follow-Up System That Doubles Show Rates</h3>
-                    <p>Most contractors lose half their leads between booking and the actual call. Here's exactly how we fix it with automation.</p>
-                    <a href="#" class="training-link">Get the Guide →</a>
+                    <h3>Why Your Home Service Leads Don't Pick Up (And How to Fix It)</h3>
+                    <p>Most contractors lose half their leads between booking and the call. Here's exactly why — and the fix.</p>
+                    <a href="https://www.youtube.com/watch?v=XVUzif4h49A" target="_blank" rel="noopener" class="training-link">Watch Free →</a>
                 </div>
             </div>
             <div class="training-card">
-                <div class="training-thumb">
-                    <span class="training-type-badge">Training</span>
-                    <div class="play-btn"></div>
-                </div>
+                <a href="https://www.youtube.com/watch?v=fyx6HkxVThY" target="_blank" rel="noopener" class="training-thumb">
+                    <span class="training-type-badge">12 min · Video</span>
+                    <img src="https://img.youtube.com/vi/fyx6HkxVThY/maxresdefault.jpg" alt="Stop Losing to Cheaper Contractors" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                    <div class="play-btn" style="position:relative;z-index:1;"></div>
+                </a>
                 <div class="training-body">
-                    <h3>How to Stop Competing on Price and Start Winning on Proof</h3>
-                    <p>When calls are exclusive, the conversation changes. Here's how to close at higher margins once the leads are flowing.</p>
-                    <a href="#" class="training-link">Watch Free →</a>
+                    <h3>Stop Losing to Cheaper Contractors (3 Ways to Manufacture Trust)</h3>
+                    <p>When calls are exclusive, the conversation changes. Here's how to win on proof, not price.</p>
+                    <a href="https://www.youtube.com/watch?v=fyx6HkxVThY" target="_blank" rel="noopener" class="training-link">Watch Free →</a>
                 </div>
             </div>
         </div>
