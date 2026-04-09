@@ -2071,19 +2071,26 @@ function svPickTile(el, key, val) {
   el.classList.add('sv-sel');
   sv[key] = val;
   document.getElementById('svN1').disabled = false;
+  // Step 1 has only one question — auto-advance
+  setTimeout(function(){ svNext(1); }, 320);
 }
 
 function svPickOpt(el, key, val) {
   el.closest('.sv-opts').querySelectorAll('.sv-opt').forEach(function(o){ o.classList.remove('sv-sel'); });
   el.classList.add('sv-sel');
   sv[key] = val;
-  svCheckStep(key);
-}
 
-function svCheckStep(key) {
-  if (key === 'size') document.getElementById('svN2').disabled = false;
+  if (key === 'size') {
+    // Step 2 has only one question — auto-advance
+    document.getElementById('svN2').disabled = false;
+    setTimeout(function(){ svNext(2); }, 320);
+  }
+
   if (key === 'revenue' || key === 'challenge') {
-    document.getElementById('svN3').disabled = !(sv.revenue && sv.challenge);
+    var bothDone = sv.revenue && sv.challenge;
+    document.getElementById('svN3').disabled = !bothDone;
+    // Step 3 has two questions — only auto-advance when both are answered
+    if (bothDone) setTimeout(function(){ svNext(3); }, 320);
   }
 }
 
