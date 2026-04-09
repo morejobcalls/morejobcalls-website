@@ -905,7 +905,7 @@
             <li><a href="wins.html">Wins</a></li>
             <li><a href="#training">Free Training</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#book" class="nav-cta">Book a Strategy Call</a></li>
+            <li><a href="#book" class="nav-cta" onclick="openSurveyModal(event)">Book a Strategy Call</a></li>
         </ul>
         <div class="hamburger" id="hamburger">
             <span></span><span></span><span></span>
@@ -1195,7 +1195,7 @@
             <p>
                 More Job Calls exists because we got tired of watching contractors with great work and empty calendars get taken by people who didn't know the difference between a roofing lead and a roofing job.
             </p>
-            <a href="#book" class="btn-primary" style="margin-top:8px;">Let's Fix That — Book a Strategy Call</a>
+            <a href="#book" class="btn-primary" style="margin-top:8px;" onclick="openSurveyModal(event)">Let's Fix That — Book a Strategy Call</a>
         </div>
     </div>
 </section>
@@ -1606,7 +1606,7 @@
             We only take on contractors whose market has room to grow. The strategy call is free
             and takes 30 minutes. We'll tell you exactly what we'd do.
         </p>
-        <a href="#" class="btn-white">Book Your Free Strategy Call</a>
+        <a href="#" class="btn-white" onclick="openSurveyModal(event)">Book Your Free Strategy Call</a>
     </div>
 </section>
 
@@ -1746,7 +1746,7 @@
                     <p>
                         <strong>If you want to know what I can do for your trade and your market, book a call. I'll tell you straight what I see.</strong>
                     </p>
-                    <a href="#book" class="btn-primary" style="margin-top:10px;">Book a Strategy Call</a>
+                    <a href="#book" class="btn-primary" style="margin-top:10px;" onclick="openSurveyModal(event)">Book a Strategy Call</a>
                 </div>
             </div>
         </div>
@@ -1811,6 +1811,41 @@
 </footer>
 
 
+<!-- ═══════════════════════════════════════════════
+     SURVEY MODAL
+════════════════════════════════════════════════ -->
+<div id="surveyModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,0.75);overflow-y:auto;padding:40px 16px;">
+    <div style="position:relative;max-width:720px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;">
+        <button onclick="closeSurveyModal()" aria-label="Close" style="position:absolute;top:12px;right:14px;z-index:10;background:none;border:none;cursor:pointer;font-size:28px;line-height:1;color:#444;">&times;</button>
+        <div style="padding:32px 24px 8px;">
+            <h3 style="margin:0 0 4px;font-size:1.25rem;font-weight:700;">Apply for Your Free Strategy Call</h3>
+            <p style="margin:0 0 16px;font-size:0.9rem;color:#666;">Takes ~3 minutes. We'll reach out to schedule your call.</p>
+        </div>
+        <iframe src="https://api.seasonproofgrowth.com/widget/survey/8lO8jQB7bHD2kmYKiClR" style="border:none;width:100%;min-height:600px;display:block;" scrolling="no" title="survey"></iframe>
+    </div>
+</div>
+
+<script>
+function openSurveyModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('surveyModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+function closeSurveyModal() {
+    document.getElementById('surveyModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+document.getElementById('surveyModal').addEventListener('click', function(e) {
+    if (e.target === this) closeSurveyModal();
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeSurveyModal();
+});
+</script>
+
+<script src="https://api.seasonproofgrowth.com/js/form_embed.js"></script>
+
+
 <script>
     // ── Testimonial Carousel ────────────────────────────────
     const track   = document.getElementById('tTrack');
@@ -1857,11 +1892,12 @@
 
 
     // ── Smooth Anchor Scroll ──────────────────────────────
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        if (a.getAttribute('onclick')) return; // skip modal buttons
         a.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
+            var href = this.getAttribute('href');
             if (href === '#') return;
-            const target = document.querySelector(href);
+            var target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
