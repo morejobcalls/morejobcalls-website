@@ -61,7 +61,7 @@
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--orange);
+            color: var(--gold-dark);
             margin-bottom: 14px;
         }
 
@@ -74,10 +74,10 @@
 
         .btn-primary {
             display: inline-block;
-            background: var(--orange);
-            color: #fff;
+            background: var(--gold);
+            color: var(--charcoal);
             font-family: 'Poppins', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 15px;
             padding: 15px 34px;
             border-radius: 6px;
@@ -85,8 +85,9 @@
             border: none;
             cursor: pointer;
             transition: background .2s, transform .1s;
+            box-shadow: 0 4px 20px rgba(245,197,24,.35);
         }
-        .btn-primary:hover { background: var(--orange-lt); transform: translateY(-1px); }
+        .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(245,197,24,.45); }
 
         .btn-ghost {
             display: inline-block;
@@ -162,15 +163,15 @@
         }
         .nav-links a:hover { color: #fff; }
         .nav-cta {
-            background: var(--orange) !important;
-            color: #fff !important;
+            background: var(--gold) !important;
+            color: var(--charcoal) !important;
             padding: 9px 22px !important;
             border-radius: 6px !important;
             font-family: 'Poppins', sans-serif !important;
-            font-weight: 700 !important;
+            font-weight: 800 !important;
             font-size: 13px !important;
         }
-        .nav-cta:hover { background: var(--orange-lt) !important; }
+        .nav-cta:hover { background: var(--gold-dark) !important; }
 
         .hamburger {
             display: none;
@@ -297,9 +298,11 @@
 
         /* ─── 5. SERVICES ────────────────────────────── */
         .services {
-            background: #fff;
+            background: var(--charcoal);
             padding: 88px 24px;
         }
+        .services .services-header .section-heading { color: #fff; }
+        .services .services-header p { color: rgba(255,255,255,.55); }
         .services-header { text-align: center; margin-bottom: 52px; }
         .services-header .section-heading { margin-bottom: 12px; }
         .services-header p { font-size: 16px; color: var(--gray-600); max-width: 520px; margin: 0 auto; line-height: 1.7; }
@@ -310,14 +313,20 @@
             gap: 24px;
         }
         .service-card {
-            background: var(--gray-50);
+            background: #FFFCF8;
             border: 1px solid var(--gray-200);
             border-radius: 12px;
             padding: 32px;
+            box-shadow: 0 2px 12px rgba(45,45,45,.06), 0 8px 32px rgba(45,45,45,.04);
+            transition: transform .2s, box-shadow .2s;
+        }
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px rgba(45,45,45,.1), 0 12px 40px rgba(45,45,45,.07);
         }
         .service-icon {
             width: 48px; height: 48px;
-            background: rgba(77,135,200,.1);
+            background: rgba(245,197,24,.12);
             border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
             font-size: 22px;
@@ -386,13 +395,13 @@
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 3px;
-            background: var(--orange);
+            background: var(--gold);
             border-radius: 12px 12px 0 0;
         }
         .result-metric {
             font-family: 'Poppins', sans-serif;
             font-size: 42px; font-weight: 900;
-            color: var(--orange);
+            color: var(--charcoal);
             line-height: 1;
             margin-bottom: 4px;
         }
@@ -523,12 +532,12 @@
         }
         .step-badge {
             width: 36px; height: 36px;
-            background: var(--orange);
+            background: var(--gold);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-family: 'Poppins', sans-serif;
             font-size: 15px; font-weight: 800;
-            color: #fff;
+            color: var(--charcoal);
             margin-bottom: 18px;
         }
         .step-card h3 { font-size: 19px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
@@ -796,7 +805,7 @@
         .about-stat-num {
             font-family: 'Poppins', sans-serif;
             font-size: 36px; font-weight: 900;
-            color: var(--orange); line-height: 1; margin-bottom: 6px;
+            color: var(--charcoal); line-height: 1; margin-bottom: 6px;
         }
         .about-stat-label { font-size: 13px; color: var(--gray-600); }
 
@@ -879,13 +888,13 @@
         .footer-social a { color: rgba(255,255,255,.35); font-size: 13px; text-decoration: none; transition: color .2s; }
         .footer-social a:hover { color: #fff; }
 
+        /* ─── PROOF STRIP ───────────────────────────── */
+        @media (max-width: 640px) {
+            .proof-strip-grid { grid-template-columns: repeat(2,1fr) !important; }
+        }
+
         /* ─── SCROLL ANIMATIONS ──────────────────────── */
         .reveal {
-            opacity: 0;
-            transform: translateY(22px);
-            transition: opacity .55s ease, transform .55s ease;
-        }
-        .reveal.visible {
             opacity: 1;
             transform: none;
         }
@@ -931,7 +940,7 @@
             Just a predictable pipeline of qualified homeowners calling your number.
         </p>
         <div class="hero-btns">
-            <a href="#book" class="btn-primary">Apply for a Free Strategy Call</a>
+            <a href="#" class="btn-primary" onclick="openSurveyModal(event)">Apply for a Free Strategy Call</a>
             <a href="#results" class="btn-ghost">See Real Results</a>
         </div>
         <p class="hero-note">Free 30-minute call. No obligation. We'll tell you exactly what we'd do for your market.</p>
@@ -962,6 +971,33 @@
 
 
 <!-- ═══════════════════════════════════════════════
+     3b. PROOF STRIP
+════════════════════════════════════════════════ -->
+<div style="background:#fff;border-top:1px solid var(--pebble);border-bottom:1px solid var(--pebble);padding:40px 24px;">
+    <div class="container">
+        <div class="proof-strip-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
+            <div>
+                <div style="font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">47</div>
+                <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Booked Calls — Month One</div>
+            </div>
+            <div>
+                <div style="font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">$18</div>
+                <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Average Cost Per Lead</div>
+            </div>
+            <div>
+                <div style="font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">30</div>
+                <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Days to First Results</div>
+            </div>
+            <div>
+                <div style="font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">100%</div>
+                <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Exclusive — Never Shared</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
      4. METHODOLOGY
 ════════════════════════════════════════════════ -->
 <section class="methodology reveal" id="methodology">
@@ -975,7 +1011,7 @@
             funneled into a page built for one job — getting them to call <em>you</em>.
             Every lead is exclusive. Every call is tracked. No guesswork, no shared lists.
         </p>
-        <a href="#book" class="btn-primary">See How It Works for Your Trade →</a>
+        <a href="#" class="btn-primary" onclick="openSurveyModal(event)">See How It Works for Your Trade →</a>
     </div>
 </section>
 
