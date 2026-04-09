@@ -1850,37 +1850,314 @@
 <!-- ═══════════════════════════════════════════════
      SURVEY MODAL
 ════════════════════════════════════════════════ -->
-<div id="surveyModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,0.75);overflow-y:auto;padding:40px 16px;">
-    <div style="position:relative;max-width:720px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;">
-        <button onclick="closeSurveyModal()" aria-label="Close" style="position:absolute;top:12px;right:14px;z-index:10;background:none;border:none;cursor:pointer;font-size:28px;line-height:1;color:#444;">&times;</button>
-        <div style="padding:32px 28px 12px;background:linear-gradient(135deg,#2D2D2D 0%,#1a1a1a 100%);">
-            <p style="margin:0 0 6px;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#F5C518;">Free Strategy Call — Limited Spots</p>
-            <h3 style="margin:0 0 10px;font-size:1.5rem;font-weight:800;line-height:1.25;color:#fff;">Your Market Has Leads Your Competitors Are Stealing Right Now.</h3>
-            <p style="margin:0;font-size:0.95rem;color:rgba(255,255,255,0.72);line-height:1.5;">Answer 5 quick questions. We'll tell you exactly what we see in your area — and what we'd do to fix it. No pitch. No BS. Just a straight answer.</p>
-        </div>
-        <iframe src="https://api.seasonproofgrowth.com/widget/survey/8lO8jQB7bHD2kmYKiClR" style="border:none;width:100%;min-height:600px;display:block;" scrolling="no" title="survey"></iframe>
+<style>
+/* ── Survey Modal ───────────────────────────── */
+#surveyModal { display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,.78);overflow-y:auto;padding:32px 16px; }
+.sv-card { position:relative;max-width:600px;margin:0 auto;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.45); }
+.sv-close { position:absolute;top:14px;right:16px;z-index:20;background:rgba(255,255,255,.12);border:none;cursor:pointer;color:rgba(255,255,255,.8);width:34px;height:34px;border-radius:50%;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background .15s; }
+.sv-close:hover { background:rgba(255,255,255,.22); }
+.sv-header { padding:26px 28px 20px;background:linear-gradient(135deg,#1e1e1e 0%,#2D2D2D 100%); }
+.sv-tag { font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F5C518;margin-bottom:6px; }
+.sv-header h3 { font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:800;line-height:1.25;color:#fff;margin:0; }
+.sv-progress-track { height:3px;background:#e8e3db; }
+.sv-progress-fill { height:3px;background:#F5C518;transition:width .4s cubic-bezier(.4,0,.2,1); }
+.sv-body { padding:28px 28px 24px; }
+.sv-step { display:none; }
+.sv-step.sv-active { display:block; }
+.sv-step-label { font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D4AA10;margin-bottom:8px; }
+.sv-q { font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:800;color:#1a1a1a;line-height:1.3;margin-bottom:6px; }
+.sv-sub { font-size:13px;color:#6B7280;margin-bottom:18px;line-height:1.5; }
+/* Tiles */
+.sv-tiles { display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:9px;margin-bottom:22px; }
+.sv-tile { border:2px solid #E8E3DB;border-radius:12px;padding:14px 8px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;background:#fff;user-select:none; }
+.sv-tile:hover { border-color:#F5C518;background:#fffdf5;transform:translateY(-1px); }
+.sv-tile.sv-sel { border-color:#F5C518;background:#fffbe6;box-shadow:0 0 0 3px rgba(245,197,24,.15); }
+.sv-tile-icon { font-size:26px;display:block;margin-bottom:5px; }
+.sv-tile-lbl { font-size:12px;font-weight:700;color:#1a1a1a;line-height:1.2; }
+/* Options */
+.sv-opts { display:flex;flex-direction:column;gap:9px;margin-bottom:22px; }
+.sv-opt { border:2px solid #E8E3DB;border-radius:11px;padding:14px 16px;cursor:pointer;transition:border-color .15s,background .15s;background:#fff;display:flex;align-items:center;gap:13px;user-select:none; }
+.sv-opt:hover { border-color:#F5C518;background:#fffdf5; }
+.sv-opt.sv-sel { border-color:#F5C518;background:#fffbe6;box-shadow:0 0 0 3px rgba(245,197,24,.12); }
+.sv-radio { width:20px;height:20px;border-radius:50%;border:2px solid #D1D5DB;flex-shrink:0;position:relative;transition:border-color .15s; }
+.sv-opt.sv-sel .sv-radio { border-color:#F5C518;background:#F5C518; }
+.sv-opt.sv-sel .sv-radio::after { content:'';position:absolute;inset:4px;background:#1a1a1a;border-radius:50%; }
+.sv-opt-text { font-size:14px;font-weight:700;color:#1a1a1a; }
+.sv-opt-hint { font-size:12px;color:#9CA3AF;margin-top:1px; }
+/* Fields */
+.sv-fields { display:flex;flex-direction:column;gap:13px;margin-bottom:22px; }
+.sv-row { display:grid;grid-template-columns:1fr 1fr;gap:13px; }
+@media(max-width:480px){ .sv-row { grid-template-columns:1fr; } }
+.sv-field label { display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6B7280;margin-bottom:5px; }
+.sv-field input { width:100%;border:2px solid #E8E3DB;border-radius:9px;padding:12px 13px;font-size:14px;font-family:'Inter',sans-serif;color:#1a1a1a;outline:none;transition:border-color .15s;box-sizing:border-box; }
+.sv-field input:focus { border-color:#F5C518; }
+.sv-field input::placeholder { color:#C4C4C4; }
+/* Nav */
+.sv-nav { display:flex;align-items:center;justify-content:space-between;padding-top:4px; }
+.sv-back { background:none;border:none;color:#9CA3AF;font-size:13px;font-weight:600;cursor:pointer;padding:8px 0;font-family:'Inter',sans-serif;transition:color .15s; }
+.sv-back:hover { color:#4B5563; }
+.sv-next { background:#F5C518;color:#1a1a1a;border:none;border-radius:9px;padding:13px 28px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:800;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;box-shadow:0 4px 18px rgba(245,197,24,.4); }
+.sv-next:hover:not(:disabled) { background:#D4AA10;transform:translateY(-1px);box-shadow:0 6px 22px rgba(245,197,24,.5); }
+.sv-next:disabled { opacity:.35;cursor:not-allowed;transform:none;box-shadow:none; }
+/* Confirm */
+.sv-confirm { text-align:center;padding:16px 0 8px; }
+.sv-confirm-check { width:64px;height:64px;background:#F5C518;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#1a1a1a; }
+.sv-confirm h3 { font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;color:#1a1a1a;margin-bottom:10px; }
+.sv-confirm p { font-size:14px;color:#6B7280;line-height:1.7;max-width:360px;margin:0 auto 10px; }
+</style>
+
+<div id="surveyModal">
+  <div class="sv-card">
+    <button class="sv-close" onclick="closeSurveyModal()">&#x2715;</button>
+
+    <div class="sv-header">
+      <p class="sv-tag">Free Strategy Call &mdash; Limited Spots</p>
+      <h3>Your Market Has Leads Your Competitors Are Stealing Right Now.</h3>
     </div>
+
+    <div class="sv-progress-track">
+      <div class="sv-progress-fill" id="svProgress" style="width:25%"></div>
+    </div>
+
+    <div class="sv-body">
+
+      <!-- STEP 1 — Trade -->
+      <div class="sv-step sv-active" id="sv1">
+        <p class="sv-step-label">Step 1 of 4</p>
+        <p class="sv-q">What trade are you in?</p>
+        <p class="sv-sub">Pick the one that best describes your business.</p>
+        <div class="sv-tiles" id="svTrades"></div>
+        <div class="sv-nav">
+          <span></span>
+          <button class="sv-next" id="svN1" onclick="svNext(1)" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 — Size -->
+      <div class="sv-step" id="sv2">
+        <p class="sv-step-label">Step 2 of 4</p>
+        <p class="sv-q">How big is your operation?</p>
+        <p class="sv-sub">Give us a rough idea of your crew size.</p>
+        <div class="sv-opts" id="svSizes"></div>
+        <div class="sv-nav">
+          <button class="sv-back" onclick="svBack(2)">&larr; Back</button>
+          <button class="sv-next" id="svN2" onclick="svNext(2)" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 — Revenue + Challenge -->
+      <div class="sv-step" id="sv3">
+        <p class="sv-step-label">Step 3 of 4</p>
+        <p class="sv-q">What's your current situation?</p>
+        <p class="sv-sub" style="margin-bottom:10px;">Monthly revenue right now</p>
+        <div class="sv-opts" id="svRevenue"></div>
+        <p class="sv-sub" style="margin-top:16px;margin-bottom:10px;">Biggest challenge</p>
+        <div class="sv-opts" id="svChallenge"></div>
+        <div class="sv-nav">
+          <button class="sv-back" onclick="svBack(3)">&larr; Back</button>
+          <button class="sv-next" id="svN3" onclick="svNext(3)" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 4 — Contact -->
+      <div class="sv-step" id="sv4">
+        <p class="sv-step-label">Step 4 of 4</p>
+        <p class="sv-q">Where should we reach you?</p>
+        <p class="sv-sub">We'll call to schedule your free strategy session.</p>
+        <div class="sv-fields">
+          <div class="sv-row">
+            <div class="sv-field"><label>First Name</label><input type="text" id="svFirst" placeholder="John" oninput="svCheck4()"></div>
+            <div class="sv-field"><label>Last Name</label><input type="text" id="svLast" placeholder="Smith" oninput="svCheck4()"></div>
+          </div>
+          <div class="sv-row">
+            <div class="sv-field"><label>Phone</label><input type="tel" id="svPhone" placeholder="(555) 123-4567" oninput="svCheck4()"></div>
+            <div class="sv-field"><label>Email</label><input type="email" id="svEmail" placeholder="john@business.com" oninput="svCheck4()"></div>
+          </div>
+          <div class="sv-field"><label>Business Name</label><input type="text" id="svBiz" placeholder="Smith HVAC" oninput="svCheck4()"></div>
+          <div class="sv-field"><label>Your City / Market</label><input type="text" id="svCity" placeholder="Phoenix, AZ" oninput="svCheck4()"></div>
+        </div>
+        <div class="sv-nav">
+          <button class="sv-back" onclick="svBack(4)">&larr; Back</button>
+          <button class="sv-next" id="svN4" onclick="svSubmit()" disabled>Get My Strategy Call &rarr;</button>
+        </div>
+      </div>
+
+      <!-- DONE -->
+      <div class="sv-step" id="svDone">
+        <div class="sv-confirm">
+          <div class="sv-confirm-check">&#10003;</div>
+          <h3>You're In. We'll Be In Touch.</h3>
+          <p>We'll review your answers and reach out within 24 hours to schedule your free strategy call.</p>
+          <p style="font-size:12px;color:#9CA3AF;">Keep an eye on your phone &mdash; we'll call from a local number.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <script>
+// ── CONFIG ──────────────────────────────────────────
+// Paste your GHL workflow webhook URL here:
+var SV_WEBHOOK = '';
+
+// ── DATA ────────────────────────────────────────────
+var sv = { trade:'', size:'', revenue:'', challenge:'' };
+
+var TRADES = [
+  {icon:'❄️',lbl:'HVAC'},
+  {icon:'🏠',lbl:'Roofing'},
+  {icon:'🪛',lbl:'Plumbing'},
+  {icon:'⚡',lbl:'Electrical'},
+  {icon:'🌿',lbl:'Landscaping'},
+  {icon:'🏗️',lbl:'Decking'},
+  {icon:'🎨',lbl:'Painting'},
+  {icon:'🏊',lbl:'Pool & Spa'},
+  {icon:'🪟',lbl:'Windows'},
+  {icon:'🔨',lbl:'Other'},
+];
+var SIZES = [
+  {val:'Solo operator',hint:'Just me running the show'},
+  {val:'Small crew (2–5)',hint:'A tight team, growing steadily'},
+  {val:'Growing company (6–15)',hint:'Multiple crews, more complexity'},
+  {val:'Established (15+)',hint:'Big operation, need consistent volume'},
+];
+var REVENUES = [
+  {val:'Under $5K/mo',hint:''},
+  {val:'$5K–$15K/mo',hint:''},
+  {val:'$15K–$40K/mo',hint:''},
+  {val:'$40K–$100K/mo',hint:''},
+  {val:'$100K+/mo',hint:''},
+];
+var CHALLENGES = [
+  {val:'Not enough leads coming in',hint:''},
+  {val:'Leads don\'t convert to booked jobs',hint:''},
+  {val:'Slow seasons kill my cash flow',hint:''},
+  {val:'Can\'t compete with bigger companies',hint:''},
+];
+
+// ── RENDER ───────────────────────────────────────────
+function svRender() {
+  // Trades
+  var th = document.getElementById('svTrades');
+  th.innerHTML = TRADES.map(function(t) {
+    return '<div class="sv-tile" onclick="svPickTile(this,\'trade\',\''+t.lbl+'\')">'
+      +'<span class="sv-tile-icon">'+t.icon+'</span>'
+      +'<span class="sv-tile-lbl">'+t.lbl+'</span>'
+      +'</div>';
+  }).join('');
+
+  // Sizes
+  svRenderOpts('svSizes', SIZES, 'size');
+  // Revenue
+  svRenderOpts('svRevenue', REVENUES, 'revenue');
+  // Challenge
+  svRenderOpts('svChallenge', CHALLENGES, 'challenge');
+}
+
+function svRenderOpts(id, items, key) {
+  document.getElementById(id).innerHTML = items.map(function(o) {
+    var hint = o.hint ? '<div class="sv-opt-hint">'+o.hint+'</div>' : '';
+    return '<div class="sv-opt" onclick="svPickOpt(this,\''+key+'\',\''+o.val.replace(/'/g,"\\'")+'\')">'
+      +'<div class="sv-radio"></div>'
+      +'<div><div class="sv-opt-text">'+o.val+'</div>'+hint+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+// ── SELECTION ────────────────────────────────────────
+function svPickTile(el, key, val) {
+  el.closest('.sv-tiles').querySelectorAll('.sv-tile').forEach(function(t){ t.classList.remove('sv-sel'); });
+  el.classList.add('sv-sel');
+  sv[key] = val;
+  document.getElementById('svN1').disabled = false;
+}
+
+function svPickOpt(el, key, val) {
+  el.closest('.sv-opts').querySelectorAll('.sv-opt').forEach(function(o){ o.classList.remove('sv-sel'); });
+  el.classList.add('sv-sel');
+  sv[key] = val;
+  svCheckStep(key);
+}
+
+function svCheckStep(key) {
+  if (key === 'size') document.getElementById('svN2').disabled = false;
+  if (key === 'revenue' || key === 'challenge') {
+    document.getElementById('svN3').disabled = !(sv.revenue && sv.challenge);
+  }
+}
+
+function svCheck4() {
+  var ok = document.getElementById('svFirst').value.trim()
+    && document.getElementById('svPhone').value.trim()
+    && document.getElementById('svEmail').value.trim();
+  document.getElementById('svN4').disabled = !ok;
+}
+
+// ── NAVIGATION ───────────────────────────────────────
+var SV_STEPS = ['sv1','sv2','sv3','sv4','svDone'];
+var svCurrent = 1;
+
+function svShowStep(n) {
+  SV_STEPS.forEach(function(id){ document.getElementById(id).classList.remove('sv-active'); });
+  var id = (n === 'Done') ? 'svDone' : 'sv'+n;
+  document.getElementById(id).classList.add('sv-active');
+  svCurrent = n;
+  var pct = n === 'Done' ? 100 : (n / 4) * 100;
+  document.getElementById('svProgress').style.width = pct + '%';
+  document.querySelector('.sv-card').scrollTop = 0;
+}
+
+function svNext(n) { svShowStep(n + 1); }
+function svBack(n) { svShowStep(n - 1); }
+
+// ── SUBMIT ───────────────────────────────────────────
+function svSubmit() {
+  var payload = {
+    trade:          sv.trade,
+    business_size:  sv.size,
+    monthly_revenue:sv.revenue,
+    main_challenge: sv.challenge,
+    first_name:     document.getElementById('svFirst').value.trim(),
+    last_name:      document.getElementById('svLast').value.trim(),
+    phone:          document.getElementById('svPhone').value.trim(),
+    email:          document.getElementById('svEmail').value.trim(),
+    business_name:  document.getElementById('svBiz').value.trim(),
+    market:         document.getElementById('svCity').value.trim(),
+    source:         'morejobcalls.com',
+    submitted_at:   new Date().toISOString()
+  };
+
+  if (SV_WEBHOOK) {
+    fetch(SV_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function(){});
+  }
+
+  svShowStep('Done');
+}
+
+// ── MODAL ────────────────────────────────────────────
 function openSurveyModal(e) {
-    if (e) e.preventDefault();
-    document.getElementById('surveyModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
+  if (e) e.preventDefault();
+  svRender();
+  svShowStep(1);
+  document.getElementById('surveyModal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
 }
 function closeSurveyModal() {
-    document.getElementById('surveyModal').style.display = 'none';
-    document.body.style.overflow = '';
+  document.getElementById('surveyModal').style.display = 'none';
+  document.body.style.overflow = '';
 }
 document.getElementById('surveyModal').addEventListener('click', function(e) {
-    if (e.target === this) closeSurveyModal();
+  if (e.target === this) closeSurveyModal();
 });
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeSurveyModal();
+  if (e.key === 'Escape') closeSurveyModal();
 });
 </script>
-
-<script src="https://api.seasonproofgrowth.com/js/form_embed.js"></script>
 
 
 <script>
