@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /index-v1-backup.html
+Disallow: /index-v2.html
+Disallow: /brand-guidelines.html
+Disallow: /temporary screenshots/
+Disallow: /node_modules/
+
+Sitemap: https://morejobcalls.com/sitemap.xml
