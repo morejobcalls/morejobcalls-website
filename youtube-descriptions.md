@@ -258,3 +258,94 @@ More contractor marketing training: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: contractor trust building, stop losing bids on price, home service contractor authority, contractor digital marketing trust, win more contractor jobs, contractor positioning strategy, Spencer Wright
+
+---
+
+# CLIENT CASE STUDIES PLAYLIST — additional videos
+
+The 4 blocks below are from the "Client Case Studies" playlist on @spencerwrightofficial
+that weren't already in the V1–V10 section. CTA swapped from the dead
+deckingleads.com/yt-growth-call to apply.morejobcalls.com/yt. Existing copy preserved verbatim.
+
+---
+
+## VIDEO 11: Facebook Ads for Home Services: $80K to $500K/Month in 120 Days
+https://youtu.be/thmY9E9PYqY
+
+---
+
+Struggling to get consistent, high-quality home service leads? In this video, I reveal the exact system that helped a contractor go from barely scraping by to booking over 100 home service leads every single month—without relying on Angi, HomeAdvisor, or overpriced agencies.
+
+You'll see the real numbers, the step-by-step process, and a live interview with Jason, a home service business owner who 5X'd his revenue in just a few months using this proven lead generation system.
+
+What you'll learn in this video:
+
+• How to generate exclusive home service leads on demand (not shared with competitors)
+• The exact Facebook Ads and booking funnel we use to fill calendars with real appointments
+• Why most home service ads and agencies fail—and what actually works in 2025
+• How to build a predictable, scalable pipeline of home service leads (even if you've been burned before)
+• The CRM and automation tools that turn leads into booked jobs—on autopilot
+
+If you're a contractor, remodeler, or home service pro who's tired of burning money on marketing that doesn't deliver, this is for you.
+
+Ready to stop competing on price and start dominating your market with high-quality home service leads?
+💰 Apply To Work With Me To Scale Your Business: https://apply.morejobcalls.com/yt
+
+Connect with me:
+📱 Instagram: https://www.instagram.com/spencerwrightofficial/
+📱 LinkedIn: https://www.linkedin.com/in/spencercwright/
+
+Timestamps:
+00:00 – How Jason went from 7 to 100+ home service leads/month
+02:15 – The #1 mistake contractors make with home service ads
+04:30 – The booking funnel that fills your calendar automatically
+07:10 – Real numbers: ROI, ad spend, and revenue breakdown
+09:45 – How to scale your home service business with predictable leads
+12:00 – What to do next if you want more home service leads
+
+Want more proven strategies to generate home service leads and grow your business?
+Subscribe for weekly case studies, marketing breakdowns, and actionable tips: https://www.youtube.com/@spencerwrightofficial
+
+#homeserviceleads #contractormarketing #leadgeneration #facebookads #homeserviceads
+
+---
+
+## VIDEO 12: How This Deck Builder Went From 7 Leads/Week to 100+ Leads/Month (Real Client Interview)
+https://youtu.be/2Wci-fQufSo
+
+---
+
+💰 Work with me to GROW your business: https://apply.morejobcalls.com/yt
+
+---
+
+## VIDEO 13: Deck Builder Case Study: 7 to 100+ Leads Per Month Using Facebook Ads (Full Interview)
+https://youtu.be/_PsPKnTYCUo
+
+---
+
+💰 Work with me to GROW your business: https://apply.morejobcalls.com/yt
+
+---
+
+## VIDEO 14: From 1 to 8 Roofs/Week: How I 3X a Contractor's Revenue
+https://youtu.be/JrEHxqhy4ds
+
+---
+
+💰 Work With Me To Scale Your Business: https://apply.morejobcalls.com/yt
+
+———————————— 
+
+📱 Instagram:   /  @spencerwrightofficial ​
+
+———————————— 
+
+0:00 The $50/Day Trap That Keeps Contractors Broke
+0:52 How to Feed a $2M Sales Machine
+2:30 Stop Wasting Money on Leads You Can't Close
+8:00 The Content Secret That Stops the Scroll
+13:30 Live Campaign Review: Is Your Account Ready to Scale?
+20:30 The Moment We 5X'd His Daily Spend (Live Decision)
+23:30 Building Systems That Scale Beyond You
+36:27 How to Get This Level of Strategic Partnership
