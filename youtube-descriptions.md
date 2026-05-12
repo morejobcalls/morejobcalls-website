@@ -19,10 +19,10 @@ In this video I break down:
 
 This is a real campaign from a real client. No stock footage. No made-up numbers. Full breakdown.
 
-📞 Want this for your business? Book a free strategy call: https://morejobcalls.com
+📞 Want this for your business? Book a free strategy call: https://apply.morejobcalls.com/yt
 🔔 Subscribe for weekly contractor marketing breakdowns: https://www.youtube.com/@spencerwrightofficial
 
-More case studies and free training: https://morejobcalls.com/wins.html
+More case studies and free training: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: contractor marketing, Meta ads for contractors, home service contractor leads, exclusive contractor leads, contractor ads that work, roofing leads, HVAC leads, deck builder marketing, contractor marketing 2026, Spencer Wright, More Job Calls
@@ -44,10 +44,10 @@ This video shows the full campaign data from a real client's ad account. I walk 
 
 If you're spending money on ads and not seeing results close to this, something fundamental is broken. This video shows what it should look like.
 
-📞 Book a free strategy call: https://morejobcalls.com
+📞 Book a free strategy call: https://apply.morejobcalls.com/yt
 🔔 New contractor marketing videos every week: https://www.youtube.com/@spencerwrightofficial
 
-More case studies: https://morejobcalls.com/wins.html
+More case studies: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: contractor ad ROI, Meta ads profit contractors, home service marketing ROI, contractor advertising case study, paid ads for contractors, Spencer Wright contractor marketing
@@ -69,10 +69,10 @@ This contractor had tried paid ads before and gotten nothing. Here's what we cha
 
 The difference between 0 appointments and 52 appointments isn't budget. It's system.
 
-📞 Check if your market is available: https://morejobcalls.com
+📞 Check if your market is available: https://apply.morejobcalls.com/yt
 🔔 Subscribe: https://www.youtube.com/@spencerwrightofficial
 
-Full case study library: https://morejobcalls.com/wins.html
+Full case study library: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: home service contractor appointments, contractor lead generation, exclusive appointments for contractors, contractor marketing system, booked calendar for contractors, how to get more contractor jobs
@@ -94,10 +94,10 @@ While his competitors were cutting crews and calling it "the slow season," this 
 
 There is no slow season when you control your own lead flow.
 
-📞 See if your market is available: https://morejobcalls.com
+📞 See if your market is available: https://apply.morejobcalls.com/yt
 🔔 Subscribe for weekly breakdowns: https://www.youtube.com/@spencerwrightofficial
 
-More results: https://morejobcalls.com/wins.html
+More results: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: deck builder marketing, slow season contractor, contractor winter leads, deck builder leads, home improvement marketing winter, contractor slow season strategy, More Job Calls, Spencer Wright
@@ -119,10 +119,10 @@ This is what scaling looks like for a home service contractor when the system is
 
 Most contractors want more leads. What they actually need is a system. This is what that looks like.
 
-📞 Book a free strategy call: https://morejobcalls.com
+📞 Book a free strategy call: https://apply.morejobcalls.com/yt
 🔔 Subscribe: https://www.youtube.com/@spencerwrightofficial
 
-All case studies: https://morejobcalls.com/wins.html
+All case studies: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: contractor appointment generation, Meta ads scale contractors, 65 appointments per week contractor, contractor marketing volume, home service business scaling, paid ads home services
@@ -146,10 +146,10 @@ I cover:
 
 If your ads are underperforming in 2026, this is why — and this is the fix.
 
-📞 See what this looks like for your market: https://morejobcalls.com
+📞 See what this looks like for your market: https://apply.morejobcalls.com/yt
 🔔 Subscribe: https://www.youtube.com/@spencerwrightofficial
 
-More 2026 results: https://morejobcalls.com/wins.html
+More 2026 results: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: contractor ads 2026, Meta ads 2026 contractors, home service marketing 2026, what works contractor advertising 2026, contractor leads 2026, Spencer Wright More Job Calls
@@ -171,10 +171,10 @@ In 14 days, cost-per-lead dropped to $30. That's a 92.5% reduction. Here's exact
 
 Every change is shown. Every number is real. No theory — just what moved the needle.
 
-📞 Book a free call to see what your CPL could be: https://morejobcalls.com
+📞 Book a free call to see what your CPL could be: https://apply.morejobcalls.com/yt
 🔔 Subscribe: https://www.youtube.com/@spencerwrightofficial
 
-More contractor marketing breakdowns: https://morejobcalls.com/wins.html
+More contractor marketing breakdowns: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: reduce cost per lead contractors, contractor lead cost, lower CPL contractor ads, home service lead generation cost, Meta ads cost per lead contractor, contractor advertising ROI
@@ -197,10 +197,10 @@ These four mistakes are responsible for the vast majority of failed contractor a
 
 Fix these four things and your results change immediately. This video walks through each mistake and shows exactly what to do instead — with real examples from contractor accounts.
 
-📞 Free strategy call — we'll audit your current ads: https://morejobcalls.com
+📞 Free strategy call — we'll audit your current ads: https://apply.morejobcalls.com/yt
 🔔 Subscribe for weekly contractor marketing: https://www.youtube.com/@spencerwrightofficial
 
-Free training library: https://morejobcalls.com/wins.html
+Free training library: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: Facebook ads mistakes contractors, why contractor ads fail, home service Facebook ads, contractor Meta ads mistakes, contractor advertising that works, Spencer Wright contractor marketing
@@ -224,10 +224,10 @@ In this video I break down:
 
 This is a follow-up system fix, not an ad spend problem. Watch this before you increase your ad budget.
 
-📞 See the full system: https://morejobcalls.com
+📞 See the full system: https://apply.morejobcalls.com/yt
 🔔 Subscribe: https://www.youtube.com/@spencerwrightofficial
 
-More free training: https://morejobcalls.com/wins.html
+More free training: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: contractor leads not responding, home service lead follow up, contractor CRM, why leads don't pick up, contractor appointment booking, improve lead contact rate home services
@@ -251,10 +251,10 @@ Three specific ways home service contractors build authority digitally — so pr
 
 When you're the trusted option, price becomes a secondary conversation.
 
-📞 Build your trust system: https://morejobcalls.com
+📞 Build your trust system: https://apply.morejobcalls.com/yt
 🔔 Subscribe: https://www.youtube.com/@spencerwrightofficial
 
-More contractor marketing training: https://morejobcalls.com/wins.html
+More contractor marketing training: https://apply.morejobcalls.com/yt
 
 ---
 KEYWORDS: contractor trust building, stop losing bids on price, home service contractor authority, contractor digital marketing trust, win more contractor jobs, contractor positioning strategy, Spencer Wright
