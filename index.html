@@ -2343,10 +2343,10 @@
       <div class="sv-step" id="svDone">
         <div class="sv-confirm">
           <div class="sv-confirm-check">&#10003;</div>
-          <h3>You're In. We'll Be In Touch.</h3>
-          <p>We'll review your answers and reach out within 24 hours to schedule your free strategy call.</p>
-          <p style="font-size:12px;color:#9CA3AF;">Keep an eye on your phone &mdash; we'll call from a local number.</p>
+          <h3>You're In &mdash; Now Lock In Your Strategy Call</h3>
+          <p>Pick a time below that works for you. We'll call from a local number.</p>
         </div>
+        <iframe id="svBookingFrame" src="about:blank" style="width:100%;border:none;min-height:720px;display:block;margin-top:12px;" scrolling="no"></iframe>
       </div>
 
     </div>
@@ -2508,6 +2508,16 @@ function svSubmit() {
     }).catch(function(){});
   }
 
+  // Load GHL booking calendar with prefilled contact info
+  var calParams = new URLSearchParams({
+    first_name: payload.first_name,
+    last_name:  payload.last_name,
+    email:      payload.email,
+    phone:      payload.phone
+  }).toString();
+  document.getElementById('svBookingFrame').src =
+    'https://api.seasonproofgrowth.com/widget/booking/I37dxDAOLvoaGN6MjNeP?' + calParams;
+
   svShowStep('Done');
 }
 
@@ -2619,6 +2629,9 @@ document.addEventListener('keydown', function(e) {
         if (!e.target.closest('nav')) closeMobileMenu();
     });
 </script>
+
+<!-- GHL booking iframe auto-resize -->
+<script src="https://api.seasonproofgrowth.com/js/form_embed.js" type="text/javascript"></script>
 
 </body>
 </html>
