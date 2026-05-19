@@ -2304,7 +2304,7 @@
       <div class="sv-step" id="sv3">
         <p class="sv-step-label">Step 3 of 4</p>
         <p class="sv-q">What's your current situation?</p>
-        <p class="sv-sub" style="margin-bottom:10px;">Monthly revenue right now</p>
+        <p class="sv-sub" style="margin-bottom:10px;">Annual revenue</p>
         <div class="sv-opts" id="svRevenue"></div>
         <p class="sv-sub" style="margin-top:16px;margin-bottom:10px;">Biggest challenge</p>
         <div class="sv-opts" id="svChallenge"></div>
@@ -2378,11 +2378,10 @@ var SIZES = [
   {val:'Established (15+)',hint:'Big operation, need consistent volume'},
 ];
 var REVENUES = [
-  {val:'Under $5K/mo',hint:''},
-  {val:'$5K–$15K/mo',hint:''},
-  {val:'$15K–$40K/mo',hint:''},
-  {val:'$40K–$100K/mo',hint:''},
-  {val:'$100K+/mo',hint:''},
+  {val:'Under $500K/year',send:'under_500k',hint:''},
+  {val:'$500K – $1M/year',send:'500k_1m',hint:''},
+  {val:'$1M – $3M/year',send:'1m_3m',hint:''},
+  {val:'$3M+/year',send:'3m_plus',hint:''},
 ];
 var CHALLENGES = [
   {val:'Not enough leads coming in',hint:''},
@@ -2413,7 +2412,8 @@ function svRender() {
 function svRenderOpts(id, items, key) {
   document.getElementById(id).innerHTML = items.map(function(o) {
     var hint = o.hint ? '<div class="sv-opt-hint">'+o.hint+'</div>' : '';
-    return '<div class="sv-opt" onclick="svPickOpt(this,\''+key+'\',\''+o.val.replace(/'/g,"\\'")+'\')">'
+    var sendVal = (o.send || o.val).replace(/'/g,"\\'");
+    return '<div class="sv-opt" onclick="svPickOpt(this,\''+key+'\',\''+sendVal+'\')">'
       +'<div class="sv-radio"></div>'
       +'<div><div class="sv-opt-text">'+o.val+'</div>'+hint+'</div>'
       +'</div>';
@@ -2478,7 +2478,7 @@ function svSubmit() {
   var payload = {
     trade:          sv.trade,
     business_size:  sv.size,
-    monthly_revenue:sv.revenue,
+    annual_revenue: sv.revenue,
     main_challenge: sv.challenge,
     first_name:     document.getElementById('svFirst').value.trim(),
     last_name:      document.getElementById('svLast').value.trim(),
