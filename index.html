@@ -93,29 +93,29 @@
         "serviceType": ["Contractor Lead Generation", "Meta Ads Management", "Home Service Marketing"]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* ─── Brand Palette ─── */
-            --ivory:       #F7F3EE;   /* Contractor Ivory  */
-            --charcoal:    #2D2D2D;   /* Ironwork Charcoal */
-            --blue:        #4D87C8;   /* Blueprint Blue    */
-            --gold:        #F5C518;   /* Job Gold          */
+            /* ─── Brand Palette (aligned w/ apply.morejobcalls.com) ─── */
+            --ivory:       #F5F2EB;   /* Editorial Cream   */
+            --charcoal:    #141414;   /* Deep Black        */
+            --blue:        #ab8032;   /* Bronze (secondary accent — repurposed slot) */
+            --gold:        #c7963f;   /* Antique Gold      */
 
             /* ─── Supporting ─── */
             --white:       #FFFFFF;
-            --ash:         #6B7280;
+            --ash:         #9CA3AF;
             --pebble:      #E8E3DB;
-            --blue-deep:   #2F6DB5;
-            --blue-tint:   #EBF3FB;
-            --gold-dark:   #D4AA10;
+            --blue-deep:   #8a6929;   /* Deep Bronze       */
+            --blue-tint:   #f5efe2;   /* Parchment Tint    */
+            --gold-dark:   #ab8032;   /* Gold Dark         */
 
             /* ─── Legacy Aliases (keeps all existing CSS working) ─── */
             --navy:        var(--charcoal);
-            --navy-mid:    #383838;
-            --navy-light:  #3D3D3D;
-            --orange:      var(--blue);
-            --orange-lt:   var(--blue-deep);
+            --navy-mid:    #1f1f1f;
+            --navy-light:  #2a2a2a;
+            --orange:      var(--gold);
+            --orange-lt:   var(--gold-dark);
             --gray-50:     var(--ivory);
             --gray-100:    #EDE7DC;
             --gray-200:    var(--pebble);
@@ -135,7 +135,7 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; }
+        h1, h2, h3, h4, h5 { font-family: 'Inter', sans-serif; letter-spacing: -0.035em; }
 
         .container {
             max-width: 1200px;
@@ -145,7 +145,7 @@
 
         .section-label {
             display: block;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 3px;
@@ -165,7 +165,7 @@
             display: inline-block;
             background: var(--gold);
             color: var(--charcoal);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 800;
             font-size: 15px;
             padding: 15px 34px;
@@ -174,15 +174,15 @@
             border: none;
             cursor: pointer;
             transition: background .2s, transform .1s;
-            box-shadow: 0 4px 20px rgba(245,197,24,.35);
+            box-shadow: 0 4px 20px rgba(199,150,63,.35);
         }
-        .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(245,197,24,.45); }
+        .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(199,150,63,.45); }
 
         .btn-ghost {
             display: inline-block;
             background: transparent;
             color: rgba(255,255,255,.85);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
             font-size: 15px;
             padding: 13px 30px;
@@ -197,7 +197,7 @@
             display: inline-block;
             background: var(--gold);
             color: var(--charcoal);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 800;
             font-size: 17px;
             padding: 18px 44px;
@@ -226,7 +226,7 @@
             gap: 24px;
         }
         .nav-logo {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 900;
             font-size: 20px;
             color: #fff;
@@ -256,7 +256,7 @@
             color: var(--charcoal) !important;
             padding: 9px 22px !important;
             border-radius: 6px !important;
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Inter', sans-serif !important;
             font-weight: 800 !important;
             font-size: 13px !important;
         }
@@ -321,15 +321,15 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(77,135,200,.09) 0%, transparent 70%);
+            background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(171,128,50,.09) 0%, transparent 70%);
             pointer-events: none;
         }
         .hero-badge {
             display: inline-block;
-            background: rgba(77,135,200,.14);
-            border: 1px solid rgba(77,135,200,.3);
+            background: rgba(171,128,50,.14);
+            border: 1px solid rgba(171,128,50,.3);
             color: var(--orange);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 12px;
             font-weight: 700;
             letter-spacing: 2px;
@@ -377,7 +377,7 @@
         }
         .trust-bar-label {
             text-align: center;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 10px;
             font-weight: 700;
             letter-spacing: 3px;
@@ -396,7 +396,7 @@
             background: rgba(255,255,255,.05);
             border: 1px solid rgba(255,255,255,.09);
             color: rgba(255,255,255,.65);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 12px;
             font-weight: 600;
             padding: 7px 16px;
@@ -448,7 +448,7 @@
         }
         .service-icon {
             width: 48px; height: 48px;
-            background: rgba(245,197,24,.12);
+            background: rgba(199,150,63,.12);
             border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
             font-size: 22px;
@@ -482,7 +482,7 @@
         }
         .p-card-type {
             display: block;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 10px; font-weight: 700;
             letter-spacing: 2px; text-transform: uppercase;
             color: var(--gold);
@@ -521,7 +521,7 @@
             border-radius: 12px 12px 0 0;
         }
         .result-metric {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 42px; font-weight: 900;
             color: var(--charcoal);
             line-height: 1;
@@ -545,7 +545,7 @@
             border-radius: 50%;
             background: var(--navy);
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 700; font-size: 14px;
             color: var(--orange);
             flex-shrink: 0;
@@ -616,7 +616,7 @@
             text-align: left;
         }
         .diff-metric {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 50px; font-weight: 900;
             color: var(--gold); line-height: 1;
             margin-bottom: 8px;
@@ -646,7 +646,7 @@
         .step-bg-num {
             position: absolute;
             top: 16px; right: 20px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 72px; font-weight: 900;
             color: var(--gray-100);
             line-height: 1;
@@ -657,7 +657,7 @@
             background: var(--gold);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 15px; font-weight: 800;
             color: var(--charcoal);
             margin-bottom: 18px;
@@ -691,7 +691,7 @@
             background: rgba(255,255,255,.06);
             border: 2px solid var(--orange);
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 700; font-size: 14px;
             color: var(--orange);
             flex-shrink: 0;
@@ -710,7 +710,7 @@
             display: flex; align-items: center; justify-content: center;
             transition: background .2s;
         }
-        .t-btn:hover { background: rgba(77,135,200,.3); border-color: var(--orange); }
+        .t-btn:hover { background: rgba(171,128,50,.3); border-color: var(--orange); }
 
         /* ─── 13. NINE REASONS ───────────────────────── */
         .nine-reasons { background: var(--gray-50); padding: 88px 24px; }
@@ -768,7 +768,7 @@
             position: absolute; top: 12px; left: 12px;
             background: var(--orange);
             color: #fff;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 10px; font-weight: 700;
             letter-spacing: 1px; text-transform: uppercase;
             padding: 4px 10px; border-radius: 4px;
@@ -810,7 +810,7 @@
         }
         .comp-table th {
             padding: 18px 22px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 13px; font-weight: 700;
             text-transform: uppercase; letter-spacing: 1px;
         }
@@ -824,7 +824,7 @@
             font-size: 14px;
         }
         .comp-table td:first-child { color: rgba(255,255,255,.7); font-weight: 500; }
-        .comp-table td:nth-child(2) { text-align: center; background: rgba(77,135,200,.05); }
+        .comp-table td:nth-child(2) { text-align: center; background: rgba(171,128,50,.05); }
         .comp-table td:nth-child(3), .comp-table td:nth-child(4) { text-align: center; color: rgba(255,255,255,.35); }
 
         .yes { color: var(--green); font-size: 18px; font-weight: 700; }
@@ -873,7 +873,7 @@
             background: var(--orange);
             border-radius: 8px;
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 13px; font-weight: 800;
             color: #fff; flex-shrink: 0;
         }
@@ -925,7 +925,7 @@
             text-align: center;
         }
         .about-stat-num {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 36px; font-weight: 900;
             color: var(--charcoal); line-height: 1; margin-bottom: 6px;
         }
@@ -983,7 +983,7 @@
         .footer-brand p { font-size: 13px; color: rgba(255,255,255,.38); line-height: 1.7; max-width: 260px; }
 
         .footer-col h4 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 11px; font-weight: 700;
             letter-spacing: 2px; text-transform: uppercase;
             color: rgba(255,255,255,.3);
@@ -1075,7 +1075,7 @@
 
         .rv-card-body { padding: 20px 22px 22px; }
         .rv-outcome {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 21px; font-weight: 900;
             color: var(--charcoal); line-height: 1.1;
             margin-bottom: 6px;
@@ -1098,7 +1098,7 @@
         .win-ss-card img { width: 100%; display: block; }
         .win-ss-label {
             padding: 9px 14px 11px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 10px; font-weight: 700;
             color: var(--gold);
             letter-spacing: 1.5px;
@@ -1294,19 +1294,19 @@
     <div class="container">
         <div class="proof-strip-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
             <div>
-                <div style="font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">47</div>
+                <div style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">47</div>
                 <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Booked Calls — Month One</div>
             </div>
             <div>
-                <div style="font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">$18</div>
+                <div style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">$18</div>
                 <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Average Cost Per Lead</div>
             </div>
             <div>
-                <div style="font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">30</div>
+                <div style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">30</div>
                 <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Days to First Results</div>
             </div>
             <div>
-                <div style="font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">100%</div>
+                <div style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">100%</div>
                 <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Exclusive — Never Shared</div>
             </div>
         </div>
@@ -2212,30 +2212,30 @@
 .sv-close { position:absolute;top:14px;right:16px;z-index:20;background:rgba(255,255,255,.12);border:none;cursor:pointer;color:rgba(255,255,255,.8);width:34px;height:34px;border-radius:50%;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background .15s; }
 .sv-close:hover { background:rgba(255,255,255,.22); }
 .sv-header { padding:26px 28px 20px;background:linear-gradient(135deg,#1e1e1e 0%,#2D2D2D 100%); }
-.sv-tag { font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F5C518;margin-bottom:6px; }
-.sv-header h3 { font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:800;line-height:1.25;color:#fff;margin:0; }
+.sv-tag { font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c7963f;margin-bottom:6px; }
+.sv-header h3 { font-family:'Inter',sans-serif;font-size:1.25rem;font-weight:800;line-height:1.25;color:#fff;margin:0; }
 .sv-progress-track { height:3px;background:#e8e3db; }
-.sv-progress-fill { height:3px;background:#F5C518;transition:width .4s cubic-bezier(.4,0,.2,1); }
+.sv-progress-fill { height:3px;background:#c7963f;transition:width .4s cubic-bezier(.4,0,.2,1); }
 .sv-body { padding:28px 28px 24px; }
 .sv-step { display:none; }
 .sv-step.sv-active { display:block; }
-.sv-step-label { font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D4AA10;margin-bottom:8px; }
-.sv-q { font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:800;color:#1a1a1a;line-height:1.3;margin-bottom:6px; }
+.sv-step-label { font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ab8032;margin-bottom:8px; }
+.sv-q { font-family:'Inter',sans-serif;font-size:1.25rem;font-weight:800;color:#1a1a1a;line-height:1.3;margin-bottom:6px; }
 .sv-sub { font-size:13px;color:#6B7280;margin-bottom:18px;line-height:1.5; }
 /* Tiles */
 .sv-tiles { display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:9px;margin-bottom:22px; }
 .sv-tile { border:2px solid #E8E3DB;border-radius:12px;padding:14px 8px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;background:#fff;user-select:none; }
-.sv-tile:hover { border-color:#F5C518;background:#fffdf5;transform:translateY(-1px); }
-.sv-tile.sv-sel { border-color:#F5C518;background:#fffbe6;box-shadow:0 0 0 3px rgba(245,197,24,.15); }
+.sv-tile:hover { border-color:#c7963f;background:#faf6ee;transform:translateY(-1px); }
+.sv-tile.sv-sel { border-color:#c7963f;background:#f5efe2;box-shadow:0 0 0 3px rgba(199,150,63,.15); }
 .sv-tile-icon { font-size:26px;display:block;margin-bottom:5px; }
 .sv-tile-lbl { font-size:12px;font-weight:700;color:#1a1a1a;line-height:1.2; }
 /* Options */
 .sv-opts { display:flex;flex-direction:column;gap:9px;margin-bottom:22px; }
 .sv-opt { border:2px solid #E8E3DB;border-radius:11px;padding:14px 16px;cursor:pointer;transition:border-color .15s,background .15s;background:#fff;display:flex;align-items:center;gap:13px;user-select:none; }
-.sv-opt:hover { border-color:#F5C518;background:#fffdf5; }
-.sv-opt.sv-sel { border-color:#F5C518;background:#fffbe6;box-shadow:0 0 0 3px rgba(245,197,24,.12); }
+.sv-opt:hover { border-color:#c7963f;background:#faf6ee; }
+.sv-opt.sv-sel { border-color:#c7963f;background:#f5efe2;box-shadow:0 0 0 3px rgba(199,150,63,.12); }
 .sv-radio { width:20px;height:20px;border-radius:50%;border:2px solid #D1D5DB;flex-shrink:0;position:relative;transition:border-color .15s; }
-.sv-opt.sv-sel .sv-radio { border-color:#F5C518;background:#F5C518; }
+.sv-opt.sv-sel .sv-radio { border-color:#c7963f;background:#c7963f; }
 .sv-opt.sv-sel .sv-radio::after { content:'';position:absolute;inset:4px;background:#1a1a1a;border-radius:50%; }
 .sv-opt-text { font-size:14px;font-weight:700;color:#1a1a1a; }
 .sv-opt-hint { font-size:12px;color:#9CA3AF;margin-top:1px; }
@@ -2245,19 +2245,19 @@
 @media(max-width:480px){ .sv-row { grid-template-columns:1fr; } }
 .sv-field label { display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6B7280;margin-bottom:5px; }
 .sv-field input { width:100%;border:2px solid #E8E3DB;border-radius:9px;padding:12px 13px;font-size:14px;font-family:'Inter',sans-serif;color:#1a1a1a;outline:none;transition:border-color .15s;box-sizing:border-box; }
-.sv-field input:focus { border-color:#F5C518; }
+.sv-field input:focus { border-color:#c7963f; }
 .sv-field input::placeholder { color:#C4C4C4; }
 /* Nav */
 .sv-nav { display:flex;align-items:center;justify-content:space-between;padding-top:4px; }
 .sv-back { background:none;border:none;color:#9CA3AF;font-size:13px;font-weight:600;cursor:pointer;padding:8px 0;font-family:'Inter',sans-serif;transition:color .15s; }
 .sv-back:hover { color:#4B5563; }
-.sv-next { background:#F5C518;color:#1a1a1a;border:none;border-radius:9px;padding:13px 28px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:800;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;box-shadow:0 4px 18px rgba(245,197,24,.4); }
-.sv-next:hover:not(:disabled) { background:#D4AA10;transform:translateY(-1px);box-shadow:0 6px 22px rgba(245,197,24,.5); }
+.sv-next { background:#c7963f;color:#1a1a1a;border:none;border-radius:9px;padding:13px 28px;font-family:'Inter',sans-serif;font-size:14px;font-weight:800;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;box-shadow:0 4px 18px rgba(199,150,63,.4); }
+.sv-next:hover:not(:disabled) { background:#ab8032;transform:translateY(-1px);box-shadow:0 6px 22px rgba(199,150,63,.5); }
 .sv-next:disabled { opacity:.35;cursor:not-allowed;transform:none;box-shadow:none; }
 /* Confirm */
 .sv-confirm { text-align:center;padding:16px 0 8px; }
-.sv-confirm-check { width:64px;height:64px;background:#F5C518;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#1a1a1a; }
-.sv-confirm h3 { font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;color:#1a1a1a;margin-bottom:10px; }
+.sv-confirm-check { width:64px;height:64px;background:#c7963f;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#1a1a1a; }
+.sv-confirm h3 { font-family:'Inter',sans-serif;font-size:1.4rem;font-weight:800;color:#1a1a1a;margin-bottom:10px; }
 .sv-confirm p { font-size:14px;color:#6B7280;line-height:1.7;max-width:360px;margin:0 auto 10px; }
 </style>
 
