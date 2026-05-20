@@ -31,7 +31,7 @@
                 "name": "What trades do you work with?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We work with home service contractors including roofing, HVAC, plumbing, electrical, deck building, fencing, landscaping, windows, gutters, and general contractors. If you have crews to keep busy, we can fill their calendars."
+                    "text": "We specialize in outdoor living and exterior contractors: deck builders, patio cover and louvered pergola installers, siding, roofing, window companies, landscapers, and pool builders. If you install something on the outside of a home, we can fill your calendar."
                 }
             },
             {
@@ -83,7 +83,7 @@
         "@type": "LocalBusiness",
         "name": "More Job Calls",
         "url": "https://morejobcalls.com",
-        "description": "Done-for-you exclusive lead generation for home service contractors. Roofing, HVAC, decking, plumbing, and more. 100 exclusive appointments in 100 days or $2,000 cash back.",
+        "description": "Done-for-you exclusive lead generation for outdoor living &amp; exterior contractors. Decking, patio covers, siding, roofing, windows, landscaping, pools, and louvered pergolas. 100 exclusive appointments in 100 days or $2,000 cash back.",
         "founder": {
             "@type": "Person",
             "name": "Spencer Wright",
@@ -1344,6 +1344,364 @@
             .hero::after, .hero h1 .hl { animation: none; }
         }
 
+        /* ═══════════════════════════════════════════════════
+           PLATFORM TEASE — app.morejobcalls.com showcase
+           ═══════════════════════════════════════════════════ */
+        .platform {
+            background:
+              radial-gradient(ellipse 60% 80% at 80% 20%, rgba(199,150,63,.08), transparent 60%),
+              radial-gradient(ellipse 80% 60% at 10% 90%, rgba(199,150,63,.05), transparent 65%),
+              #0e0e0e;
+            color: #fff;
+            padding: 100px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .platform::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+              linear-gradient(rgba(199,150,63,.04) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(199,150,63,.04) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, #000 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, #000 30%, transparent 80%);
+            pointer-events: none;
+        }
+        .platform > .container { position: relative; z-index: 1; }
+
+        .platform-header { text-align: center; margin-bottom: 64px; }
+        .platform-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(199,150,63,.1);
+            border: 1px solid rgba(199,150,63,.3);
+            color: var(--gold);
+            font-size: 11px; font-weight: 700; letter-spacing: .16em;
+            text-transform: uppercase;
+            padding: 7px 16px; border-radius: 100px;
+            margin-bottom: 24px;
+        }
+        .platform-eyebrow .live-dot { animation: pulse 2s ease-in-out infinite; }
+        .platform-header h2 {
+            font-size: clamp(30px, 4.2vw, 52px);
+            color: #fff; line-height: 1.1; max-width: 880px;
+            margin: 0 auto 18px;
+        }
+        .platform-header h2 .domain {
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .platform-header p {
+            font-size: 17px; color: rgba(255,255,255,.7);
+            max-width: 680px; margin: 0 auto; line-height: 1.7;
+        }
+
+        /* ── Mockup showcase grid ───────────────────────── */
+        .platform-mockups {
+            display: grid;
+            grid-template-columns: 1.55fr 0.45fr;
+            gap: 28px;
+            align-items: stretch;
+            margin-bottom: 72px;
+            max-width: 1100px; margin-left: auto; margin-right: auto;
+        }
+        @media (max-width: 880px) {
+            .platform-mockups { grid-template-columns: 1fr; gap: 36px; }
+        }
+
+        /* Dashboard frame */
+        .dashboard-frame {
+            background: linear-gradient(180deg, #1c1c1c, #0f0f0f);
+            border: 1px solid rgba(199,150,63,.18);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,.7), 0 0 0 1px rgba(199,150,63,.06);
+            display: flex; flex-direction: column;
+        }
+        .dash-titlebar {
+            background: #161616; padding: 11px 14px;
+            display: flex; align-items: center; gap: 7px;
+            border-bottom: 1px solid rgba(255,255,255,.05);
+            flex-shrink: 0;
+        }
+        .dash-dot { width: 11px; height: 11px; border-radius: 50%; }
+        .dash-dot.r { background: #ff5f57; }
+        .dash-dot.y { background: #febc2e; }
+        .dash-dot.g { background: #28c840; }
+        .dash-url {
+            margin-left: 14px; font-size: 11px;
+            color: rgba(255,255,255,.4);
+            font-family: ui-monospace, SFMono-Regular, monospace;
+            letter-spacing: 0;
+        }
+        .dash-url .lock { color: rgba(199,150,63,.7); margin-right: 6px; }
+        .dash-body { display: grid; grid-template-columns: 168px 1fr; flex: 1; min-height: 440px; }
+        .dash-sidebar {
+            background: rgba(0,0,0,.35);
+            padding: 16px 0;
+            border-right: 1px solid rgba(255,255,255,.05);
+        }
+        .dash-logo {
+            padding: 0 16px 18px;
+            display: flex; align-items: center; gap: 8px;
+            font-weight: 800; color: #fff; font-size: 13px;
+            letter-spacing: -0.02em;
+        }
+        .dash-logo-mark {
+            width: 22px; height: 22px; border-radius: 6px;
+            background: linear-gradient(135deg, var(--gold), #ab8032);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; color: #0e0e0e; font-weight: 900;
+        }
+        .dash-nav-item {
+            padding: 8px 16px; font-size: 12px;
+            color: rgba(255,255,255,.5);
+            display: flex; align-items: center; gap: 10px;
+            cursor: default;
+            border-left: 2px solid transparent;
+        }
+        .dash-nav-item .ic {
+            width: 14px; height: 14px; opacity: .6;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        .dash-nav-item.active {
+            color: var(--gold);
+            background: rgba(199,150,63,.08);
+            border-left-color: var(--gold);
+        }
+        .dash-nav-item.active .ic { opacity: 1; }
+        .dash-main { padding: 18px 18px 6px; overflow: hidden; }
+        .dash-h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+        .dash-h-title {
+            font-size: 14px; font-weight: 700; color: #fff;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .dash-h-title .live-dot {
+            width: 6px; height: 6px; background: #22c55e;
+            border-radius: 50%; display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(34,197,94,.6);
+        }
+        .dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+        .dash-stat {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.06);
+            padding: 10px 12px; border-radius: 8px;
+        }
+        .dash-stat-num {
+            font-size: 18px; font-weight: 900; color: #fff;
+            line-height: 1; letter-spacing: -0.02em;
+        }
+        .dash-stat-num .delta {
+            font-size: 11px; color: #22c55e; margin-left: 6px; font-weight: 600;
+        }
+        .dash-stat-lbl {
+            font-size: 9px; color: rgba(255,255,255,.45);
+            margin-top: 5px; text-transform: uppercase; letter-spacing: .1em;
+            font-weight: 600;
+        }
+        .dash-pipeline {
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+        }
+        .dash-col {
+            background: rgba(255,255,255,.02);
+            border-radius: 6px; padding: 10px 8px;
+            min-height: 180px;
+            border: 1px solid rgba(255,255,255,.04);
+        }
+        .dash-col-h {
+            font-size: 9px; color: rgba(255,255,255,.45);
+            text-transform: uppercase; letter-spacing: .08em;
+            margin-bottom: 8px; font-weight: 700;
+            display: flex; justify-content: space-between;
+        }
+        .dash-col-h .count {
+            color: var(--gold); background: rgba(199,150,63,.12);
+            padding: 1px 6px; border-radius: 10px; font-size: 8px;
+        }
+        .lead-card {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 5px; padding: 8px 9px; margin-bottom: 6px;
+            cursor: default;
+            transition: border-color .2s, transform .2s;
+        }
+        .lead-card:hover {
+            border-color: rgba(199,150,63,.4);
+            transform: translateY(-1px);
+        }
+        .lead-card.new {
+            border-color: rgba(199,150,63,.35);
+            background: rgba(199,150,63,.06);
+        }
+        .lead-name { font-size: 11px; font-weight: 700; color: #fff; }
+        .lead-trade { font-size: 9px; color: rgba(255,255,255,.45); margin-top: 2px; }
+        .lead-pill {
+            display: inline-block; font-size: 8px; padding: 1px 5px;
+            border-radius: 8px; margin-top: 4px;
+            background: rgba(34,197,94,.15); color: #22c55e;
+            font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+        }
+        .lead-pill.ai {
+            background: rgba(199,150,63,.15); color: var(--gold);
+        }
+
+        /* iPhone mockup */
+        .phone-frame {
+            background: #1a1a1a;
+            border: 8px solid #2a2a2a;
+            border-radius: 36px;
+            width: 100%; max-width: 280px;
+            margin: 0 auto; align-self: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(199,150,63,.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .phone-frame::after {
+            content: '';
+            position: absolute;
+            top: 12px; left: 50%; transform: translateX(-50%);
+            width: 90px; height: 22px; background: #000;
+            border-radius: 12px; z-index: 3;
+        }
+        .phone-screen {
+            background: linear-gradient(180deg, #0a0a0a, #141414);
+            min-height: 460px;
+            padding: 46px 12px 14px;
+            display: flex; flex-direction: column; gap: 6px;
+            position: relative;
+        }
+        .phone-header {
+            text-align: center; padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,.06);
+            margin-bottom: 8px;
+        }
+        .phone-contact-name {
+            font-size: 11px; font-weight: 700; color: #fff;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .phone-contact-mark {
+            width: 16px; height: 16px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), #ab8032);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 8px; color: #0e0e0e; font-weight: 900;
+        }
+        .phone-contact-sub { font-size: 9px; color: rgba(255,255,255,.4); margin-top: 2px; }
+        .phone-bubble {
+            max-width: 78%; padding: 8px 11px; font-size: 11px;
+            border-radius: 16px; line-height: 1.4;
+        }
+        .phone-bubble.them {
+            background: rgba(255,255,255,.07);
+            color: rgba(255,255,255,.88);
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+        .phone-bubble.us {
+            background: var(--gold); color: #1a1a1a;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+            font-weight: 600;
+        }
+        .phone-meta {
+            font-size: 8px; color: rgba(255,255,255,.3);
+            text-align: center; margin: 4px 0 2px;
+            letter-spacing: .04em;
+        }
+        .phone-typing {
+            background: rgba(255,255,255,.07); padding: 9px 14px;
+            border-radius: 16px; border-bottom-left-radius: 4px;
+            align-self: flex-start; display: flex; gap: 4px;
+        }
+        .phone-typing span {
+            width: 5px; height: 5px; background: rgba(255,255,255,.55);
+            border-radius: 50%;
+            animation: typingDots 1.4s ease-in-out infinite;
+        }
+        .phone-typing span:nth-child(2) { animation-delay: .2s; }
+        .phone-typing span:nth-child(3) { animation-delay: .4s; }
+        @keyframes typingDots {
+            0%, 60%, 100% { transform: translateY(0); opacity: .35; }
+            30% { transform: translateY(-3px); opacity: 1; }
+        }
+
+        /* Feature pillars */
+        .platform-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            max-width: 1100px; margin: 0 auto 48px;
+        }
+        @media (max-width: 880px) {
+            .platform-features { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 520px) {
+            .platform-features { grid-template-columns: 1fr; }
+        }
+        .pf-card {
+            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 12px;
+            padding: 24px 22px;
+            transition: border-color .3s, background .3s, transform .3s;
+        }
+        .pf-card:hover {
+            border-color: rgba(199,150,63,.3);
+            background: rgba(199,150,63,.04);
+            transform: translateY(-3px);
+        }
+        .pf-icon {
+            width: 40px; height: 40px;
+            background: rgba(199,150,63,.12);
+            border: 1px solid rgba(199,150,63,.25);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 19px; margin-bottom: 16px;
+        }
+        .pf-card h4 {
+            font-size: 15px; font-weight: 700; color: #fff;
+            margin-bottom: 10px; line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        .pf-card p {
+            font-size: 13px; color: rgba(255,255,255,.6);
+            line-height: 1.7;
+        }
+
+        /* "And more" strip */
+        .platform-more {
+            text-align: center;
+            max-width: 880px; margin: 0 auto 48px;
+        }
+        .platform-more-label {
+            font-size: 10px; color: var(--gold);
+            text-transform: uppercase; letter-spacing: .18em;
+            font-weight: 700; margin-bottom: 14px;
+        }
+        .platform-more-grid {
+            display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+        }
+        .platform-more-tag {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            color: rgba(255,255,255,.75);
+            font-size: 12px; font-weight: 500;
+            padding: 6px 12px; border-radius: 100px;
+        }
+        .platform-more-tag.dot::before {
+            content: ''; display: inline-block;
+            width: 5px; height: 5px; border-radius: 50%;
+            background: var(--gold); margin-right: 7px; vertical-align: middle;
+        }
+
+        .platform-cta { text-align: center; }
+        .platform-cta .btn-primary {
+            background: var(--gold); color: #1a1a1a;
+            padding: 16px 32px; font-size: 15px;
+        }
+
         /* ── Phase 7: Pinned testimonials marquee row (two rows, opposite directions) ── */
         .testimonials-marquee {
             margin-top: 32px;
@@ -1434,18 +1792,17 @@
 ════════════════════════════════════════════════ -->
 <div class="trust-bar">
     <div class="container">
-        <p class="trust-bar-label">Built for contractors across every trade</p>
+        <p class="trust-bar-label">Built for outdoor living &amp; exterior contractors</p>
         <div class="trade-pills">
-            <span class="trade-pill">🔧 HVAC</span>
-            <span class="trade-pill">🏠 Roofing</span>
-            <span class="trade-pill">🪛 Plumbing</span>
-            <span class="trade-pill">⚡ Electrical</span>
-            <span class="trade-pill">🌿 Landscaping</span>
             <span class="trade-pill">🏗️ Decking</span>
-            <span class="trade-pill">🎨 Painting</span>
-            <span class="trade-pill">🏊 Pool &amp; Spa</span>
-            <span class="trade-pill">🪟 Windows &amp; Doors</span>
-            <span class="trade-pill">🔥 Concrete &amp; Hardscaping</span>
+            <span class="trade-pill">☂️ Patio Covers</span>
+            <span class="trade-pill">🪵 Siding</span>
+            <span class="trade-pill">🏠 Roofing</span>
+            <span class="trade-pill">🪟 Windows</span>
+            <span class="trade-pill">🌿 Landscaping</span>
+            <span class="trade-pill">🏊 Pools</span>
+            <span class="trade-pill">🌤️ Louvered Pergolas</span>
+            <span class="trade-pill">🌳 Outdoor Living</span>
         </div>
     </div>
 </div>
@@ -1459,21 +1816,21 @@
         <!-- Group A -->
         <span class="marquee-item"><span class="dot"></span>Exclusive Calls — Never Shared</span>
         <span class="marquee-item"><span class="dot"></span>100-Day Growth Sprint</span>
-        <span class="marquee-item"><span class="dot"></span>HVAC · Roofing · Plumbing · Electrical</span>
-        <span class="marquee-item"><span class="dot"></span>Decking · Landscaping · Painting</span>
+        <span class="marquee-item"><span class="dot"></span>Decking · Patio Covers · Siding</span>
+        <span class="marquee-item"><span class="dot"></span>Roofing · Windows · Landscaping</span>
         <span class="marquee-item"><span class="dot"></span>$2K Cash + Full Refund Guarantee</span>
         <span class="marquee-item"><span class="dot"></span>No Long-Term Contracts</span>
-        <span class="marquee-item"><span class="dot"></span>Pool &amp; Spa · Windows · Concrete</span>
-        <span class="marquee-item"><span class="dot"></span>Contractor-Owned. Contractor-Run.</span>
+        <span class="marquee-item"><span class="dot"></span>Pools · Louvered Pergolas</span>
+        <span class="marquee-item"><span class="dot"></span>Outdoor Living Specialists Only</span>
         <!-- Group A duplicated for seamless loop -->
         <span class="marquee-item"><span class="dot"></span>Exclusive Calls — Never Shared</span>
         <span class="marquee-item"><span class="dot"></span>100-Day Growth Sprint</span>
-        <span class="marquee-item"><span class="dot"></span>HVAC · Roofing · Plumbing · Electrical</span>
-        <span class="marquee-item"><span class="dot"></span>Decking · Landscaping · Painting</span>
+        <span class="marquee-item"><span class="dot"></span>Decking · Patio Covers · Siding</span>
+        <span class="marquee-item"><span class="dot"></span>Roofing · Windows · Landscaping</span>
         <span class="marquee-item"><span class="dot"></span>$2K Cash + Full Refund Guarantee</span>
         <span class="marquee-item"><span class="dot"></span>No Long-Term Contracts</span>
-        <span class="marquee-item"><span class="dot"></span>Pool &amp; Spa · Windows · Concrete</span>
-        <span class="marquee-item"><span class="dot"></span>Contractor-Owned. Contractor-Run.</span>
+        <span class="marquee-item"><span class="dot"></span>Pools · Louvered Pergolas</span>
+        <span class="marquee-item"><span class="dot"></span>Outdoor Living Specialists Only</span>
     </div>
 </div>
 
@@ -1584,8 +1941,8 @@
             <div class="p-card">
                 <div>
                     <span class="p-card-type">Meta Ad</span>
-                    <h4>HVAC Summer Campaign</h4>
-                    <p>CPL: $18.40 &nbsp;·&nbsp; CTR: 4.2%</p>
+                    <h4>Deck Builder Lead Campaign</h4>
+                    <p>CPL: $24.80 &nbsp;·&nbsp; 67 calls / 30 days</p>
                 </div>
             </div>
             <div class="p-card">
@@ -1598,21 +1955,21 @@
             <div class="p-card">
                 <div>
                     <span class="p-card-type">Meta Ad</span>
-                    <h4>Deck Builder Lead Campaign</h4>
-                    <p>CPL: $24.80 &nbsp;·&nbsp; 67 calls / 30 days</p>
+                    <h4>Patio Cover Spring Campaign</h4>
+                    <p>CPL: $18.40 &nbsp;·&nbsp; CTR: 4.2%</p>
                 </div>
             </div>
             <div class="p-card">
                 <div>
                     <span class="p-card-type">Landing Page</span>
-                    <h4>Plumbing Emergency Funnel</h4>
+                    <h4>Window Replacement Funnel</h4>
                     <p>Conversion Rate: 41%</p>
                 </div>
             </div>
             <div class="p-card">
                 <div>
                     <span class="p-card-type">Full Funnel</span>
-                    <h4>Electrical Panel Upgrade</h4>
+                    <h4>Pool Builder Lead Engine</h4>
                     <p>ROAS: 6.8x &nbsp;·&nbsp; $21 CPL</p>
                 </div>
             </div>
@@ -1865,7 +2222,7 @@
             <div class="diff-card">
                 <div class="diff-metric">Real</div>
                 <h3>Industry Knowledge</h3>
-                <p>We know the difference between an HVAC quote and a roofing inspection. The copy, targeting, and follow-up all reflect what actually matters in your trade.</p>
+                <p>We know the difference between a deck rebuild and a patio cover install. The copy, targeting, and follow-up all reflect what actually matters in your outdoor living trade.</p>
             </div>
         </div>
     </div>
@@ -1907,6 +2264,163 @@
 
 
 <!-- ═══════════════════════════════════════════════
+     11b. PLATFORM TEASE — app.morejobcalls.com
+════════════════════════════════════════════════ -->
+<section class="platform reveal" id="platform">
+    <div class="container">
+        <div class="platform-header">
+            <span class="platform-eyebrow"><span class="live-dot" style="width:6px;height:6px;background:#22c55e;border-radius:50%;display:inline-block;box-shadow:0 0 8px rgba(34,197,94,.6);"></span>The Operating System</span>
+            <h2><span class="domain">app.morejobcalls.com</span> — the engine behind every booked call</h2>
+            <p>Most agencies hand you leads in a spreadsheet and wish you luck. We hand you a contractor-built operating system. AI follows up at 11 PM, books appointments while you sleep, reminds homeowners so they actually show up, and tracks every lead from first text to signed contract.</p>
+        </div>
+
+        <!-- Visual showcase -->
+        <div class="platform-mockups">
+            <!-- Dashboard mockup -->
+            <div class="dashboard-frame">
+                <div class="dash-titlebar">
+                    <span class="dash-dot r"></span>
+                    <span class="dash-dot y"></span>
+                    <span class="dash-dot g"></span>
+                    <span class="dash-url"><span class="lock">🔒</span>app.morejobcalls.com/pipeline</span>
+                </div>
+                <div class="dash-body">
+                    <div class="dash-sidebar">
+                        <div class="dash-logo">
+                            <span class="dash-logo-mark">M</span>
+                            <span>More Job Calls</span>
+                        </div>
+                        <div class="dash-nav-item"><span class="ic">▦</span>Dashboard</div>
+                        <div class="dash-nav-item active"><span class="ic">⊞</span>Pipeline</div>
+                        <div class="dash-nav-item"><span class="ic">💬</span>Conversations</div>
+                        <div class="dash-nav-item"><span class="ic">📅</span>Calendar</div>
+                        <div class="dash-nav-item"><span class="ic">⚡</span>Automations</div>
+                        <div class="dash-nav-item"><span class="ic">📊</span>Reports</div>
+                        <div class="dash-nav-item"><span class="ic">⚙</span>Settings</div>
+                    </div>
+                    <div class="dash-main">
+                        <div class="dash-h">
+                            <div class="dash-h-title"><span class="live-dot"></span>Lead Pipeline — Live</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,.45);">Updated 2s ago</div>
+                        </div>
+                        <div class="dash-stats">
+                            <div class="dash-stat">
+                                <div class="dash-stat-num">47<span class="delta">+8 today</span></div>
+                                <div class="dash-stat-lbl">Booked This Week</div>
+                            </div>
+                            <div class="dash-stat">
+                                <div class="dash-stat-num">82%<span class="delta">+6%</span></div>
+                                <div class="dash-stat-lbl">Show Rate</div>
+                            </div>
+                            <div class="dash-stat">
+                                <div class="dash-stat-num">$24<span class="delta">↓ $3</span></div>
+                                <div class="dash-stat-lbl">Cost / Lead</div>
+                            </div>
+                        </div>
+                        <div class="dash-pipeline">
+                            <div class="dash-col">
+                                <div class="dash-col-h">New <span class="count">12</span></div>
+                                <div class="lead-card new"><div class="lead-name">Mike R.</div><div class="lead-trade">Decking · Sun Belt</div><span class="lead-pill ai">AI Replying</span></div>
+                                <div class="lead-card"><div class="lead-name">Tom B.</div><div class="lead-trade">Patio Covers</div></div>
+                                <div class="lead-card"><div class="lead-name">Sara L.</div><div class="lead-trade">Roofing</div></div>
+                            </div>
+                            <div class="dash-col">
+                                <div class="dash-col-h">Qualified <span class="count">7</span></div>
+                                <div class="lead-card"><div class="lead-name">Greg W.</div><div class="lead-trade">Windows</div><span class="lead-pill">Qualified</span></div>
+                                <div class="lead-card"><div class="lead-name">Linda K.</div><div class="lead-trade">Pools</div></div>
+                            </div>
+                            <div class="dash-col">
+                                <div class="dash-col-h">Booked <span class="count">9</span></div>
+                                <div class="lead-card"><div class="lead-name">Carl D.</div><div class="lead-trade">Siding · Today 3:00 PM</div><span class="lead-pill">Confirmed</span></div>
+                                <div class="lead-card"><div class="lead-name">Erin S.</div><div class="lead-trade">Landscaping</div></div>
+                            </div>
+                            <div class="dash-col">
+                                <div class="dash-col-h">Showed <span class="count">6</span></div>
+                                <div class="lead-card"><div class="lead-name">Hank N.</div><div class="lead-trade">Patio Covers</div></div>
+                                <div class="lead-card"><div class="lead-name">Mia P.</div><div class="lead-trade">Decking</div></div>
+                            </div>
+                            <div class="dash-col">
+                                <div class="dash-col-h">Closed <span class="count">4</span></div>
+                                <div class="lead-card"><div class="lead-name">Pat O.</div><div class="lead-trade">$32,400</div></div>
+                                <div class="lead-card"><div class="lead-name">Joe T.</div><div class="lead-trade">$18,900</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phone mockup -->
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    <div class="phone-header">
+                        <div class="phone-contact-name">
+                            <span class="phone-contact-mark">M</span>
+                            Your Company AI
+                        </div>
+                        <div class="phone-contact-sub">Auto-replying for you · Online</div>
+                    </div>
+                    <div class="phone-meta">Sun 9:47 PM</div>
+                    <div class="phone-bubble them">Hey — saw your deck builder ad. Just bought a place. Do you do composite?</div>
+                    <div class="phone-bubble us">Hi Mike — congrats on the new place! Yes, composite is most of what we build. To get you a real quote, can I ask: rough square footage you're thinking, and is this a tear-down or new build?</div>
+                    <div class="phone-bubble them">~400 sqft, replacing an old wood one out back.</div>
+                    <div class="phone-bubble us">Perfect — that's right in our sweet spot. I can have an estimator out to walk the project this week. Tue 10am or Wed 4pm work?</div>
+                    <div class="phone-bubble them">Wed 4 works</div>
+                    <div class="phone-bubble us">Locked in. You'll get a confirmation + a reminder day-of. See you Wednesday at 4. 📋</div>
+                    <div class="phone-meta">✓ Appointment booked · Calendar synced</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature pillars -->
+        <div class="platform-features">
+            <div class="pf-card">
+                <div class="pf-icon">🤖</div>
+                <h4>AI-Powered SMS</h4>
+                <p>Every lead gets an instant, intelligent reply. The AI qualifies them, answers questions, and books the appointment — even at 11 PM on a Sunday.</p>
+            </div>
+            <div class="pf-card">
+                <div class="pf-icon">📅</div>
+                <h4>Auto-Booking + Reminders</h4>
+                <p>Qualified leads book directly into your calendar. Confirmations, day-before reminders, and rebooking sequences if they ghost — all automated.</p>
+            </div>
+            <div class="pf-card">
+                <div class="pf-icon">🎯</div>
+                <h4>Pipeline Intelligence</h4>
+                <p>See every lead's stage at a glance — New, Qualified, Booked, Showed, Closed. No spreadsheets, no guessing where deals stand.</p>
+            </div>
+            <div class="pf-card">
+                <div class="pf-icon">🔁</div>
+                <h4>Reactivation Engine</h4>
+                <p>Old leads aren't dead. Seasonal offers, behavioral triggers, and AI re-engagement bring cold contacts back to life — so revenue compounds.</p>
+            </div>
+        </div>
+
+        <!-- "And more" strip -->
+        <div class="platform-more">
+            <div class="platform-more-label">+ Built In</div>
+            <div class="platform-more-grid">
+                <span class="platform-more-tag dot">Email Sequences</span>
+                <span class="platform-more-tag dot">Call Recording</span>
+                <span class="platform-more-tag dot">Lead Source Tracking</span>
+                <span class="platform-more-tag dot">ROI Dashboards</span>
+                <span class="platform-more-tag dot">Custom Workflows</span>
+                <span class="platform-more-tag dot">Two-Way Calendar Sync</span>
+                <span class="platform-more-tag dot">Voicemail Drops</span>
+                <span class="platform-more-tag dot">Review Requests</span>
+                <span class="platform-more-tag dot">Slack &amp; Email Alerts</span>
+                <span class="platform-more-tag dot">No-Show Recovery</span>
+                <span class="platform-more-tag dot">AI Lead Scoring</span>
+            </div>
+        </div>
+
+        <div class="platform-cta">
+            <a href="#" class="btn-primary magnetic" onclick="openSurveyModal(event)">See how the system works for your business →</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
      12. TESTIMONIALS
 ════════════════════════════════════════════════ -->
 <section class="testimonials reveal" id="testimonials">
@@ -1920,23 +2434,23 @@
             <div class="tm-row">
                 <div class="tm-track">
                     <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I told them straight up: I've been burned before, I'm skeptical, and I need to see something real in 30 days or I'm done. They hit the number in three weeks. I've referred two other guys since."</p><div class="t-author"><div class="t-avatar">JW</div><div><div class="t-name">Justin W.</div><div class="t-trade">Deck Builder · Houston, TX</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p><div class="t-author"><div class="t-avatar">CP</div><div><div class="t-name">Chip P.</div><div class="t-trade">HVAC · Memphis, TN</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p><div class="t-author"><div class="t-avatar">CP</div><div><div class="t-name">Chip P.</div><div class="t-trade">Patio Covers · Memphis, TN</div></div></div></div>
                     <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I'd thrown $60K at agencies over four years. Nothing. This is the first time I've been able to point to a campaign and say that's exactly where that job came from."</p><div class="t-author"><div class="t-avatar">SB</div><div><div class="t-name">Scott B.</div><div class="t-trade">Roofing · Denver, CO</div></div></div></div>
                     <!-- duplicate set for seamless loop -->
                     <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I told them straight up: I've been burned before, I'm skeptical, and I need to see something real in 30 days or I'm done. They hit the number in three weeks. I've referred two other guys since."</p><div class="t-author"><div class="t-avatar">JW</div><div><div class="t-name">Justin W.</div><div class="t-trade">Deck Builder · Houston, TX</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p><div class="t-author"><div class="t-avatar">CP</div><div><div class="t-name">Chip P.</div><div class="t-trade">HVAC · Memphis, TN</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p><div class="t-author"><div class="t-avatar">CP</div><div><div class="t-name">Chip P.</div><div class="t-trade">Patio Covers · Memphis, TN</div></div></div></div>
                     <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I'd thrown $60K at agencies over four years. Nothing. This is the first time I've been able to point to a campaign and say that's exactly where that job came from."</p><div class="t-author"><div class="t-avatar">SB</div><div><div class="t-name">Scott B.</div><div class="t-trade">Roofing · Denver, CO</div></div></div></div>
                 </div>
             </div>
             <!-- Row 2 → scrolls right (reverse) -->
             <div class="tm-row reverse">
                 <div class="tm-track">
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other plumbers to the same homeowner. When they call me, they called me — not the list."</p><div class="t-author"><div class="t-avatar">FG</div><div><div class="t-name">Frank G.</div><div class="t-trade">Plumbing · Orlando, FL</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p><div class="t-author"><div class="t-avatar">AD</div><div><div class="t-name">Andrew D.</div><div class="t-trade">Electrical · Phoenix, AZ</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other pool builders to the same homeowner. When they call me, they called me — not the list."</p><div class="t-author"><div class="t-avatar">FG</div><div><div class="t-name">Frank G.</div><div class="t-trade">Pools · Orlando, FL</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p><div class="t-author"><div class="t-avatar">AD</div><div><div class="t-name">Andrew D.</div><div class="t-trade">Siding · Phoenix, AZ</div></div></div></div>
                     <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I was the skeptic. My wife talked me into the call. Three months later she's the one asking why I didn't do this sooner."</p><div class="t-author"><div class="t-avatar">KH</div><div><div class="t-name">Kevin H.</div><div class="t-trade">Landscaping · Austin, TX</div></div></div></div>
                     <!-- duplicate set for seamless loop -->
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other plumbers to the same homeowner. When they call me, they called me — not the list."</p><div class="t-author"><div class="t-avatar">FG</div><div><div class="t-name">Frank G.</div><div class="t-trade">Plumbing · Orlando, FL</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p><div class="t-author"><div class="t-avatar">AD</div><div><div class="t-name">Andrew D.</div><div class="t-trade">Electrical · Phoenix, AZ</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other pool builders to the same homeowner. When they call me, they called me — not the list."</p><div class="t-author"><div class="t-avatar">FG</div><div><div class="t-name">Frank G.</div><div class="t-trade">Pools · Orlando, FL</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p><div class="t-author"><div class="t-avatar">AD</div><div><div class="t-name">Andrew D.</div><div class="t-trade">Siding · Phoenix, AZ</div></div></div></div>
                     <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I was the skeptic. My wife talked me into the call. Three months later she's the one asking why I didn't do this sooner."</p><div class="t-author"><div class="t-avatar">KH</div><div><div class="t-name">Kevin H.</div><div class="t-trade">Landscaping · Austin, TX</div></div></div></div>
                 </div>
             </div>
@@ -2232,8 +2746,9 @@
                 every month. No long contracts, no shared leads, no hiding behind reports full of vanity metrics.
             </p>
             <p>
-                The contractors we work with are in HVAC, roofing, plumbing, electrical, decking, landscaping,
-                painting, and more. Different trades, same problem: great work, inconsistent calendar. We fix the second half.
+                The contractors we work with are in decking, patio covers, siding, roofing, windows, landscaping,
+                pools, louvered pergolas, and other outdoor living trades. Different trades, same problem: great work,
+                inconsistent calendar. We fix the second half.
             </p>
             <div class="about-stats">
                 <div class="about-stat">
@@ -2320,12 +2835,12 @@
             <div class="footer-col">
                 <h4>Trades We Serve</h4>
                 <ul>
-                    <li><a href="#">HVAC</a></li>
-                    <li><a href="#">Roofing</a></li>
-                    <li><a href="#">Plumbing</a></li>
-                    <li><a href="#">Electrical</a></li>
                     <li><a href="#">Decking</a></li>
-                    <li><a href="#">Landscaping</a></li>
+                    <li><a href="#">Patio Covers</a></li>
+                    <li><a href="#">Siding</a></li>
+                    <li><a href="#">Roofing</a></li>
+                    <li><a href="#">Windows</a></li>
+                    <li><a href="#">Landscaping &amp; Pools</a></li>
                 </ul>
             </div>
         </div>
@@ -2473,7 +2988,7 @@
             <div class="sv-field"><label>Phone</label><input type="tel" id="svPhone" placeholder="(555) 123-4567" oninput="svCheck4()"></div>
             <div class="sv-field"><label>Email</label><input type="email" id="svEmail" placeholder="john@business.com" oninput="svCheck4()"></div>
           </div>
-          <div class="sv-field"><label>Business Name</label><input type="text" id="svBiz" placeholder="Smith HVAC" oninput="svCheck4()"></div>
+          <div class="sv-field"><label>Business Name</label><input type="text" id="svBiz" placeholder="Smith Outdoor Living" oninput="svCheck4()"></div>
           <div class="sv-field"><label>Your City / Market</label><input type="text" id="svCity" placeholder="Phoenix, AZ" oninput="svCheck4()"></div>
         </div>
         <div class="sv-nav">
@@ -2505,16 +3020,15 @@ var SV_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/X6hS5G8dcD7NqDBOVDN
 var sv = { trade:'', size:'', revenue:'', challenge:'', timing:'' };
 
 var TRADES = [
-  {icon:'❄️',lbl:'HVAC'},
-  {icon:'🏠',lbl:'Roofing'},
-  {icon:'🪛',lbl:'Plumbing'},
-  {icon:'⚡',lbl:'Electrical'},
-  {icon:'🌿',lbl:'Landscaping'},
   {icon:'🏗️',lbl:'Decking'},
-  {icon:'🎨',lbl:'Painting'},
-  {icon:'🏊',lbl:'Pool & Spa'},
+  {icon:'☂️',lbl:'Patio Covers'},
+  {icon:'🪵',lbl:'Siding'},
+  {icon:'🏠',lbl:'Roofing'},
   {icon:'🪟',lbl:'Windows'},
-  {icon:'🔨',lbl:'Other'},
+  {icon:'🌿',lbl:'Landscaping'},
+  {icon:'🏊',lbl:'Pools'},
+  {icon:'🌤️',lbl:'Louvered Pergolas'},
+  {icon:'🌳',lbl:'Other Outdoor Living'},
 ];
 var SIZES = [
   {val:'Solo operator',hint:'Just me running the show'},
