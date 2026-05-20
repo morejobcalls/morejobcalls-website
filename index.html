@@ -1110,9 +1110,23 @@
         .results-cta { text-align: center; margin-top: 52px; }
 
         /* ─── SCROLL ANIMATIONS ──────────────────────── */
+        /* ─── Scroll Reveal (real animation) ────────────── */
         .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
             opacity: 1;
             transform: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal.visible {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
         }
 
         /* ─── MOBILE SPACING & LAYOUT ────────────────── */
@@ -1215,9 +1229,159 @@
 
             .section-label { font-size: 10px; }
         }
+
+        /* ═══════════════════════════════════════════════════
+           UI POLISH — premium motion layer
+           ═══════════════════════════════════════════════════ */
+
+        /* ── Phase 2: Top scroll progress bar ───────────── */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 2px; width: 0;
+            background: linear-gradient(90deg, var(--gold) 0%, #e7c069 100%);
+            z-index: 10000;
+            box-shadow: 0 0 12px rgba(199,150,63,.6);
+            transition: width .08s linear;
+            pointer-events: none;
+        }
+
+        /* ── Phase 3: Hero polish ───────────────────────── */
+        .hero { isolation: isolate; }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: -20% -10%;
+            background:
+              radial-gradient(ellipse 50% 40% at 30% 40%, rgba(199,150,63,.10) 0%, transparent 60%),
+              radial-gradient(ellipse 40% 35% at 70% 60%, rgba(199,150,63,.06) 0%, transparent 65%);
+            filter: blur(40px);
+            animation: heroSweep 14s ease-in-out infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .hero > * { position: relative; z-index: 1; }
+        @keyframes heroSweep {
+            0%   { transform: translate(-3%, -2%) scale(1); opacity: 0.85; }
+            50%  { transform: translate(2%, 1%)  scale(1.05); opacity: 1; }
+            100% { transform: translate(3%, 2%)  scale(1); opacity: 0.9; }
+        }
+        .hero h1 .hl {
+            background: linear-gradient(90deg,
+                var(--gold) 0%,
+                #f0d293 35%,
+                var(--gold) 50%,
+                #f0d293 65%,
+                var(--gold) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: shimmer 5.5s linear infinite;
+        }
+        @keyframes shimmer {
+            0%   { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+
+        /* ── Phase 4: Stat counter helper (no extra style needed; JS only) ── */
+
+        /* ── Phase 5: Magnetic CTAs + card lift ─────────── */
+        .btn-primary, .btn-white, .btn-ghost {
+            transition: transform .25s cubic-bezier(.2,.7,.2,1),
+                        box-shadow .25s ease-out,
+                        background .2s;
+            will-change: transform;
+        }
+        .btn-primary.magnetic:hover,
+        .btn-white.magnetic:hover,
+        .btn-ghost.magnetic:hover { transition: transform .08s linear, box-shadow .2s ease-out, background .2s; }
+
+        /* Card lift — applies to result/portfolio/stat/case-study cards */
+        .lift {
+            transition: transform .35s cubic-bezier(.2,.7,.2,1),
+                        box-shadow .35s cubic-bezier(.2,.7,.2,1);
+            will-change: transform;
+        }
+        .lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(20,20,20,.14), 0 4px 14px rgba(199,150,63,.18);
+        }
+
+        /* ── Phase 6: Marquee trust strip ───────────────── */
+        .marquee {
+            position: relative;
+            overflow: hidden;
+            background: var(--charcoal);
+            border-top: 1px solid rgba(199,150,63,.15);
+            border-bottom: 1px solid rgba(199,150,63,.15);
+            padding: 22px 0;
+        }
+        .marquee::before, .marquee::after {
+            content: '';
+            position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2;
+            pointer-events: none;
+        }
+        .marquee::before { left: 0;  background: linear-gradient(90deg, var(--charcoal), transparent); }
+        .marquee::after  { right: 0; background: linear-gradient(270deg, var(--charcoal), transparent); }
+        .marquee-track {
+            display: flex; gap: 56px; width: max-content;
+            animation: marqueeScroll 45s linear infinite;
+        }
+        .marquee-item {
+            display: inline-flex; align-items: center; gap: 10px;
+            color: rgba(245,242,235,.55);
+            font-size: 13px; font-weight: 600;
+            letter-spacing: .08em; text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .marquee-item .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); opacity: .7; }
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { animation: none; }
+            .hero::after, .hero h1 .hl { animation: none; }
+        }
+
+        /* ── Phase 7: Pinned testimonials marquee row (two rows, opposite directions) ── */
+        .testimonials-marquee {
+            margin-top: 32px;
+            display: flex; flex-direction: column; gap: 20px;
+            position: relative;
+        }
+        .testimonials-marquee::before, .testimonials-marquee::after {
+            content: '';
+            position: absolute; top: 0; bottom: 0; width: 80px; z-index: 3;
+            pointer-events: none;
+        }
+        .testimonials-marquee::before { left: -24px;  background: linear-gradient(90deg, var(--charcoal), transparent); }
+        .testimonials-marquee::after  { right: -24px; background: linear-gradient(270deg, var(--charcoal), transparent); }
+        .tm-row { display: flex; overflow: hidden; }
+        .tm-track {
+            display: flex; gap: 20px; flex-shrink: 0;
+            animation: tmScrollL 60s linear infinite;
+        }
+        .tm-row.reverse .tm-track { animation: tmScrollR 65s linear infinite; }
+        .tm-track .t-card { flex-shrink: 0; }
+        @keyframes tmScrollL {
+            from { transform: translateX(0); }
+            to   { transform: translateX(calc(-50% - 10px)); }
+        }
+        @keyframes tmScrollR {
+            from { transform: translateX(calc(-50% - 10px)); }
+            to   { transform: translateX(0); }
+        }
+        .tm-row:hover .tm-track { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) {
+            .tm-track { animation: none; }
+        }
     </style>
 </head>
 <body>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <!-- ═══════════════════════════════════════════════
      1. NAVIGATION
@@ -1257,7 +1421,7 @@
             Just a predictable pipeline of qualified homeowners calling your number.
         </p>
         <div class="hero-btns">
-            <a href="#" class="btn-primary" onclick="openSurveyModal(event)">Apply for a Free Strategy Call</a>
+            <a href="#" class="btn-primary magnetic" onclick="openSurveyModal(event)">Apply for a Free Strategy Call</a>
             <a href="#results" class="btn-ghost">See Real Results</a>
         </div>
         <p class="hero-note">Free 30-minute call. No obligation. We'll tell you exactly what we'd do for your market.</p>
@@ -1288,25 +1452,52 @@
 
 
 <!-- ═══════════════════════════════════════════════
+     3a. TRUST MARQUEE
+════════════════════════════════════════════════ -->
+<div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+        <!-- Group A -->
+        <span class="marquee-item"><span class="dot"></span>Exclusive Calls — Never Shared</span>
+        <span class="marquee-item"><span class="dot"></span>100-Day Growth Sprint</span>
+        <span class="marquee-item"><span class="dot"></span>HVAC · Roofing · Plumbing · Electrical</span>
+        <span class="marquee-item"><span class="dot"></span>Decking · Landscaping · Painting</span>
+        <span class="marquee-item"><span class="dot"></span>$2K Cash + Full Refund Guarantee</span>
+        <span class="marquee-item"><span class="dot"></span>No Long-Term Contracts</span>
+        <span class="marquee-item"><span class="dot"></span>Pool &amp; Spa · Windows · Concrete</span>
+        <span class="marquee-item"><span class="dot"></span>Contractor-Owned. Contractor-Run.</span>
+        <!-- Group A duplicated for seamless loop -->
+        <span class="marquee-item"><span class="dot"></span>Exclusive Calls — Never Shared</span>
+        <span class="marquee-item"><span class="dot"></span>100-Day Growth Sprint</span>
+        <span class="marquee-item"><span class="dot"></span>HVAC · Roofing · Plumbing · Electrical</span>
+        <span class="marquee-item"><span class="dot"></span>Decking · Landscaping · Painting</span>
+        <span class="marquee-item"><span class="dot"></span>$2K Cash + Full Refund Guarantee</span>
+        <span class="marquee-item"><span class="dot"></span>No Long-Term Contracts</span>
+        <span class="marquee-item"><span class="dot"></span>Pool &amp; Spa · Windows · Concrete</span>
+        <span class="marquee-item"><span class="dot"></span>Contractor-Owned. Contractor-Run.</span>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
      3b. PROOF STRIP
 ════════════════════════════════════════════════ -->
 <div style="background:#fff;border-top:1px solid var(--pebble);border-bottom:1px solid var(--pebble);padding:40px 24px;">
     <div class="container">
         <div class="proof-strip-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
             <div>
-                <div style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">47</div>
+                <div class="stat-counter" data-target="47" style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;letter-spacing:-0.035em;">47</div>
                 <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Booked Calls — Month One</div>
             </div>
             <div>
-                <div style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">$18</div>
+                <div class="stat-counter" data-target="18" data-prefix="$" style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;letter-spacing:-0.035em;">$18</div>
                 <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Average Cost Per Lead</div>
             </div>
             <div>
-                <div style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">30</div>
+                <div class="stat-counter" data-target="30" style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;letter-spacing:-0.035em;">30</div>
                 <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Days to First Results</div>
             </div>
             <div>
-                <div style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;">100%</div>
+                <div class="stat-counter" data-target="100" data-suffix="%" style="font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--charcoal);line-height:1;letter-spacing:-0.035em;">100%</div>
                 <div style="font-size:13px;color:var(--ash);margin-top:6px;font-weight:600;">Exclusive — Never Shared</div>
             </div>
         </div>
@@ -1328,7 +1519,7 @@
             funneled into a page built for one job — getting them to call <em>you</em>.
             Every lead is exclusive. Every call is tracked. No guesswork, no shared lists.
         </p>
-        <a href="#" class="btn-primary" onclick="openSurveyModal(event)">See How It Works for Your Trade →</a>
+        <a href="#" class="btn-primary magnetic" onclick="openSurveyModal(event)">See How It Works for Your Trade →</a>
     </div>
 </section>
 
@@ -1344,32 +1535,32 @@
             <p>We don't hand you a tool and wish you luck. We build the whole system and run it for you.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card lift">
                 <div class="service-icon">🎯</div>
                 <h3>Market Targeting</h3>
                 <p>We identify who's ready to hire in your zip codes — by income, homeownership, and intent signals. Your ads only reach people who can actually write a check.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card lift">
                 <div class="service-icon">📸</div>
                 <h3>Ad Creative &amp; Copy</h3>
                 <p>Ads that stop the scroll and qualify the prospect before they ever click. We write them, design them, and test them until the numbers move.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card lift">
                 <div class="service-icon">🏁</div>
                 <h3>High-Converting Landing Pages</h3>
                 <p>Custom pages built for one goal: get the homeowner to book or call. No generic templates, no distraction — just a clear path to your calendar.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card lift">
                 <div class="service-icon">⚙️</div>
                 <h3>CRM &amp; Automation</h3>
                 <p>Every lead gets followed up with automatically — SMS, email, and voicemail drops. Nobody falls through the cracks while you're on a job.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card lift">
                 <div class="service-icon">📞</div>
                 <h3>Appointment Setting</h3>
                 <p>We handle outbound follow-up on warm leads so you're only picking up for confirmed, qualified conversations — not cold calls you didn't ask for.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card lift">
                 <div class="service-icon">📊</div>
                 <h3>Pipeline Reporting</h3>
                 <p>You see exactly what's happening — calls booked, show rates, cost per lead. Real numbers. No impressions, no vanity metrics, no "trust us."</p>
@@ -1450,7 +1641,7 @@
 
         <!-- ROW 1 -->
         <div class="results-video-grid">
-            <div class="result-video-card reveal">
+            <div class="result-video-card reveal lift">
                 <div class="yt-embed" data-vid="djsZ_YNn7wY">
                     <img src="https://img.youtube.com/vi/djsZ_YNn7wY/maxresdefault.jpg" alt="Contractor closed $105,000 in jobs from $1,000 in ads — Week 1" loading="lazy">
                     <div class="yt-play-btn"></div>
@@ -1460,7 +1651,7 @@
                     <div class="rv-title">$1,000 ad spend → $105k in signed jobs within the first 7 days of launching</div>
                 </div>
             </div>
-            <div class="result-video-card reveal">
+            <div class="result-video-card reveal lift">
                 <div class="yt-embed" data-vid="NV836FEEIcU">
                     <img src="https://img.youtube.com/vi/NV836FEEIcU/maxresdefault.jpg" alt="$12,000 in ads produced $225,000 in profit" loading="lazy">
                     <div class="yt-play-btn"></div>
@@ -1482,7 +1673,7 @@
 
         <!-- ROW 2 -->
         <div class="results-video-grid">
-            <div class="result-video-card reveal">
+            <div class="result-video-card reveal lift">
                 <div class="yt-embed" data-vid="vxqYn1E86LA">
                     <img src="https://img.youtube.com/vi/vxqYn1E86LA/maxresdefault.jpg" alt="52 appointments in the first 10 days for a home service contractor" loading="lazy">
                     <div class="yt-play-btn"></div>
@@ -1492,7 +1683,7 @@
                     <div class="rv-title">Home service contractor — fully booked calendar from a standing start</div>
                 </div>
             </div>
-            <div class="result-video-card reveal">
+            <div class="result-video-card reveal lift">
                 <div class="yt-embed" data-vid="_djYzxfITps">
                     <img src="https://img.youtube.com/vi/_djYzxfITps/maxresdefault.jpg" alt="Deck builder closed $1.2M during slow season January and February" loading="lazy">
                     <div class="yt-play-btn"></div>
@@ -1514,7 +1705,7 @@
 
         <!-- ROW 3 -->
         <div class="results-video-grid">
-            <div class="result-video-card reveal">
+            <div class="result-video-card reveal lift">
                 <div class="yt-embed" data-vid="kK3oXzLb4-0">
                     <img src="https://img.youtube.com/vi/kK3oXzLb4-0/maxresdefault.jpg" alt="Contractor gets 65 to 70 appointments per week with Meta Ads" loading="lazy">
                     <div class="yt-play-btn"></div>
@@ -1524,7 +1715,7 @@
                     <div class="rv-title">Scaled to a consistent 65–70 qualified appointments every single week using Meta Ads</div>
                 </div>
             </div>
-            <div class="result-video-card reveal">
+            <div class="result-video-card reveal lift">
                 <div class="yt-embed" data-vid="ERQ84Dgz-Ow">
                     <img src="https://img.youtube.com/vi/ERQ84Dgz-Ow/maxresdefault.jpg" alt="$200,000 in new jobs generated in 21 days, live 2026 results" loading="lazy">
                     <div class="yt-play-btn"></div>
@@ -1559,7 +1750,7 @@
         </div>
 
         <div class="results-cta reveal">
-            <a href="#" class="btn-primary" onclick="openSurveyModal(event)">Book a Free Strategy Call</a>
+            <a href="#" class="btn-primary magnetic" onclick="openSurveyModal(event)">Book a Free Strategy Call</a>
             <p style="margin-top:14px;font-size:13px;color:var(--ash);">Free 30-minute call. No obligation. We'll show you exactly what this looks like for your market.</p>
         </div>
     </div>
@@ -1589,7 +1780,7 @@
             <p>
                 More Job Calls exists because we got tired of watching contractors with great work and empty calendars get taken by people who didn't know the difference between a roofing lead and a roofing job.
             </p>
-            <a href="#" class="btn-primary" style="margin-top:8px;" onclick="openSurveyModal(event)">Let's Fix That — Book a Strategy Call</a>
+            <a href="#" class="btn-primary magnetic" style="margin-top:8px;" onclick="openSurveyModal(event)">Let's Fix That — Book a Strategy Call</a>
         </div>
     </div>
 </section>
@@ -1724,79 +1915,31 @@
             <span class="section-label" style="color:var(--gold)">What Contractors Say</span>
             <h2 class="section-heading">In Their Own Words</h2>
         </div>
-        <div class="t-wrapper" id="tWrapper">
-            <div class="t-track" id="tTrack">
-                <div class="t-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="t-quote">"I told them straight up: I've been burned before, I'm skeptical, and I need to see something real in 30 days or I'm done. They hit the number in three weeks. I've referred two other guys since."</p>
-                    <div class="t-author">
-                        <div class="t-avatar">JW</div>
-                        <div>
-                            <div class="t-name">Justin W.</div>
-                            <div class="t-trade">Deck Builder · Houston, TX</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p>
-                    <div class="t-author">
-                        <div class="t-avatar">CP</div>
-                        <div>
-                            <div class="t-name">Chip P.</div>
-                            <div class="t-trade">HVAC · Memphis, TN</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="t-quote">"I'd thrown $60K at agencies over four years. Nothing. This is the first time I've been able to point to a campaign and say that's exactly where that job came from."</p>
-                    <div class="t-author">
-                        <div class="t-avatar">SB</div>
-                        <div>
-                            <div class="t-name">Scott B.</div>
-                            <div class="t-trade">Roofing · Denver, CO</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other plumbers to the same homeowner. When they call me, they called me — not the list."</p>
-                    <div class="t-author">
-                        <div class="t-avatar">FG</div>
-                        <div>
-                            <div class="t-name">Frank G.</div>
-                            <div class="t-trade">Plumbing · Orlando, FL</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p>
-                    <div class="t-author">
-                        <div class="t-avatar">AD</div>
-                        <div>
-                            <div class="t-name">Andrew D.</div>
-                            <div class="t-trade">Electrical · Phoenix, AZ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="t-quote">"I was the skeptic. My wife talked me into the call. Three months later she's the one asking why I didn't do this sooner."</p>
-                    <div class="t-author">
-                        <div class="t-avatar">KH</div>
-                        <div>
-                            <div class="t-name">Kevin H.</div>
-                            <div class="t-trade">Landscaping · Austin, TX</div>
-                        </div>
-                    </div>
+        <div class="testimonials-marquee">
+            <!-- Row 1 → scrolls left -->
+            <div class="tm-row">
+                <div class="tm-track">
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I told them straight up: I've been burned before, I'm skeptical, and I need to see something real in 30 days or I'm done. They hit the number in three weeks. I've referred two other guys since."</p><div class="t-author"><div class="t-avatar">JW</div><div><div class="t-name">Justin W.</div><div class="t-trade">Deck Builder · Houston, TX</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p><div class="t-author"><div class="t-avatar">CP</div><div><div class="t-name">Chip P.</div><div class="t-trade">HVAC · Memphis, TN</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I'd thrown $60K at agencies over four years. Nothing. This is the first time I've been able to point to a campaign and say that's exactly where that job came from."</p><div class="t-author"><div class="t-avatar">SB</div><div><div class="t-name">Scott B.</div><div class="t-trade">Roofing · Denver, CO</div></div></div></div>
+                    <!-- duplicate set for seamless loop -->
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I told them straight up: I've been burned before, I'm skeptical, and I need to see something real in 30 days or I'm done. They hit the number in three weeks. I've referred two other guys since."</p><div class="t-author"><div class="t-avatar">JW</div><div><div class="t-name">Justin W.</div><div class="t-trade">Deck Builder · Houston, TX</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p><div class="t-author"><div class="t-avatar">CP</div><div><div class="t-name">Chip P.</div><div class="t-trade">HVAC · Memphis, TN</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I'd thrown $60K at agencies over four years. Nothing. This is the first time I've been able to point to a campaign and say that's exactly where that job came from."</p><div class="t-author"><div class="t-avatar">SB</div><div><div class="t-name">Scott B.</div><div class="t-trade">Roofing · Denver, CO</div></div></div></div>
                 </div>
             </div>
-        </div>
-        <div class="t-nav">
-            <button class="t-btn" id="tPrev">‹</button>
-            <button class="t-btn" id="tNext">›</button>
+            <!-- Row 2 → scrolls right (reverse) -->
+            <div class="tm-row reverse">
+                <div class="tm-track">
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other plumbers to the same homeowner. When they call me, they called me — not the list."</p><div class="t-author"><div class="t-avatar">FG</div><div><div class="t-name">Frank G.</div><div class="t-trade">Plumbing · Orlando, FL</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p><div class="t-author"><div class="t-avatar">AD</div><div><div class="t-name">Andrew D.</div><div class="t-trade">Electrical · Phoenix, AZ</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I was the skeptic. My wife talked me into the call. Three months later she's the one asking why I didn't do this sooner."</p><div class="t-author"><div class="t-avatar">KH</div><div><div class="t-name">Kevin H.</div><div class="t-trade">Landscaping · Austin, TX</div></div></div></div>
+                    <!-- duplicate set for seamless loop -->
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other plumbers to the same homeowner. When they call me, they called me — not the list."</p><div class="t-author"><div class="t-avatar">FG</div><div><div class="t-name">Frank G.</div><div class="t-trade">Plumbing · Orlando, FL</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p><div class="t-author"><div class="t-avatar">AD</div><div><div class="t-name">Andrew D.</div><div class="t-trade">Electrical · Phoenix, AZ</div></div></div></div>
+                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I was the skeptic. My wife talked me into the call. Three months later she's the one asking why I didn't do this sooner."</p><div class="t-author"><div class="t-avatar">KH</div><div><div class="t-name">Kevin H.</div><div class="t-trade">Landscaping · Austin, TX</div></div></div></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -2000,7 +2143,7 @@
             We only take on contractors whose market has room to grow. The strategy call is free
             and takes 30 minutes. We'll tell you exactly what we'd do.
         </p>
-        <a href="#" class="btn-white" onclick="openSurveyModal(event)">Book Your Free Strategy Call</a>
+        <a href="#" class="btn-white magnetic" onclick="openSurveyModal(event)">Book Your Free Strategy Call</a>
     </div>
 </section>
 
@@ -2137,7 +2280,7 @@
                     <p>
                         <strong>If you want to know what I can do for your trade and your market, book a call. I'll tell you straight what I see.</strong>
                     </p>
-                    <a href="#" class="btn-primary" style="margin-top:10px;" onclick="openSurveyModal(event)">Book a Strategy Call</a>
+                    <a href="#" class="btn-primary magnetic" style="margin-top:10px;" onclick="openSurveyModal(event)">Book a Strategy Call</a>
                 </div>
             </div>
         </div>
@@ -2543,35 +2686,79 @@ document.addEventListener('keydown', function(e) {
 
 
 <script>
-    // ── Testimonial Carousel ────────────────────────────────
-    const track   = document.getElementById('tTrack');
-    const prevBtn = document.getElementById('tPrev');
-    const nextBtn = document.getElementById('tNext');
-    let idx = 0;
+    // ═══════════════════════════════════════════════════
+    // UI POLISH — runtime
+    // ═══════════════════════════════════════════════════
+    (function() {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function cardWidth() {
-        const card = track.querySelector('.t-card');
-        return card ? card.offsetWidth + 22 : 382; // 360 + gap
-    }
+        // ── Phase 2: Scroll progress bar ─────────────────
+        const bar = document.getElementById('scrollProgress');
+        if (bar) {
+            let ticking = false;
+            function updateBar() {
+                const h = document.documentElement;
+                const max = h.scrollHeight - h.clientHeight;
+                const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+                bar.style.width = pct + '%';
+                ticking = false;
+            }
+            window.addEventListener('scroll', () => {
+                if (!ticking) { requestAnimationFrame(updateBar); ticking = true; }
+            }, { passive: true });
+            updateBar();
+        }
 
-    function visibleCount() {
-        const w = window.innerWidth;
-        if (w >= 1160) return 3;
-        if (w >= 760)  return 2;
-        return 1;
-    }
+        // ── Phase 4: Stat counters ───────────────────────
+        const counters = document.querySelectorAll('.stat-counter');
+        if (counters.length && !prefersReducedMotion) {
+            const animate = (el) => {
+                const target = parseFloat(el.dataset.target);
+                const prefix = el.dataset.prefix || '';
+                const suffix = el.dataset.suffix || '';
+                const duration = 1400;
+                const start = performance.now();
+                const startVal = 0;
+                function tick(now) {
+                    const t = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+                    const val = Math.round(startVal + (target - startVal) * eased);
+                    el.textContent = prefix + val + suffix;
+                    if (t < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            };
+            const cObs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { animate(e.target); cObs.unobserve(e.target); }
+                });
+            }, { threshold: 0.4 });
+            counters.forEach(c => cObs.observe(c));
+        }
 
-    function maxIdx() {
-        return Math.max(0, track.querySelectorAll('.t-card').length - visibleCount());
-    }
-
-    function slide() {
-        track.style.transform = `translateX(-${idx * cardWidth()}px)`;
-    }
-
-    nextBtn.addEventListener('click', () => { idx = Math.min(idx + 1, maxIdx()); slide(); });
-    prevBtn.addEventListener('click', () => { idx = Math.max(idx - 1, 0); slide(); });
-    window.addEventListener('resize', () => { idx = 0; slide(); });
+        // ── Phase 5: Magnetic CTAs ────────────────────────
+        const magnets = document.querySelectorAll('.magnetic');
+        if (magnets.length && !prefersReducedMotion && window.matchMedia('(pointer:fine)').matches) {
+            magnets.forEach(btn => {
+                let raf;
+                btn.addEventListener('mousemove', (e) => {
+                    const r = btn.getBoundingClientRect();
+                    const x = e.clientX - r.left - r.width / 2;
+                    const y = e.clientY - r.top - r.height / 2;
+                    const tx = Math.max(-6, Math.min(6, x * 0.18));
+                    const ty = Math.max(-4, Math.min(4, y * 0.22));
+                    cancelAnimationFrame(raf);
+                    raf = requestAnimationFrame(() => {
+                        btn.style.transform = `translate(${tx}px, ${ty}px)`;
+                    });
+                });
+                btn.addEventListener('mouseleave', () => {
+                    cancelAnimationFrame(raf);
+                    btn.style.transform = '';
+                });
+            });
+        }
+    })();
 
 
     // ── Scroll Reveal ──────────────────────────────────────
