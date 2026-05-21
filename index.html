@@ -1094,8 +1094,66 @@
             border-radius: 12px;
             overflow: hidden;
             max-width: 360px;
+            cursor: zoom-in;
         }
-        .win-ss-card img { width: 100%; display: block; }
+        .win-ss-card img { width: 100%; display: block; cursor: zoom-in; transition: transform .35s ease; }
+        .win-ss-card:hover img { transform: scale(1.015); }
+
+        /* ── Image lightbox ───────────────────────────── */
+        .img-lightbox {
+            position: fixed; inset: 0; z-index: 10001;
+            background: rgba(8,8,8,.92);
+            display: none;
+            align-items: center; justify-content: center;
+            padding: 32px 24px;
+            cursor: zoom-out;
+            opacity: 0; transition: opacity .25s ease;
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+        }
+        .img-lightbox.is-open { display: flex; opacity: 1; }
+        .img-lightbox-stage {
+            max-width: min(1400px, 100%);
+            max-height: 100%;
+            display: flex; flex-direction: column; align-items: center; gap: 14px;
+            cursor: default;
+        }
+        .img-lightbox img {
+            max-width: 100%;
+            max-height: calc(100vh - 130px);
+            width: auto; height: auto;
+            border-radius: 8px;
+            box-shadow: 0 30px 80px rgba(0,0,0,.7), 0 0 0 1px rgba(199,150,63,.15);
+            transform: scale(.96);
+            transition: transform .25s cubic-bezier(.2,.7,.2,1);
+            cursor: zoom-out;
+        }
+        .img-lightbox.is-open img { transform: scale(1); }
+        .img-lightbox-caption {
+            color: rgba(245,242,235,.7);
+            font-size: 13px; font-weight: 500;
+            text-align: center; max-width: 720px;
+            letter-spacing: .02em;
+        }
+        .img-lightbox-close {
+            position: absolute; top: 18px; right: 22px;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; line-height: 1;
+            cursor: pointer;
+            transition: background .2s, border-color .2s;
+        }
+        .img-lightbox-close:hover {
+            background: rgba(199,150,63,.2);
+            border-color: rgba(199,150,63,.5);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .img-lightbox, .img-lightbox img { transition: none; }
+        }
         .win-ss-label {
             padding: 9px 14px 11px;
             font-family: 'Inter', sans-serif;
@@ -1740,6 +1798,15 @@
 
 <!-- Scroll progress bar -->
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- Image lightbox (zoom on click) -->
+<div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Expanded image">
+    <button class="img-lightbox-close" id="imgLightboxClose" aria-label="Close">&#x2715;</button>
+    <div class="img-lightbox-stage" onclick="event.stopPropagation()">
+        <img id="imgLightboxImg" src="" alt="">
+        <div class="img-lightbox-caption" id="imgLightboxCaption"></div>
+    </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════
      1. NAVIGATION
@@ -3256,6 +3323,48 @@ document.addEventListener('keydown', function(e) {
                 });
             }, { threshold: 0.4 });
             counters.forEach(c => cObs.observe(c));
+        }
+
+        // ── Image lightbox (click any win screenshot to zoom) ──
+        const lb       = document.getElementById('imgLightbox');
+        const lbImg    = document.getElementById('imgLightboxImg');
+        const lbCap    = document.getElementById('imgLightboxCaption');
+        const lbClose  = document.getElementById('imgLightboxClose');
+        if (lb && lbImg) {
+            const openLB = (src, alt, caption) => {
+                lbImg.src = src;
+                lbImg.alt = alt || '';
+                lbCap.textContent = caption || '';
+                lb.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            };
+            const closeLB = () => {
+                lb.classList.remove('is-open');
+                document.body.style.overflow = '';
+                // small delay before clearing src so the fade-out plays
+                setTimeout(() => { if (!lb.classList.contains('is-open')) lbImg.src = ''; }, 260);
+            };
+
+            // Wire every win screenshot
+            document.querySelectorAll('.win-ss-card').forEach(card => {
+                const img = card.querySelector('img');
+                if (!img) return;
+                img.style.cursor = 'zoom-in';
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const labelEl = card.querySelector('.win-ss-label');
+                    const caption = labelEl ? labelEl.textContent.trim() : '';
+                    openLB(img.currentSrc || img.src, img.alt, caption);
+                });
+            });
+
+            // Close interactions
+            lb.addEventListener('click', closeLB); // click backdrop
+            lbClose.addEventListener('click', (e) => { e.stopPropagation(); closeLB(); });
+            lbImg.addEventListener('click', (e) => { e.stopPropagation(); closeLB(); });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLB();
+            });
         }
 
         // ── Phase 5: Magnetic CTAs ────────────────────────
