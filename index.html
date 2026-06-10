@@ -23,7 +23,7 @@
                 "name": "Do you guarantee results for contractors?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. We guarantee 100 exclusive appointment opportunities in the first 100 days. If we don't hit that number, we refund every cent of your management fee and wire you $2,000 cash for wasting your time — then work for free until we reach the goal."
+                    "text": "Yes. We guarantee 100 exclusive appointment opportunities in the first 100 days. If we don't hit that number, we refund every cent of your management fee and wire you $2,000 cash for wasting your time."
                 }
             },
             {
@@ -80,17 +80,48 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "More Job Calls",
-        "url": "https://morejobcalls.com",
-        "description": "Done-for-you exclusive lead generation for outdoor living &amp; exterior contractors. Decking, patio covers, siding, roofing, windows, landscaping, pools, fencing, and louvered pergolas. 100 exclusive appointments in 100 days or $2,000 cash back.",
-        "founder": {
-            "@type": "Person",
-            "name": "Spencer Wright",
-            "sameAs": "https://www.youtube.com/@spencerwrightofficial"
-        },
-        "areaServed": "North America",
-        "serviceType": ["Contractor Lead Generation", "Meta Ads Management", "Home Service Marketing"]
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://morejobcalls.com/#organization",
+                "name": "More Job Calls",
+                "alternateName": ["MoreJobCalls.com", "MJC", "SeasonProof Growth LLC"],
+                "url": "https://morejobcalls.com",
+                "logo": "https://morejobcalls.com/apple-touch-icon.png",
+                "description": "More Job Calls builds done-for-you lead generation systems for home service contractors — deck builders, roofers, fencing, siding, window, pool, landscaping, patio cover, and pergola companies. Exclusive appointments, one contractor per market, backed by a written guarantee: 100 exclusive sales appointment opportunities in 100 days or a full management-fee refund plus $2,000 cash.",
+                "slogan": "Exclusive job calls. No shared leads. One contractor per market.",
+                "founder": { "@id": "https://morejobcalls.com/#spencer" },
+                "areaServed": { "@type": "Country", "name": "United States" },
+                "knowsAbout": [
+                    "Contractor lead generation",
+                    "Meta ads for contractors",
+                    "Facebook ads for home services",
+                    "Deck builder marketing",
+                    "Roofing lead generation",
+                    "Fence company marketing",
+                    "Window replacement leads",
+                    "Exclusive contractor appointments",
+                    "Home service marketing"
+                ],
+                "serviceType": ["Contractor Lead Generation", "Meta Ads Management", "Home Service Marketing", "Appointment Setting"],
+                "sameAs": [
+                    "https://www.youtube.com/@spencerwrightofficial"
+                ]
+            },
+            {
+                "@type": "Person",
+                "@id": "https://morejobcalls.com/#spencer",
+                "name": "Spencer Wright",
+                "jobTitle": "Founder",
+                "worksFor": { "@id": "https://morejobcalls.com/#organization" },
+                "image": "https://morejobcalls.com/founder-photo.png",
+                "description": "Spencer Wright is the founder of More Job Calls. He builds exclusive lead generation systems for home service contractors and publishes weekly campaign breakdowns with real ad-account numbers on YouTube.",
+                "knowsAbout": ["Contractor marketing", "Meta advertising", "Lead generation for home services"],
+                "sameAs": [
+                    "https://www.youtube.com/@spencerwrightofficial"
+                ]
+            }
+        ]
     }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -1817,9 +1848,10 @@
         <ul class="nav-links">
             <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#results">Results</a></li>
-            <li><a href="wins.html">YouTube</a></li>
+            <li><a href="/trades/">Trades</a></li>
+            <li><a href="/learn/">Learn</a></li>
             <li><a href="#training">Free Training</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="/about/">About</a></li>
             <li><a href="#" class="nav-cta" onclick="openSurveyModal(event)">Book a Strategy Call</a></li>
         </ul>
         <div class="hamburger" id="hamburger">
@@ -2898,34 +2930,37 @@
                 <p>Done-for-you lead systems for home service contractors. Exclusive calls. No shared leads. Results in 30 days or we fix it.</p>
             </div>
             <div class="footer-col">
-                <h4>Services</h4>
+                <h4>Learn</h4>
                 <ul>
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Paid Ads</a></li>
-                    <li><a href="#">Landing Pages</a></li>
-                    <li><a href="#">CRM &amp; Automation</a></li>
-                    <li><a href="#">Appointment Setting</a></li>
+                    <li><a href="/learn/">All Guides</a></li>
+                    <li><a href="/learn/how-contractors-get-leads-2026/">Get Leads in 2026</a></li>
+                    <li><a href="/learn/angi-homeadvisor-alternatives-for-contractors/">Angi Alternatives</a></li>
+                    <li><a href="/learn/google-ads-vs-meta-ads-for-contractors/">Google vs Meta Ads</a></li>
+                    <li><a href="/learn/why-contractor-leads-dont-answer/">Fix Lead Follow-Up</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Results</a></li>
-                    <li><a href="#">Free Training</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="#results">Results</a></li>
+                    <li><a href="#training">Free Training</a></li>
+                    <li><a href="/wins.html">Client Wins</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Trades We Serve</h4>
                 <ul>
-                    <li><a href="#">Decking</a></li>
-                    <li><a href="#">Patio Covers</a></li>
-                    <li><a href="#">Siding</a></li>
-                    <li><a href="#">Roofing</a></li>
-                    <li><a href="#">Windows</a></li>
-                    <li><a href="#">Fencing</a></li>
-                    <li><a href="#">Landscaping &amp; Pools</a></li>
+                    <li><a href="/trades/deck-builder-marketing/">Decking</a></li>
+                    <li><a href="/trades/patio-cover-marketing/">Patio Covers</a></li>
+                    <li><a href="/trades/siding-leads/">Siding</a></li>
+                    <li><a href="/trades/roofing-leads/">Roofing</a></li>
+                    <li><a href="/trades/window-replacement-leads/">Windows</a></li>
+                    <li><a href="/trades/fence-company-marketing/">Fencing</a></li>
+                    <li><a href="/trades/landscaping-leads/">Landscaping</a></li>
+                    <li><a href="/trades/pool-builder-marketing/">Pools</a></li>
+                    <li><a href="/trades/pergola-marketing/">Pergolas</a></li>
+                    <li><a href="/trades/">All Trades →</a></li>
                 </ul>
             </div>
         </div>
@@ -2936,9 +2971,7 @@
                 &nbsp;·&nbsp; <a href="#">Terms of Service</a>
             </div>
             <div class="footer-social">
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-                <a href="#">Facebook</a>
+                <a href="https://www.youtube.com/@spencerwrightofficial" rel="me">YouTube</a>
             </div>
         </div>
     </div>

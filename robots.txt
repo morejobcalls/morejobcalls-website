@@ -1,3 +1,6 @@
+# morejobcalls.com — robots.txt
+# All crawlers welcome, including AI/LLM crawlers (we want to be cited).
+
 User-agent: *
 Allow: /
 Disallow: /index-v1-backup.html
@@ -5,5 +8,39 @@ Disallow: /index-v2.html
 Disallow: /brand-guidelines.html
 Disallow: /temporary screenshots/
 Disallow: /node_modules/
+
+# ── AI / LLM crawlers — explicitly allowed ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
 
 Sitemap: https://morejobcalls.com/sitemap.xml
