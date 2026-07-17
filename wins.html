@@ -323,6 +323,31 @@
             .video-section { padding: 48px 0 60px; }
             .seo-callout { padding: 28px 22px; }
         }
+    
+        /* ── RAVI-STYLE CASE-STUDY CARDS ── */
+        .cs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+        @media (max-width: 900px) { .cs-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .cs-grid { grid-template-columns: 1fr; } }
+        .cs-card { background: var(--white); border: 1px solid var(--pebble); border-radius: 16px;
+            padding: 30px 22px 22px; text-align: center; display: flex; flex-direction: column;
+            align-items: center; gap: 5px; box-shadow: 0 2px 10px rgba(45,45,45,.05);
+            transition: transform .2s, box-shadow .2s; }
+        .cs-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(45,45,45,.10); }
+        .cs-avatar { width: 62px; height: 62px; border-radius: 50%; background: var(--gray-100);
+            border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center;
+            font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 19px; color: var(--charcoal);
+            margin-bottom: 6px; }
+        .cs-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16.5px; color: var(--charcoal); }
+        .cs-niche { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ash); font-weight: 600; }
+        .cs-transform { display: flex; align-items: baseline; gap: 8px; margin-top: 13px; flex-wrap: wrap; justify-content: center; }
+        .cs-before, .cs-arrow { color: var(--ash); font-size: 14.5px; }
+        .cs-after { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 23px; color: var(--gold-dark); }
+        .cs-pill { background: var(--gray-100); border-radius: 999px; padding: 4px 14px; font-size: 12px;
+            font-weight: 600; color: var(--charcoal); margin-top: 8px; }
+        .cs-links { display: flex; gap: 16px; margin-top: 15px; font-size: 13px; font-weight: 600; flex-wrap: wrap; justify-content: center; }
+        .cs-links a { color: var(--charcoal); border-bottom: 1px solid var(--pebble); padding-bottom: 1px; }
+        .cs-links a:hover { color: var(--gold-dark); border-color: var(--gold-dark); }
+
     </style>
 </head>
 <body>
@@ -364,476 +389,504 @@
 <div class="container">
 
     <div class="section-title-row">
-        <h2>Case Studies — Real Client Results</h2>
-        <p>Every video below is a documented campaign with a real contractor. Numbers are verified from live ad accounts.</p>
+        <h2>Client Case Studies — Real Results, Real Contractors</h2>
+        <p>Every card below is a documented campaign with a real client, told in their own words on a recorded call. Numbers are verified from live ad accounts and signed contracts.</p>
     </div>
 
-    <div class="video-grid">
-
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+    <div class="cs-grid">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
             <meta itemprop="name" content="$300,000+ in Deck Jobs in 17 Days (On $1,657 of Ad Spend)">
-            <meta itemprop="description" content="A deck builder who had spent $250K on leads in his career did $196,383 in week one and $300,000+ in signed contracts in 17 days on under $1,700 of ad spend.">
+            <meta itemprop="description" content="Deck builder signs $300,000+ in contracts in 17 days on under $1,700 of ad spend, closing 80%+ of appointments.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/TvFv_EIM-MI/maxresdefault.jpg">
             <meta itemprop="uploadDate" content="2026-07-02">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/TvFv_EIM-MI">
-            <a class="va-thumb" href="https://youtu.be/TvFv_EIM-MI" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: $300,000 in 17 days">
-                <img src="https://img.youtube.com/vi/TvFv_EIM-MI/maxresdefault.jpg" alt="Deck builder signs $300,000 in contracts in 17 days on $1,657 of ad spend" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">$300,000+</span> Signed in 17 Days</div>
-                <div class="va-title">$300,000+ in Deck Jobs in 17 Days (On $1,657 of Ad Spend)</div>
-                <p class="va-desc">He'd spent a quarter million dollars on leads across Angie, HomeAdvisor, and agency after agency. Then: $196,383 in his first week, $300K+ signed in 17 days on under $1,700 of ads, closing 80-something percent and booked out 14-16 weeks. On the record, in his own words.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/TvFv_EIM-MI" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">B</div>
+            <div class="cs-name">Billy · Trinity Decks</div>
+            <div class="cs-niche">Deck Builder</div>
+            <div class="cs-transform"><span class="cs-before">$1,657 in ads</span><span class="cs-arrow">→</span><span class="cs-after">$300K+ signed</span></div>
+            <div class="cs-pill">17 days</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/TvFv_EIM-MI" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+                <a href="/learn/deck-builder-300k-in-17-days/">Full breakdown →</a>
             </div>
         </article>
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="How I Got a $500K Month on $100/Day in Ads">
-            <meta itemprop="description" content="A Northern Virginia deck company had its biggest month in almost 15 years of business — over half a million in sales — on roughly $100 a day in ad spend.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/-q18xO92akA/maxresdefault.jpg">
-            <meta itemprop="uploadDate" content="2026-05-02">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/-q18xO92akA">
-            <a class="va-thumb" href="https://youtu.be/-q18xO92akA" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: $500K month on $100/day">
-                <img src="https://img.youtube.com/vi/-q18xO92akA/maxresdefault.jpg" alt="Deck company records biggest month in 15 years, over $500,000 in sales" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">$500K Month</span> — Biggest in 15 Years</div>
-                <div class="va-title">How I Got a $500K Month on $100/Day in Ads</div>
-                <p class="va-desc">Fifteen years in business, then the record fell: "We did more business than we have ever done... over a half a million in sales." Booked appointments — not lead lists — started arriving within the first week of ads at about $100 a day.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/-q18xO92akA" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
             <meta itemprop="name" content="He Thought It Was a Scam. Then He Sold $50,000 in Decks Off His First 7 Leads.">
-            <meta itemprop="description" content="A 16-year Corpus Christi deck and dock builder wrote contracts on 3 of his first 7 appointments — roughly $50,000 — after admitting he thought the whole thing was a scam.">
+            <meta itemprop="description" content="16-year Corpus Christi deck builder writes contracts on 3 of his first 7 appointments — roughly $50,000.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/woPfBuocx-M/maxresdefault.jpg">
             <meta itemprop="uploadDate" content="2026-07-16">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/woPfBuocx-M">
-            <a class="va-thumb" href="https://youtu.be/woPfBuocx-M" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: $50,000 from first 7 leads">
-                <img src="https://img.youtube.com/vi/woPfBuocx-M/maxresdefault.jpg" alt="Corpus Christi deck builder writes $50,000 in contracts from his first seven appointments" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">$50,000</span> From His First 7 Leads</div>
-                <div class="va-title">He Thought It Was a Scam. Then He Sold $50,000 in Decks Off His First 7 Leads.</div>
-                <p class="va-desc">A 16-year Corpus Christi builder signed thinking there was a real chance he was being scammed. Then he wrote contracts on 3 of his first 7 appointments — about $50,000 including a $16K pergola straight off one ad — and told the whole story on camera.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/woPfBuocx-M" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">B</div>
+            <div class="cs-name">Billy · Lone Star Home Improvement</div>
+            <div class="cs-niche">Deck &amp; Dock Builder · Corpus Christi</div>
+            <div class="cs-transform"><span class="cs-before">First 7 appointments</span><span class="cs-arrow">→</span><span class="cs-after">$50,000 signed</span></div>
+            <div class="cs-pill">First month</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/woPfBuocx-M" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+                <a href="/learn/deck-builder-50k-first-month/">Full breakdown →</a>
             </div>
         </article>
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="How I Got a $500K Month on $100/Day in Ads">
+            <meta itemprop="description" content="Northern Virginia deck company records its biggest month in almost 15 years — over half a million in sales.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/-q18xO92akA/maxresdefault.jpg">
+            <meta itemprop="uploadDate" content="2026-05-02">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/-q18xO92akA">
+            <div class="cs-avatar">J</div>
+            <div class="cs-name">Jason · ProDeck</div>
+            <div class="cs-niche">Deck Builder · N. Virginia</div>
+            <div class="cs-transform"><span class="cs-before">$100/day in ads</span><span class="cs-arrow">→</span><span class="cs-after">$500K month</span></div>
+            <div class="cs-pill">Biggest in 15 years</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/-q18xO92akA" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+                <a href="/learn/deck-builder-500k-month/">Full breakdown →</a>
+            </div>
+        </article>
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
             <meta itemprop="name" content="How I Doubled My Deck Business to $1M in 4 Months">
-            <meta itemprop="description" content="A Pennsylvania deck builder crossed $1 million top line for the first time in business, including $480,000 closed in a single 21-day stretch.">
+            <meta itemprop="description" content="Pennsylvania deck builder crosses $1 million top line for the first time, including $480,000 closed in 21 days.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/Xt4TVn4zP7s/maxresdefault.jpg">
             <meta itemprop="uploadDate" content="2026-05-02">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/Xt4TVn4zP7s">
-            <a class="va-thumb" href="https://youtu.be/Xt4TVn4zP7s" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: First $1M year">
-                <img src="https://img.youtube.com/vi/Xt4TVn4zP7s/maxresdefault.jpg" alt="Pennsylvania deck builder crosses one million dollars top line for the first time" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">First $1M Year</span> — $480K in 21 Days</div>
-                <div class="va-title">How I Doubled My Deck Business to $1M in 4 Months</div>
-                <p class="va-desc">"For the first time in business, I crossed over $1 million top line." Inside that run: $480,000 closed between March 10th and 31st, and crews booked until September — from a builder who gave the system two months to fail.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/Xt4TVn4zP7s" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">J</div>
+            <div class="cs-name">Jacob · Oasis Custom Decks</div>
+            <div class="cs-niche">Deck Builder · Pennsylvania</div>
+            <div class="cs-transform"><span class="cs-before">$500K business</span><span class="cs-arrow">→</span><span class="cs-after">$1M top line</span></div>
+            <div class="cs-pill">4 months · $480K in 21 days</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/Xt4TVn4zP7s" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+                <a href="/learn/deck-builder-1m-in-4-months/">Full breakdown →</a>
             </div>
         </article>
-
-        <!-- Case Study 1 -->
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="He Spent $1,000 on Ads. He Closed $105,000 in Jobs. (Contractor Ads - Week 1)">
-            <meta itemprop="description" content="A home service contractor invested $1,000 in Meta ads during week one and closed $105,000 in signed jobs. Full campaign breakdown.">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="He Spent $1,000 on Ads. He Closed $105,000 in Jobs.">
+            <meta itemprop="description" content="Colorado contractor closes $105,000 in new jobs from his first week of exclusive appointments on under $1,000 of ad spend.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/djsZ_YNn7wY/maxresdefault.jpg">
-            <meta itemprop="uploadDate" content="2025-01-01">
+            <meta itemprop="uploadDate" content="2026-03-26">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/djsZ_YNn7wY">
-            <a class="va-thumb" href="https://youtu.be/djsZ_YNn7wY" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: $1,000 → $105,000 in Week 1">
-                <img src="https://img.youtube.com/vi/djsZ_YNn7wY/maxresdefault.jpg" alt="Contractor closes $105,000 in jobs from $1,000 ad spend in week one" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">$105,000</span> Closed — Week 1</div>
-                <div class="va-title">He Spent $1,000 on Ads. He Closed $105,000 in Jobs.</div>
-                <p class="va-desc">A home service contractor with no prior ad experience invested $1,000 in a Meta campaign during week one of launch. By day seven, he had $105,000 in signed contracts. This video walks through the exact targeting, creative, and follow-up system that made it happen.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/djsZ_YNn7wY" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">R</div>
+            <div class="cs-name">Ricardo · Colorado</div>
+            <div class="cs-niche">Concrete &amp; Deck Contractor</div>
+            <div class="cs-transform"><span class="cs-before">$1,000 in ads</span><span class="cs-arrow">→</span><span class="cs-after">$105K closed</span></div>
+            <div class="cs-pill">First 7 days</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/djsZ_YNn7wY" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+                <a href="/learn/contractor-105k-from-1000-ads/">Full breakdown →</a>
             </div>
         </article>
-
-        <!-- Case Study 2 -->
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="He Spent $12,000 on Ads. He Made $225,000 PROFIT. (Contractor Ads)">
-            <meta itemprop="description" content="A contractor invested $12,000 in Meta ads and generated $225,000 in verifiable profit. Full ad account breakdown included.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/NV836FEEIcU/maxresdefault.jpg">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/NV836FEEIcU">
-            <a class="va-thumb" href="https://youtu.be/NV836FEEIcU" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: $12,000 → $225,000 profit">
-                <img src="https://img.youtube.com/vi/NV836FEEIcU/maxresdefault.jpg" alt="$12,000 ad investment produces $225,000 profit for home service contractor" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">$225,000</span> Profit from $12k Spend</div>
-                <div class="va-title">He Spent $12,000 on Ads. He Made $225,000 PROFIT.</div>
-                <p class="va-desc">$12,000 in ad spend turned into $225,000 in profit — not revenue, profit. This video breaks down the campaign structure, lead qualification process, and job-close rate that made the numbers work. Real ad account access shown on screen.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/NV836FEEIcU" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Case Study 3 -->
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="52 Appointments in First 10 Days (Home Service Contractor)">
-            <meta itemprop="description" content="Home service contractor generated 52 exclusive appointments in the first 10 days after launching a new ad campaign with More Job Calls.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/vxqYn1E86LA/maxresdefault.jpg">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/vxqYn1E86LA">
-            <a class="va-thumb" href="https://youtu.be/vxqYn1E86LA" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: 52 Appointments in 10 Days">
-                <img src="https://img.youtube.com/vi/vxqYn1E86LA/maxresdefault.jpg" alt="Home service contractor books 52 appointments in first 10 days" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">52 Appointments</span> in 10 Days</div>
-                <div class="va-title">52 Appointments in First 10 Days (Home Service Contractor)</div>
-                <p class="va-desc">From zero to a fully booked calendar in under two weeks. This contractor had tried paid ads before with no success. This breakdown shows what changed — the offer, the targeting, and the follow-up sequence that turned cold traffic into booked calls.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/vxqYn1E86LA" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Case Study 4 -->
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="Deck Builder Closed $1.2M in Slow Season (Jan - Feb)">
-            <meta itemprop="description" content="A deck builder generated $1.2 million in closed jobs during January and February — traditionally the slowest months — using an exclusive lead generation system.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/_djYzxfITps/maxresdefault.jpg">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/_djYzxfITps">
-            <a class="va-thumb" href="https://youtu.be/_djYzxfITps" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: Deck Builder $1.2M in Slow Season">
-                <img src="https://img.youtube.com/vi/_djYzxfITps/maxresdefault.jpg" alt="Deck builder closes $1.2 million in jobs during January and February slow season" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">$1.2M</span> in the "Slow Season"</div>
-                <div class="va-title">Deck Builder Closed $1.2M in Slow Season (Jan – Feb)</div>
-                <p class="va-desc">While competitors were idle and cutting crews, this deck builder closed $1.2 million in January and February. The video documents how an exclusive digital lead system eliminated the seasonal feast-or-famine cycle that kills most contractor businesses.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/_djYzxfITps" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Case Study 5 -->
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="Contractor Gets 65-70 Appointments/Week With Meta Ads">
-            <meta itemprop="description" content="A home service contractor scaled to 65-70 qualified appointments per week consistently using a Meta Ads system built for contractors.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/kK3oXzLb4-0/maxresdefault.jpg">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/kK3oXzLb4-0">
-            <a class="va-thumb" href="https://youtu.be/kK3oXzLb4-0" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: 65-70 Appointments per Week">
-                <img src="https://img.youtube.com/vi/kK3oXzLb4-0/maxresdefault.jpg" alt="Contractor generates 65 to 70 appointments per week with Meta Ads" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">65–70 Appointments</span> / Week</div>
-                <div class="va-title">Contractor Gets 65–70 Appointments/Week With Meta Ads</div>
-                <p class="va-desc">Not a one-time spike — a consistent, repeatable 65 to 70 qualified appointments every week. This video shows the scaling strategy, budget allocation, and lead quality controls that make high appointment volume sustainable rather than chaotic.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/kK3oXzLb4-0" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Case Study 6 -->
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="Ads That Actually Work in 2026 ($200k+ from new jobs in 21 Days)">
-            <meta itemprop="description" content="A live 2026 contractor campaign generated over $200,000 in new jobs within 21 days. Full ad account access shown with real numbers.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/ERQ84Dgz-Ow/maxresdefault.jpg">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/ERQ84Dgz-Ow">
-            <a class="va-thumb" href="https://youtu.be/ERQ84Dgz-Ow" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: $200k+ in 21 Days, 2026">
-                <img src="https://img.youtube.com/vi/ERQ84Dgz-Ow/maxresdefault.jpg" alt="Contractor generates over $200,000 in new jobs in 21 days with Meta Ads in 2026" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">$200,000+</span> in New Jobs — 21 Days</div>
-                <div class="va-title">Ads That Actually Work in 2026 ($200k+ in 21 Days)</div>
-                <p class="va-desc">Live 2026 results with full ad account access. This contractor went from zero pipeline to $200,000+ in new jobs in three weeks. The video covers what's changed in the Meta algorithm for contractors in 2026 and exactly which ad formats are converting right now.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/ERQ84Dgz-Ow" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Case Study 7 -->
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
             <meta itemprop="name" content="From $400 to $30 Per Lead in 14 Days (Contractor Reveals All)">
-            <meta itemprop="description" content="A contractor reduced their cost-per-lead from $400 to $30 in just 14 days. Full breakdown of the changes made to targeting, creative, and funnel.">
+            <meta itemprop="description" content="San Antonio deck builder drops cost per lead from $400 to under $30 in 14 days and quotes almost $1M in week one.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/YJQxX5ZQ3aI/maxresdefault.jpg">
+            <meta itemprop="uploadDate" content="2025-10-03">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/YJQxX5ZQ3aI">
-            <a class="va-thumb" href="https://youtu.be/YJQxX5ZQ3aI" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: $400 to $30 per lead in 14 days">
-                <img src="https://img.youtube.com/vi/YJQxX5ZQ3aI/maxresdefault.jpg" alt="Contractor reduces cost per lead from $400 to $30 in 14 days" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result">$400 → <span class="hl">$30/Lead</span> in 14 Days</div>
-                <div class="va-title">From $400 to $30 Per Lead in 14 Days (Contractor Reveals All)</div>
-                <p class="va-desc">This contractor was paying $400 per lead — which meant most jobs weren't even profitable. In 14 days, cost-per-lead dropped 92.5% to $30. The video exposes every change made: the ad creative, the landing page, the lead form, and the offer itself.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/YJQxX5ZQ3aI" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">J</div>
+            <div class="cs-name">Justin · All Pro Decks</div>
+            <div class="cs-niche">Deck Builder · San Antonio</div>
+            <div class="cs-transform"><span class="cs-before">$400 per lead</span><span class="cs-arrow">→</span><span class="cs-after">Under $30</span></div>
+            <div class="cs-pill">14 days · 15/mo → 30/wk</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/YJQxX5ZQ3aI" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+                <a href="/learn/400-to-30-per-lead-in-14-days/">Full breakdown →</a>
             </div>
         </article>
-
-    </div><!-- /video-grid -->
-
-    <hr class="section-divider">
-
-    <!-- ── TRAINING VIDEOS ── -->
-    <div class="section-title-row">
-        <h2>Free Marketing Education for Contractors</h2>
-        <p>Tactical breakdowns — no fluff, no agency spin. What actually works for home service businesses right now.</p>
-    </div>
-
-    <div class="video-grid">
-
-        <!-- Training 1 -->
-        
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
             <meta itemprop="name" content="How I Got 25 Deck Jobs in 6 Weeks (Deck Builder)">
-            <meta itemprop="description" content="An Oregon fence and deck builder sent 60 estimates and closed about 25 of them in his first six weeks — more appointments than the entire previous year.">
+            <meta itemprop="description" content="Oregon fence and deck builder sends 60 estimates and closes about 25 in six weeks — more appointments than the prior year.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/4TP1sTRASoA/maxresdefault.jpg">
             <meta itemprop="uploadDate" content="2026-05-04">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/4TP1sTRASoA">
-            <a class="va-thumb" href="https://youtu.be/4TP1sTRASoA" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: 25 deck jobs in 6 weeks">
-                <img src="https://img.youtube.com/vi/4TP1sTRASoA/maxresdefault.jpg" alt="Oregon fence and deck builder sends 60 estimates and closes 25 jobs in six weeks" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">60 Estimates</span> + ~25 Closed in 6 Weeks</div>
-                <div class="va-title">How I Got 25 Deck Jobs in 6 Weeks (Deck Builder)</div>
-                <p class="va-desc">"I wanted to call your bluff." Six weeks later: roughly 60 estimates sent, about 25 closed, running five to seven appointments a day — more appointments in six weeks than he booked all of the previous year.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/4TP1sTRASoA" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">B</div>
+            <div class="cs-name">Brian · Bend Fence &amp; Deck</div>
+            <div class="cs-niche">Fence &amp; Deck Builder · Oregon</div>
+            <div class="cs-transform"><span class="cs-before">One home show a year</span><span class="cs-arrow">→</span><span class="cs-after">60 estimates · ~25 closed</span></div>
+            <div class="cs-pill">6 weeks</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/4TP1sTRASoA" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+                <a href="/learn/60-deck-estimates-in-6-weeks/">Full breakdown →</a>
             </div>
         </article>
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="Deck Builder Closed $1.2M in Slow Season (Jan - Feb)">
+            <meta itemprop="description" content="Deck builder closes $1.2 million in jobs during January and February — traditionally the dead months.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/_djYzxfITps/maxresdefault.jpg">
+            <meta itemprop="uploadDate" content="2026-03-16">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/_djYzxfITps">
+            <div class="cs-avatar">D</div>
+            <div class="cs-name">Deck Builder</div>
+            <div class="cs-niche">The &quot;Slow Season&quot;</div>
+            <div class="cs-transform"><span class="cs-after">$1.2M closed</span></div>
+            <div class="cs-pill">January – February</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/_djYzxfITps" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+                <a href="/learn/deck-builder-million-dollar-slow-season/">Full breakdown →</a>
+            </div>
+        </article>
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="Contractor Marketing: Spent $12,618. Made $225,763 PROFIT.">
+            <meta itemprop="description" content="Contractor turns $12,618 in ad spend into $225,763 in verified profit — full ad-account breakdown.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/NV836FEEIcU/maxresdefault.jpg">
+            <meta itemprop="uploadDate" content="2026-03-25">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/NV836FEEIcU">
+            <div class="cs-avatar">C</div>
+            <div class="cs-name">Contractor</div>
+            <div class="cs-niche">Verified Ad-Account Numbers</div>
+            <div class="cs-transform"><span class="cs-before">$12,618 in ads</span><span class="cs-arrow">→</span><span class="cs-after">$225,763 profit</span></div>
+            <div class="cs-pill">Profit — not revenue</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/NV836FEEIcU" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+            </div>
+        </article>
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="52 Appointments in First 10 Days (Home Service Contractor)">
+            <meta itemprop="description" content="Home service contractor books 52 exclusive appointments in the first 10 days after launch.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/vxqYn1E86LA/maxresdefault.jpg">
+            <meta itemprop="uploadDate" content="2026-03-24">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/vxqYn1E86LA">
+            <div class="cs-avatar">H</div>
+            <div class="cs-name">Home Service Contractor</div>
+            <div class="cs-niche">Cold Start</div>
+            <div class="cs-transform"><span class="cs-before">0 booked</span><span class="cs-arrow">→</span><span class="cs-after">52 appointments</span></div>
+            <div class="cs-pill">First 10 days</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/vxqYn1E86LA" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+            </div>
+        </article>
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="Contractor Gets 65-70 Appointments/Week With Meta Ads">
+            <meta itemprop="description" content="Contractor runs 65-70 qualified appointments per week, every week, with a Meta ads system built for contractors.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/kK3oXzLb4-0/maxresdefault.jpg">
+            <meta itemprop="uploadDate" content="2026-03-16">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/kK3oXzLb4-0">
+            <div class="cs-avatar">C</div>
+            <div class="cs-name">Contractor</div>
+            <div class="cs-niche">Sustained Volume</div>
+            <div class="cs-transform"><span class="cs-after">65–70 appts/week</span></div>
+            <div class="cs-pill">Every week, consistently</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/kK3oXzLb4-0" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+            </div>
+        </article>
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
             <meta itemprop="name" content="How I Went From 3 Appointments a Week to 11 a Day">
-            <meta itemprop="description" content="A contractor went from three appointments a week to eleven a day on the exclusive-appointment system. Full conversation on the record.">
+            <meta itemprop="description" content="Contractor goes from three appointments a week to eleven a day on the exclusive-appointment system.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/ZT8C3xoQSLc/maxresdefault.jpg">
             <meta itemprop="uploadDate" content="2026-06-29">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/ZT8C3xoQSLc">
-            <a class="va-thumb" href="https://youtu.be/ZT8C3xoQSLc" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: 3 appointments a week to 11 a day">
-                <img src="https://img.youtube.com/vi/ZT8C3xoQSLc/maxresdefault.jpg" alt="Contractor goes from three appointments a week to eleven a day" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">3/Week → 11/Day</span> Appointments</div>
-                <div class="va-title">How I Went From 3 Appointments a Week to 11 a Day</div>
-                <p class="va-desc">From three appointments a week to eleven in a single day. The full conversation covers what changed in the offer, the ads, and the follow-up that turned a trickle into a calendar-management problem.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/ZT8C3xoQSLc" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">C</div>
+            <div class="cs-name">Contractor</div>
+            <div class="cs-niche">Appointment Volume</div>
+            <div class="cs-transform"><span class="cs-before">3 per week</span><span class="cs-arrow">→</span><span class="cs-after">11 per day</span></div>
+            <div class="cs-pill">Full conversation on record</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/ZT8C3xoQSLc" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
             </div>
         </article>
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
             <meta itemprop="name" content="From 1 Crew to 5 in One Season — A Deck Builder's First Months">
-            <meta itemprop="description" content="A deck builder scaled from one crew to five in a single season on the back of a consistent exclusive-appointment pipeline.">
+            <meta itemprop="description" content="Deck builder scales from one crew to five in a single season on a consistent exclusive-appointment pipeline.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/FKa_Zsji0bE/maxresdefault.jpg">
             <meta itemprop="uploadDate" content="2026-07-04">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/FKa_Zsji0bE">
-            <a class="va-thumb" href="https://youtu.be/FKa_Zsji0bE" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: 1 crew to 5 in one season">
-                <img src="https://img.youtube.com/vi/FKa_Zsji0bE/maxresdefault.jpg" alt="Deck builder scales from one crew to five in a single season" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">1 Crew → 5</span> in One Season</div>
-                <div class="va-title">From 1 Crew to 5 in One Season — A Deck Builder's First Months</div>
-                <p class="va-desc">Crews follow backlog. This builder went from one crew to five in a single season because the appointment volume made the hiring math simple — the short version of how it happened, in his own words.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/FKa_Zsji0bE" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">D</div>
+            <div class="cs-name">Deck Builder</div>
+            <div class="cs-niche">Crew Growth</div>
+            <div class="cs-transform"><span class="cs-before">1 crew</span><span class="cs-arrow">→</span><span class="cs-after">5 crews</span></div>
+            <div class="cs-pill">One season</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/FKa_Zsji0bE" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
             </div>
         </article>
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="Ads That *Actually* Work in 2026 ($200k+ from new jobs in 21 Days)">
+            <meta itemprop="description" content="The ad structures producing $200K+ in new contractor jobs in 21 days — shown with real campaigns.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/ERQ84Dgz-Ow/maxresdefault.jpg">
+            <meta itemprop="uploadDate" content="2026-01-27">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/ERQ84Dgz-Ow">
+            <div class="cs-avatar">C</div>
+            <div class="cs-name">Contractor</div>
+            <div class="cs-niche">Ads That Actually Work</div>
+            <div class="cs-transform"><span class="cs-after">$200K+ new jobs</span></div>
+            <div class="cs-pill">21 days</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/ERQ84Dgz-Ow" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
+            </div>
+        </article>
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
             <meta itemprop="name" content="Facebook Ads for Home Services: $80K to $500K/Month in 120 Days">
-            <meta itemprop="description" content="A home services company scaled from $80K to $500K per month in 120 days. Full breakdown of the campaign structure and follow-up system.">
+            <meta itemprop="description" content="Home services company scales from $80K to $500K per month in 120 days on a Meta ads system.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/thmY9E9PYqY/maxresdefault.jpg">
             <meta itemprop="uploadDate" content="2025-12-13">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/thmY9E9PYqY">
-            <a class="va-thumb" href="https://youtu.be/thmY9E9PYqY" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: $80K to $500K per month">
-                <img src="https://img.youtube.com/vi/thmY9E9PYqY/maxresdefault.jpg" alt="Home services company grows from $80K to $500K per month in 120 days" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">$80K → $500K</span> Per Month in 120 Days</div>
-                <div class="va-title">Facebook Ads for Home Services: $80K to $500K/Month in 120 Days</div>
-                <p class="va-desc">From $80K months to a $500K month in roughly 120 days. This long-form breakdown walks the campaign structure, budget scaling, and the booking system that kept the calendar full while spend climbed.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/thmY9E9PYqY" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">H</div>
+            <div class="cs-name">Home Services Company</div>
+            <div class="cs-niche">Monthly Revenue</div>
+            <div class="cs-transform"><span class="cs-before">$80K/month</span><span class="cs-arrow">→</span><span class="cs-after">$500K/month</span></div>
+            <div class="cs-pill">120 days</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/thmY9E9PYqY" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
             </div>
         </article>
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+        <article class="cs-card" itemscope itemtype="https://schema.org/VideoObject">
             <meta itemprop="name" content="How This Deck Builder Went From 7 Leads/Week to 100+ Leads/Month">
-            <meta itemprop="description" content="A deck builder went from around seven leads a week to more than one hundred exclusive opportunities a month. Full conversation and campaign breakdown.">
+            <meta itemprop="description" content="Deck builder goes from roughly seven opportunities a week to more than one hundred exclusive appointments a month.">
             <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/2Wci-fQufSo/maxresdefault.jpg">
             <meta itemprop="uploadDate" content="2025-10-03">
             <meta itemprop="embedUrl" content="https://www.youtube.com/embed/2Wci-fQufSo">
-            <a class="va-thumb" href="https://youtu.be/2Wci-fQufSo" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: 7 to 100+ leads per month">
-                <img src="https://img.youtube.com/vi/2Wci-fQufSo/maxresdefault.jpg" alt="Deck builder scales from seven leads a week to over one hundred per month" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">7 → 100+</span> Leads Per Month</div>
-                <div class="va-title">How This Deck Builder Went From 7 Leads/Week to 100+ Leads/Month</div>
-                <p class="va-desc">The full-length conversation behind one of the biggest volume jumps on the system — from a handful of opportunities a week to 100+ a month, and what that did to pricing, scheduling, and hiring.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/2Wci-fQufSo" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
+            <div class="cs-avatar">D</div>
+            <div class="cs-name">Deck Builder</div>
+            <div class="cs-niche">Lead Volume</div>
+            <div class="cs-transform"><span class="cs-before">7 per week</span><span class="cs-arrow">→</span><span class="cs-after">100+ per month</span></div>
+            <div class="cs-pill">Full campaign breakdown</div>
+            <div class="cs-links">
+                <a href="https://youtu.be/2Wci-fQufSo" target="_blank" rel="noopener" itemprop="url">▶ Watch the call</a>
             </div>
         </article>
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="From 1 to 8 Roofs/Week: How I 3X a Contractor's Revenue">
-            <meta itemprop="description" content="A roofing contractor went from one roof a week to eight, tripling revenue. Full campaign and system breakdown on the record.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/JrEHxqhy4ds/maxresdefault.jpg">
-            <meta itemprop="uploadDate" content="2025-08-01">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/JrEHxqhy4ds">
-            <a class="va-thumb" href="https://youtu.be/JrEHxqhy4ds" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: 1 to 8 roofs per week">
-                <img src="https://img.youtube.com/vi/JrEHxqhy4ds/maxresdefault.jpg" alt="Roofing contractor triples revenue going from one to eight roofs per week" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-case">Case Study</span>
-            </a>
-            <div class="va-body">
-                <div class="va-result"><span class="hl">1 → 8 Roofs</span> Per Week (3X Revenue)</div>
-                <div class="va-title">From 1 to 8 Roofs/Week: How I 3X a Contractor's Revenue</div>
-                <p class="va-desc">Proof the system is portable beyond decks: a roofing contractor went from one roof a week to eight, tripling revenue. The full conversation covers the ads, the exclusive appointments, and the operational ramp.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/JrEHxqhy4ds" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="Why Contractors Burn $10K on Facebook Ads (4 Costly Mistakes)">
-            <meta itemprop="description" content="The four most common and costly mistakes contractors make with Facebook and Meta ads — and exactly how to fix each one.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/0RyiYW0d8ts/maxresdefault.jpg">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/0RyiYW0d8ts">
-            <a class="va-thumb" href="https://youtu.be/0RyiYW0d8ts" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: Why Contractors Burn $10K on Facebook Ads">
-                <img src="https://img.youtube.com/vi/0RyiYW0d8ts/maxresdefault.jpg" alt="Why contractors burn $10,000 on Facebook ads — 4 costly mistakes explained" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-training">Training</span>
-            </a>
-            <div class="va-body">
-                <div class="va-title">Why Contractors Burn $10K on Facebook Ads (4 Costly Mistakes)</div>
-                <p class="va-desc">Most contractors who try Facebook ads lose money and quit. This video breaks down the four specific mistakes responsible for 90% of failed contractor ad campaigns — wrong objective, wrong audience, wrong creative, and wrong offer. Fix these four things and the results change immediately.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/0RyiYW0d8ts" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Training 2 -->
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="Why Your Home Service Leads Don't Pick Up (And How to Fix It)">
-            <meta itemprop="description" content="Home service contractors lose 40-60% of leads because nobody picks up the phone. This video explains why and how to fix your follow-up system.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/XVUzif4h49A/maxresdefault.jpg">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/XVUzif4h49A">
-            <a class="va-thumb" href="https://youtu.be/XVUzif4h49A" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: Why Your Home Service Leads Don't Pick Up">
-                <img src="https://img.youtube.com/vi/XVUzif4h49A/maxresdefault.jpg" alt="Why home service leads don't pick up the phone and how to fix your follow-up system" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-training">Training</span>
-            </a>
-            <div class="va-body">
-                <div class="va-title">Why Your Home Service Leads Don't Pick Up (And How to Fix It)</div>
-                <p class="va-desc">Generating leads is only half the problem. If nobody picks up when you call, you're burning budget and leaving jobs on the table. This video covers the exact follow-up sequence — timing, channel, message — that turns unresponsive leads into booked appointments.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/XVUzif4h49A" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Training 3 -->
-        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
-            <meta itemprop="name" content="Stop Losing to Cheaper Contractors (3 Ways to Manufacture Trust)">
-            <meta itemprop="description" content="How home service contractors can stop competing on price by building trust before the first phone call using digital authority systems.">
-            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/fyx6HkxVThY/maxresdefault.jpg">
-            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/fyx6HkxVThY">
-            <a class="va-thumb" href="https://youtu.be/fyx6HkxVThY" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: Stop Losing to Cheaper Contractors">
-                <img src="https://img.youtube.com/vi/fyx6HkxVThY/maxresdefault.jpg" alt="Three ways home service contractors manufacture trust to stop losing bids on price" loading="lazy">
-                <div class="va-play"></div>
-                <span class="va-type-badge badge-training">Training</span>
-            </a>
-            <div class="va-body">
-                <div class="va-title">Stop Losing to Cheaper Contractors (3 Ways to Manufacture Trust)</div>
-                <p class="va-desc">When a homeowner chooses the cheaper contractor over you, it's not a price problem — it's a trust problem. This video explains three specific ways to build authority digitally so that prospects feel like they already know you before you ever pick up the phone.</p>
-                <div class="va-footer">
-                    <span class="va-channel">Spencer Wright</span>
-                    <a class="va-watch-link" href="https://youtu.be/fyx6HkxVThY" target="_blank" rel="noopener">Watch on YouTube</a>
-                </div>
-            </div>
-        </article>
-
-    </div><!-- /training grid -->
-
-    <!-- ── CTA CALLOUT ── -->
-    <div class="seo-callout">
-        <div>
-            <h3>Want This For Your Business?</h3>
-            <p>Book a free 30-minute strategy call. We'll look at your market, your trade, and tell you exactly what we'd do — no pitch, no obligation.</p>
-        </div>
-        <a href="index.html" class="btn-gold" onclick="window.location='index.html'; setTimeout(function(){ var el=document.querySelector('.nav-cta'); if(el) el.click(); }, 400);">Book a Free Call</a>
     </div>
 
-</div><!-- /container -->
+</div>
+</div>
+
+<div class="video-section">
+<div class="container">
+
+    <div class="section-title-row">
+        <h2>Contractor Advertising Trainings</h2>
+        <p>Free training from $10M+ in managed contractor ad spend — how to buy customers profitably, spot agency red flags, and fill your calendar.</p>
+    </div>
+
+    <div class="video-grid">
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="How to Get ChatGPT to Recommend Your Contracting Business">
+            <meta itemprop="description" content="AI assistants are the new referral source. This training shows the exact steps to make ChatGPT and other AI tools recommend your contracting business when homeowners ask who to hire.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/vKNgOanxvtU/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/vKNgOanxvtU">
+            <a class="va-thumb" href="https://youtu.be/vKNgOanxvtU" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: How to Get ChatGPT to Recommend Your Contracting Business">
+                <img src="https://img.youtube.com/vi/vKNgOanxvtU/maxresdefault.jpg" alt="How to get ChatGPT to recommend your contracting business" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">How to Get ChatGPT to Recommend Your Contracting Business</div>
+                <p class="va-desc">AI assistants are the new referral source. This training shows the exact steps to make ChatGPT and other AI tools recommend your contracting business when homeowners ask who to hire.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/vKNgOanxvtU" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="Quality vs Quantity: How Contractors Get the Right Leads (Not Just More)">
+            <meta itemprop="description" content="More leads is the wrong goal if they're the wrong leads. How to tune your offer, targeting, and qualification so the calendar fills with homeowners who are ready to buy.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/o3CF3EoWWk4/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/o3CF3EoWWk4">
+            <a class="va-thumb" href="https://youtu.be/o3CF3EoWWk4" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: Quality vs Quantity: How Contractors Get the Right Leads (Not Just More)">
+                <img src="https://img.youtube.com/vi/o3CF3EoWWk4/maxresdefault.jpg" alt="Quality versus quantity lead generation for contractors" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">Quality vs Quantity: How Contractors Get the Right Leads (Not Just More)</div>
+                <p class="va-desc">More leads is the wrong goal if they're the wrong leads. How to tune your offer, targeting, and qualification so the calendar fills with homeowners who are ready to buy.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/o3CF3EoWWk4" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="New Contractor? Get Leads in 48 Hours With This Marketing Framework">
+            <meta itemprop="description" content="Starting from zero: the exact framework a new contractor can use to have real opportunities on the calendar within 48 hours — without an established brand or referral base.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/kFoGu0vC1G8/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/kFoGu0vC1G8">
+            <a class="va-thumb" href="https://youtu.be/kFoGu0vC1G8" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: New Contractor? Get Leads in 48 Hours With This Marketing Framework">
+                <img src="https://img.youtube.com/vi/kFoGu0vC1G8/maxresdefault.jpg" alt="Marketing framework for new contractors to get leads in 48 hours" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">New Contractor? Get Leads in 48 Hours With This Marketing Framework</div>
+                <p class="va-desc">Starting from zero: the exact framework a new contractor can use to have real opportunities on the calendar within 48 hours — without an established brand or referral base.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/kFoGu0vC1G8" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="The Branding Lie That Keeps Contractors Broke (Build This First)">
+            <meta itemprop="description" content="Logo-first branding is where contractor marketing budgets go to die. What to build first instead so every dollar produces booked appointments, not just impressions.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/zuqYsQRj8_s/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/zuqYsQRj8_s">
+            <a class="va-thumb" href="https://youtu.be/zuqYsQRj8_s" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: The Branding Lie That Keeps Contractors Broke (Build This First)">
+                <img src="https://img.youtube.com/vi/zuqYsQRj8_s/maxresdefault.jpg" alt="The branding lie that keeps contractors broke" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">The Branding Lie That Keeps Contractors Broke (Build This First)</div>
+                <p class="va-desc">Logo-first branding is where contractor marketing budgets go to die. What to build first instead so every dollar produces booked appointments, not just impressions.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/zuqYsQRj8_s" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="Contractors Getting Burned by Agencies: How to Spot the Red Flags">
+            <meta itemprop="description" content="After watching contractors get burned by six or seven agencies in a row, here are the specific red flags to check before you sign with any marketing company — including us.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/NTxc9ZYN37w/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/NTxc9ZYN37w">
+            <a class="va-thumb" href="https://youtu.be/NTxc9ZYN37w" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: Contractors Getting Burned by Agencies: How to Spot the Red Flags">
+                <img src="https://img.youtube.com/vi/NTxc9ZYN37w/maxresdefault.jpg" alt="How contractors can spot marketing agency red flags" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">Contractors Getting Burned by Agencies: How to Spot the Red Flags</div>
+                <p class="va-desc">After watching contractors get burned by six or seven agencies in a row, here are the specific red flags to check before you sign with any marketing company — including us.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/NTxc9ZYN37w" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="$10K Month on Ads = $150K Profit: Real Contractor Numbers">
+            <meta itemprop="description" content="The actual math of contractor advertising at scale: what $10K a month in ad spend produces when the system behind it works, walked through with real numbers.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/5rBSdxnt-Gc/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/5rBSdxnt-Gc">
+            <a class="va-thumb" href="https://youtu.be/5rBSdxnt-Gc" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: $10K Month on Ads = $150K Profit: Real Contractor Numbers">
+                <img src="https://img.youtube.com/vi/5rBSdxnt-Gc/maxresdefault.jpg" alt="Real contractor numbers: $10K monthly ad spend producing $150K profit" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">$10K Month on Ads = $150K Profit: Real Contractor Numbers</div>
+                <p class="va-desc">The actual math of contractor advertising at scale: what $10K a month in ad spend produces when the system behind it works, walked through with real numbers.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/5rBSdxnt-Gc" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="How Much Should You Pay to Get a Customer? (Most Contractors Guess Wrong)">
+            <meta itemprop="description" content="Cost per acquisition is the number that decides whether your marketing scales or dies. How to calculate what a customer is actually worth paying for in your trade and market.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/2zTWrysgYYY/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/2zTWrysgYYY">
+            <a class="va-thumb" href="https://youtu.be/2zTWrysgYYY" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: How Much Should You Pay to Get a Customer? (Most Contractors Guess Wrong)">
+                <img src="https://img.youtube.com/vi/2zTWrysgYYY/maxresdefault.jpg" alt="How much contractors should pay to acquire a customer" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">How Much Should You Pay to Get a Customer? (Most Contractors Guess Wrong)</div>
+                <p class="va-desc">Cost per acquisition is the number that decides whether your marketing scales or dies. How to calculate what a customer is actually worth paying for in your trade and market.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/2zTWrysgYYY" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="You Don't Have a Lead Problem, You're Just Flying Blind (And It's Costing You)">
+            <meta itemprop="description" content="Most contractors can't answer basic questions about their own pipeline. The tracking setup that shows exactly where jobs come from — and where money leaks out.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/44fPqAocoHg/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/44fPqAocoHg">
+            <a class="va-thumb" href="https://youtu.be/44fPqAocoHg" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: You Don't Have a Lead Problem, You're Just Flying Blind (And It's Costing You)">
+                <img src="https://img.youtube.com/vi/44fPqAocoHg/maxresdefault.jpg" alt="Contractor lead tracking: stop flying blind" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">You Don't Have a Lead Problem, You're Just Flying Blind (And It's Costing You)</div>
+                <p class="va-desc">Most contractors can't answer basic questions about their own pipeline. The tracking setup that shows exactly where jobs come from — and where money leaks out.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/44fPqAocoHg" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="3 Contractor Video Mistakes I See After $10M in Ad Spend (None Are About Gear)">
+            <meta itemprop="description" content="After $10M+ in managed ad spend, the three video mistakes that kill contractor ads have nothing to do with cameras or editing. What actually makes homeowner video convert.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/DSfAyikJyEc/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/DSfAyikJyEc">
+            <a class="va-thumb" href="https://youtu.be/DSfAyikJyEc" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: 3 Contractor Video Mistakes I See After $10M in Ad Spend (None Are About Gear)">
+                <img src="https://img.youtube.com/vi/DSfAyikJyEc/maxresdefault.jpg" alt="Three contractor video ad mistakes after ten million dollars in ad spend" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">3 Contractor Video Mistakes I See After $10M in Ad Spend (None Are About Gear)</div>
+                <p class="va-desc">After $10M+ in managed ad spend, the three video mistakes that kill contractor ads have nothing to do with cameras or editing. What actually makes homeowner video convert.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/DSfAyikJyEc" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="What's Actually Working in Contractor Marketing Right Now (Old Playbooks Are Dead)">
+            <meta itemprop="description" content="The contractor marketing playbook from three years ago quietly stopped working. A current, from-the-trenches look at what's producing booked appointments right now.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/CWmxOrRn7eQ/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/CWmxOrRn7eQ">
+            <a class="va-thumb" href="https://youtu.be/CWmxOrRn7eQ" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: What's Actually Working in Contractor Marketing Right Now (Old Playbooks Are Dead)">
+                <img src="https://img.youtube.com/vi/CWmxOrRn7eQ/maxresdefault.jpg" alt="What is working in contractor marketing right now" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">What's Actually Working in Contractor Marketing Right Now (Old Playbooks Are Dead)</div>
+                <p class="va-desc">The contractor marketing playbook from three years ago quietly stopped working. A current, from-the-trenches look at what's producing booked appointments right now.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/CWmxOrRn7eQ" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="Most Contractors Market Their Work. The Ones Who Scale Market Themselves.">
+            <meta itemprop="description" content="Project photos all look the same to a homeowner. Why the contractors who scale put the owner front and center — and how to do it even if you hate being on camera.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/AxlZ2ZYdH4s/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/AxlZ2ZYdH4s">
+            <a class="va-thumb" href="https://youtu.be/AxlZ2ZYdH4s" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: Most Contractors Market Their Work. The Ones Who Scale Market Themselves.">
+                <img src="https://img.youtube.com/vi/AxlZ2ZYdH4s/maxresdefault.jpg" alt="Why scaling contractors market themselves instead of their work" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">Most Contractors Market Their Work. The Ones Who Scale Market Themselves.</div>
+                <p class="va-desc">Project photos all look the same to a homeowner. Why the contractors who scale put the owner front and center — and how to do it even if you hate being on camera.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/AxlZ2ZYdH4s" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+        <article class="video-article" itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="Why SEO Fails Contractors (How To Fill Your Calendar in 48 Hours)">
+            <meta itemprop="description" content="SEO is a multi-year bet most contractors can't afford to wait on. The faster path to a full calendar — and when SEO actually does make sense to invest in.">
+            <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/9a0LdR2_JxA/maxresdefault.jpg">
+            <meta itemprop="embedUrl" content="https://www.youtube.com/embed/9a0LdR2_JxA">
+            <a class="va-thumb" href="https://youtu.be/9a0LdR2_JxA" target="_blank" rel="noopener" itemprop="url" aria-label="Watch: Why SEO Fails Contractors (How To Fill Your Calendar in 48 Hours)">
+                <img src="https://img.youtube.com/vi/9a0LdR2_JxA/maxresdefault.jpg" alt="Why SEO fails contractors and the faster path to booked jobs" loading="lazy">
+                <div class="va-play"></div>
+                <span class="va-type-badge badge-training">Training</span>
+            </a>
+            <div class="va-body">
+                <div class="va-title">Why SEO Fails Contractors (How To Fill Your Calendar in 48 Hours)</div>
+                <p class="va-desc">SEO is a multi-year bet most contractors can't afford to wait on. The faster path to a full calendar — and when SEO actually does make sense to invest in.</p>
+                <div class="va-footer">
+                    <span class="va-channel">Spencer Wright</span>
+                    <a class="va-watch-link" href="https://youtu.be/9a0LdR2_JxA" target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+</div>
 </div><!-- /video-section -->
 </main>
 
