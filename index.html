@@ -3064,6 +3064,26 @@
 .sv-confirm-check { width:64px;height:64px;background:#c7963f;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#1a1a1a; }
 .sv-confirm h3 { font-family:'Inter',sans-serif;font-size:1.4rem;font-weight:800;color:#1a1a1a;margin-bottom:10px; }
 .sv-confirm p { font-size:14px;color:#6B7280;line-height:1.7;max-width:360px;margin:0 auto 10px; }
+/* Native slot picker (Done step) */
+.sv-cal-state { text-align:center;font-size:14px;color:#6B7280;padding:18px 0 8px;line-height:1.6; }
+.sv-cal-state a { color:#ab8032;font-weight:700; }
+.sv-days { display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;margin:8px -2px 6px;-webkit-overflow-scrolling:touch; }
+.sv-day { flex:1 0 auto;min-width:84px;border:2px solid #E8E3DB;border-radius:11px;background:#fff;padding:9px 10px;text-align:center;cursor:pointer;font-family:'Inter',sans-serif;transition:border-color .15s,background .15s; }
+.sv-day span { display:block; }
+.sv-day-dow { font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6B7280; }
+.sv-day-date { font-size:15px;font-weight:800;color:#1a1a1a; }
+.sv-day.sv-sel { border-color:#1a1a1a;background:#1a1a1a; }
+.sv-day.sv-sel span { color:#fff; }
+.sv-slots { display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px; }
+@media(max-width:400px){ .sv-slots { grid-template-columns:repeat(2,1fr); } }
+.sv-slot { border:2px solid #E8E3DB;border-radius:10px;background:#fff;padding:12px 6px;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#1a1a1a;cursor:pointer;transition:border-color .15s,background .15s; }
+.sv-slot:hover { border-color:#c7963f;background:#faf6ee; }
+.sv-slot.sv-sel { border-color:#c7963f;background:#c7963f; }
+.sv-book { border-top:1px solid #E8E3DB;margin-top:16px;padding-top:16px;text-align:center; }
+.sv-book-when { font-size:14px;color:#6B7280;margin-bottom:12px; }
+.sv-book-when strong { color:#1a1a1a; }
+.sv-book-err { font-size:13px;font-weight:700;color:#B91C1C;margin-bottom:10px; }
+.sv-book-btn { width:100%; }
 </style>
 
 <div id="surveyModal">
@@ -3144,14 +3164,34 @@
         </div>
       </div>
 
-      <!-- DONE -->
+      <!-- DONE — native slot picker. Replaced the GHL booking-widget iframe on 2026-09-08:
+           the widget renders NO time slots below ~1024px of width (every phone + this 600px modal),
+           so nobody could book. Slots/bookings now go through the mjc-self-book Worker, same as
+           apply.morejobcalls.com/book/. -->
       <div class="sv-step" id="svDone">
         <div class="sv-confirm">
           <div class="sv-confirm-check">&#10003;</div>
           <h3>You're In &mdash; Now Lock In Your Strategy Call</h3>
-          <p>Pick a time below that works for you. We'll call from a local number.</p>
+          <p>Pick a time below. 45 minutes on Google Meet &middot; times shown in <span id="svTz">your time zone</span>.</p>
         </div>
-        <iframe id="svBookingFrame" src="about:blank" style="width:100%;border:none;min-height:720px;display:block;margin-top:12px;" scrolling="no"></iframe>
+        <div id="svCalLoading" class="sv-cal-state">Loading open times&hellip;</div>
+        <div id="svCalLive" style="display:none;">
+          <div class="sv-days" id="svDays"></div>
+          <div class="sv-slots" id="svSlots"></div>
+          <div class="sv-book" id="svBookBox" style="display:none;">
+            <p class="sv-book-when">Locking in <strong id="svWhen"></strong></p>
+            <p class="sv-book-err" id="svBookErr" style="display:none;"></p>
+            <button type="button" class="sv-next sv-book-btn" id="svBookBtn" onclick="svBook()">Lock In My Call &rarr;</button>
+          </div>
+        </div>
+        <div id="svCalEmpty" class="sv-cal-state" style="display:none;">
+          <p><strong>The next few days are spoken for.</strong></p>
+          <p>Text us at <a href="sms:+15012363920">(501) 236-3920</a> and we'll find you a time.</p>
+        </div>
+        <div id="svCalError" class="sv-cal-state" style="display:none;">
+          <p><strong>Couldn't load the calendar.</strong></p>
+          <p><a href="#" onclick="svLoadSlots(event)">Try again</a> or text us at <a href="sms:+15012363920">(501) 236-3920</a>.</p>
+        </div>
       </div>
 
     </div>
@@ -3313,17 +3353,112 @@ function svSubmit() {
     }).catch(function(){});
   }
 
-  // Load GHL booking calendar with prefilled contact info
-  var calParams = new URLSearchParams({
-    first_name: payload.first_name,
-    last_name:  payload.last_name,
-    email:      payload.email,
-    phone:      payload.phone
-  }).toString();
-  document.getElementById('svBookingFrame').src =
-    'https://api.seasonproofgrowth.com/widget/booking/I37dxDAOLvoaGN6MjNeP?' + calParams;
-
+  // ICP split mirrors the paid funnel (apply.morejobcalls.com): revenue >= $500K books
+  // the ICP calendar, under $500K books the non-ICP calendar. The Worker maps icp -> calendar.
+  svLead = {
+    icp: (sv.revenue === 'under_500k') ? 'no' : 'yes',
+    firstName: payload.first_name, lastName: payload.last_name,
+    email: payload.email, phone: payload.phone
+  };
   svShowStep('Done');
+  svLoadSlots();
+}
+
+// ── NATIVE SLOT PICKER (2026-09-08) ──────────────────
+// Replaces the GHL booking-widget iframe. The widget renders NO time slots when it
+// has less than ~1024px of width, which killed booking for every phone visitor and
+// for this 600px modal on desktop. Slots + bookings go through the mjc-self-book
+// Cloudflare Worker (same backend as apply.morejobcalls.com/book/).
+var SV_BOOK_WORKER = 'https://mjc-self-book.spencer-80c.workers.dev';
+var svLead = null, svDays = {}, svDay = null, svSlot = null;
+var svTz = 'America/Chicago';
+try { svTz = Intl.DateTimeFormat().resolvedOptions().timeZone || svTz; } catch (e) {}
+
+function svCalState(id) {
+  ['svCalLoading','svCalLive','svCalEmpty','svCalError'].forEach(function(x){
+    document.getElementById(x).style.display = (x === id) ? '' : 'none';
+  });
+}
+function svTimeLabel(iso) { return new Date(iso).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:svTz}); }
+function svWhenLabel(iso) { return new Date(iso).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',timeZone:svTz}) + ' at ' + svTimeLabel(iso); }
+
+function svLoadSlots(e) {
+  if (e) e.preventDefault();
+  document.getElementById('svTz').textContent = svTz.replace(/_/g,' ');
+  svCalState('svCalLoading');
+  fetch(SV_BOOK_WORKER + '/slots?icp=' + encodeURIComponent(svLead.icp) + '&tz=' + encodeURIComponent(svTz))
+    .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(data){
+      svDays = {};
+      Object.keys(data.days || {}).forEach(function(d){
+        // The ICP calendar returns one slot per SECOND (slotInterval 0) — keep clean 15-min marks only.
+        var slots = ((data.days[d]||{}).slots || []).filter(function(iso){ return /T\d\d:(00|15|30|45):00/.test(iso); });
+        if (slots.length) svDays[d] = slots;
+      });
+      var keys = Object.keys(svDays).sort();
+      if (!keys.length) { svCalState('svCalEmpty'); return; }
+      if (!svDay || !svDays[svDay]) svDay = keys[0];
+      if (svSlot && svDays[svDay].indexOf(svSlot) === -1) svSlot = null;
+      svRenderDays(); svRenderSlots(); svCalState('svCalLive');
+    })
+    .catch(function(){ svCalState('svCalError'); });
+}
+function svRenderDays() {
+  var row = document.getElementById('svDays'); row.innerHTML = '';
+  Object.keys(svDays).sort().forEach(function(d){
+    var dt = new Date(d + 'T12:00:00Z');
+    var b = document.createElement('button'); b.type = 'button';
+    b.className = 'sv-day' + (d === svDay ? ' sv-sel' : '');
+    b.innerHTML = '<span class="sv-day-dow">' + dt.toLocaleDateString('en-US',{weekday:'short',timeZone:'UTC'}) + '</span>'
+                + '<span class="sv-day-date">' + dt.toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'}) + '</span>';
+    b.onclick = function(){ svDay = d; svSlot = null; svRenderDays(); svRenderSlots(); };
+    row.appendChild(b);
+  });
+}
+function svRenderSlots() {
+  var grid = document.getElementById('svSlots'); grid.innerHTML = '';
+  (svDays[svDay] || []).forEach(function(iso){
+    var b = document.createElement('button'); b.type = 'button';
+    b.className = 'sv-slot' + (iso === svSlot ? ' sv-sel' : '');
+    b.textContent = svTimeLabel(iso);
+    b.onclick = function(){ svSlot = iso; svRenderSlots(); svShowBook(); };
+    grid.appendChild(b);
+  });
+  if (!svSlot) document.getElementById('svBookBox').style.display = 'none';
+}
+function svShowBook() {
+  document.getElementById('svWhen').textContent = svWhenLabel(svSlot);
+  document.getElementById('svBookErr').style.display = 'none';
+  var box = document.getElementById('svBookBox'); box.style.display = '';
+  box.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function svBookErr(msg) { var el = document.getElementById('svBookErr'); el.textContent = msg; el.style.display = ''; }
+function svBook() {
+  if (!svSlot || !svLead) return;
+  var btn = document.getElementById('svBookBtn');
+  btn.disabled = true; btn.textContent = 'Locking It In…';
+  fetch(SV_BOOK_WORKER + '/book', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      icp: svLead.icp, startTime: svSlot, timezone: svTz,
+      firstName: svLead.firstName, lastName: svLead.lastName, email: svLead.email, phone: svLead.phone,
+      source: 'morejobcalls.com', tags: ['website-survey-booked']
+    })
+  })
+  .then(function(r){ return r.json().then(function(b){ return {status:r.status, body:b}; }); })
+  .then(function(res){
+    if (res.status === 200 && res.body.ok) {
+      btn.textContent = 'Booked! One sec…';
+      // Same confirmation pages the paid funnel uses (ICP fires the BookedCall pixel; non-ICP does not).
+      var page = (svLead.icp === 'no') ? '/scheduled/' : '/confirmation/';
+      location.href = 'https://apply.morejobcalls.com' + page + '?c=' + encodeURIComponent(res.body.contactId||'') + '&cal=' + encodeURIComponent(res.body.calendarId||'');
+      return;
+    }
+    btn.disabled = false; btn.textContent = 'Lock In My Call →';
+    if (res.status === 409) { svBookErr('That time was just taken. Pick another one.'); svSlot = null; svLoadSlots(); }
+    else { svBookErr('Something hiccuped. Try again, or text us at (501) 236-3920.'); }
+  })
+  .catch(function(){ btn.disabled = false; btn.textContent = 'Lock In My Call →'; svBookErr('Something hiccuped. Try again, or text us at (501) 236-3920.'); });
 }
 
 // ── MODAL ────────────────────────────────────────────
@@ -3522,7 +3657,6 @@ document.addEventListener('keydown', function(e) {
 </script>
 
 <!-- GHL booking iframe auto-resize -->
-<script src="https://api.seasonproofgrowth.com/js/form_embed.js" type="text/javascript"></script>
 
 </body>
 </html>
