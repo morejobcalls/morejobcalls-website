@@ -218,11 +218,17 @@
 
   <url>
     <loc>https://morejobcalls.com/learn/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://morejobcalls.com/learn/young-contractor-credibility/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://morejobcalls.com/learn/deck-builder-10-appointments-7-days/</loc>
     <lastmod>2026-09-01</lastmod>
