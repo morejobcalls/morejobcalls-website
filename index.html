@@ -3190,7 +3190,7 @@
         </div>
         <div id="svCalError" class="sv-cal-state" style="display:none;">
           <p><strong>Couldn't load the calendar.</strong></p>
-          <p><a href="#" onclick="svLoadSlots(event)">Try again</a> or text us at <a href="sms:+15012363920">(501) 236-3920</a>.</p>
+          <p><a href="#" onclick="svLoadSlots(event, true)">Try again</a> or text us at <a href="sms:+15012363920">(501) 236-3920</a>.</p>
         </div>
       </div>
 
@@ -3382,13 +3382,31 @@ function svCalState(id) {
 function svTimeLabel(iso) { return new Date(iso).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:svTz}); }
 function svWhenLabel(iso) { return new Date(iso).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',timeZone:svTz}) + ' at ' + svTimeLabel(iso); }
 
-function svLoadSlots(e) {
+// GHL's free-slots call for the ICP calendar is slow (5-25s: it returns ~16k
+// one-second slots until slotInterval is fixed in GHL), so start both calendar
+// fetches the moment the modal opens. By step 4 the answer is usually already here.
+var svSlotCache = {};
+function svFetchSlots(icp, force) {
+  if (force || !svSlotCache[icp]) {
+    svSlotCache[icp] = fetch(SV_BOOK_WORKER + '/slots?icp=' + encodeURIComponent(icp) + '&tz=' + encodeURIComponent(svTz))
+      .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+      .catch(function(err){ delete svSlotCache[icp]; throw err; });
+  }
+  return svSlotCache[icp];
+}
+function svPrefetchSlots() {
+  ['yes','no'].forEach(function(icp){ svFetchSlots(icp).catch(function(){}); });
+}
+function svLoadSlots(e, force) {
   if (e) e.preventDefault();
   document.getElementById('svTz').textContent = svTz.replace(/_/g,' ');
   svCalState('svCalLoading');
-  fetch(SV_BOOK_WORKER + '/slots?icp=' + encodeURIComponent(svLead.icp) + '&tz=' + encodeURIComponent(svTz))
-    .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+  var loadingEl = document.getElementById('svCalLoading');
+  loadingEl.textContent = 'Loading open times\u2026';
+  var slowTimer = setTimeout(function(){ loadingEl.textContent = 'Still pulling up the calendar\u2026 hang tight, this can take a few seconds.'; }, 4000);
+  svFetchSlots(svLead.icp, force)
     .then(function(data){
+      clearTimeout(slowTimer);
       svDays = {};
       Object.keys(data.days || {}).forEach(function(d){
         // The ICP calendar returns one slot per SECOND (slotInterval 0) — keep clean 15-min marks only.
@@ -3401,7 +3419,7 @@ function svLoadSlots(e) {
       if (svSlot && svDays[svDay].indexOf(svSlot) === -1) svSlot = null;
       svRenderDays(); svRenderSlots(); svCalState('svCalLive');
     })
-    .catch(function(){ svCalState('svCalError'); });
+    .catch(function(){ clearTimeout(slowTimer); svCalState('svCalError'); });
 }
 function svRenderDays() {
   var row = document.getElementById('svDays'); row.innerHTML = '';
@@ -3455,7 +3473,7 @@ function svBook() {
       return;
     }
     btn.disabled = false; btn.textContent = 'Lock In My Call →';
-    if (res.status === 409) { svBookErr('That time was just taken. Pick another one.'); svSlot = null; svLoadSlots(); }
+    if (res.status === 409) { svBookErr('That time was just taken. Pick another one.'); svSlot = null; svLoadSlots(null, true); }
     else { svBookErr('Something hiccuped. Try again, or text us at (501) 236-3920.'); }
   })
   .catch(function(){ btn.disabled = false; btn.textContent = 'Lock In My Call →'; svBookErr('Something hiccuped. Try again, or text us at (501) 236-3920.'); });
@@ -3466,6 +3484,7 @@ function openSurveyModal(e) {
   if (e) e.preventDefault();
   svRender();
   svShowStep(1);
+  svPrefetchSlots();
   document.getElementById('surveyModal').style.display = 'block';
   document.body.style.overflow = 'hidden';
 }
