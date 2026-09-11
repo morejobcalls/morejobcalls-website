@@ -1,0 +1,216 @@
+{
+ "snippet": "Marketing by <a href=\"TARGET\" target=\"_blank\" rel=\"noopener\">MoreJobCalls.com</a>",
+ "rule": "anchor text always exactly MoreJobCalls.com; visible plain HTML in the served page; no nofollow; status becomes live only when curl of the live page shows the href",
+ "sites": [
+  {
+   "domain": "abbey-fence.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/fence-company-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "alldeckedoutbuilds.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "athensdeckpros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "bendfenceanddecks.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/fence-company-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "bhamdeckpros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "bobtbuilderdecks.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "deavilledeckpros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "deckdynastypros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "deckoutyourhomebuilds.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "deckssncompany.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "dynamicdeckfl.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "getallprodecks.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "gocommunityfirst.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "highlinedeckpros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "jbk-industriesllcs.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "jdsbeyondcarpentryy.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "lonestardeckpros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "miamideckpros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "morsebuilder.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "mrpatiocoverdecks.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "naileditdecks.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "paynterconstructions.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "sidingatlantadecks.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/siding-leads/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "simplelivingcontractor.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "sonomadeckpros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "thewindowprofessor-decks.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "throldahldeckpros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "trinitydecks.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "tysdeckpros.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "westernrockiesdecks.com",
+   "platform": "ghl-funnel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "pending-va"
+  },
+  {
+   "domain": "www.bivianocontracting.com",
+   "platform": "github-pages",
+   "target": "https://morejobcalls.com/",
+   "status": "committed-local-awaiting-deploy"
+  },
+  {
+   "domain": "oasiscustomdecks.com",
+   "platform": "github-pages",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "committed-local-awaiting-deploy"
+  },
+  {
+   "domain": "www.mrpatiocover.com",
+   "platform": "cf-pages",
+   "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
+   "status": "committed-local-awaiting-deploy"
+  },
+  {
+   "domain": "bivianomodularbuilders.com",
+   "platform": "github-pages",
+   "target": "https://morejobcalls.com/",
+   "status": "candidate"
+  },
+  {
+   "domain": "thewindowprofessor.pro",
+   "platform": "github-pages",
+   "target": "https://morejobcalls.com/trades/window-replacement-leads/",
+   "status": "candidate"
+  }
+ ]
+}
