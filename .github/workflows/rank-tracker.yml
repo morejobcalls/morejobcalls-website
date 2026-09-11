@@ -1,0 +1,40 @@
+name: Outrank scoreboard
+
+# Real Google positions for morejobcalls.com vs deckbuildermarketers.com and
+# slamdot.com/industries/decking/ (where deckbuildermarketing.com now redirects).
+# Mon + Thu 11:17 UTC, before the daily builder routine (13:20 UTC) reads it.
+on:
+  schedule:
+    - cron: "17 11 * * 1,4"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rank-tracker
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run tracker
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: python3 scripts/rank_tracker.py | tee scoreboard.txt
+      - name: Job summary
+        run: { echo '```'; cat scoreboard.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit history
+        run: |
+          git config user.name "mjc-scoreboard"
+          git config user.email "actions@users.noreply.github.com"
+          git add scripts/rank_history.jsonl
+          git diff --cached --quiet && exit 0
+          git commit -m "Scoreboard $(date -u +%F): $(grep -o 'MJC beats both: [0-9]*/[0-9]*' scoreboard.txt)"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done

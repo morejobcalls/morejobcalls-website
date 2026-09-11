@@ -8,6 +8,8 @@ Disallow: /index-v2.html
 Disallow: /brand-guidelines.html
 Disallow: /temporary screenshots/
 Disallow: /node_modules/
+Disallow: /scripts/
+Disallow: /.github/
 
 # ── AI / LLM crawlers — explicitly allowed ──
 User-agent: GPTBot
