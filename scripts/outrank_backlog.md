@@ -29,7 +29,7 @@ Baseline 2026-09-10: 0/12. MJC not in the top 50 on any core keyword.
 
 ### Phase 1 — money keywords with a rival in the top 10
 - [x] 2026-09-10 `/trades/deck-builder-marketing/` pillar rebuild (3.8K words, 12 FAQs, 10 inbound case-study links)
-- [ ] `/learn/deck-builder-leads/` — kw **deck builder leads** (+ leads for deck builders, decking leads). Angle: shared vs exclusive, what a deck lead really costs once you count no-shows, and what to buy instead. Rivals: DBM #25, Slamdot #19. Top 3 are marketplaces (serviceallies, minyona, builderprime): out-depth them on honest math.
+- [x] 2026-09-11 `/learn/deck-builder-leads/` https://morejobcalls.com/learn/deck-builder-leads/ — kw **deck builder leads** (+ leads for deck builders, decking leads). Angle: shared vs exclusive, what a deck lead really costs once you count no-shows, and what to buy instead. Rivals: DBM #25, Slamdot #19. Top 3 are marketplaces (serviceallies, minyona, builderprime): out-depth them on honest math.
 - [ ] `/learn/facebook-ads-for-deck-builders/` — kw **facebook ads for deck builders** (+ deck builder advertising). Real campaign structure, creative that works (owner on camera), budget math from the $320K/$100-a-day case. DBM #16. Ranking pages are thin agency pages.
 - [ ] `/learn/deck-builder-lead-generation/` — kw **deck builder lead generation**. Channel-by-channel ranking by cost per booked appointment, with a table. DBM #28, Slamdot #25.
 - [ ] `/learn/how-to-get-more-deck-jobs/` — kw **how to get more deck jobs** (+ how to get deck leads). Practical owner playbook: referrals, reviews, speed to lead, ads, follow-up. DBM #19. Reddit and Facebook groups rank here, so write it like a builder talking, not an agency.
