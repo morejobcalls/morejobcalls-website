@@ -1,6 +1,6 @@
 {
- "snippet": "Marketing by <a href=\"TARGET\" target=\"_blank\" rel=\"noopener\">MoreJobCalls.com</a>",
- "rule": "anchor text always exactly MoreJobCalls.com; visible plain HTML in the served page; no nofollow; status becomes live only when curl of the live page shows the href",
+ "snippet": "Marketing by <a href=\"TARGET\" target=\"_blank\" rel=\"nofollow noopener\">MoreJobCalls.com</a>",
+ "rule": "anchor text always exactly MoreJobCalls.com; rel=nofollow REQUIRED (Google spam policy lists widely distributed footer links as link spam unless qualified with nofollow/sponsored); visible plain HTML in the served page; status becomes live only when curl of the live page shows the href. Full SOP: Marketing/4. Website/morejobcalls-seo/Client Footer Credit SOP.md",
  "sites": [
   {
    "domain": "abbey-fence.com",
