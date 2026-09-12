@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Start Your Onboarding · MoreJobCalls</title>
+<meta name="description" content="Client onboarding for MoreJobCalls.com.">
+<!-- Client-only page: keep it out of search. Not in sitemap.xml on purpose. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#000; --surface:#0D0D0D; --elevated:#141414; --border:#222; --ink:#F5F2EB; --muted:#9CA3AF; --subtle:#6B7280; --gold:#c7963f; --bad:#f87171; --good:#4ade80; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--muted); }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 32px 20px 64px; }
+  .brand { font-weight: 800; font-size: 20px; color: var(--ink); letter-spacing: -0.01em; text-decoration: none; }
+  .brand span { color: var(--gold); }
+  .brand small { color: var(--subtle); font-weight: 600; font-size: 15px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 28px 22px; margin-top: 24px; }
+  .kicker { color: var(--gold); font-weight: 700; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { color: var(--ink); font-size: 28px; line-height: 1.2; letter-spacing: -0.02em; margin: 8px 0 10px; }
+  p { margin: 0 0 14px; }
+  label { display: block; color: var(--ink); font-weight: 600; font-size: 14px; margin: 16px 0 6px; }
+  input, select { width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: var(--elevated); border: 1px solid var(--border); border-radius: 11px; padding: 13px 14px; outline: none; }
+  input:focus, select:focus { border-color: var(--gold); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row label { margin-top: 16px; }
+  @media (max-width: 420px) { .row { grid-template-columns: 1fr; gap: 0; } }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .btn { display: block; width: 100%; text-align: center; background: var(--gold); color: #000; font: inherit; font-weight: 700; font-size: 16px; border: 0; border-radius: 12px; padding: 15px 16px; margin-top: 22px; cursor: pointer; text-decoration: none; }
+  .btn:disabled { opacity: .6; cursor: wait; }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); margin-top: 12px; }
+  .err { color: var(--bad); font-size: 14px; margin-top: 12px; display: none; }
+  .fine { color: var(--subtle); font-size: 13px; margin-top: 18px; }
+  .fine a, .link { color: var(--gold); text-underline-offset: 2px; }
+  .linkbox { display: flex; gap: 8px; margin: 14px 0 4px; }
+  .linkbox input { font-size: 13px; color: var(--muted); }
+  .linkbox button { flex: none; font: inherit; font-weight: 600; font-size: 14px; background: var(--elevated); color: var(--ink); border: 1px solid var(--border); border-radius: 11px; padding: 0 16px; cursor: pointer; }
+  .ok { color: var(--good); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="/">More<span>Job</span>Calls<small>.com</small></a>
+
+  <!-- 1. A personal link came in (?t=…) → straight to the form -->
+  <section class="card" id="v-redirect" hidden>
+    <div class="kicker">One sec</div>
+    <h1>Opening your onboarding form…</h1>
+    <p>If nothing happens, <a class="link" id="redirect-link" href="#">tap here</a>.</p>
+  </section>
+
+  <!-- 2. Same device, already started → offer to continue -->
+  <section class="card" id="v-resume" hidden>
+    <div class="kicker">Welcome back</div>
+    <h1 id="resume-title">Pick up where you left off</h1>
+    <p>Everything you've filled in is saved.</p>
+    <a class="btn" id="resume-go" href="#">Continue my onboarding →</a>
+    <button class="btn ghost" id="resume-new" type="button">Not you? Start a new one</button>
+  </section>
+
+  <!-- 3. The front door -->
+  <section class="card" id="v-form" hidden>
+    <div class="kicker">Client onboarding</div>
+    <h1>Let's get your system built.</h1>
+    <p>This takes about a minute. Then you'll roll straight into the full onboarding form. Everything saves as you go, so you can stop anytime and finish later on any device.</p>
+    <form id="f" novalidate>
+      <div class="row">
+        <div><label for="first">First name</label><input id="first" name="first" autocomplete="given-name" required></div>
+        <div><label for="last">Last name</label><input id="last" name="last" autocomplete="family-name"></div>
+      </div>
+      <label for="business">Business name</label>
+      <input id="business" name="business" autocomplete="organization" placeholder="e.g. Lone Star Decks" required>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+      <label for="phone">Cell phone</label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 555-0123" required>
+      <label for="vertical">What do you build?</label>
+      <select id="vertical" name="vertical">
+        <option value="decking">Decks &amp; outdoor living</option>
+        <option value="fencing">Fencing</option>
+        <option value="roofing">Roofing</option>
+        <option value="renovations">Remodeling</option>
+      </select>
+      <div class="hp" aria-hidden="true"><label for="company_site">Leave this empty</label><input id="company_site" name="company_site" tabindex="-1" autocomplete="off"></div>
+      <button class="btn" id="go" type="submit">Start my onboarding →</button>
+      <div class="err" id="err"></div>
+    </form>
+    <p class="fine">This page is for businesses that just signed on with MoreJobCalls. Looking to get more jobs? <a href="/">Start here</a>.</p>
+  </section>
+
+  <!-- 4. Created → hand them their personal link, then go -->
+  <section class="card" id="v-done" hidden>
+    <div class="kicker ok">You're in</div>
+    <h1 id="done-title">Here's your personal link</h1>
+    <p id="done-sent"></p>
+    <div class="linkbox"><input id="done-link" readonly><button type="button" id="copy">Copy</button></div>
+    <a class="btn" id="done-go" href="#">Continue to my form →</a>
+  </section>
+
+  <!-- 5. That email already started one → we re-sent it to the contact info on file -->
+  <section class="card" id="v-existing" hidden>
+    <div class="kicker">Already started</div>
+    <h1>You've already got one going.</h1>
+    <p id="existing-msg"></p>
+    <button class="btn ghost" id="existing-back" type="button">Go back</button>
+  </section>
+</div>
+
+<script>
+(function () {
+  var WORKER = 'https://ghl-client-intake.spencer-80c.workers.dev';
+  var LS = 'mjc_intake_resume';
+  var views = ['redirect', 'resume', 'form', 'done', 'existing'];
+  function show(v) { views.forEach(function (n) { document.getElementById('v-' + n).hidden = (n !== v); }); window.scrollTo(0, 0); }
+  function $(id) { return document.getElementById(id); }
+  function lsGet() { try { return JSON.parse(localStorage.getItem(LS) || 'null'); } catch (e) { return null; } }
+  function lsSet(v) { try { localStorage.setItem(LS, JSON.stringify(v)); } catch (e) {} }
+  function lsClear() { try { localStorage.removeItem(LS); } catch (e) {} }
+
+  // Gmail can rewrite "?t=" as "?t%3D", which arrives as a param KEY starting "t=". Recover it.
+  var params = new URLSearchParams(location.search);
+  var token = params.get('t');
+  if (!token) params.forEach(function (v, k) { if (!token && !v && k.indexOf('t=') === 0) token = k.slice(2); });
+
+  if (token) {
+    var dest = WORKER + '/?t=' + encodeURIComponent(token) + (params.get('edit') === '1' ? '&edit=1' : '');
+    $('redirect-link').href = dest;
+    show('redirect');
+    location.replace(dest);
+    return;
+  }
+
+  var saved = lsGet();
+  if (saved && saved.formUrl) {
+    $('resume-title').textContent = 'Welcome back' + (saved.first ? ', ' + saved.first : '') + '.';
+    $('resume-go').textContent = 'Continue ' + (saved.business ? saved.business + "'s" : 'my') + ' onboarding →';
+    $('resume-go').href = saved.formUrl;
+    show('resume');
+  } else {
+    show('form');
+  }
+  $('resume-new').onclick = function () { lsClear(); show('form'); };
+  $('existing-back').onclick = function () { show('form'); };
+
+  var f = $('f'), go = $('go'), err = $('err');
+  function fail(msg) { err.textContent = msg; err.style.display = 'block'; go.disabled = false; go.textContent = 'Start my onboarding →'; }
+
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.style.display = 'none';
+    var data = {};
+    new FormData(f).forEach(function (v, k) { data[k] = String(v).trim(); });
+    if (!data.first || !data.business || !data.email || !data.phone) return fail('Please fill in your name, business, email, and cell.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return fail('That email doesn\'t look right. Mind checking it?');
+    if (data.phone.replace(/\D/g, '').length < 10) return fail('Please enter a 10-digit cell number.');
+    go.disabled = true; go.textContent = 'Setting you up…';
+
+    fetch(WORKER + '/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json().then(function (j) { return { r: r, j: j }; }); })
+      .then(function (x) {
+        var j = x.j;
+        if (!x.r.ok || !j.ok) return fail(j.error || 'Something went wrong. Try again in a sec.');
+        go.disabled = false; go.textContent = 'Start my onboarding →';
+        err.style.display = 'none';
+        var sent = j.sent && j.sent.sent;
+        if (j.existing) {
+          $('existing-msg').textContent = sent
+            ? 'We just sent your personal link to the phone and email we have on file. Open it to pick up right where you left off.'
+            : 'Your answers are saved. Ask your MoreJobCalls rep to resend your personal link and you\'ll pick up right where you left off.';
+          show('existing');
+          return;
+        }
+        lsSet({ formUrl: j.formUrl, first: data.first, business: data.business });
+        $('done-title').textContent = 'You\'re set, ' + data.first + '.';
+        $('done-sent').textContent = sent
+          ? 'We just texted and emailed you this link too. It\'s yours, so use it any time to pick up where you left off.'
+          : 'Copy this link or bookmark this page. It\'s yours, so use it any time to pick up where you left off.';
+        $('done-link').value = j.resumeUrl;
+        $('done-go').href = j.formUrl;
+        show('done');
+      })
+      .catch(function () { fail('Couldn\'t reach our server. Check your connection and try again.'); });
+  });
+
+  $('copy').onclick = function () {
+    var inp = $('done-link'), b = this;
+    inp.select();
+    var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500); };
+    if (navigator.clipboard) navigator.clipboard.writeText(inp.value).then(done, function () { document.execCommand('copy'); done(); });
+    else { document.execCommand('copy'); done(); }
+  };
+})();
+</script>
+</body>
+</html>
