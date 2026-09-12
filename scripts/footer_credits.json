@@ -186,19 +186,25 @@
    "domain": "www.bivianocontracting.com",
    "platform": "github-pages",
    "target": "https://morejobcalls.com/",
-   "status": "committed-local-awaiting-deploy"
+   "status": "live",
+   "verified": "2026-09-12",
+   "rel": "nofollow noopener"
   },
   {
    "domain": "oasiscustomdecks.com",
    "platform": "github-pages",
    "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "committed-local-awaiting-deploy"
+   "status": "live",
+   "verified": "2026-09-12",
+   "rel": "nofollow noopener"
   },
   {
    "domain": "www.mrpatiocover.com",
    "platform": "cf-pages",
    "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
-   "status": "committed-local-awaiting-deploy"
+   "status": "live",
+   "verified": "2026-09-12",
+   "rel": "nofollow noopener"
   },
   {
    "domain": "bivianomodularbuilders.com",
