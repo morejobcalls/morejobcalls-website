@@ -126,7 +126,26 @@
         ]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tracking (added 2026-09-14): Microsoft Clarity + Meta pixel. Events: PageView on load,
+     Survey_Open (custom) when the strategy-call modal opens, Lead on survey submit (event_id also
+     sent to GHL for CAPI dedupe), Clarity tag survey_step per step. Booking is attributed on the
+     apply.morejobcalls.com confirmation page (Schedule), not here, to avoid double counting. -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wpznuz610a");
+</script>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '839107878270720');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=839107878270720&ev=PageView&noscript=1" alt=""></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             /* ─── Brand Palette (aligned w/ apply.morejobcalls.com) ─── */
@@ -718,15 +737,17 @@
         }
         .stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
         .t-quote { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,.75); font-style: italic; margin-bottom: 22px; }
+        .t-src { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 12px; text-decoration: none; }
+        a.t-src { color: var(--gold); }
+        a.t-src:hover { text-decoration: underline; }
+        .t-stat { font-size: 13px; font-weight: 700; color: var(--gold); margin: -10px 0 16px; }
         .t-author { display: flex; align-items: center; gap: 12px; }
         .t-avatar {
-            width: 42px; height: 42px; border-radius: 50%;
+            width: 48px; height: 48px; border-radius: 50%;
+            object-fit: cover;
             background: rgba(255,255,255,.06);
             border: 2px solid var(--orange);
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700; font-size: 14px;
-            color: var(--orange);
+            display: block;
             flex-shrink: 0;
         }
         .t-name { font-weight: 700; font-size: 14px; color: #fff; }
@@ -1812,7 +1833,8 @@
             animation: tmScrollL 60s linear infinite;
         }
         .tm-row.reverse .tm-track { animation: tmScrollR 65s linear infinite; }
-        .tm-track .t-card { flex-shrink: 0; }
+        .tm-track .t-card { flex-shrink: 0; display: flex; flex-direction: column; }
+        .tm-track .t-author { margin-top: auto; }
         @keyframes tmScrollL {
             from { transform: translateX(0); }
             to   { transform: translateX(calc(-50% - 10px)); }
@@ -2574,28 +2596,35 @@
             <h2 class="section-heading">In Their Own Words</h2>
         </div>
         <div class="testimonials-marquee">
+            <!-- Every quote below is verbatim from a recorded client call, sourced in
+                 Marketing/3. Proof/0. Master Library/Master Testimonial Library.md (2026-09-14).
+                 Faces are crops from the clients' own case-study videos. -->
             <!-- Row 1 → scrolls left -->
             <div class="tm-row">
                 <div class="tm-track">
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I told them straight up: I've been burned before, I'm skeptical, and I need to see something real in 30 days or I'm done. They hit the number in three weeks. I've referred two other guys since."</p><div class="t-author"><div class="t-avatar">JW</div><div><div class="t-name">Justin W.</div><div class="t-trade">Deck Builder · Houston, TX</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p><div class="t-author"><div class="t-avatar">CP</div><div><div class="t-name">Chip P.</div><div class="t-trade">Patio Covers · Memphis, TN</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I'd thrown $60K at agencies over four years. Nothing. This is the first time I've been able to point to a campaign and say that's exactly where that job came from."</p><div class="t-author"><div class="t-avatar">SB</div><div><div class="t-name">Scott B.</div><div class="t-trade">Roofing · Denver, CO</div></div></div></div>
+                    <div class="t-card"><a class="t-src" href="https://youtu.be/5kHvRM_2wYE" target="_blank" rel="noopener">From the recorded case study &rarr;</a><p class="t-quote">&ldquo;We're actually landing better jobs now, on top of the fact that we're landing at a higher rate.&rdquo;</p><div class="t-stat">$320,000 in deck jobs booked in 60 days on $100/day</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/chris-walters.jpg" alt="Chris Walters" width="48" height="48"><div><div class="t-name">Chris Walters</div><div class="t-trade">E&amp;C Custom Homes &middot; Gulf Shores, AL</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;I've never experienced a January and a February that went this well. Never.&rdquo;</p><div class="t-stat">$492,000 sales week &middot; 12 appointments, 11 jobs closed</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/justin-wylie.jpg" alt="Justin Wylie" width="48" height="48"><div><div class="t-name">Justin Wylie</div><div class="t-trade">All Pro Decks &amp; Patios &middot; San Antonio, TX</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;I think I've done more appointments in the last six weeks than I did all of last year.&rdquo;</p><div class="t-stat">60 estimates sent, 25 closed</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/brian-wallace.jpg" alt="Brian Wallace" width="48" height="48"><div><div class="t-name">Brian Wallace</div><div class="t-trade">Bend Fence &amp; Deck &middot; Bend, OR</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;From March 10th until March 31st, I closed $480,000 in business and contracts in 21 days.&rdquo;</p><div class="t-stat">First $1M+ year in business</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/jacob-weaver.jpg" alt="Jacob Weaver" width="48" height="48"><div><div class="t-name">Jacob Weaver</div><div class="t-trade">Oasis Custom Decks &middot; Pennsylvania</div></div></div></div>
                     <!-- duplicate set for seamless loop -->
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I told them straight up: I've been burned before, I'm skeptical, and I need to see something real in 30 days or I'm done. They hit the number in three weeks. I've referred two other guys since."</p><div class="t-author"><div class="t-avatar">JW</div><div><div class="t-name">Justin W.</div><div class="t-trade">Deck Builder · Houston, TX</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"January used to mean survival mode. This year I went into January with 6 weeks already booked. My crew didn't miss a single day. That's never happened before in 14 years."</p><div class="t-author"><div class="t-avatar">CP</div><div><div class="t-name">Chip P.</div><div class="t-trade">Patio Covers · Memphis, TN</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I'd thrown $60K at agencies over four years. Nothing. This is the first time I've been able to point to a campaign and say that's exactly where that job came from."</p><div class="t-author"><div class="t-avatar">SB</div><div><div class="t-name">Scott B.</div><div class="t-trade">Roofing · Denver, CO</div></div></div></div>
+                    <div class="t-card"><a class="t-src" href="https://youtu.be/5kHvRM_2wYE" target="_blank" rel="noopener">From the recorded case study &rarr;</a><p class="t-quote">&ldquo;We're actually landing better jobs now, on top of the fact that we're landing at a higher rate.&rdquo;</p><div class="t-stat">$320,000 in deck jobs booked in 60 days on $100/day</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/chris-walters.jpg" alt="Chris Walters" width="48" height="48"><div><div class="t-name">Chris Walters</div><div class="t-trade">E&amp;C Custom Homes &middot; Gulf Shores, AL</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;I've never experienced a January and a February that went this well. Never.&rdquo;</p><div class="t-stat">$492,000 sales week &middot; 12 appointments, 11 jobs closed</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/justin-wylie.jpg" alt="Justin Wylie" width="48" height="48"><div><div class="t-name">Justin Wylie</div><div class="t-trade">All Pro Decks &amp; Patios &middot; San Antonio, TX</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;I think I've done more appointments in the last six weeks than I did all of last year.&rdquo;</p><div class="t-stat">60 estimates sent, 25 closed</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/brian-wallace.jpg" alt="Brian Wallace" width="48" height="48"><div><div class="t-name">Brian Wallace</div><div class="t-trade">Bend Fence &amp; Deck &middot; Bend, OR</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;From March 10th until March 31st, I closed $480,000 in business and contracts in 21 days.&rdquo;</p><div class="t-stat">First $1M+ year in business</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/jacob-weaver.jpg" alt="Jacob Weaver" width="48" height="48"><div><div class="t-name">Jacob Weaver</div><div class="t-trade">Oasis Custom Decks &middot; Pennsylvania</div></div></div></div>
                 </div>
             </div>
             <!-- Row 2 → scrolls right (reverse) -->
             <div class="tm-row reverse">
                 <div class="tm-track">
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other pool builders to the same homeowner. When they call me, they called me — not the list."</p><div class="t-author"><div class="t-avatar">FG</div><div><div class="t-name">Frank G.</div><div class="t-trade">Pools · Orlando, FL</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p><div class="t-author"><div class="t-avatar">AD</div><div><div class="t-name">Andrew D.</div><div class="t-trade">Siding · Phoenix, AZ</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I was the skeptic. My wife talked me into the call. Three months later she's the one asking why I didn't do this sooner."</p><div class="t-author"><div class="t-avatar">KH</div><div><div class="t-name">Kevin H.</div><div class="t-trade">Landscaping · Austin, TX</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;I would say we're close to $200,000 that I converted. And that's only four converted leads. That's not 60 converted leads, that's four.&rdquo;</p><div class="t-stat">About $350,000 added this year he wouldn't have seen</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/chip-paynter.jpg" alt="Chip Paynter" width="48" height="48"><div><div class="t-name">Chip Paynter</div><div class="t-trade">Paynter Construction &middot; Loomis, CA</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;Last month was our biggest month ever, ever. We did more business than we have ever done in business for almost going on 15 years.&rdquo;</p><div class="t-stat">Over $500,000 in sales in one month</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/jason-flynn.jpg" alt="Jason Flynn" width="48" height="48"><div><div class="t-name">Jason Flynn</div><div class="t-trade">ProDeck &middot; Northern Virginia</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;With this program, in two weeks, I've closed $45,000.&rdquo;</p><div class="t-stat">$45,000 closed in 14 days</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/mike-holst.jpg" alt="Mike Holst" width="48" height="48"><div><div class="t-name">Mike Holst</div><div class="t-trade">Foremost Construction &middot; Minnesota</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;Job we sold on Friday for $16,000. And it was a pergola. Yes sir, it was one of yours.&rdquo;</p><div class="t-stat">About $50,000 in contracts in month one at $50/day</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/billy-gallegos.jpg" alt="Billy Gallegos" width="48" height="48"><div><div class="t-name">Billy Gallegos</div><div class="t-trade">Lone Star Home Improvement Co. &middot; Corpus Christi, TX</div></div></div></div>
                     <!-- duplicate set for seamless loop -->
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"The calls are exclusive. That alone is worth it. I'm not racing four other pool builders to the same homeowner. When they call me, they called me — not the list."</p><div class="t-author"><div class="t-avatar">FG</div><div><div class="t-name">Frank G.</div><div class="t-trade">Pools · Orlando, FL</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"Six months in and I've added a second crew. Same quality of work, same prices, same guys — just way more jobs. The only thing that changed was the pipeline."</p><div class="t-author"><div class="t-avatar">AD</div><div><div class="t-name">Andrew D.</div><div class="t-trade">Siding · Phoenix, AZ</div></div></div></div>
-                    <div class="t-card"><div class="stars">★★★★★</div><p class="t-quote">"I was the skeptic. My wife talked me into the call. Three months later she's the one asking why I didn't do this sooner."</p><div class="t-author"><div class="t-avatar">KH</div><div><div class="t-name">Kevin H.</div><div class="t-trade">Landscaping · Austin, TX</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;I would say we're close to $200,000 that I converted. And that's only four converted leads. That's not 60 converted leads, that's four.&rdquo;</p><div class="t-stat">About $350,000 added this year he wouldn't have seen</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/chip-paynter.jpg" alt="Chip Paynter" width="48" height="48"><div><div class="t-name">Chip Paynter</div><div class="t-trade">Paynter Construction &middot; Loomis, CA</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;Last month was our biggest month ever, ever. We did more business than we have ever done in business for almost going on 15 years.&rdquo;</p><div class="t-stat">Over $500,000 in sales in one month</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/jason-flynn.jpg" alt="Jason Flynn" width="48" height="48"><div><div class="t-name">Jason Flynn</div><div class="t-trade">ProDeck &middot; Northern Virginia</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;With this program, in two weeks, I've closed $45,000.&rdquo;</p><div class="t-stat">$45,000 closed in 14 days</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/mike-holst.jpg" alt="Mike Holst" width="48" height="48"><div><div class="t-name">Mike Holst</div><div class="t-trade">Foremost Construction &middot; Minnesota</div></div></div></div>
+                    <div class="t-card"><div class="t-src">From a recorded client call &middot; quoted verbatim</div><p class="t-quote">&ldquo;Job we sold on Friday for $16,000. And it was a pergola. Yes sir, it was one of yours.&rdquo;</p><div class="t-stat">About $50,000 in contracts in month one at $50/day</div><div class="t-author"><img class="t-avatar" src="/assets/proof-faces/billy-gallegos.jpg" alt="Billy Gallegos" width="48" height="48"><div><div class="t-name">Billy Gallegos</div><div class="t-trade">Lone Star Home Improvement Co. &middot; Corpus Christi, TX</div></div></div></div>
                 </div>
             </div>
         </div>
@@ -3319,6 +3348,7 @@ function svShowStep(n) {
   var id = (n === 'Done') ? 'svDone' : 'sv'+n;
   document.getElementById(id).classList.add('sv-active');
   svCurrent = n;
+  try { if (typeof clarity === 'function') clarity('set', 'survey_step', String(n)); } catch (e) {}
   var pct = n === 'Done' ? 100 : (n / 4) * 100;
   document.getElementById('svProgress').style.width = pct + '%';
   document.querySelector('.sv-card').scrollTop = 0;
@@ -3328,6 +3358,10 @@ function svNext(n) { svShowStep(n + 1); }
 function svBack(n) { svShowStep(n - 1); }
 
 // ── SUBMIT ───────────────────────────────────────────
+function svEventId() {
+  try { if (window.crypto && crypto.randomUUID) return crypto.randomUUID(); } catch (e) {}
+  return 'mjc-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+}
 function svSubmit() {
   var payload = {
     trade:          sv.trade,
@@ -3342,8 +3376,14 @@ function svSubmit() {
     business_name:  document.getElementById('svBiz').value.trim(),
     market:         document.getElementById('svCity').value.trim(),
     source:         'morejobcalls.com',
-    submitted_at:   new Date().toISOString()
+    submitted_at:   new Date().toISOString(),
+    event_id:       svEventId(),
+    page_url:       location.href
   };
+
+  // Meta Lead (seasoned pixel), same event_id the webhook receives so any future CAPI send dedupes.
+  try { if (typeof fbq === 'function') fbq('trackSingle', '839107878270720', 'Lead', { content_name: 'Website Strategy Call Survey', value: 0, currency: 'USD' }, { eventID: payload.event_id }); } catch (e) {}
+  try { if (typeof clarity === 'function') { clarity('set', 'survey_submitted', 'yes'); clarity('event', 'survey_submit'); } } catch (e) {}
 
   if (SV_WEBHOOK) {
     fetch(SV_WEBHOOK, {
@@ -3485,6 +3525,8 @@ function openSurveyModal(e) {
   svRender();
   svShowStep(1);
   svPrefetchSlots();
+  try { if (typeof fbq === 'function') fbq('trackCustom', 'Survey_Open'); } catch (e) {}
+  try { if (typeof clarity === 'function') clarity('event', 'survey_open'); } catch (e) {}
   document.getElementById('surveyModal').style.display = 'block';
   document.body.style.overflow = 'hidden';
 }
