@@ -82,12 +82,22 @@
       <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
       <label for="phone">Cell phone</label>
       <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 555-0123" required>
-      <label for="vertical">What do you build?</label>
-      <select id="vertical" name="vertical">
-        <option value="decking">Decks &amp; outdoor living</option>
-        <option value="fencing">Fencing</option>
-        <option value="roofing">Roofing</option>
-        <option value="renovations">Remodeling</option>
+      <!-- Same question + options as the intake form's industry_vertical (worker FRONT_DOOR_INDUSTRIES). -->
+      <label for="industry">What do you do?</label>
+      <select id="industry" name="industry" required>
+        <option value="" disabled selected>Pick the closest fit</option>
+        <option>Decking</option>
+        <option>Roofing</option>
+        <option>Siding</option>
+        <option>Windows</option>
+        <option>Fencing</option>
+        <option>Concrete</option>
+        <option>Gutters</option>
+        <option>Outdoor Living</option>
+        <option>Pools</option>
+        <option>Interior Remodeling</option>
+        <option>Kitchens &amp; Baths</option>
+        <option>Other Home Service</option>
       </select>
       <div class="hp" aria-hidden="true"><label for="company_site">Leave this empty</label><input id="company_site" name="company_site" tabindex="-1" autocomplete="off"></div>
       <button class="btn" id="go" type="submit">Start my onboarding →</button>
@@ -159,6 +169,7 @@
     var data = {};
     new FormData(f).forEach(function (v, k) { data[k] = String(v).trim(); });
     if (!data.first || !data.business || !data.email || !data.phone) return fail('Please fill in your name, business, email, and cell.');
+    if (!data.industry) return fail('Pick what you do so we set up the right form for you.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return fail('That email doesn\'t look right. Mind checking it?');
     if (data.phone.replace(/\D/g, '').length < 10) return fail('Please enter a 10-digit cell number.');
     go.disabled = true; go.textContent = 'Setting you up…';
