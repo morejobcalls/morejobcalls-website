@@ -15,6 +15,13 @@
    "status": "pending-va"
   },
   {
+   "domain": "apdecks.com",
+   "platform": "wordpress-flywheel",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "live",
+   "note": "verified live 2026-09-14; Elementor footer template #1535, text widget next to the copyright line"
+  },
+  {
    "domain": "athensdeckpros.com",
    "platform": "ghl-funnel",
    "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
@@ -31,6 +38,15 @@
    "platform": "ghl-funnel",
    "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
    "status": "pending-va"
+  },
+  {
+   "domain": "bivianomodularbuilders.com",
+   "platform": "github-pages",
+   "target": "https://morejobcalls.com/",
+   "status": "live",
+   "verified": "2026-09-14",
+   "rel": "nofollow noopener",
+   "note": "verified live 2026-09-14, 45 pages; 404/feedback/your-ads have no copyright line"
   },
   {
    "domain": "bobtbuilderdecks.com",
@@ -129,6 +145,22 @@
    "status": "pending-va"
   },
   {
+   "domain": "oasiscustomdecks.com",
+   "platform": "github-pages",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "live",
+   "verified": "2026-09-14",
+   "rel": "nofollow noopener",
+   "note": "verified live 2026-09-14 on apex + oasis-website-s94.pages.dev, 23 pages"
+  },
+  {
+   "domain": "paynterconstruction.com",
+   "platform": "github-pages",
+   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+   "status": "live",
+   "note": "verified live 2026-09-14, 4 pages (repo: 05 - Landing Pages/paynter-website)"
+  },
+  {
    "domain": "paynterconstructions.com",
    "platform": "ghl-funnel",
    "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
@@ -157,6 +189,13 @@
    "platform": "ghl-funnel",
    "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
    "status": "pending-va"
+  },
+  {
+   "domain": "thewindowprofessor.pro",
+   "platform": "github-pages",
+   "target": "https://morejobcalls.com/trades/window-replacement-leads/",
+   "status": "live",
+   "note": "verified live 2026-09-14, 15 of 15 pages; pricing-event paid LP intentionally excluded"
   },
   {
    "domain": "throldahldeckpros.com",
@@ -188,15 +227,8 @@
    "target": "https://morejobcalls.com/",
    "status": "live",
    "verified": "2026-09-14",
-   "rel": "nofollow noopener"
-  },
-  {
-   "domain": "oasiscustomdecks.com",
-   "platform": "github-pages",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "live",
-   "verified": "2026-09-14",
-   "rel": "nofollow noopener"
+   "rel": "nofollow noopener",
+   "note": "verified live 2026-09-14, 20 pages"
   },
   {
    "domain": "www.mrpatiocover.com",
@@ -204,21 +236,8 @@
    "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
    "status": "live",
    "verified": "2026-09-14",
-   "rel": "nofollow noopener"
-  },
-  {
-   "domain": "bivianomodularbuilders.com",
-   "platform": "github-pages",
-   "target": "https://morejobcalls.com/",
-   "status": "live",
-   "verified": "2026-09-14",
-   "rel": "nofollow noopener"
-  },
-  {
-   "domain": "thewindowprofessor.pro",
-   "platform": "github-pages",
-   "target": "https://morejobcalls.com/trades/window-replacement-leads/",
-   "status": "candidate"
+   "rel": "nofollow noopener",
+   "note": "verified live 2026-09-14, 40 pages; paid LPs google-estimate + meta-offer intentionally credit-free; /archive/ still public until next deploy via _dev/ship-lp.sh"
   }
  ]
 }
