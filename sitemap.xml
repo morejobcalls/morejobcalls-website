@@ -218,7 +218,7 @@
 
   <url>
     <loc>https://morejobcalls.com/learn/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -252,6 +252,13 @@
   <url>
     <loc>https://morejobcalls.com/learn/facebook-ads-for-deck-builders/</loc>
     <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://morejobcalls.com/learn/how-to-get-more-deck-jobs/</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
