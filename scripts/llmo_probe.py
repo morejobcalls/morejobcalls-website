@@ -13,6 +13,14 @@ the exact shared-lead sellers MJC positions against.
     python3 scripts/llmo_probe.py              # run + append to history
     python3 scripts/llmo_probe.py --dry        # run, print, don't write history
     python3 scripts/llmo_probe.py --trend      # show history only
+    python3 scripts/llmo_probe.py --grounded   # WEB-SEARCH mode: what live answer
+                                               # engines say + which URLs they cite
+
+Two scoreboards, kept separate:
+- default (no search) = what the model "knows" from training. Moves in months.
+- --grounded (web_search tool) = what ChatGPT-search / Perplexity / AI Overviews-style
+  answers say TODAY and which pages they cite. Moves in days/weeks. The cited-URL map
+  (scripts/llmo_citations.json) is the target list: get MJC onto those pages.
 
 History is a JSONL at scripts/llmo_history.jsonl — one line per run, committed so
 the trend survives machines and is visible in the repo.
@@ -27,6 +35,9 @@ import urllib.request
 
 HERE = pathlib.Path(__file__).parent
 HISTORY = HERE / "llmo_history.jsonl"
+G_HISTORY = HERE / "llmo_grounded_history.jsonl"
+CITES = HERE / "llmo_citations.json"
+G_MODEL = os.environ.get("LLMO_GROUNDED_MODEL", "claude-sonnet-5")
 MODEL = os.environ.get("LLMO_MODEL", "claude-sonnet-4-5")
 
 # ---------------------------------------------------------------- the questions
@@ -47,6 +58,19 @@ QUERIES = [
               "contractor?"),
     ("howto", "Are Angi and HomeAdvisor leads worth it for contractors?"),
     ("howto", "How much should a contractor pay per lead?"),
+]
+
+# Grounded panel = QUERIES + deck-specific hire-intent phrasings. Add, don't edit.
+GROUNDED_EXTRA = [
+    ("hire", "What is the best marketing company for deck builders?"),
+    ("hire", "Best deck builder marketing agency 2026"),
+    ("hire", "Who can get my deck company more jobs? I'm tired of shared leads."),
+    ("hire", "Top lead generation companies for outdoor living and patio cover "
+             "contractors"),
+    ("hire", "Facebook ads agency for deck builders that guarantees appointments"),
+    ("hire", "Alternatives to Angi and HomeAdvisor for deck builders"),
+    ("hire", "Best marketing agency for fence companies"),
+    ("howto", "How do I get more deck building leads?"),
 ]
 
 BRAND = ["morejobcalls", "more job calls", "morejobcalls.com",
@@ -76,6 +100,87 @@ def ask(question, key):
     with urllib.request.urlopen(req, timeout=180) as r:
         d = json.load(r)
     return "".join(b.get("text", "") for b in d.get("content", []))
+
+
+def ask_grounded(question, key):
+    """Ask with the web_search tool on; return (answer_text, cited_urls, searched_urls)."""
+    body = {"model": G_MODEL, "max_tokens": 2000,
+            "tools": [{"type": "web_search_20250305", "name": "web_search",
+                       "max_uses": 4, "user_location": {"type": "approximate",
+                       "country": "US", "region": "Texas", "city": "Austin"}}],
+            "messages": [{"role": "user", "content": question}]}
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages",
+        data=json.dumps(body).encode(),
+        headers={"x-api-key": key, "anthropic-version": "2023-06-01",
+                 "content-type": "application/json"})
+    with urllib.request.urlopen(req, timeout=300) as r:
+        d = json.load(r)
+    text, cited, searched = [], [], []
+    for b in d.get("content", []):
+        if b.get("type") == "text":
+            text.append(b.get("text", ""))
+            for c in b.get("citations") or []:
+                if c.get("url"):
+                    cited.append(c["url"])
+        elif b.get("type") == "web_search_tool_result":
+            for res in b.get("content") or []:
+                if isinstance(res, dict) and res.get("url"):
+                    searched.append(res["url"])
+    dedup = lambda xs: list(dict.fromkeys(xs))
+    return "".join(text), dedup(cited), dedup(searched)
+
+
+def run_grounded(dry=False):
+    from urllib.parse import urlparse
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        sys.exit("ANTHROPIC_API_KEY not set")
+    results, rival_counts, url_counts = [], {}, {}
+    for intent, q in QUERIES + GROUNDED_EXTRA:
+        try:
+            a, cited, searched = ask_grounded(q, key)
+        except Exception as e:
+            print(f"  ERROR  {q[:56]}: {e}")
+            continue
+        named, cited_mjc, rivals = score(a)
+        cited_mjc = cited_mjc or any("morejobcalls.com" in u for u in cited)
+        for r in rivals:
+            rival_counts[r] = rival_counts.get(r, 0) + 1
+        for u in cited or searched:
+            url_counts[u] = url_counts.get(u, 0) + 1
+        results.append({"intent": intent, "q": q, "named": named,
+                        "cited_url": cited_mjc, "rivals": rivals,
+                        "cited": cited[:15], "searched": searched[:15]})
+        print(f"  [{'NAMED' if named else '  -  '}] ({intent}) {q[:62]}")
+        for u in (cited or searched)[:5]:
+            print(f"            src: {u[:100]}")
+    if not results:
+        sys.exit("no results — every query errored")
+    hire = [r for r in results if r["intent"] == "hire"]
+    domains = {}
+    for u, n in url_counts.items():
+        h = urlparse(u).netloc.replace("www.", "")
+        domains[h] = domains.get(h, 0) + n
+    row = {"date": dt.date.today().isoformat(), "model": G_MODEL, "mode": "grounded",
+           "named": sum(r["named"] for r in results), "of": len(results),
+           "named_hire_intent": sum(r["named"] for r in hire), "of_hire_intent": len(hire),
+           "cited_url": sum(r["cited_url"] for r in results),
+           "top_rivals": sorted(rival_counts.items(), key=lambda x: -x[1])[:10],
+           "top_domains": sorted(domains.items(), key=lambda x: -x[1])[:25],
+           "detail": results}
+    print(f"\n  GROUNDED: MJC named {row['named']}/{row['of']} "
+          f"(hire {row['named_hire_intent']}/{row['of_hire_intent']}) · "
+          f"MJC URL cited in {row['cited_url']}")
+    print("  Most-cited sources (the target list): " + ", ".join(
+        f"{d}({n})" for d, n in row["top_domains"][:12]))
+    if not dry:
+        with open(G_HISTORY, "a") as f:
+            f.write(json.dumps(row) + "\n")
+        CITES.write_text(json.dumps({"date": row["date"], "urls": sorted(
+            url_counts.items(), key=lambda x: -x[1])}, indent=1))
+        print(f"  appended -> {G_HISTORY.name}; citation map -> {CITES.name}")
+    return row
 
 
 def score(answer):
@@ -160,8 +265,11 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--trend", action="store_true")
+    ap.add_argument("--grounded", action="store_true")
     a = ap.parse_args()
-    if a.trend:
+    if a.grounded:
+        run_grounded(dry=a.dry)
+    elif a.trend:
         trend()
     else:
         run(dry=a.dry)

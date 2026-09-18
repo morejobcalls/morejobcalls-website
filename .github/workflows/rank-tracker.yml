@@ -27,7 +27,11 @@ jobs:
       - name: Run tracker
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-        run: python3 scripts/rank_tracker.py | tee scoreboard.txt
+        # pipefail: without it `| tee` swallows the tracker's exit code and an Apify
+        # 403 (monthly limit) shows as a green run with no data (happened 2026-09-17).
+        run: |
+          set -o pipefail
+          python3 scripts/rank_tracker.py | tee scoreboard.txt
       - name: Job summary
         run: |
           {

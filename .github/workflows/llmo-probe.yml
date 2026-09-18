@@ -1,0 +1,45 @@
+name: LLMO probe
+
+# AI-answer visibility: asks 18 buyer questions to Claude WITH web search (the same
+# retrieve-then-answer loop ChatGPT search / Perplexity / AI Overviews run) and records
+# whether MoreJobCalls is named and which URLs the answer cites.
+# Output: scripts/llmo_grounded_history.jsonl (trend) + scripts/llmo_citations.json
+# (the target list the Authority Prospector works). Mon + Thu 11:40 UTC.
+on:
+  schedule:
+    - cron: "40 11 * * 1,4"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: llmo-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Grounded probe
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set -o pipefail
+          python3 scripts/llmo_probe.py --grounded | tee probe.txt
+      - name: Job summary
+        run: |
+          { echo '```'; tail -40 probe.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit history
+        run: |
+          git config user.name "mjc-scoreboard"
+          git config user.email "actions@users.noreply.github.com"
+          git add scripts/llmo_grounded_history.jsonl scripts/llmo_citations.json
+          git diff --cached --quiet && exit 0
+          git commit -m "LLMO probe $(date -u +%F): $(grep -o 'MJC named [0-9]*/[0-9]*' probe.txt)"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done

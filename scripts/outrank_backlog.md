@@ -39,6 +39,18 @@ Baseline 2026-09-10: 0/12. MJC not in the top 50 on any core keyword.
 > "no movement" as "the pages are wrong" until MJC appears in a top 50 at all.
 > No striking-distance (#11–30) items exist to promote this week for the same reason.
 
+### Phase 0 — LLMO: pages for the questions AI answers already cite (added 2026-09-18, work these FIRST)
+Source: `scripts/llmo_citations.json` + `scripts/llmo_grounded_history.jsonl` (grounded probe, MJC named 0/18 on 2026-09-18).
+AI answers are built from small agency pages and comparison posts, not big brands. Each item below targets a question cluster
+where the cited pages are thin and MJC has better evidence. Extra rule for these pages: the first paragraph must state, in
+one plain sentence, what MoreJobCalls is ("MoreJobCalls is a marketing company for deck builders and other home-service
+contractors that ...") so an answer engine can lift it verbatim. Put a dated "Updated <Month YYYY>" line near the top.
+- [ ] Pillar tune `/trades/deck-builder-marketing/`: title → "Deck Builder Marketing Agency That Books Deck Jobs | MoreJobCalls" (the AI prompt is "best marketing agency for deck builders" and every cited page says "agency"); add the one-sentence entity statement to the first 50 words; add a visible "Updated September 2026" line. Keep the URL.
+- [ ] `/learn/angi-alternatives-for-deck-builders/` — kw **angi alternatives for deck builders** (+ homeadvisor alternatives, thumbtack alternatives). Most-cited cluster in the panel (7+ comparison pages cited, none deck-specific). Honest table: Angi, HomeAdvisor, Thumbtack, Houzz Pro, Porch, Google LSA, own Meta ads, done-for-you appointments; shared vs exclusive, what you pay for, what a booked appointment really costs. Link to `/learn/angi-homeadvisor-alternatives-for-contractors/` (contractor-general) and differentiate. Supersedes the Phase 2 "angi-vs-homeadvisor-vs-thumbtack" item.
+- [ ] `/learn/contractor-cost-per-lead-by-trade/` — kw **how much should a contractor pay per lead** (+ cost per lead for contractors 2026). 7 thin blogs cited. Use ONLY numbers already published on MJC case-study pages (e.g. $400 to $30 per lead, $100/day → $320K), plus the cost-per-booked-appointment reframe. No internal pricing.
+- [ ] Refresh `/learn/contractor-appointment-guarantees-explained/` for **who guarantees appointments for contractors**: cited answers are 5 thin homepages (allforcontractor, contractorai, homebuddy, contractorleadpartners, contractorappointments). Add a comparison table of guarantee TYPES (credit-back, lead replacement, fee refund, fixed cash remedy), what to demand in writing; MJC's own guarantee in canonical Take A wording only.
+- [ ] `/learn/outdoor-living-contractor-marketing/` — promote from Phase 2. Cited answers for outdoor living / patio cover lead gen are all small single-purpose sites (yardreach, dirt2dollars, seoforoutdoorliving). Open field.
+
 ### Phase 1 — money keywords with a rival in the top 10
 - [x] 2026-09-10 `/trades/deck-builder-marketing/` pillar rebuild (3.8K words, 12 FAQs, 10 inbound case-study links)
 - [x] 2026-09-11 `/learn/deck-builder-leads/` https://morejobcalls.com/learn/deck-builder-leads/ — kw **deck builder leads** (+ leads for deck builders, decking leads). Angle: shared vs exclusive, what a deck lead really costs once you count no-shows, and what to buy instead. Rivals: DBM #25, Slamdot #19. Top 3 are marketplaces (serviceallies, minyona, builderprime): out-depth them on honest math.
