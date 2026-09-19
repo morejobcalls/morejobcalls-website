@@ -15,6 +15,11 @@ the exact shared-lead sellers MJC positions against.
     python3 scripts/llmo_probe.py --trend      # show history only
     python3 scripts/llmo_probe.py --grounded   # WEB-SEARCH mode: what live answer
                                                # engines say + which URLs they cite
+    python3 scripts/llmo_probe.py --grounded --engine openai
+                                               # same panel through OpenAI's web_search
+                                               # (ChatGPT's retrieval = Bing). Needs
+                                               # OPENAI_API_KEY. Citations -> a separate
+                                               # map so the two engines don't overwrite.
 
 Two scoreboards, kept separate:
 - default (no search) = what the model "knows" from training. Moves in months.
@@ -37,7 +42,9 @@ HERE = pathlib.Path(__file__).parent
 HISTORY = HERE / "llmo_history.jsonl"
 G_HISTORY = HERE / "llmo_grounded_history.jsonl"
 CITES = HERE / "llmo_citations.json"
+CITES_OPENAI = HERE / "llmo_citations_openai.json"
 G_MODEL = os.environ.get("LLMO_GROUNDED_MODEL", "claude-sonnet-5")
+OPENAI_MODEL = os.environ.get("LLMO_OPENAI_MODEL", "gpt-5")
 MODEL = os.environ.get("LLMO_MODEL", "claude-sonnet-4-5")
 
 # ---------------------------------------------------------------- the questions
@@ -131,15 +138,55 @@ def ask_grounded(question, key):
     return "".join(text), dedup(cited), dedup(searched)
 
 
-def run_grounded(dry=False):
+def ask_grounded_openai(question, key):
+    """Same contract as ask_grounded(), via OpenAI's Responses API + web_search tool.
+    ChatGPT search retrieves from Bing, so this is the closest proxy we have for
+    'what does ChatGPT say' without scraping the consumer app."""
+    body = {"model": OPENAI_MODEL,
+            "tools": [{"type": "web_search",
+                       "user_location": {"type": "approximate", "country": "US",
+                                         "region": "Texas", "city": "Austin"}}],
+            "input": question}
+    req = urllib.request.Request(
+        "https://api.openai.com/v1/responses",
+        data=json.dumps(body).encode(),
+        headers={"Authorization": f"Bearer {key}",
+                 "content-type": "application/json"})
+    with urllib.request.urlopen(req, timeout=300) as r:
+        d = json.load(r)
+    text, cited, searched = [], [], []
+    for item in d.get("output", []):
+        if item.get("type") == "message":
+            for c in item.get("content") or []:
+                if c.get("type") == "output_text":
+                    text.append(c.get("text", ""))
+                    for an in c.get("annotations") or []:
+                        if an.get("type") == "url_citation" and an.get("url"):
+                            cited.append(an["url"])
+        elif item.get("type") == "web_search_call":
+            for res in (item.get("action") or {}).get("sources") or []:
+                if isinstance(res, dict) and res.get("url"):
+                    searched.append(res["url"])
+    dedup = lambda xs: list(dict.fromkeys(xs))
+    return "".join(text), dedup(cited), dedup(searched)
+
+
+def run_grounded(dry=False, engine="claude"):
     from urllib.parse import urlparse
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key:
-        sys.exit("ANTHROPIC_API_KEY not set")
+    if engine == "openai":
+        key = os.environ.get("OPENAI_API_KEY")
+        if not key:
+            sys.exit("OPENAI_API_KEY not set")
+        asker, model, cites_path = ask_grounded_openai, OPENAI_MODEL, CITES_OPENAI
+    else:
+        key = os.environ.get("ANTHROPIC_API_KEY")
+        if not key:
+            sys.exit("ANTHROPIC_API_KEY not set")
+        asker, model, cites_path = ask_grounded, G_MODEL, CITES
     results, rival_counts, url_counts = [], {}, {}
     for intent, q in QUERIES + GROUNDED_EXTRA:
         try:
-            a, cited, searched = ask_grounded(q, key)
+            a, cited, searched = asker(q, key)
         except Exception as e:
             print(f"  ERROR  {q[:56]}: {e}")
             continue
@@ -162,14 +209,15 @@ def run_grounded(dry=False):
     for u, n in url_counts.items():
         h = urlparse(u).netloc.replace("www.", "")
         domains[h] = domains.get(h, 0) + n
-    row = {"date": dt.date.today().isoformat(), "model": G_MODEL, "mode": "grounded",
+    row = {"date": dt.date.today().isoformat(), "model": model, "mode": "grounded",
+           "engine": engine,
            "named": sum(r["named"] for r in results), "of": len(results),
            "named_hire_intent": sum(r["named"] for r in hire), "of_hire_intent": len(hire),
            "cited_url": sum(r["cited_url"] for r in results),
            "top_rivals": sorted(rival_counts.items(), key=lambda x: -x[1])[:10],
            "top_domains": sorted(domains.items(), key=lambda x: -x[1])[:25],
            "detail": results}
-    print(f"\n  GROUNDED: MJC named {row['named']}/{row['of']} "
+    print(f"\n  GROUNDED[{engine}]: MJC named {row['named']}/{row['of']} "
           f"(hire {row['named_hire_intent']}/{row['of_hire_intent']}) · "
           f"MJC URL cited in {row['cited_url']}")
     print("  Most-cited sources (the target list): " + ", ".join(
@@ -177,9 +225,10 @@ def run_grounded(dry=False):
     if not dry:
         with open(G_HISTORY, "a") as f:
             f.write(json.dumps(row) + "\n")
-        CITES.write_text(json.dumps({"date": row["date"], "urls": sorted(
-            url_counts.items(), key=lambda x: -x[1])}, indent=1))
-        print(f"  appended -> {G_HISTORY.name}; citation map -> {CITES.name}")
+        cites_path.write_text(json.dumps({"date": row["date"], "engine": engine,
+                                          "urls": sorted(url_counts.items(),
+                                                         key=lambda x: -x[1])}, indent=1))
+        print(f"  appended -> {G_HISTORY.name}; citation map -> {cites_path.name}")
     return row
 
 
@@ -266,9 +315,11 @@ if __name__ == "__main__":
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--trend", action="store_true")
     ap.add_argument("--grounded", action="store_true")
+    ap.add_argument("--engine", choices=["claude", "openai"], default="claude",
+                    help="grounded mode only: which answer engine to probe")
     a = ap.parse_args()
     if a.grounded:
-        run_grounded(dry=a.dry)
+        run_grounded(dry=a.dry, engine=a.engine)
     elif a.trend:
         trend()
     else:
