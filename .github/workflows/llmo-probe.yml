@@ -21,17 +21,28 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      HAS_OPENAI: ${{ secrets.OPENAI_API_KEY != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Grounded probe
+      - name: Grounded probe (Claude + web search)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           set -o pipefail
           python3 scripts/llmo_probe.py --grounded | tee probe.txt
+      # ChatGPT search retrieves from Bing, not from the same pool Claude's search uses.
+      # Runs only when the OPENAI_API_KEY secret exists; skipped silently otherwise.
+      - name: Grounded probe (OpenAI + web search)
+        if: env.HAS_OPENAI == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          set -o pipefail
+          python3 scripts/llmo_probe.py --grounded --engine openai | tee -a probe.txt
       - name: Job summary
         run: |
           { echo '```'; tail -40 probe.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
@@ -40,6 +51,7 @@ jobs:
           git config user.name "mjc-scoreboard"
           git config user.email "actions@users.noreply.github.com"
           git add scripts/llmo_grounded_history.jsonl scripts/llmo_citations.json
+          git add scripts/llmo_citations_openai.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
-          git commit -m "LLMO probe $(date -u +%F): $(grep -o 'MJC named [0-9]*/[0-9]*' probe.txt)"
+          git commit -m "LLMO probe $(date -u +%F): $(grep -o 'GROUNDED\[[a-z]*\]: MJC named [0-9]*/[0-9]*' probe.txt | tr '\n' ' ')"
           for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
