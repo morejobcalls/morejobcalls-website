@@ -293,3 +293,29 @@ indexation clears, which is the confirmation the content is fine).
 | Send the 8 listicle pitches (drafts arrive in Slack from the Prospector) | Outward email | 1 hour |
 | Decide which benchmark numbers go public | Business call | 30 min |
 | Approve named-competitor comparison claims | Legal/business call | 30 min |
+
+---
+
+## 9. Execution log
+
+**2026-09-19, same day as the plan.** Everything on this list that could be done from the repo or
+from Spencer's tools without his sign-in was done:
+
+- Constraint 3 (content) is closed for the deck cluster: all eight remaining Phase 1/2 pages shipped
+  (deck-builder-seo, marketing-ideas, marketing budget, questions-to-ask, winter marketing,
+  speed-to-lead, lead-magnet ideas, referrals), each with the entity sentence, dated, FAQ mirrored
+  in schema, three inbound links, and listed in sitemap, learn index and llms.txt. The site now has
+  37 learn pages.
+- Entity consistency: the one canonical sentence is in the first 100 words of the homepage, About,
+  and all nine trade pages; Organization schema name is MoreJobCalls with the other renderings as
+  alternateName.
+- `youtube-descriptions.md` carries the entity statement and brand + category keywords on every
+  block. `scripts/footer_credits_va_batch.md` is the per-domain paste sheet for the VA.
+- In Spencer's Gmail Drafts (unaddressed, ready to send): five Clutch review requests (Wylie,
+  Weaver, Wallace, Walters, Lopez) and one listicle pitch template. Directory profile copy, the
+  contact-form pitch, and the GSC/Bing click-path are in the private outreach-kit page.
+
+**Still Spencer's** (nothing here can be done from the repo): merge the branch; GSC + Bing WMT
+verification, sitemap submit, request indexing; send the six drafts; create the five directory
+profiles; approve the VA batch; add `OPENAI_API_KEY`; paste the YouTube descriptions; decide the
+benchmark numbers and the competitor-comparison claims; answer forum threads as himself.
