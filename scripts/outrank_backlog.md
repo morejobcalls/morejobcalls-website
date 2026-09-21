@@ -25,21 +25,35 @@ Baseline 2026-09-10: 0/12. MJC not in the top 50 on any core keyword.
   "leads" (title/H1/meta/URL); the sentences describing what WE deliver may not.
 - No internal pricing. No invented client numbers. Guarantee wording exactly per the routine prompt.
 - No recommended, required or minimum ad budgets and no "all-in" monthly figures (budget is set on the strategy call). Named clients' ACTUAL spend in case studies is fine.
+- Never publish a self-ranked "best agencies" list with MJC at #1. Google demotes them and answer
+  engines skip the brand that authored the list. A comparison page is fine when it is alphabetical
+  and every cell is sourced from the other company's own site (see
+  `/learn/deck-builder-marketing-companies-compared/`); a ranking we top is not.
 - Exclusive appointments are universal; exclusive territory ("one contractor per market") is VIP tier only. Never state it as universal.
 
 ## Queue (top = next)
 
-> **Strategist read 2026-09-14 — the queue is not the bottleneck, indexation is.**
-> MJC is absent from the top 50 on all 20 tracked keywords, including
-> `outdoor living contractor marketing` and `patio cover marketing` where NO rival ranks
-> either. An indexed page on an open-field keyword lands *somewhere* in a top 50. Absent
-> everywhere, plus absent on a branded `morejobcalls.com` search, reads as not-indexed
-> rather than out-ranked. Robots, canonicals, 200s and the 36-URL sitemap all check out,
-> so this is a crawl/discovery problem for Google to solve, not an on-page one
-> (Spencer: GSC sitemap submit + request-indexing — see the weekly Slack).
-> Keep shipping: the content compounds the day indexation clears. But do not read
-> "no movement" as "the pages are wrong" until MJC appears in a top 50 at all.
-> No striking-distance (#11–30) items exist to promote this week for the same reason.
+> **Strategist read 2026-09-21 — the Google scoreboard is DARK, and the constraint is still RETRIEVAL.**
+> `scripts/rank_history.jsonl` has had no new row since 2026-09-14: the Apify actor has
+> returned HTTP 403 (monthly usage hard limit) on both the 09-17 and 09-21 runs. Spencer has
+> to raise the Apify plan before any position data comes back. Until then there are **no
+> striking-distance (#11–30) items to promote** — not because none exist, but because nobody
+> can see them. Do not infer anything from "flat" rankings.
+>
+> What we *can* see got worse-confirmed, not better. The 2026-09-21 LLMO panel ran 108
+> grounded answers and MJC was named in **0** of them — and the **retrieval rate was 0.0%**:
+> across every web search those answers triggered, morejobcalls.com never once came back as
+> a result. That is a second, independent index (Brave/Bing, not Google) saying the same
+> thing the Google scoreboard said: the pages are not discoverable. Serving is fine —
+> homepage, pillar, newest page, robots and the 43-URL sitemap all return 200 to a browser
+> UA, canonicals are self-referential, and the only noindex is the deliberate `/start/`.
+> A literal `"morejobcalls.com"` phrase search still does not return the domain.
+>
+> So: the lever remains submission and discovery (GSC sitemap + request indexing, Bing
+> Webmaster + IndexNow, and real inbound links), not on-page rewrites. Keep shipping — the
+> content compounds the day retrieval clears, and an answer engine can only name a page it
+> can fetch. But do not rewrite a shipped page because it "isn't ranking". It has not been
+> looked at yet.
 
 ### Phase 0 — LLMO: pages for the questions AI answers already cite (added 2026-09-18, work these FIRST)
 Source: `scripts/llmo_citations.json` + `scripts/llmo_grounded_history.jsonl` (grounded probe, MJC named 0/18 on 2026-09-18).
@@ -54,6 +68,12 @@ contractors that ...") so an answer engine can lift it verbatim. Put a dated "Up
 - [x] 2026-09-20 `/learn/outdoor-living-contractor-marketing/` https://morejobcalls.com/learn/outdoor-living-contractor-marketing/ — promote from Phase 2. Cited answers for outdoor living / patio cover lead gen are all small single-purpose sites (yardreach, dirt2dollars, seoforoutdoorliving). Open field.
 
 - [x] 2026-09-20 Site-wide LLMO entity pass: the one-sentence entity statement + "Updated September 2026" + dateModified on every /learn/ page, trade-specific entity sentence on all 8 trade pages, full Organization node (name MoreJobCalls, legalName MoreJobCalls.com LLC) embedded on every page, About page + homepage schema aligned, llms.txt rewritten (entity header, question map; removed pricing and universal one-per-market claim).
+
+**New this week (2026-09-21), from the 108-answer panel + the citation classification pass:**
+- [ ] `/learn/lead-generation-companies-for-contractors/` — kw **lead generation companies for contractors** (+ best lead generation companies for contractors). The single most-cited cluster in the panel: constructionleadpro, ClicksGeek (3 pages), Abstrakt, InsideAdvisorPro, BuildFolio, Handoff, Hook Agency, Housecall Pro, WebFX, 99calls. The 2026-09-21 authority pass checked them all: **every one is a list of lead *marketplaces*, not agencies**, so MJC can never be pitched onto them — the only way into this answer is to rank our own page. Write it as a category guide, not a ranking: the five ways a contractor can buy lead generation (shared marketplaces, pay-per-lead networks, hourly/retainer agencies, in-house, done-for-you appointments), what each actually costs per *booked* appointment, and how to tell which one a company is when its website won't say. Comparison table by category. Link to `/learn/deck-builder-marketing-companies-compared/` for named companies and to `/learn/angi-homeadvisor-alternatives-for-contractors/`. **Not a "best agencies" ranking and MJC is not #1 on it** — see the page rule below.
+- [ ] Refresh `/trades/fence-company-marketing/` — kw **fence company marketing** (Slamdot #20, DBM absent — the weakest rival field of any keyword we track where a rival ranks at all). Vertical #2 and its own hire-intent AI question ("best marketing agency for fence companies"), where the cited pages are four thin single-purpose sites (fencemarketingpros, fencemarketingxperts, superpath/fencing, hookagency/fence-company-marketing). Give it the full Phase 0 treatment: entity sentence in the first 50 words, visible "Updated September 2026", comparison table, FAQ + FAQPage schema, real fence-client numbers from the repo. Split out of the old combined patio+fence Phase 2 item, which broke the one-keyword-per-item rule.
+- [ ] Refresh `/trades/patio-cover-marketing/` — kw **patio cover marketing**. **Open field: no rival ranks in the top 50, and neither do we.** That makes this page the cleanest possible test of the retrieval constraint — the day it appears anywhere in a top 50, indexation has cleared. Same Phase 0 treatment as the fence page. Other half of the split item above.
+
 
 ### Phase 1 — money keywords with a rival in the top 10
 - [x] 2026-09-10 `/trades/deck-builder-marketing/` pillar rebuild (3.8K words, 12 FAQs, 10 inbound case-study links)
@@ -72,7 +92,7 @@ contractors that ...") so an answer engine can lift it verbatim. Put a dated "Up
 - [ ] `/learn/deck-builder-speed-to-lead/` — why deck leads go cold, response-time math, follow-up sequence. Link to why-contractor-leads-dont-answer.
 - [ ] `/learn/questions-to-ask-a-deck-marketing-agency/` — interview script + what good answers sound like.
 - [x] 2026-09-20 (shipped via Phase 0) `/learn/outdoor-living-contractor-marketing/` — kw **outdoor living contractor marketing** (no rival in the top 50; open field). Link to patio/pergola/pool trade pages.
-- [ ] Refresh `/trades/patio-cover-marketing/` for kw **patio cover marketing** (open field, no rival in the top 50) and `/trades/fence-company-marketing/` for kw **fence company marketing** (Slamdot #14, DBM absent).
+- [ ] Refresh `/trades/roofing-leads/` for kw **roofing marketing company** (keep *roofing leads* as the secondary; do not drop it from the title). Vertical #3 has its own hire-intent AI question and **seven** cited agency listicles (Thrive, Service Direct, Silverback, Marketing LTB, Owl Roofing, ProLine, Contractor Marketing Pros) — the only cluster where inclusion pitches and our own page both have a path. Full Phase 0 treatment. (The patio-cover and fence halves of the old combined item moved to Phase 0.)
 - [ ] `/learn/lead-magnet-ideas-for-deck-builders/` — kw **lead magnet ideas for deck builders**. Rival gap: Slamdot owns `/blog/5-lead-magnet-ideas-for-deck-builders-that-attract-real-clients/`, MJC has no page. Go further than a list: which magnet actually produces a booked appointment vs. an email address, with the design-and-estimate offer as the worked example.
 - [ ] `/learn/deck-builder-referrals/` — kw **how to get more deck referrals**. Rival gap: Slamdot owns `/blog/3-proven-ways-to-boost-referrals-for-your-decking-business/`, MJC has no page. Angle only we can write: why referral volume is capped by job volume, and what to run while you wait. Do NOT overlap `/learn/how-to-get-more-deck-jobs/` — that page owns the broad playbook; this one is referrals only.
 

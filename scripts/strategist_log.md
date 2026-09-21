@@ -109,3 +109,132 @@ carrying the client relationship, worth more as crawl paths right now than as li
 - Refreshed every rival position annotation to the 2026-09-12 numbers.
 - Added two Phase 2 rival-gap items (lead magnets, referrals).
 - 15 unchecked Phase 1/2 items queued. Phase 3 untouched.
+
+---
+
+## 2026-09-21 — Google scoreboard DARK (Apify 403). AI panel 0/108, retrieval 0%. Constraint: INDEXATION/RETRIEVAL.
+
+### Google scoreboard — NO DATA, the Action is failing
+`scripts/rank_history.jsonl` still ends at **2026-09-14**, 7 days stale. I dispatched the
+tracker manually this run to get a definitive cause: run
+[35598221456](https://github.com/morejobcalls/morejobcalls-website/actions/runs/35598221456)
+died in 6 seconds with `urllib.error.HTTPError: HTTP Error 403: Forbidden` from Apify.
+Same cause as 2026-09-17, unchanged: **Apify monthly usage hard limit**, not a missing
+secret. The `set -o pipefail` fix added after 09-17 worked exactly as intended — the 09-17
+run reported green with no data, this one is correctly red.
+
+Two scheduled runs (09-17, 09-21) have now produced nothing. **Spencer must raise the Apify
+monthly limit or plan; nothing else in the Google half of this program can move until he
+does.** Last known positions (2026-09-12/14, unchanged across all three snapshots):
+
+| metric | value |
+|---|---|
+| beats both (core 12) | 0/12 |
+| beats DBM / beats Slamdot | 0 / 0 |
+| MJC in top 50 / top 10 | 0 / 0 |
+
+**Movers: none measurable.** **Striking distance (#11–30): none measurable** — not "none
+exist", none visible. No keyword-driven re-ordering of the backlog was possible this week,
+so the queue was re-planned from the AI scoreboard instead.
+
+### AI-answer (LLMO) scoreboard — fresh, and much better instrumented
+The probe Action has been upgraded since last run. Monday now runs `llmo_panel.py`: 18
+questions x 2 phrasings x 3 runs = **108 grounded answers**, reported as a mention *rate*
+with a confidence interval rather than a single X/18 (AI brand lists are non-deterministic;
+one run is noise).
+
+| metric (2026-09-21 panel, Claude/Brave, 108 answers) | value |
+|---|---|
+| MJC mention rate | **0.0%** (95% CI 0.0–3.4%) |
+| hire-intent mention rate | 0.0% |
+| **retrieval rate** | **0.0%** |
+| cited rate | 0.0% |
+| most-cited domains | deckbuildermarketers 23.1%, clicksgeek 19.4%, constructionleadpro 19.4%, deckfencemarketers 18.5%, hardscapemarketingcrew 15.7% |
+| most-named brands | Angi 46.3%, HomeAdvisor 38.9%, Thumbtack 35.2%, Deck Builder Marketers 20.4% |
+
+Legacy 18-question grounded probe (2026-09-18, Thursday cadence, kept for trend continuity):
+named **0/18**, hire-intent **0/13**, MJC URLs cited **0** — flat on the 09-18 baseline.
+Change is not real at 2+ runs either way; both scoreboards are still at zero.
+
+The number that matters is **retrieval 0.0%**. Across every web search those 108 answers
+triggered, morejobcalls.com never came back as a result even once. That is not a ranking
+problem or a persuasion problem — the engine never saw the pages.
+
+### Binding constraint: INDEXATION / RETRIEVAL (unchanged from 2026-09-14, now confirmed twice over)
+Last week's read was Google-only and could have been an Apify artifact. It is not. The
+grounding index behind the panel is Brave/Bing, a completely separate crawl from Google's,
+and it returns MJC on nothing. Two independent indexes agree.
+
+Re-checked this run, all still clean: `/`, `/trades/deck-builder-marketing/`,
+`/learn/deck-builder-marketing-companies-compared/`, `/sitemap.xml` and `/robots.txt` all
+200 to a browser UA; robots allows everything including named AI crawlers; the sitemap is
+now **43 URLs** (up from 36 — the builder's new pages are all in it). A literal
+`"morejobcalls.com"` phrase search still returns competitors and not the domain.
+
+So nothing on the site is wrong, and nothing on the site is the fix. The levers are all
+submission and discovery: GSC sitemap + request-indexing, **Bing Webmaster Tools + IndexNow
+(new this week — the panel proves Bing/Brave matters as much as Google for the AI half)**,
+and real inbound links. The 30 undeployed footer credits are the largest uncashed discovery
+asset in the program: 30 contractor domains already owned, worth more right now as crawl
+paths than as link equity.
+
+### Rival watch: quiet
+Zero new and zero removed URLs vs the 2026-09-14 baseline — 280 DBM (post/page/learn/
+case-study) and 9 Slamdot deck|decking|contractor URLs, byte-identical lists. DBM and
+Slamdot published nothing in 7 days. `rival_urls.json` refreshed with the 09-21 diff note.
+
+Live top 10 on the two headline keywords (MJC absent from both):
+- **hardscapemarketingcrew.com/best-deck-builder-marketing-agencies/** is back in the top 10
+  on `deck builder marketing` and takes 15.7% of all AI citations — while still serving a
+  **404 "Article not found" body**. It is ranking and being cited on a stale title alone.
+  Kept `dead` in the pipeline (nothing to pitch), flagged to recheck monthly.
+- **growthdeckmarketing.com** holds its top-10 slot a second week running. Closest
+  positioning to MJC of any rival ("qualified booked estimates for deck builders", paid ads
+  + CRM + in-house qualification). It belongs in the tracked rival set — but `rank_tracker.py`
+  is off-limits to this routine, so this is a request for Spencer/the builder.
+- **deckfencemarketers.com** is new in the top 10 on `marketing for deck builders` *and*
+  takes 18.5% of AI citations — the 4th-most-cited domain overall, ahead of Slamdot. Also
+  worth tracking.
+- townsquareinteractive.com and contractorsassociation.org still appear. The latter was
+  checked and rejected as an authority target (InterNACHI eBook page, no vendor directory).
+
+### Footer credits: 7 of 37 live (flat)
+All seven re-verified live 2026-09-21 with correct target and `rel=nofollow`: apdecks.com,
+bivianomodularbuilders.com, oasiscustomdecks.com, paynterconstruction.com,
+thewindowprofessor.pro, bivianocontracting.com, mrpatiocover.com. **No regressions, no
+missing credits.** (Registry holds 37 sites, not the ~35 in the routine prompt.)
+
+All 30 GHL funnels remain `pending-va` — unchanged for a second week, and now the single
+highest-value unblocked item given the retrieval constraint.
+
+### AI-cited pages added to the authority pipeline (4)
+Classified all 85 URLs in `llmo_citations.json`. Four new rows, all WebFetch-verified live:
+- Silverback Strategies — "Best Digital Marketing Agencies for Roofing" (10 agencies,
+  **states it updates quarterly** — the clearest standing re-pitch window in the file)
+- Marketing LTB — "10 Best Roofing Digital Marketing Agencies in 2026" (publisher is not on
+  its own list, so inclusion is not a competitive ask)
+- Owl Roofing — "10 Best Roofing Marketing Companies (2026)" (written by a roofing
+  *contractor* about vendors he actually uses — the most credible format an engine can cite)
+- Capterra Services agency profile (DBM's profile was AI-cited but now 404s; low effort if a
+  free provider profile can still be created)
+
+Four were verified and **rejected** so nobody re-pitches them — Housecall Pro, Abstrakt,
+InsideAdvisorPro and BuildFolio are all lists of lead *marketplaces*, not agencies. That
+finding drove the week's top backlog item: the broadest hire-intent AI answers are built
+from marketplace comparisons MJC can never be added to, so the only way into that cluster is
+to rank our own page for it.
+
+### Backlog changes
+- Replaced the stale 09-14 strategist read with the 09-21 one (scoreboard dark + retrieval 0%).
+- **New page rule:** never publish a self-ranked "best agencies" list with MJC at #1.
+  Alphabetical, externally-sourced comparison pages are fine; rankings we top are not.
+- Three new Phase 0 items, in order: `/learn/lead-generation-companies-for-contractors/`
+  (most-cited cluster, written as a category guide not a ranking), then the
+  `/trades/fence-company-marketing/` refresh (vertical #2, weakest rival field we track),
+  then the `/trades/patio-cover-marketing/` refresh (open field — first page that will show
+  us the day retrieval clears).
+- Split the old combined patio+fence Phase 2 item, which targeted two keywords in one item
+  against the page rules, and promoted both halves to Phase 0.
+- Added a Phase 2 `/trades/roofing-leads/` refresh for **roofing marketing company**:
+  vertical #3 is the one cluster where both an inclusion pitch and our own page have a path.
+- 13 unchecked items queued in Phase 0/1/2. Phase 3 untouched.

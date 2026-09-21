@@ -1,6 +1,6 @@
 {
  "_note": "Baseline of rival URLs. The weekly strategist diffs live sitemaps against these lists; anything not present here is a NEW rival page. Sources: deckbuildermarketers.com post/page/learn/case-study sitemaps; www.slamdot.com/sitemap.xml filtered to deck|decking|contractor.",
- "updated": "2026-09-14",
+ "updated": "2026-09-21",
  "baseline_established": "2026-09-14",
  "dbm": [
   "https://deckbuildermarketers.com/",
@@ -294,5 +294,6 @@
   "https://www.slamdot.com/blog/the-local-seo-blueprint-for-deck-builders-rank-higher-book-more-jobs/",
   "https://www.slamdot.com/industries/decking/",
   "https://www.slamdot.com/work/sosa-and-sons-general-contractors/"
- ]
+ ],
+ "last_diff": "2026-09-21: zero new and zero removed URLs vs the 2026-09-14 baseline (280 DBM, 9 Slamdot). Rivals published nothing in 7 days."
 }
