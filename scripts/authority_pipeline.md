@@ -17,7 +17,7 @@ Status: `new` → `verified` (page exists, path confirmed) → `pitched` / `subm
 | Opportunity | Type | URL / submission path | Why it matters | Owner | Status |
 |---|---|---|---|---|---|
 | Client footer credits (35 sites) | footer credit | `scripts/footer_credits.json` | The DBM playbook. ~35 relevant contractor domains vs DBM's ~20 | Spencer + VA | in progress |
-| Clutch reviews | directory + reviews | https://clutch.co/profile/morejobcallscom | Profile live, 0 reviews. 3+ reviews is the legitimacy bar, and Clutch feeds the "top agency" lists AI tools cite | Spencer | in progress |
+| Clutch reviews | directory + reviews | https://clutch.co/profile/morejobcallscom | Profile live, 1 review (5.0, JBK Industries, 7/17/2026; verified 9/21). 3+ reviews is the legitimacy bar, and Clutch feeds the "top agency" lists AI tools cite | Spencer | in progress |
 | DesignRush agency profile | directory (DR 90) | https://www.designrush.com/agency/profile (get listed) | DBM's single strongest link | Spencer | new |
 | UpCity profile | directory | https://upcity.com (list your business) | DBM shows an UpCity badge | Spencer | new |
 | NADRA membership directory | association | https://www.nadra.org/membership | DBM is listed. Also puts the brand in front of deck builders directly | Spencer | new |
