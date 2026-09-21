@@ -78,4 +78,4 @@ contractors that ...") so an answer engine can lift it verbatim. Put a dated "Up
 
 ### Phase 3 — needs Spencer (strategist raises it; builder never starts these)
 - [ ] Deck Builder Marketing Benchmarks 2026: original anonymized data across ~20 builders (CPL, appointment rate, show rate, close rate). Link bait for Deck Specialist, NADRA, supplier blogs. NEEDS Spencer to approve which numbers go public.
-- [ ] Named-competitor comparison page. NEEDS Spencer approval: outward claims about a named company.
+- [x] 2026-09-21 Named-competitor comparison page (Spencer approved 9/21) https://morejobcalls.com/learn/deck-builder-marketing-companies-compared/: 15 companies, alphabetical, every cell sourced from each company's own site. Refresh quarterly (re-verify every cell).
