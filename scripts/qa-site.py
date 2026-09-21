@@ -10,12 +10,24 @@ files = sorted(set(
     + glob.glob("learn/*/index.html") + ["learn/index.html", "about/index.html", "index.html", "wins.html"]
 ))
 BANNED = ["work for free", "free until", "working for free"]
+# Public-copy policy (Spencer 2026-09-21): no ad-budget recommendations/minimums or all-in
+# figures (budget is set on the strategy call); exclusive territory is VIP-tier only.
+POLICY = [
+    (r"minimum (?:ad )?budget of|\$\d[\d,.]*K?(?:/| per | a )(?:mo|month)\s+minimum|minimum in ad budget", "public ad-budget minimum"),
+    (r"\$\d[\d,.]*K? (?:per|a) month all-in", "public all-in price"),
+    (r"one contractor per market|one deck builder per (?:market|territory)", "universal territory claim; VIP tier only"),
+]
 errs = []
 for f in files:
     html = open(f).read()
     for bad in BANNED:
         if bad.lower() in html.lower():
             errs.append(f"{f}: banned phrase '{bad}' (retired guarantee prong)")
+    for bad, why in POLICY:
+        if re.search(bad, html, re.I):
+            errs.append(f"{f}: '{bad}' ({why})")
+    if f != "index.html" and "<nav" in html and '<nav class="site-nav">' not in html:
+        errs.append(f"{f}: <nav> missing class=\"site-nav\" (header renders unstyled)")
     for i, m in enumerate(re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)):
         try:
             json.loads(m)
