@@ -24,6 +24,8 @@ Baseline 2026-09-10: 0/12. MJC not in the top 50 on any core keyword.
 - Our deliverable = exclusive sales appointments / deck jobs, never "leads". The keyword may say
   "leads" (title/H1/meta/URL); the sentences describing what WE deliver may not.
 - No internal pricing. No invented client numbers. Guarantee wording exactly per the routine prompt.
+- No recommended, required or minimum ad budgets and no "all-in" monthly figures (budget is set on the strategy call). Named clients' ACTUAL spend in case studies is fine.
+- Exclusive appointments are universal; exclusive territory ("one contractor per market") is VIP tier only. Never state it as universal.
 
 ## Queue (top = next)
 
