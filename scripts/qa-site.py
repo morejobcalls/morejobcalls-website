@@ -9,7 +9,9 @@ files = sorted(set(
     glob.glob("trades/*/index.html") + ["trades/index.html"]
     + glob.glob("learn/*/index.html") + ["learn/index.html", "about/index.html", "index.html", "wins.html"]
 ))
-BANNED = ["work for free", "free until", "working for free"]
+# Superseded guarantee wording. Canonical since 2026-09-21 = triple risk reversal:
+# fee refund + $2,000 + free work until 100 (ToS 3.2). The flat-$10K check version is retired.
+BANNED = ["write you a check for $10,000", "$10,000 check", "a check for $10,000"]
 # Public-copy policy (Spencer 2026-09-21): no ad-budget recommendations/minimums or all-in
 # figures (budget is set on the strategy call); exclusive territory is VIP-tier only.
 POLICY = [
@@ -24,7 +26,7 @@ for f in files:
     html = open(f).read()
     for bad in BANNED:
         if bad.lower() in html.lower():
-            errs.append(f"{f}: banned phrase '{bad}' (retired guarantee prong)")
+            errs.append(f"{f}: banned phrase '{bad}' (superseded $10K guarantee wording)")
     for bad, why in POLICY:
         if f in POLICY_EXEMPT.get(why, ()):
             continue
