@@ -1,14 +1,21 @@
 name: LLMO probe
 
-# AI-answer visibility: asks 18 buyer questions to Claude WITH web search (the same
-# retrieve-then-answer loop ChatGPT search / Perplexity / AI Overviews run) and records
-# whether MoreJobCalls is named and which URLs the answer cites.
-# Output: scripts/llmo_grounded_history.jsonl (trend) + scripts/llmo_citations.json
-# (the target list the Authority Prospector works). Mon + Thu 11:40 UTC.
+# AI-answer visibility scoreboard.
+# Monday 11:40 UTC: full PANEL (scripts/llmo_panel.py): 18 buyer questions x 2 phrasings x 3 runs
+#   = 108 answers per engine. Reports mention RATE with a 95% interval, retrieval rate
+#   (did the AI's searches even surface morejobcalls.com), cited rate and domain share.
+#   Engines run only if their secret is set: ANTHROPIC_API_KEY (Claude/Brave),
+#   GEMINI_API_KEY (Google), OPENAI_API_KEY (ChatGPT search), PERPLEXITY_API_KEY.
+#   ~$10 per engine per run.
+# Thursday 11:40 UTC: legacy 18-question probe (llmo_probe.py --grounded) for trend continuity (~$1).
 on:
   schedule:
     - cron: "40 11 * * 1,4"
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "panel or legacy"
+        default: "panel"
 
 permissions:
   contents: write
@@ -20,18 +27,31 @@ concurrency:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Grounded probe
+      - name: Pick mode
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then m="${{ github.event.inputs.mode }}";
+          elif [ "$(date -u +%u)" = "1" ]; then m=panel; else m=legacy; fi
+          echo "mode=$m" >> "$GITHUB_OUTPUT"
+      - name: Run
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
         run: |
           set -o pipefail
-          python3 scripts/llmo_probe.py --grounded | tee probe.txt
+          if [ "${{ steps.mode.outputs.mode }}" = "panel" ]; then
+            python3 scripts/llmo_panel.py | tee probe.txt
+          else
+            python3 scripts/llmo_probe.py --grounded | tee probe.txt
+          fi
       - name: Job summary
         run: |
           { echo '```'; tail -40 probe.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
@@ -39,7 +59,8 @@ jobs:
         run: |
           git config user.name "mjc-scoreboard"
           git config user.email "actions@users.noreply.github.com"
-          git add scripts/llmo_grounded_history.jsonl scripts/llmo_citations.json
+          git add scripts/llmo_grounded_history.jsonl scripts/llmo_citations.json scripts/llmo_panel_history.jsonl scripts/llmo_panel_citations.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
-          git commit -m "LLMO probe $(date -u +%F): $(grep -o 'MJC named [0-9]*/[0-9]*' probe.txt)"
+          msg=$(grep -o 'MJC named [0-9.]*%\?[^·]*' probe.txt | head -3 | tr '\n' ' ')
+          git commit -m "LLMO ${{ steps.mode.outputs.mode }} $(date -u +%F): ${msg}"
           for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
