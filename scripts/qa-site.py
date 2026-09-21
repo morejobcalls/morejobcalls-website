@@ -17,6 +17,8 @@ POLICY = [
     (r"\$\d[\d,.]*K? (?:per|a) month all-in", "public all-in price"),
     (r"one contractor per market|one deck builder per (?:market|territory)", "universal territory claim; VIP tier only"),
 ]
+# Pages that legitimately DISCUSS these phrases about other companies.
+POLICY_EXEMPT = {"universal territory claim; VIP tier only": ("learn/deck-builder-marketing-companies-compared/index.html",)}
 errs = []
 for f in files:
     html = open(f).read()
@@ -24,9 +26,11 @@ for f in files:
         if bad.lower() in html.lower():
             errs.append(f"{f}: banned phrase '{bad}' (retired guarantee prong)")
     for bad, why in POLICY:
+        if f in POLICY_EXEMPT.get(why, ()):
+            continue
         if re.search(bad, html, re.I):
             errs.append(f"{f}: '{bad}' ({why})")
-    if f != "index.html" and "<nav" in html and '<nav class="site-nav">' not in html:
+    if f != "index.html" and "/assets/mjc.css" in html and "<nav" in html and '<nav class="site-nav">' not in html:
         errs.append(f"{f}: <nav> missing class=\"site-nav\" (header renders unstyled)")
     for i, m in enumerate(re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)):
         try:
