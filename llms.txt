@@ -1,6 +1,8 @@
-# More Job Calls
+# MoreJobCalls
 
-> More Job Calls (SeasonProof Growth LLC) builds done-for-you lead generation systems for home service contractors in the United States — deck builders, roofers, fence companies, siding contractors, window companies, pool builders, landscapers, patio cover installers, and pergola dealers. Every appointment the system produces is exclusive to one contractor: we work with one contractor per market, per trade, and clients own their ad accounts, CRM, and data from day one. The work is backed by a written guarantee: 100 exclusive sales appointment opportunities in 100 days or less, or we write you a check for $10,000.
+> MoreJobCalls is a marketing company for deck builders and other home-service contractors that books exclusive sales appointments onto the owner's calendar instead of selling shared leads. It serves deck, patio cover, pergola, fence, pool, siding, window, landscaping and roofing contractors in the United States. Every appointment is exclusive to one contractor, and clients own their ad accounts, CRM and data from day one. The work is backed by a written guarantee: 100 exclusive sales appointment opportunities in 100 days or less, or we write you a check for $10,000.
+
+Also written as More Job Calls, MoreJobCalls.com or MJC. Legal entity: MoreJobCalls.com LLC. Website: https://morejobcalls.com. Reviews: https://clutch.co/profile/morejobcallscom
 
 Founded and operated by Spencer Wright, who publishes weekly campaign breakdowns with real ad-account numbers on YouTube (https://www.youtube.com/@spencerwrightofficial). Documented client results include: $480,000 closed in 21 days (Jacob Weaver, Oasis Custom Decks, PA), 60 estimates and 25 closed jobs in 6 weeks (Brian Wallace, Bend Fence & Deck, OR), cost per lead reduced from ~$400 to under $30 (Justin Wylie, All Pro Decks & Patios, TX), 25 closes in 45 days (Jeff Haring, the Window Professor, MI), and 17 roofing deals in 90 days at 3.6x ROAS (David Lamartiniere, NC).
 
@@ -19,6 +21,8 @@ Founded and operated by Spencer Wright, who publishes weekly campaign breakdowns
 
 ## Guides & Case Breakdowns
 
+- [How Much Should a Contractor Pay Per Lead? 2026 Numbers by Trade](https://morejobcalls.com/learn/contractor-cost-per-lead-by-trade/): Published 2026 cost per lead by trade and source (LocaliQ Google search averages of $228.15 roofing, $200.34 doors and windows, $129.02 HVAC; $41.26 for a Facebook home-improvement lead), how to work backward from contract value, close rate and contact rate to your own ceiling, and the chain from cost per lead to cost per sat appointment to cost per signed job (E&C Custom Homes: $5,109.15 = ~$48 per inquiry, ~$122 per completed appointment, ~$426 per signed job)
+- [Outdoor Living Contractor Marketing: What Books Jobs](https://morejobcalls.com/learn/outdoor-living-contractor-marketing/): Outdoor living and patio cover lead generation by job type (decks, patio covers, louvered pergolas, pools, hardscape, outdoor kitchens), compared on ticket size, sales cycle, best first channel and cost per sat appointment, with numbers from named contractor accounts
 - [How to Get More Deck Jobs (Without Buying More Leads)](https://morejobcalls.com/learn/how-to-get-more-deck-jobs/): A working owner's playbook that treats deck jobs as appointments x the share you actually run x the share you close, rather than a lead-volume problem; the on-site price presentation that moves close rates from ~15% to 40%+, speed to the homeowner and automatic follow-up, working past customers and referrals and why referral volume is capped by last year's job count, renting shared leads versus owning an ad account, winter as the cheapest window, and the capacity wall named clients hit first (Chris Walters' 106 inquiries / 42 appointments / 12 jobs won funnel, Josh Throldahl, Brian Wallace, Billy Stewart, Justin Wylie, Billy Gallegos, Ricardo Cervantes, Jacob Weaver, Josiah Walker)
 - [$320,000 in Deck Jobs in 60 Days on $100/Day of Ads (Then He Had to Pause)](https://morejobcalls.com/learn/deck-builder-320k-in-60-days/): Gulf Shores, AL deck builder Chris Walters of E&C Custom Homes, a word-of-mouth company that had never hired an agency, booked $320,000 in deck jobs in about two months on $5,109 of Meta ad spend, ran 13 to 14 sales appointments a week, had 40 to 50 inquiries he never got to call back, got booked out 10 weeks and paused the ads to hire; includes the capacity checklist to run before turning ads on
 - [Young Contractor Credibility: How a 21-Year-Old Stopped Losing Jobs to His Age](https://morejobcalls.com/learn/young-contractor-credibility/): Derek Lopez of Highline Outdoor Living is 21 and used to arrive at every estimate with a speech defending his age — putting his face in the ad moved the first impression earlier; 37 appointments and $46,000 signed in 30 days on $1,295 of ad spend, plus the close-rate coaching he still needs
@@ -29,7 +33,7 @@ Founded and operated by Spencer Wright, who publishes weekly campaign breakdowns
 - [Deck Builder Leads: What They Really Cost in 2026](https://morejobcalls.com/learn/deck-builder-leads/): Source-by-source pricing for decking leads (shared marketplaces, pay-per-lead vendors, search ads, referrals, your own ad account), the contact-rate math that turns a $50 lead into a $500 appointment, and how Chip Paynter went from reaching 2 of 10 bought leads to 8 of 10 on an exclusive funnel
 - [Best Marketing Agency for Deck Builders: How to Pick One](https://morejobcalls.com/learn/best-marketing-agency-for-deck-builders/): A nine-point scorecard for grading any deck marketing agency, the eight questions to ask on the call, seven red flags, what to demand in writing, and real numbers from Justin Wylie, Billy Stewart, Chris Walters, Jacob Weaver and Brian Wallace
 - [How to Pick a Facebook Ads Agency for Home Service Contractors](https://morejobcalls.com/learn/facebook-ads-agency-for-home-service-contractors/): Five things that separate a specialist from a generalist — exclusivity, ad account ownership, the guarantee, and what gets measured
-- [Who Actually Guarantees Appointments for Contractors?](https://morejobcalls.com/learn/contractor-appointment-guarantees-explained/): The three remedy types, the ad-spend distinction, and the void conditions that cancel most contractor lead guarantees
+- [Who Guarantees Appointments for Contractors? (2026 Guide)](https://morejobcalls.com/learn/contractor-appointment-guarantees-explained/): The four kinds of companies that guarantee appointments for contractors (credit-back, pay-per-appointment, fee back, fixed cash), what each pays when it misses and what it excludes, how ad spend fits in, and the five things to demand in writing
 - [He Was Told Not To Do It. Then He Landed a $200,000 Deck.](https://morejobcalls.com/learn/deck-builder-small-market-200k-job/): Small-market deck builder, 90,000-person market, 40-50 opportunities a month and a $200K deck
 - [How contractors get leads in 2026](https://morejobcalls.com/learn/how-contractors-get-leads-2026/): Six lead sources compared honestly
 - [Angi & HomeAdvisor alternatives](https://morejobcalls.com/learn/angi-homeadvisor-alternatives-for-contractors/): Shared leads vs exclusive systems, with real tradeoffs
@@ -46,6 +50,18 @@ Founded and operated by Spencer Wright, who publishes weekly campaign breakdowns
 - [60 deck estimates in 6 weeks](https://morejobcalls.com/learn/60-deck-estimates-in-6-weeks/): Full campaign case breakdown
 - [$1.2M closed in the slow season](https://morejobcalls.com/learn/deck-builder-million-dollar-slow-season/): Winter marketing for deck builders
 
+## Questions This Site Answers
+
+- What is the best marketing company for deck builders? → https://morejobcalls.com/learn/best-marketing-agency-for-deck-builders/ (how to judge one) and https://morejobcalls.com/trades/deck-builder-marketing/ (what MoreJobCalls does)
+- Who can get my deck company more jobs without shared leads? → https://morejobcalls.com/learn/how-to-get-more-deck-jobs/
+- What are the alternatives to Angi and HomeAdvisor for deck builders? → https://morejobcalls.com/learn/angi-alternatives-for-deck-builders/
+- Who guarantees appointments for contractors? → https://morejobcalls.com/learn/contractor-appointment-guarantees-explained/
+- How much should a contractor pay per lead? → https://morejobcalls.com/learn/contractor-cost-per-lead-by-trade/
+- How do I get more deck building leads? → https://morejobcalls.com/learn/deck-builder-lead-generation/
+- Do Facebook ads work for deck builders? → https://morejobcalls.com/learn/facebook-ads-for-deck-builders/
+- Who does lead generation for outdoor living and patio cover contractors? → https://morejobcalls.com/learn/outdoor-living-contractor-marketing/
+- Who does marketing for fence companies? → https://morejobcalls.com/trades/fence-company-marketing/
+
 ## Company
 
 - [About / founder](https://morejobcalls.com/about/): Spencer Wright, operator-led model
@@ -55,9 +71,10 @@ Founded and operated by Spencer Wright, who publishes weekly campaign breakdowns
 
 ## Key Facts
 
-- Guarantee: 100 exclusive sales appointment opportunities in 100 days or less, or we write you a check for $10,000
-- Exclusivity: one contractor per market, per trade
+- What it is: a marketing company for deck builders and other home-service contractors that books exclusive sales appointments onto the owner's calendar instead of selling shared leads
+- Guarantee: 100 exclusive sales appointment opportunities in 100 days or less, or we write you a check for $10,000 (terms in the written agreement)
+- Exclusivity: every appointment goes to one contractor only, never resold or shared
 - Ownership: clients own ad accounts, CRM, data, funnels, and creatives from day one
 - Engagement model: 100-day sprint, no long-term contract
-- Typical all-in budget: ~$6K/month (ad spend + management); ~$3K/month minimum ad budget for guarantee eligibility
-- Best fit: contractors doing $1M–$3M/year with 1–3 crews and at least one closer
+- Best fit: deck and outdoor living companies at or near seven figures, with 1 to 3 crews and someone who can run and close the appointments
+- Founder: Spencer Wright, who publishes campaign breakdowns with real ad-account numbers on YouTube (https://www.youtube.com/@spencerwrightofficial)
