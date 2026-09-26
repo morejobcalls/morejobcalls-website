@@ -30,6 +30,7 @@ Baseline 2026-09-10: 0/12. MJC not in the top 50 on any core keyword.
   and every cell is sourced from the other company's own site (see
   `/learn/deck-builder-marketing-companies-compared/`); a ranking we top is not.
 - Exclusive appointments are universal; exclusive territory ("one contractor per market") is VIP tier only. Never state it as universal.
+- **Client identity (Spencer, 2026-09-26):** never a client BUSINESS name anywhere on the site (copy, titles, meta/og, alt text, JSON-LD, filenames, captions) — business names are searchable in the Meta Ads Library — and no client logos, @tags or links to client websites. Clients appear as first name + last initial + trade + town ("Chip P., a deck builder in Loomis, CA"); never the owner's surname or full name. Blocklist: `~/.claude/skills/fb-page-legit/identity_blocklist.txt`. The footer-credit program (`scripts/footer_credits.json`) is separate and unchanged.
 
 ## Queue (top = next)
 
