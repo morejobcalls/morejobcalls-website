@@ -67,7 +67,31 @@ superseded v3.0 remedy six days after v3.1 replaced it.
 > `/trades/patio-cover-marketing/` and `/learn/angi-alternatives-for-deck-builders/` both serve 200. The
 > 2026-09-21 panel's 0.0% retrieval rate was therefore not a serving fault and not a robots fault:
 >
-> **Only the homepage is in the index. Not one of the ~20 shipped /learn/ and /trades/ pages is.**
+> ~~**Only the homepage is in the index. Not one of the ~20 shipped /learn/ and /trades/ pages is.**~~
+>
+> ⛔ **CORRECTED 2026-09-28 (late) — this conclusion was WRONG, and the reasoning that produced it
+> was running on a broken instrument. Do not act on it.** First-party Google Search Console says:
+> **36 pages indexed, 14 not indexed.** Two deep pages were inspected live that night and both
+> returned "URL is on Google": `/trades/deck-builder-marketing/` and `/trades/siding-leads/`. The
+> Performance report shows **48 pages with impression data over 90 days**, including
+> `/trades/roofing-leads/` at **707 impressions / 6 clicks** and `/about/` at **212 / 17** —
+> impossible for unindexed URLs.
+>
+> **Why the strategist got it wrong:** the "only the homepage" finding came from Apify
+> domain-restricted searches, and Apify had returned **HTTP 403 on four consecutive runs** (the
+> same monthly-limit failure noted three paragraphs up). A scraper over its quota returns thin or
+> empty results, which look exactly like "nothing else is indexed." The note treated an
+> instrument failure as a finding about the site.
+>
+> **Rule this cost us:** when the measuring tool is known-broken, the correct output is "no data",
+> never an inference. And GSC is first-party — when a scraper and GSC disagree about what Google
+> has indexed, GSC wins. Check GSC before concluding anything about indexation.
+>
+> **What is actually true:** indexation is NOT the binding constraint — it went 20 → 36 in a week
+> once pages were submitted and indexing was requested. The remaining 14 include 6 that are
+> correct by design (a merged page's redirect stub, 2 canonicalised duplicates, 2 fossil 404s).
+> Off-site authority is still the real lever, so the 30 pending footer credits remain the top
+> unblocked item — that part of the read stands.
 >
 > That single fact explains the 0/18 grounded score by itself. An answer engine looking for a deck-builder
 > answer can only find our generic contractor homepage, never the page actually written for the question.

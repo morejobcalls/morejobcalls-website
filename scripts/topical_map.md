@@ -207,3 +207,26 @@ Minnesota · Pennsylvania · Colorado · Massachusetts · Washington · Tennesse
 ## Ticking format
 
 When a page ships: `- [x] <target> → /learn/<slug>/ (YYYY-MM-DD, Nw)`
+
+## Merges (2026-09-28)
+
+Two pages consolidated after a duplication audit. Both were "Crawled - currently not
+indexed", both were near-duplicates of a stronger sibling, and neither had meaningful
+traffic (site-wide: 60 clicks / 90 days).
+
+- `how-to-get-more-deck-jobs` → `deck-builder-lead-generation` (90-95% overlap;
+  verbatim-shared paragraphs. Ported: renting-vs-owning table, lever/cost/speed table,
+  5-builder capacity grid.)
+- `how-contractors-get-leads-2026` → `angi-homeadvisor-alternatives-for-contractors`
+  (75% overlap. Ported: trust-is-transferred frame, organic-social and door-knocking
+  sections as Options 6 and 7. The merge also resolved a live factual contradiction -
+  the two pages disagreed on how many contractors a shared lead goes to.)
+
+Both left as canonical + meta-refresh stubs (GitHub Pages cannot serve 301s), removed
+from sitemap.xml and llms.txt, inbound links repointed (8 files / 23 files).
+
+NOT merged, deliberately: `deck-builder-marketing-companies-compared` and
+`lead-generation-companies-for-contractors` were published one day before the crawl -
+that is latency, not a quality judgement. `trades/pergola-marketing` overlaps
+patio-cover ~85% but owns the "nobody searches for this product" argument and is a
+vertical MJC sells into; rebuild in place rather than merge.
