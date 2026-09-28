@@ -218,7 +218,7 @@
 
   <url>
     <loc>https://morejobcalls.com/learn/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -440,5 +440,11 @@
     <lastmod>2026-09-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://morejobcalls.com/learn/seo-for-contractors/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
