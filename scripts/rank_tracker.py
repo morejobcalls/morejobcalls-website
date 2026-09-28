@@ -18,7 +18,11 @@ Usage:
 The keyword basket is deliberately stable. ADD keywords if you must; never edit or remove,
 or the trend stops being comparable.
 """
-import json, os, sys, urllib.request, datetime
+import json, os, sys, urllib.request, urllib.error, datetime
+
+
+class NoData(Exception):
+    """The scoreboard could not be measured. This is NOT a finding about the site."""
 from urllib.parse import urlparse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -102,7 +106,25 @@ def fetch(keywords):
     }
     url = f"https://api.apify.com/v2/acts/apify~google-search-scraper/run-sync-get-dataset-items?token={tok}&timeout=290"
     req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
-    return json.loads(urllib.request.urlopen(req, timeout=320).read())
+    try:
+        return json.loads(urllib.request.urlopen(req, timeout=320).read())
+    except urllib.error.HTTPError as e:
+        # A broken instrument must SAY it is broken. Returning nothing here is what
+        # let the 2026-09-28 strategist read four straight quota 403s as "only the
+        # homepage is indexed" -- an inference drawn from silence. See NO_DATA below.
+        detail = ""
+        try:
+            detail = e.read().decode()[:300]
+        except Exception:
+            pass
+        if e.code in (401, 402, 403):
+            raise NoData(
+                f"apify HTTP {e.code} - almost always the monthly usage cap on the "
+                f"free plan ($5/mo). Check https://console.apify.com/billing. {detail}"
+            )
+        raise NoData(f"apify HTTP {e.code}. {detail}")
+    except Exception as e:
+        raise NoData(f"apify request failed: {e.__class__.__name__}: {e}")
 
 
 def beats(a, b):
@@ -133,6 +155,22 @@ def report(history):
         print("no history yet")
         return
     snap = history[-1]
+    if snap.get("status") == "NO_DATA" or snap.get("score") is None:
+        print("=" * 72)
+        print(f"OUTRANK SCOREBOARD {snap['date']}: NO_DATA - not measured.")
+        print(f"  reason: {snap.get('reason', 'unknown')}")
+        print("  The newest row is an outage, not a result. Do not draw conclusions")
+        print("  about rankings or indexation from it, and do not rewrite pages on")
+        print("  the strength of it. For indexation truth, read Google Search")
+        print("  Console (first-party) - not a scraper.")
+        ok = [h for h in history if h.get("score")]
+        if ok:
+            last = ok[-1]
+            print(f"  last real measurement: {last['date']} "
+                  f"(beats_both {last['score']['mjc_beats_both']}/{last['score']['core_keywords']}), "
+                  f"{(datetime.date.fromisoformat(snap['date']) - datetime.date.fromisoformat(last['date'])).days} days stale")
+        print("=" * 72)
+        return
     s = snap["score"]
     print(f"OUTRANK SCOREBOARD {snap['date']}  (win = MJC above BOTH rivals on >=7/{s['core_keywords']} core keywords, 2 checks in a row)")
     print(f"  MJC beats both: {s['mjc_beats_both']}/{s['core_keywords']} | beats DBM {s['mjc_beats_dbm']} | beats Slamdot {s['mjc_beats_slamdot']} | MJC in top50 {s['mjc_ranked_top50']} | top10 {s['mjc_top10']}")
@@ -144,7 +182,10 @@ def report(history):
         tag = "" if kw in CORE else " (ext)"
         print(f"  {(kw + tag):42s} {fmt(v['mjc']):>5s} {fmt(v['dbm']):>5s} {fmt(v['slamdot']):>5s}  {urlparse(v['mjc'][1]).path if v['mjc'] else ''}")
     if len(history) > 1:
-        print("  trend (beats_both / top50):", " → ".join(f"{h['date']}:{h['score']['mjc_beats_both']}/{h['score']['mjc_ranked_top50']}" for h in history[-8:]))
+        print("  trend (beats_both / top50):", " → ".join(
+            f"{h['date']}:{h['score']['mjc_beats_both']}/{h['score']['mjc_ranked_top50']}"
+            if h.get("score") else f"{h['date']}:NO_DATA"
+            for h in history[-8:]))
 
 
 def load():
@@ -164,8 +205,26 @@ def main():
     if "--from-serp" in args:
         items = json.load(open(args[args.index("--from-serp") + 1]))
     else:
-        items = fetch(CORE + EXTENDED)
-    snap = {"date": date, "depth_pages": DEPTH_PAGES, "results": parse(items)}
+        try:
+            items = fetch(CORE + EXTENDED)
+        except NoData as e:
+            # Record the outage AS DATA so downstream readers see "not measured"
+            # rather than an absence they might mistake for a flat result.
+            snap = {"date": date, "status": "NO_DATA", "reason": str(e),
+                    "depth_pages": DEPTH_PAGES, "results": {}, "score": None}
+            history = [h for h in load() if h["date"] != date] + [snap]
+            history.sort(key=lambda h: h["date"])
+            with open(HISTORY, "w") as f:
+                for h in history:
+                    f.write(json.dumps(h, separators=(",", ":")) + "\n")
+            print("=" * 72)
+            print("NO_DATA - the scoreboard was NOT measured this run.")
+            print(f"  reason: {e}")
+            print("  Do NOT infer anything about rankings or indexation from this.")
+            print("  Nothing changed about the site; the measuring tool is down.")
+            print("=" * 72)
+            sys.exit(3)
+    snap = {"date": date, "status": "OK", "depth_pages": DEPTH_PAGES, "results": parse(items)}
     snap["score"] = score(snap)
     history = [h for h in load() if h["date"] != date] + [snap]
     history.sort(key=lambda h: h["date"])

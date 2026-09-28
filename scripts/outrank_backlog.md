@@ -22,6 +22,26 @@ prompt or a skill — the paused weekly publisher sat for months with a supersed
 guarantee in its prompt, and on 2026-09-27 ten skills were found carrying the
 superseded v3.0 remedy six days after v3.1 replaced it.
 
+## Reading the scoreboard (strategist, every run)
+
+`scripts/rank_history.jsonl` rows now carry a `status`. **Before drawing any conclusion,
+check the newest row.**
+
+- `status: "NO_DATA"` → the scoreboard was **not measured**. Report "not measured, N days
+  stale", name the reason, and **change nothing**. Do not re-order the backlog, do not
+  call rankings flat, do not conclude anything about indexation, and never rewrite a page
+  on the strength of it. An outage is not a finding.
+- `status: "OK"` → a real measurement; read it normally.
+
+**For indexation truth, read Google Search Console — first-party — not a scraper.** When
+a scraper and GSC disagree about what Google has indexed, GSC wins.
+
+This rule exists because on 2026-09-28 four consecutive Apify quota 403s produced silence,
+and that silence was read as "only the homepage is in the index" — a confident, wrong
+conclusion that steered this backlog until GSC (36 indexed) contradicted it. The tool was
+broken for $0.13 of overage on a $5/mo free plan. `rank_tracker.py` now records the outage
+instead of failing quietly, and the GH Action commits the NO_DATA row and then fails loudly.
+
 ## Page rules (every item)
 - One primary keyword per page, exact phrase in title (<=60 chars), H1, first 100 words, one H2.
   Never target a keyword another MJC page already owns (check this file first). The pillar
