@@ -978,6 +978,20 @@ function svSubmit() {
 
   // Meta Lead (seasoned pixel), same event_id the webhook receives so any future CAPI send dedupes.
   try { if (typeof fbq === 'function') fbq('trackSingle', '839107878270720', 'Lead', { content_name: 'Website Strategy Call Survey', value: 0, currency: 'USD' }, { eventID: payload.event_id }); } catch (e) {}
+  // Server-side twin of that Lead (2026-09-28): same event_id so Meta dedupes, plus the lead's email/phone/name
+  // (hashed by the relay) so Meta can tie a desktop homepage signup to the ad click on their phone.
+  // Without this, cross-device ad leads (David Logan, 9/28) land here with no ad credit in Meta.
+  try {
+    if (!/[?&](qa|jtest)=1/.test(location.search)) {
+      var ck = function(n){ var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + n + '=([^;]+)')); return m ? m[1] : ''; };
+      fetch('https://meta-capi-relay.spencer-80c.workers.dev/', { method: 'POST', mode: 'no-cors', keepalive: true,
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ event_name: 'Lead', event_id: payload.event_id, event_time_unix: Math.floor(Date.now() / 1000),
+          page_url: location.href, email: payload.email, phone: payload.phone, first_name: payload.first_name, last_name: payload.last_name,
+          fbp: ck('_fbp'), fbc: ck('_fbc'), client_user_agent: navigator.userAgent || '',
+          icp: (sv.revenue === 'under_500k') ? 'no' : 'yes' }) }).catch(function(){});
+    }
+  } catch (e) {}
   try { if (typeof clarity === 'function') { clarity('set', 'survey_submitted', 'yes'); clarity('event', 'survey_submit'); } } catch (e) {}
 
   if (SV_WEBHOOK) {
