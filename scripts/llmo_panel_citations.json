@@ -1,5 +1,5 @@
 {
- "date": "2026-09-21",
+ "date": "2026-09-28",
  "by_engine": {
   "claude": [
    [
@@ -8,18 +8,18 @@
    ],
    [
     "deckfencemarketers.com",
-    19.4
+    18.5
+   ],
+   [
+    "constructionleadpro.com",
+    16.7
    ],
    [
     "contractorgorilla.com",
-    17.6
+    15.7
    ],
    [
     "clicksgeek.com",
-    17.6
-   ],
-   [
-    "sociusmarketing.com",
     15.7
    ],
    [
@@ -27,79 +27,79 @@
     14.8
    ],
    [
-    "constructionleadpro.com",
+    "serviceallies.com",
     13.9
    ],
    [
-    "serviceallies.com",
+    "sociusmarketing.com",
+    13.0
+   ],
+   [
+    "anytimedigitalmarketing.com",
+    12.0
+   ],
+   [
+    "homeservicedirect.net",
+    12.0
+   ],
+   [
+    "slamdot.com",
+    11.1
+   ],
+   [
+    "techtitanva.com",
     11.1
    ],
    [
     "stratedia.com",
-    10.2
-   ],
-   [
-    "slamdot.com",
     9.3
    ],
    [
-    "superpath.com",
+    "semstandard.com",
+    9.3
+   ],
+   [
+    "fatcatstrategies.com",
+    9.3
+   ],
+   [
+    "housecallpro.com",
     8.3
    ],
    [
-    "techtitanva.com",
+    "minyona.com",
     8.3
-   ],
-   [
-    "7ten.marketing",
-    8.3
-   ],
-   [
-    "buildauthority.com",
-    7.4
    ],
    [
     "builtrightdigital.com",
     7.4
    ],
    [
-    "semstandard.com",
+    "7ten.marketing",
     7.4
-   ],
-   [
-    "webfx.com",
-    7.4
-   ],
-   [
-    "fatcatstrategies.com",
-    7.4
-   ],
-   [
-    "hookagency.com",
-    7.4
-   ],
-   [
-    "minyona.com",
-    7.4
-   ],
-   [
-    "housecallpro.com",
-    6.5
-   ],
-   [
-    "homeservicedirect.net",
-    6.5
-   ],
-   [
-    "leadtruffle.co",
-    6.5
-   ],
-   [
-    "footbridgemedia.com",
-    5.6
    ],
    [
     "marketingltb.com",
+    6.5
+   ],
+   [
+    "webfx.com",
+    6.5
+   ],
+   [
+    "hookagency.com",
+    6.5
+   ],
+   [
+    "adaptdigitalsolutions.com",
+    6.5
+   ],
+   [
+    "servicepro.co",
+    6.5
+   ],
+   [
+    "comradeweb.com",
     5.6
    ]
   ]
