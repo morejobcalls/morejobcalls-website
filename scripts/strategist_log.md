@@ -238,3 +238,104 @@ to rank our own page for it.
 - Added a Phase 2 `/trades/roofing-leads/` refresh for **roofing marketing company**:
   vertical #3 is the one cluster where both an inclusion pitch and our own page have a path.
 - 13 unchecked items queued in Phase 0/1/2. Phase 3 untouched.
+
+---
+
+## 2026-09-28 — Weekly strategist
+
+### Google scoreboard: DARK for a third week (Apify hard limit, 4 consecutive failures)
+`rank_history.jsonl` newest row is still **2026-09-14** — 14 days stale. The `rank-tracker.yml`
+Action has failed on **every run since 09-17**: runs 7, 8 and 9 (09-21 dispatch, 09-21 schedule,
+09-24 schedule) all ended `urllib.error.HTTPError: HTTP Error 403: Forbidden` from the Apify actor
+call in `rank_tracker.py:105`. This is the **monthly usage hard limit**, not a missing secret —
+the same cause diagnosed 2026-09-17, now unresolved for 11 days. **Spencer must raise the Apify
+monthly limit or plan; nothing else restores position data.**
+
+Last known scoreboard (2026-09-14, unchanged): beats both **0/12** · beats DBM 0 · beats Slamdot 0 ·
+MJC top-50 **0** · top-10 **0**. Trend 09-10: 0/0 → 09-12: 0/0 → 09-14: 0/0. No movers can be
+reported and **no striking-distance (#11-30) items can be promoted** — not because none exist, but
+because nobody can see them.
+
+### AI-answer (LLMO) scoreboard: 0/18, flat, and now precisely explained
+Grounded probe `llmo_grounded_history.jsonl` latest **2026-09-24** (4 days old, Action healthy —
+all 4 llmo-probe runs succeeded): **named 0/18**, hire-intent **0/13**, **MJC URLs cited 0**.
+Identical to 09-18 and 09-21. Change vs ~7 days earlier: **none**, and flat across 3+ runs, so this
+is real and not answer noise. The 108-answer panel (`llmo_panel_history.jsonl`, 09-21) agrees:
+mention rate 0.0%, hire mention rate 0.0%, **retrieval rate 0.0%**, cited rate 0.0%.
+Most-cited domains: deckbuildermarketers.com 23.1%, deckfencemarketers.com 19.4%,
+contractorgorilla.com 17.6%, clicksgeek.com 17.6%, sociusmarketing.com 15.7%,
+hardscapemarketingcrew.com 14.8%.
+
+### BINDING CONSTRAINT: indexation — and this week it got a sharper diagnosis
+Still indexation, third consecutive week, but the previous read ("nothing is retrievable") was
+imprecise. This run's tests:
+- A **domain-restricted** search returns `https://morejobcalls.com/` with a correct title and an
+  accurate content summary → **the homepage IS in the index.**
+- Three queries that exactly match deep pages — `patio cover marketing contractors`,
+  `angi alternatives for deck builders exclusive appointments`, and the brand query — **all returned
+  the homepage and nothing else**, although `/trades/patio-cover-marketing/` and
+  `/learn/angi-alternatives-for-deck-builders/` both serve 200.
+- An **unrestricted** `morejobcalls.com` search returns Bizapedia, The Manifest and a YouTube channel
+  — third-party pages about MJC outrank MJC on its own brand name.
+- Serving is fine: homepage, sitemap, robots and a deep trade page all 200; robots explicitly allows
+  GPTBot/OAI-SearchBot. Crawl paths are fine: the homepage links all 10 trade pages, the /learn/ hub
+  and 3 articles.
+
+**Conclusion: only the homepage is indexed. Not one of the ~20 shipped /learn/ and /trades/ pages is.**
+That single fact accounts for 0/18 by itself — the engine can only ever find the generic contractor
+homepage, never the page written for the question. This is **crawl budget and trust on a DR-0 domain
+with no real inbound links**, not architecture and not on-page. The lever is unchanged and still
+unpulled: GSC sitemap + request indexing, Bing Webmaster + IndexNow, and real inbound links. The
+**30 pending footer credits are now the highest-leverage unblocked item on the board** — 30 already-
+indexed contractor domains linking *directly at deep /trades/ pages*, which is exactly the crawl
+signal the deep pages lack.
+
+### Rival watch: one new DBM URL, and it is not a content threat
+DBM **281** URLs (was 280), zero removed. Slamdot unchanged at **9**. The one new page is
+`/your-journey-with-deck-builder-marketers/` — a 3-step sales/onboarding funnel (H1 "Your Journey
+with Deck Builder Marketers", exit-intent popup, strategy-call CTA), **not editorial and not a topic
+gap**, so no backlog item was added. DBM has now published **no new editorial content in 14 days**.
+
+Live top 10, both headline keywords (MJC absent from both):
+- **footbridgemedia.com/who-we-help/deck-builder-marketing-seo** is **new in the top 10 on BOTH**
+  `deck builder marketing` and `marketing for deck builders` — the only new domain this week.
+- `linkedin.com/company/deckbuildermarketers` is the **#1 result for "deck builder marketing"**,
+  above DBM's own homepage — and it is AI-cited. MJC has no LinkedIn company page.
+- growthdeckmarketing.com, deckfencemarketers.com, hardscapemarketingcrew.com (still serving a 404
+  body while holding a top-10 slot and 14.8% of AI citations), townsquareinteractive.com and
+  contractorsassociation.org all persist. The tracked-rival-set request for growthdeckmarketing and
+  deckfencemarketers stands — `rank_tracker.py` is off-limits to this routine.
+
+### Footer credits: 7 of 37 live (flat, no regressions)
+All seven re-verified live 2026-09-28 with correct target and anchor text: apdecks.com,
+bivianomodularbuilders.com, oasiscustomdecks.com, paynterconstruction.com, thewindowprofessor.pro,
+www.bivianocontracting.com, www.mrpatiocover.com. **No missing credits.** All 30 GHL funnels remain
+`pending-va` — unchanged for a **third** week. Two of the 30 (alldeckedoutbuilds.com,
+deckoutyourhomebuilds.com) returned an empty body to curl and may not be serving at all; worth a
+check before the VA works the list.
+
+### AI-cited pages: 94 URLs classified, zero new pitchable listicles
+Up from 85. Six roundup/comparison candidates not already in the pipeline were WebFetch-verified live
+and **all six rejected** — every one is publisher-authored content that ranks the publisher itself and
+lists marketplaces rather than agencies: zioadvertising, pipelineon, regie.ai, homeshowoff, webfx
+(fence guide) and contractingempire. Details in `authority_pipeline.md`.
+
+**Cumulative finding worth acting on: across 09-21, 09-24 and 09-28, all 14 AI-cited roundups checked
+have been marketplace rosters or vendor self-rankings.** "Pitch the top AI-cited listicle" is a
+largely exhausted lane in this niche. The third-party surfaces AI answers *do* cite and that MJC can
+actually occupy are **profile directories**: DesignRush (DBM's profile was cited 2x this run — tagged
+AI-cited in the pipeline), Clutch, The Manifest (live), Semrush, GoodFirms — plus **LinkedIn**, added
+as a new pipeline row this week on the strength of DBM's LinkedIn page holding Google #1.
+
+### Backlog changes
+- Replaced the 09-21 strategist read with the 09-28 one (scoreboard dark 4th run + homepage-only indexation).
+- Two new Phase 0 items, now the top two unchecked items on the board:
+  `/learn/google-ads-for-deck-builders/` (kw **google ads for deck builders**; five thin cited agency
+  pages, two of them anytimedigitalmarketing's) and `/trades/hardscape-marketing/` (kw **hardscape
+  contractor marketing**; new trade page, open field, and hardscapemarketingcrew's 14.8% citation share
+  proves engines are hunting for a hardscape answer).
+- **Un-checkboxed `/learn/angi-vs-homeadvisor-vs-thumbtack-for-deck-builders/` as SUPERSEDED.** The
+  shipped Phase 0 `/learn/angi-alternatives-for-deck-builders/` already owns that cluster; the Phase 0
+  item said it superseded this one but left the checkbox open, which would have produced a duplicate-
+  keyword page against the one-keyword-per-page rule.
+- 10 unchecked items queued in Phase 0/1/2. Phase 3 untouched. Page rules header intact.

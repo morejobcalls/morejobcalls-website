@@ -1,244 +1,244 @@
 {
- "snippet": "Marketing by <a href=\"TARGET\" target=\"_blank\" rel=\"nofollow noopener\">MoreJobCalls.com</a>",
- "rule": "anchor text always exactly MoreJobCalls.com; rel=nofollow REQUIRED (Google spam policy lists widely distributed footer links as link spam unless qualified with nofollow/sponsored); visible plain HTML in the served page; status becomes live only when curl of the live page shows the href. Full SOP: Marketing/4. Website/morejobcalls-seo/Client Footer Credit SOP.md",
- "sites": [
-  {
-   "domain": "abbey-fence.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/fence-company-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "alldeckedoutbuilds.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "apdecks.com",
-   "platform": "wordpress-flywheel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "live",
-   "note": "verified live 2026-09-21; Elementor footer template #1535, text widget next to the copyright line"
-  },
-  {
-   "domain": "athensdeckpros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "bendfenceanddecks.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/fence-company-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "bhamdeckpros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "bivianomodularbuilders.com",
-   "platform": "github-pages",
-   "target": "https://morejobcalls.com/",
-   "status": "live",
-   "verified": "2026-09-14",
-   "rel": "nofollow noopener",
-   "note": "verified live 2026-09-21, 45 pages; 404/feedback/your-ads have no copyright line"
-  },
-  {
-   "domain": "bobtbuilderdecks.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "deavilledeckpros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "deckdynastypros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "deckoutyourhomebuilds.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "deckssncompany.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "dynamicdeckfl.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "getallprodecks.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "gocommunityfirst.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "highlinedeckpros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "jbk-industriesllcs.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "jdsbeyondcarpentryy.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "lonestardeckpros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "miamideckpros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "morsebuilder.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "mrpatiocoverdecks.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "naileditdecks.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "oasiscustomdecks.com",
-   "platform": "github-pages",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "live",
-   "verified": "2026-09-14",
-   "rel": "nofollow noopener",
-   "note": "verified live 2026-09-21 on apex + oasis-website-s94.pages.dev, 23 pages"
-  },
-  {
-   "domain": "paynterconstruction.com",
-   "platform": "github-pages",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "live",
-   "note": "verified live 2026-09-21, 4 pages (repo: 05 - Landing Pages/paynter-website)"
-  },
-  {
-   "domain": "paynterconstructions.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "sidingatlantadecks.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/siding-leads/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "simplelivingcontractor.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "sonomadeckpros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "thewindowprofessor-decks.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "thewindowprofessor.pro",
-   "platform": "github-pages",
-   "target": "https://morejobcalls.com/trades/window-replacement-leads/",
-   "status": "live",
-   "note": "verified live 2026-09-21, 15 of 15 pages; pricing-event paid LP intentionally excluded"
-  },
-  {
-   "domain": "throldahldeckpros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "trinitydecks.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "tysdeckpros.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "westernrockiesdecks.com",
-   "platform": "ghl-funnel",
-   "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-   "status": "pending-va"
-  },
-  {
-   "domain": "www.bivianocontracting.com",
-   "platform": "github-pages",
-   "target": "https://morejobcalls.com/",
-   "status": "live",
-   "verified": "2026-09-14",
-   "rel": "nofollow noopener",
-   "note": "verified live 2026-09-21, 20 pages"
-  },
-  {
-   "domain": "www.mrpatiocover.com",
-   "platform": "cf-pages",
-   "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
-   "status": "live",
-   "verified": "2026-09-14",
-   "rel": "nofollow noopener",
-   "note": "verified live 2026-09-21, 40 pages; paid LPs google-estimate + meta-offer intentionally credit-free; /archive/ still public until next deploy via _dev/ship-lp.sh"
-  }
- ],
- "last_verified": "2026-09-21"
+  "snippet": "Marketing by <a href=\"TARGET\" target=\"_blank\" rel=\"nofollow noopener\">MoreJobCalls.com</a>",
+  "rule": "anchor text always exactly MoreJobCalls.com; rel=nofollow REQUIRED (Google spam policy lists widely distributed footer links as link spam unless qualified with nofollow/sponsored); visible plain HTML in the served page; status becomes live only when curl of the live page shows the href. Full SOP: Marketing/4. Website/morejobcalls-seo/Client Footer Credit SOP.md",
+  "sites": [
+    {
+      "domain": "abbey-fence.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/fence-company-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "alldeckedoutbuilds.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "apdecks.com",
+      "platform": "wordpress-flywheel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "live",
+      "note": "verified live 2026-09-28; Elementor footer template #1535, text widget next to the copyright line"
+    },
+    {
+      "domain": "athensdeckpros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "bendfenceanddecks.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/fence-company-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "bhamdeckpros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "bivianomodularbuilders.com",
+      "platform": "github-pages",
+      "target": "https://morejobcalls.com/",
+      "status": "live",
+      "verified": "2026-09-14",
+      "rel": "nofollow noopener",
+      "note": "verified live 2026-09-28, 45 pages; 404/feedback/your-ads have no copyright line"
+    },
+    {
+      "domain": "bobtbuilderdecks.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "deavilledeckpros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "deckdynastypros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "deckoutyourhomebuilds.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "deckssncompany.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "dynamicdeckfl.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "getallprodecks.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "gocommunityfirst.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "highlinedeckpros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "jbk-industriesllcs.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "jdsbeyondcarpentryy.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "lonestardeckpros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "miamideckpros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "morsebuilder.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "mrpatiocoverdecks.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "naileditdecks.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "oasiscustomdecks.com",
+      "platform": "github-pages",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "live",
+      "verified": "2026-09-14",
+      "rel": "nofollow noopener",
+      "note": "verified live 2026-09-28 on apex + oasis-website-s94.pages.dev, 23 pages"
+    },
+    {
+      "domain": "paynterconstruction.com",
+      "platform": "github-pages",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "live",
+      "note": "verified live 2026-09-28, 4 pages (repo: 05 - Landing Pages/paynter-website)"
+    },
+    {
+      "domain": "paynterconstructions.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "sidingatlantadecks.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/siding-leads/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "simplelivingcontractor.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "sonomadeckpros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "thewindowprofessor-decks.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "thewindowprofessor.pro",
+      "platform": "github-pages",
+      "target": "https://morejobcalls.com/trades/window-replacement-leads/",
+      "status": "live",
+      "note": "verified live 2026-09-28, 15 of 15 pages; pricing-event paid LP intentionally excluded"
+    },
+    {
+      "domain": "throldahldeckpros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "trinitydecks.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "tysdeckpros.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "westernrockiesdecks.com",
+      "platform": "ghl-funnel",
+      "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
+      "status": "pending-va"
+    },
+    {
+      "domain": "www.bivianocontracting.com",
+      "platform": "github-pages",
+      "target": "https://morejobcalls.com/",
+      "status": "live",
+      "verified": "2026-09-14",
+      "rel": "nofollow noopener",
+      "note": "verified live 2026-09-28, 20 pages"
+    },
+    {
+      "domain": "www.mrpatiocover.com",
+      "platform": "cf-pages",
+      "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
+      "status": "live",
+      "verified": "2026-09-14",
+      "rel": "nofollow noopener",
+      "note": "verified live 2026-09-28, 40 pages; paid LPs google-estimate + meta-offer intentionally credit-free; /archive/ still public until next deploy via _dev/ship-lp.sh"
+    }
+  ],
+  "last_verified": "2026-09-28"
 }
