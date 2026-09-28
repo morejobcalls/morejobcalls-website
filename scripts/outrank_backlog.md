@@ -9,6 +9,19 @@ Win condition: MJC above BOTH rivals on >=7 of the 12 CORE keywords in
 `scripts/rank_tracker.py`, two scoreboard runs in a row.
 Baseline 2026-09-10: 0/12. MJC not in the top 50 on any core keyword.
 
+**When this backlog has no open item, work `scripts/topical_map.md` instead** — the
+category-ownership map (~70 open targets across 9 clusters, ranked by leverage). Take
+the top open `[ ]` item in the highest-priority open cluster and build it with the
+`/cluster-page` conventions. This backlog is depth against two named rivals; the map is
+breadth across the whole semantic neighbourhood. Both matter; the backlog wins ties.
+
+**Guarantee, ad spend, client identity, client claims, authority stats:
+`Fulfillment/Operations/SOPs/public-copy-guardrails.md` is the single source of truth.**
+Read it at the start of every run. Do not trust guarantee wording restated in a routine
+prompt or a skill — the paused weekly publisher sat for months with a superseded
+guarantee in its prompt, and on 2026-09-27 ten skills were found carrying the
+superseded v3.0 remedy six days after v3.1 replaced it.
+
 ## Page rules (every item)
 - One primary keyword per page, exact phrase in title (<=60 chars), H1, first 100 words, one H2.
   Never target a keyword another MJC page already owns (check this file first). The pillar
@@ -23,7 +36,12 @@ Baseline 2026-09-10: 0/12. MJC not in the top 50 on any core keyword.
   sibling pages INTO the new page. A page nothing links to does not rank.
 - Our deliverable = exclusive sales appointments / deck jobs, never "leads". The keyword may say
   "leads" (title/H1/meta/URL); the sentences describing what WE deliver may not.
-- No internal pricing. No invented client numbers. Guarantee wording exactly per the routine prompt.
+- No internal pricing. No invented client numbers. Guarantee wording per
+  `public-copy-guardrails.md`, never from the routine prompt (prompts go stale).
+- After shipping: IndexNow ping, then **request indexing in Search Console**. IndexNow
+  reaches Bing and ChatGPT only; Google is not told by publishing and will leave a new
+  page in "Discovered, currently not indexed" for days. Quota ~10-11/day on a rolling
+  24h window. Never poll a pending URL - inspections have their own quota.
 - No recommended, required or minimum ad budgets and no "all-in" monthly figures (budget is set on the strategy call). Named clients' ACTUAL spend in case studies is fine.
 - Never publish a self-ranked "best agencies" list with MJC at #1. Google demotes them and answer
   engines skip the brand that authored the list. A comparison page is fine when it is alphabetical
