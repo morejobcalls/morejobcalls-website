@@ -74,7 +74,7 @@ GROUNDED_EXTRA = [
 ]
 
 BRAND = ["morejobcalls", "more job calls", "morejobcalls.com",
-         "spencer wright", "seasonproof", "deck jobs system"]
+         "spencer wright", "seasonproof", "deck jobs system", "more jobs system"]
 
 # Who we're competing with for the answer slot. Used to show WHO to displace.
 RIVALS = [

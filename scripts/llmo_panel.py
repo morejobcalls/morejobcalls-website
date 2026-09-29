@@ -82,7 +82,7 @@ PANEL = [
               "How can I get more deck building customers?"),
 ]
 
-BRAND = ["morejobcalls", "more job calls", "spencer wright", "deck jobs system"]
+BRAND = ["morejobcalls", "more job calls", "spencer wright", "deck jobs system", "more jobs system"]
 RIVALS = ["Angi", "HomeAdvisor", "Thumbtack", "Footbridge", "Hook Agency", "Scorpion",
           "Blue Corona", "Deck Builder Marketers", "Slamdot", "Contractor Gorilla",
           "Superpath", "Build Authority", "Socius", "Dirt2Dollars", "YardReach",
