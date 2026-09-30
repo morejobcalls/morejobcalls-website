@@ -976,10 +976,11 @@ function svSubmit() {
   // Journey Ledger (2026-09-14): first/last touch + visitor id ride along; submit event keyed by event_id.
   try { if (window.mjcJourney) { Object.assign(payload, mjcJourney.leadFields()); mjcJourney.track('submit', { lead_ref: payload.event_id, label: 'homepage survey', value: payload.annual_revenue || '' }); } } catch (e) {}
 
-  // Meta gate (Spencer 2026-09-30): Meta only hears about this lead if they clicked one of our Meta ads in the
-  // 7 days before applying (journey.js keeps that as the mjc_mad cookie). If journey.js didn't load, fall back to
-  // this page load's own URL. Organic homepage leads send nothing to Meta, browser or server. The relay also
-  // drops anything without meta_ad=yes, so this is belt and braces.
+  // Meta gate (Spencer 2026-09-30): the BROWSER Lead only fires after a proven click on one of our Meta ads in the
+  // 7 days before applying (journey.js keeps that as the mjc_mad cookie; URL fallback if journey.js didn't load).
+  // The SERVER Lead below goes for every lead, with email/phone, so Meta can credit a cross-device ad click
+  // (phone click → desktop signup) — Spencer's call the same evening. Meta credits an ad only if that person
+  // really clicked or engaged-viewed one; organic leads never become ad results. meta_ad rides along either way.
   var svMetaAd = (function () {
     try { if (window.mjcJourney && mjcJourney.metaAdClick) return mjcJourney.metaAdClick(); } catch (e) {}
     var q = new URLSearchParams(location.search), med = (q.get('utm_medium') || '').toLowerCase(), src = (q.get('utm_source') || '').toLowerCase();
@@ -993,14 +994,14 @@ function svSubmit() {
   // (hashed by the relay) so Meta can tie a desktop homepage signup to the ad click on their phone.
   // Without this, cross-device ad leads (David Logan, 9/28) land here with no ad credit in Meta.
   try {
-    if (svMetaAd && !/[?&](qa|jtest)=1/.test(location.search)) {
+    if (!/[?&](qa|jtest)=1/.test(location.search)) {
       var ck = function(n){ var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + n + '=([^;]+)')); return m ? m[1] : ''; };
       fetch('https://meta-capi-relay.spencer-80c.workers.dev/', { method: 'POST', mode: 'no-cors', keepalive: true,
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ event_name: 'Lead', event_id: payload.event_id, event_time_unix: Math.floor(Date.now() / 1000),
           page_url: location.href, email: payload.email, phone: payload.phone, first_name: payload.first_name, last_name: payload.last_name,
           fbp: ck('_fbp'), fbc: ck('_fbc'), client_user_agent: navigator.userAgent || '',
-          icp: (sv.revenue === 'under_500k') ? 'no' : 'yes', meta_ad: 'yes' }) }).catch(function(){});
+          icp: (sv.revenue === 'under_500k') ? 'no' : 'yes', meta_ad: payload.meta_ad }) }).catch(function(){});
     }
   } catch (e) {}
   try { if (typeof clarity === 'function') { clarity('set', 'survey_submitted', 'yes'); clarity('event', 'survey_submit'); } } catch (e) {}
