@@ -1,0 +1,11 @@
+# GitHub Pages (legacy Jekyll build from main).
+# scripts/ holds internal automation data (LLMO/rank logs, footer credits)
+# that names clients. It stays in the repo for the Actions workflows but
+# must never be served on morejobcalls.com.
+exclude:
+  - scripts/
+  # Jekyll defaults (listing exclude replaces them, so restate)
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
