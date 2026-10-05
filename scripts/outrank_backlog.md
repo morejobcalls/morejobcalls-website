@@ -72,60 +72,44 @@ instead of failing quietly, and the GH Action commits the NO_DATA row and then f
 
 ## Queue (top = next)
 
-> **Strategist read 2026-09-28 — the Google scoreboard is still DARK, and the constraint is now PRECISELY LOCATED.**
-> `scripts/rank_history.jsonl` has had no new row since 2026-09-14 (14 days). The Apify actor has now
-> returned **HTTP 403 on four consecutive runs** (09-17, 09-21 x2, 09-24) — monthly usage hard limit,
-> confirmed again this run from the Action logs. Spencer must raise the Apify plan before any position
-> data comes back. There are still **no striking-distance (#11-30) items to promote** — not because none
-> exist, but because nobody can see them. Do not infer anything from "flat" rankings.
+> **Strategist read 2026-10-05 — the Google scoreboard is still DARK (21 days), but the AI board moved for the first time: an MJC page was CITED.**
+> `scripts/rank_history.jsonl` has had no real row since **2026-09-14**. Apify has now returned
+> **HTTP 403 "Monthly usage hard limit exceeded" on six consecutive runs** (09-17, 09-21 x2, 09-24, 09-28, 10-01),
+> confirmed again this run from the Action logs — and critically, the **10-01 run failed too, after the month
+> boundary**, so this is an account-level hard limit that will not reset on its own. `APIFY_TOKEN` is present and
+> valid; only Spencer raising the limit at console.apify.com/billing brings position data back. Until then there
+> are **no striking-distance (#11-30) items to promote** — not because none exist, but because nobody can see them.
+> Do not infer anything from "flat" rankings. (The corrected 2026-09-28 indexation read below still stands: GSC
+> says 36 indexed. Indexation is NOT the constraint.)
 >
-> **What changed this week: the retrieval problem has a sharper diagnosis, and it is not "nothing is indexed".**
-> Domain-restricted searches this run returned `https://morejobcalls.com/` with a correct title and an
-> accurate content summary — so the **homepage IS in the index**. But three separate queries that exactly
-> match deep pages (`patio cover marketing contractors`, `angi alternatives for deck builders exclusive
-> appointments`, and the brand query itself) **all returned the homepage and nothing else**, even though
-> `/trades/patio-cover-marketing/` and `/learn/angi-alternatives-for-deck-builders/` both serve 200. The
-> 2026-09-21 panel's 0.0% retrieval rate was therefore not a serving fault and not a robots fault:
+> **What changed this week — the first MJC citation ever, and it tells us exactly what is broken.**
+> The 2026-10-01 grounded run cited `https://morejobcalls.com/learn/best-marketing-agency-for-deck-builders/`
+> when answering **"Facebook ads agency for deck builders that guarantees appointments"** — the first time in
+> four grounded runs (≈140 citations) that an answer engine has retrieved an MJC page at all. It still scored
+> `named: false`. **The engine read our page and did not come away with our name.**
 >
-> ~~**Only the homepage is in the index. Not one of the ~20 shipped /learn/ and /trades/ pages is.**~~
+> The reason is on the page. Its first 50 words are: *"Disclosure up front: I run one of these agencies. My
+> company builds Meta ad systems for home service contractors, deck builders first."* The brand is never the
+> grammatical subject — "I" and "my company" are. The 2026-09-20 site-wide LLMO entity pass put a
+> "MoreJobCalls.com is ..." sentence on the /learn/ pages, but this page's first-person opening sits in front of
+> it, and the passage an answer engine lifts from is the opening. A page that cannot be quoted as *"MoreJobCalls.com
+> is a marketing company for deck builders that ..."* cannot put the brand into an answer, however well it ranks.
 >
-> ⛔ **CORRECTED 2026-09-28 (late) — this conclusion was WRONG, and the reasoning that produced it
-> was running on a broken instrument. Do not act on it.** First-party Google Search Console says:
-> **36 pages indexed, 14 not indexed.** Two deep pages were inspected live that night and both
-> returned "URL is on Google": `/trades/deck-builder-marketing/` and `/trades/siding-leads/`. The
-> Performance report shows **48 pages with impression data over 90 days**, including
-> `/trades/roofing-leads/` at **707 impressions / 6 clicks** and `/about/` at **212 / 17** —
-> impossible for unindexed URLs.
+> **So the binding constraint is now on-page/topical — specifically brand-naming liftability — not retrieval.**
+> Authority still governs how *often* we get retrieved (DR 0, 7 of 37 footer credits live, Clutch at 1 review),
+> and that work continues in parallel. But naming is a hard gate in front of it: at 0/18 named, more citations
+> cannot score while the retrieved passage says "my company". Fixing the gate is this week's cheapest real move,
+> and the two items at the top of Phase 0 are that fix.
 >
-> **Why the strategist got it wrong:** the "only the homepage" finding came from Apify
-> domain-restricted searches, and Apify had returned **HTTP 403 on four consecutive runs** (the
-> same monthly-limit failure noted three paragraphs up). A scraper over its quota returns thin or
-> empty results, which look exactly like "nothing else is indexed." The note treated an
-> instrument failure as a finding about the site.
+> **Also measured this run:** 3 of the 18 questions ("I own a deck building company doing about $2M a year. Who
+> should I hire...", "Best way to get exclusive appointments for a home improvement contractor", "How do I get
+> more deck building leads?") returned **zero citations and zero searches** — the model answered from parametric
+> knowledge with no web retrieval at all. Those three are structurally unreachable by ranking or by inclusion;
+> only broad brand prevalence touches them. Treat 15, not 18, as the addressable denominator.
 >
-> **Rule this cost us:** when the measuring tool is known-broken, the correct output is "no data",
-> never an inference. And GSC is first-party — when a scraper and GSC disagree about what Google
-> has indexed, GSC wins. Check GSC before concluding anything about indexation.
->
-> **What is actually true:** indexation is NOT the binding constraint — it went 20 → 36 in a week
-> once pages were submitted and indexing was requested. The remaining 14 include 6 that are
-> correct by design (a merged page's redirect stub, 2 canonicalised duplicates, 2 fossil 404s).
-> Off-site authority is still the real lever, so the 30 pending footer credits remain the top
-> unblocked item — that part of the read stands.
->
-> That single fact explains the 0/18 grounded score by itself. An answer engine looking for a deck-builder
-> answer can only find our generic contractor homepage, never the page actually written for the question.
-> Crawl paths are fine — the homepage links all 10 trade pages, the /learn/ hub and 3 articles — so this is
-> **crawl budget and trust on a domain with no real inbound links**, not site architecture. An unsubmitted,
-> DR-0 domain gets its homepage indexed off third-party brand mentions (Bizapedia, The Manifest and Clutch
-> all outrank us on our own brand name) and then gets no crawl spent on its deep pages.
->
-> **So the lever is submission and inbound links, and it has not moved in three weeks:** GSC sitemap +
-> request indexing, Bing Webmaster + IndexNow, and the **30 pending footer credits**. Those 30 are now the
-> highest-leverage unblocked item on the whole board — they are 30 already-indexed contractor domains
-> linking *directly at deep /trades/ pages*, which is exactly the crawl signal the deep pages are missing.
-> Keep shipping pages — the content compounds the day indexation clears — but **do not rewrite a shipped
-> page because it "isn't ranking". It has not been looked at yet.**
+> Rivals are quiet for a third straight week: DBM's only new URL is a *second version* of last week's sales-funnel
+> page (`/your-journey-with-deck-builder-marketers-v2/`). **21 days with no new editorial content from DBM.**
+> Keep shipping — and **do not rewrite a shipped page because it "isn't ranking". It has not been looked at yet.**
 
 ### Phase 0 — LLMO: pages for the questions AI answers already cite (added 2026-09-18, work these FIRST)
 Source: `scripts/llmo_citations.json` + `scripts/llmo_grounded_history.jsonl` (grounded probe, MJC named 0/18 on 2026-09-18).
@@ -133,6 +117,9 @@ AI answers are built from small agency pages and comparison posts, not big brand
 where the cited pages are thin and MJC has better evidence. Extra rule for these pages: the first paragraph must state, in
 one plain sentence, what MoreJobCalls is ("MoreJobCalls.com is a marketing company for deck builders and other home-service
 contractors that ...") so an answer engine can lift it verbatim. Put a dated "Updated <Month YYYY>" line near the top.
+- [ ] **Optimize `/learn/best-marketing-agency-for-deck-builders/` for brand-naming liftability — the only MJC page an AI answer has ever cited (2026-10-01), and it scored `named: false`.** Keep the URL, the keyword (**best marketing agency for deck builders**) and the first-person disclosure voice — that voice is why the page is good. The single fix: **MoreJobCalls.com must be the grammatical subject of the first sentence**, before the "I run one of these agencies" disclosure, not after it. Something an engine can lift whole: "MoreJobCalls.com is a marketing company for deck builders and other home-service contractors that runs Meta ad systems and books exclusive sales appointments — and the company I run, which is exactly why this page hands you a scorecard instead of a ranked list of competitors." Then add one short answer-first block near the top that answers the hire-intent question with the brand as the subject (the engine cited us for *"Facebook ads agency for deck builders that guarantees appointments"*, so that sentence must name the brand, the trade, the channel and the appointment promise in one quotable line — guarantee wording per `public-copy-guardrails.md`, never from the routine prompt). Verify by reading the first 50 words back and asking: can this be quoted as a sentence whose subject is MoreJobCalls.com? No new sections, no word-count padding, no keyword change.
+- [ ] **First-50-words naming audit of the 8 hire-intent /learn/ pages** (`best-marketing-agency-for-deck-builders` is the item above; then `lead-generation-companies-for-contractors`, `contractor-appointment-guarantees-explained`, `angi-alternatives-for-deck-builders`, `deck-builder-marketing-companies-compared`, `facebook-ads-agency-for-home-service-contractors`, `deck-builder-leads`, `contractor-marketing-agency-red-flags`). For each, read the first 50 words as an answer engine would and check one thing: **is "MoreJobCalls.com" the subject of a liftable sentence there, or is the opening "I"/"my company"/"we"?** Where it is first-person, put the entity sentence in front of it and keep the voice after. This is a surgical opening-paragraph edit per page — not a rewrite, not new sections, no keyword or title changes. Evidence: `/learn/best-marketing-agency-for-deck-builders/` was retrieved and still scored `named: false` because of exactly this. Ship as one item covering all 8 pages; note in the tick which ones actually needed the fix.
+- [ ] `/learn/best-marketing-agency-for-fence-companies/` — kw **best marketing agency for fence companies**. The fence vertical's own hire-intent question, cited 5 times in the 2026-10-01 run, and the cited field is five thin single-purpose agency pages (dotcomglobalmedia, thefencingmarketers, hookagency/fence-company-marketing, wearetg, madfishdigital) — no scorecard, no numbers, no honest "how to pick one" page anywhere in it. This replicates **the one page shape an answer engine has actually cited us for**, in the vertical where MJC already has a refreshed trade page to route to. Do NOT restate `/trades/fence-company-marketing/` — that page owns **fence company marketing** and keeps it; this one is the hire-decision page and links into it. Same scorecard structure as the deck equivalent (criteria table, questions-to-ask table with weak vs real answers, red flags, what to demand in writing, 8-question FAQ + word-for-word FAQPage schema), real fence-client numbers from the repo, and **MoreJobCalls.com as the subject of the first sentence** per the naming rule above. Never a self-ranked list with MJC at #1.
 - [x] 2026-09-18 Pillar tune `/trades/deck-builder-marketing/` https://morejobcalls.com/trades/deck-builder-marketing/ — shipped as "Deck Builder Marketing Agency That Books Jobs | MoreJobCalls" (60 chars exactly; the string specified below was 65 and the page rule caps titles at 60, so "Deck" was dropped from "Deck Jobs" — it is still in "Deck Builder"). Entity sentence added to the first 50 words, visible "Updated September 2026" line under the H1, dateModified bumped. Original item: title → "Deck Builder Marketing Agency That Books Deck Jobs | MoreJobCalls" (the AI prompt is "best marketing agency for deck builders" and every cited page says "agency"); add the one-sentence entity statement to the first 50 words; add a visible "Updated September 2026" line. Keep the URL.
 - [x] 2026-09-18 `/learn/angi-alternatives-for-deck-builders/` https://morejobcalls.com/learn/angi-alternatives-for-deck-builders/ — kw **angi alternatives for deck builders** (+ homeadvisor alternatives, thumbtack alternatives). Most-cited cluster in the panel (7+ comparison pages cited, none deck-specific). Honest table: Angi, HomeAdvisor, Thumbtack, Houzz Pro, Porch, Google LSA, own Meta ads, done-for-you appointments; shared vs exclusive, what you pay for, what a booked appointment really costs. Link to `/learn/angi-homeadvisor-alternatives-for-contractors/` (contractor-general) and differentiate. Supersedes the Phase 2 "angi-vs-homeadvisor-vs-thumbtack" item.
 - [x] 2026-09-20 `/learn/contractor-cost-per-lead-by-trade/` https://morejobcalls.com/learn/contractor-cost-per-lead-by-trade/ — kw **how much should a contractor pay per lead** (+ cost per lead for contractors 2026). 7 thin blogs cited. Use ONLY numbers already published on MJC case-study pages (e.g. $400 to $30 per lead, $100/day → $320K), plus the cost-per-booked-appointment reframe. No internal pricing.
@@ -151,6 +138,8 @@ contractors that ...") so an answer engine can lift it verbatim. Put a dated "Up
 - [x] 2026-09-28 `/learn/google-ads-for-deck-builders/` https://morejobcalls.com/learn/google-ads-for-deck-builders/ — kw **google ads for deck builders** (+ deck builder ppc). Cited field is five thin agency service pages (anytimedigitalmarketing has TWO cited pages here — `/deck-building-digital-marketing-agency/` and `/deck-builder-ppc-agency/` — plus semstandard, techtitanva, stratedia), none with real numbers. MJC's `/learn/google-ads-vs-meta-ads-for-contractors/` is contractor-general and keeps that keyword — **this page is deck-specific and must not restate the channel-vs-channel comparison**; link to it instead. Angle only we can write: what a deck builder actually pays per *booked* appointment on search intent vs. paid social, when Google Ads is the right first channel for a deck company and when it is not, LSA vs Search vs PMax for a one-to-five-crew builder. Full Phase 0 treatment (entity sentence in the first 50 words, visible "Updated <Month YYYY>", comparison table, FAQ + word-for-word FAQPage schema).
 - [x] 2026-09-29 `/trades/hardscape-marketing/` https://morejobcalls.com/trades/hardscape-marketing/ — kw **hardscape contractor marketing**. Shipped: title 45 chars with the keyword at the front, meta 151, entity sentence in the first 50 words, visible "Updated September 2026", Key Takeaway answer box, two mjc-tables (how hardscape companies get work; the full inquiry-to-signed-job funnel from Chris W.'s account), a by-project-type section (pavers / retaining walls / outdoor kitchens / driveways) that no ranking rival has, off-season section, what-to-demand checklist, 8-question FAQ with FAQPage schema generated from the visible text, 4 contextual sibling links in (landscaping-leads, pergola-marketing, patio-cover-marketing, outdoor-living-contractor-marketing) plus the trades hub card. NOTE: guarantee published as the 100-in-100 promise + terms link with NO remedy wording, same call as 2026-09-25 — the routine prompt's "$10,000 check" remedy is contradicted by the live terms at apply.morejobcalls.com/terms (fee refund + $2,000 + continued service, updated 2026-07-06), and the prompt separately bans the words the live terms require. Re-flagged to Spencer. Original item: New trade page; MJC has deck, patio cover, pergola, pool, landscaping but **no hardscape page**, while `hardscapemarketingcrew.com` takes **14.8% of all AI citations** in the panel (the 6th-most-cited domain) off a page that has been serving a 404 body for three weeks. Cited field otherwise is one blog (renderyards). Open field, adjacent to three trade pages we already own, and the citation share proves answer engines are actively looking for a hardscape answer. Same Phase 0 treatment; link into the deck pillar and the patio-cover and pergola trade pages, and add links FROM those three into this one.
 
+- [ ] **Promoted from Phase 2 on 2026-10-05.** Refresh `/trades/roofing-leads/` for kw **roofing marketing company** (keep *roofing leads* as the secondary; do not drop it from the title). Vertical #3 carries its own hire-intent AI question ("I'm a roofer looking for a marketing company that only works with contractors") which drew **10 citations** in the 2026-10-01 run — the joint-largest cited field of any question we track — and it is the one cluster where both inclusion pitches and our own page have a path (Fervor Studio, Hook Agency's roofing list, Thrive, Silverback, Web Tonic, WebFX and useProline are all in `authority_pipeline.md`). This page also already has real GSC demand: **707 impressions / 6 clicks over 90 days**, the best of any MJC page, so it is being looked at and is under-converting rather than undiscovered. Full Phase 0 treatment, and **MoreJobCalls.com as the subject of the first sentence** per the naming rule above.
+
 ### Phase 1 — money keywords with a rival in the top 10
 - [x] 2026-09-10 `/trades/deck-builder-marketing/` pillar rebuild (3.8K words, 12 FAQs, 10 inbound case-study links)
 - [x] 2026-09-11 `/learn/deck-builder-leads/` https://morejobcalls.com/learn/deck-builder-leads/ — kw **deck builder leads** (+ leads for deck builders, decking leads). Angle: shared vs exclusive, what a deck lead really costs once you count no-shows, and what to buy instead. Rivals: DBM #25, Slamdot #19. Top 3 are marketplaces (serviceallies, minyona, builderprime): out-depth them on honest math.
@@ -168,7 +157,6 @@ contractors that ...") so an answer engine can lift it verbatim. Put a dated "Up
 - [x] 2026-10-02 `/learn/deck-builder-speed-to-lead/` https://morejobcalls.com/learn/deck-builder-speed-to-lead/ — kw **speed to lead for deck builders**. Title 50 chars with the keyword at the front, meta 150, entity sentence in the first 50 words, visible "Updated October 2026", Key Takeaway answer box, three mjc-tables (the deck-specific response-time decay table — what the homeowner is doing, what it costs, what to do; a 30-day call-and-text follow-up cadence from second 0 to day 30; Chris W.'s $5,109.15 / 106 / 42 / 12 / $320,000 chain read as the dollar cost of a slow phone), a "who answers when you're on a ladder" section for one-to-five-crew builders and a "booked is not sat" confirmation section that no ranking rival has, 8-question FAQ with FAQPage schema generated word-for-word from the visible text, 5 contextual sibling links in (why-contractor-leads-dont-answer, cost-per-appointment, deck-builder-leads, deck-builder-lead-generation, deck-builder-320k-in-60-days) plus the /learn/ hub card. SERP was generic: the three ranking pages (northwest.net, pushleads, Association of Professional Builders) are contractor- or builder-general, two cite no sources at all, and none covers show rate, cost per completed appointment or a multi-day cadence. Page deliberately does NOT restate `/learn/why-contractor-leads-dont-answer/` — that page owns the lead-quality argument and keeps it; this one is the operational speed and cadence layer and links back to it. The widely-quoted 5-minute/21x statistics are attributed to the 2011 HBR study and flagged as B2B and fifteen years old rather than presented as deck data. One derived figure (roughly one signed job per nine inquiries) is labelled as arithmetic on Chris W.'s published numbers. Related card for `/learn/how-to-get-more-deck-jobs/` was swapped for `/learn/deck-builder-lead-generation/` — that slug is now a redirect stub. NOTE (guarantee, fifth run in a row): published as the 100-in-100 promise + "guaranteed in writing" + terms link with NO remedy wording. `scripts/qa-site.py` BANS the routine prompt's "$10,000 check" remedy outright (superseded 2026-09-21), while the prompt bans the words the live terms and five live pages already use. The prompt is the stale artifact. Re-flagged to Spencer.
 - [ ] `/learn/questions-to-ask-a-deck-marketing-agency/` — interview script + what good answers sound like.
 - [x] 2026-09-20 (shipped via Phase 0) `/learn/outdoor-living-contractor-marketing/` — kw **outdoor living contractor marketing** (no rival in the top 50; open field). Link to patio/pergola/pool trade pages.
-- [ ] Refresh `/trades/roofing-leads/` for kw **roofing marketing company** (keep *roofing leads* as the secondary; do not drop it from the title). Vertical #3 has its own hire-intent AI question and **seven** cited agency listicles (Thrive, Service Direct, Silverback, Marketing LTB, Owl Roofing, ProLine, Contractor Marketing Pros) — the only cluster where inclusion pitches and our own page both have a path. Full Phase 0 treatment. (The patio-cover and fence halves of the old combined item moved to Phase 0.)
 - [ ] `/learn/lead-magnet-ideas-for-deck-builders/` — kw **lead magnet ideas for deck builders**. Rival gap: Slamdot owns `/blog/5-lead-magnet-ideas-for-deck-builders-that-attract-real-clients/`, MJC has no page. Go further than a list: which magnet actually produces a booked appointment vs. an email address, with the design-and-estimate offer as the worked example.
 - [ ] `/learn/deck-builder-referrals/` — kw **how to get more deck referrals**. Rival gap: Slamdot owns `/blog/3-proven-ways-to-boost-referrals-for-your-decking-business/`, MJC has no page. Angle only we can write: why referral volume is capped by job volume, and what to run while you wait. Do NOT overlap `/learn/how-to-get-more-deck-jobs/` — that page owns the broad playbook; this one is referrals only.
 

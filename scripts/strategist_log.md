@@ -339,3 +339,153 @@ as a new pipeline row this week on the strength of DBM's LinkedIn page holding G
   item said it superseded this one but left the checkbox open, which would have produced a duplicate-
   keyword page against the one-keyword-per-page rule.
 - 10 unchecked items queued in Phase 0/1/2. Phase 3 untouched. Page rules header intact.
+
+---
+
+## 2026-10-05 — Google still DARK (21 days). **First MJC page ever cited by an AI answer.** Constraint: ON-PAGE / BRAND-NAMING LIFTABILITY.
+
+### 1. Google scoreboard — NOT MEASURED. The Action is failing, and it will not fix itself.
+
+`scripts/rank_history.jsonl` newest row is the `NO_DATA` outage of 2026-09-28; the last **real**
+measurement is **2026-09-14, 21 days ago**.
+
+| metric | value | vs ~7 days earlier |
+|---|---|---|
+| beats both (core 12) | **not measured** | n/a — no data since 09-14 (0/12) |
+| beats DBM | not measured | n/a |
+| beats Slamdot | not measured | n/a |
+| MJC in top 50 | not measured | n/a |
+| MJC in top 10 | not measured | n/a |
+| keywords at #11–30 | **unknown — nobody can see them** | n/a |
+
+Cause, read from the Action logs this run (run 11, job 110492329570): Apify
+`HTTP 403 {"type":"platform-feature-disabled","message":"Monthly usage hard limit exceeded"}`.
+**Six consecutive failed runs** (09-17, 09-21 ×2, 09-24, 09-28, 10-01). `APIFY_TOKEN` is present
+and valid in the environment — this is not a missing secret.
+
+**New and decisive this week: the 2026-10-01 run failed too, i.e. after the month boundary.** A
+spend cap that resets monthly would have cleared on 10-01. It did not. So this is an **account-level
+hard limit** that only Spencer can lift at https://console.apify.com/billing. Nothing in the repo
+can route around it. No movers, no striking-distance promotions, and no ranking inference of any
+kind is available until he does.
+
+### 2. AI-answer (LLMO) scoreboard — the number that matters moved off zero
+
+Source `scripts/llmo_grounded_history.jsonl`, run 2026-10-01 (newest; 4 days old, Action healthy —
+runs land ~17:00–18:45 UTC, not the nominal 11:40, so today's Monday run had not fired at pass time).
+
+| metric | 2026-10-01 | 2026-09-24 | 2026-09-18 |
+|---|---|---|---|
+| MJC **named** | 0/18 | 0/18 | 0/18 |
+| named, hire-intent | 0/13 | 0/13 | 0/13 |
+| **MJC URL cited** | **1** | 0 | 0 |
+
+**The first MJC citation in four grounded runs (~140 citations).**
+`https://morejobcalls.com/learn/best-marketing-agency-for-deck-builders/` was both *searched* and
+*cited* for the hire-intent question **"Facebook ads agency for deck builders that guarantees
+appointments"** — alongside serviceallies ×2, clicksgeek, footbridgemedia and deckbuildermarketers.com.
+It still scored `named: false`.
+
+Single-run, so by the 2+ run rule it is **not yet a trend**. But it is a first-ever event, not noise
+in a moving average, and it isolates the failure precisely: **retrieval succeeded and naming failed.**
+
+**Why.** The first 50 words of that page are *"Disclosure up front: I run one of these agencies. My
+company builds Meta ad systems for home service contractors, deck builders first."* The brand is never
+the grammatical subject — "I" and "my company" are. The 2026-09-20 site-wide entity pass did add a
+"MoreJobCalls.com is …" sentence to the /learn/ pages, but on this page it sits *behind* the
+first-person opening, and the opening is the passage an engine lifts. A page that cannot be quoted as
+a sentence whose subject is MoreJobCalls.com cannot put the brand in an answer, however well it ranks.
+
+**Also measured:** 3 of the 18 questions returned **zero citations and zero searches** — the model
+answered from parametric knowledge with no retrieval at all ("I own a deck building company doing
+about $2M a year. Who should I hire…", "Best way to get exclusive appointments for a home improvement
+contractor", "How do I get more deck building leads?"). Those three are unreachable by ranking or by
+inclusion; only broad brand prevalence touches them. **The addressable denominator is 15, not 18** —
+worth saying out loud before anyone treats 18/18 as the target.
+
+Most-cited domains this run: clicksgeek.com (10), footbridgemedia.com (6), comradeweb.com (5),
+webfx.com (5), serviceallies.com (5). Rival-brand mentions are still dominated by the marketplaces
+(Angi 9, HomeAdvisor 9, Thumbtack 9) — DBM's own domain slipped to 3 citations from 6 a week earlier.
+
+### 1b. AI-cited classification (94 URLs)
+
+Full classification is written up in `scripts/authority_pipeline.md` (2026-10-05 pass). Summary:
+**2 rows added**, 6 (b) candidates verified live and rejected, the rest (a) competitor service pages
+or (c) marketplaces/software/PR.
+
+- **Fervor Studio — "Best Contractor Marketing Agencies 2026"** — ranks 10 real named agencies, not
+  marketplaces. Only the second genuine agency-inclusion precedent found in 22 cited roundups. The
+  same site publishes a deck-builder variant; that is the one to ask for.
+- **Deckorators pro editorial blog** — the **first manufacturer/supplier page ever to appear in this
+  citation data**, cited for "How do deck builders get more qualified leads in 2026?". New category
+  for this pipeline, and MJC's ad-spend numbers are the one thing a decking manufacturer cannot source
+  elsewhere. No guest-post route; the realistic ask is an expert-source or data quote.
+
+Rejected (so nobody re-pitches them): beseencontractors (own guide, cites nothing external),
+comradeweb/home-services-lead-generation (10 entries, all marketplaces), servicebuddy (2023, flooring,
+channels only), leadtruffle (alternatives are *channels*, not providers), and two myquoteiq posts (deck
+estimating software, wrong category). **20 of 22 AI-cited roundups checked to date are marketplace
+rosters or vendors ranking themselves** — fourth consecutive pass with that result. Profile directories
+and our own pages remain the LLMO lane.
+
+### 2. Rival watch — quiet for a third straight week
+
+- **DBM:** 282 URLs, up 1. The single new URL is `/your-journey-with-deck-builder-marketers-v2/` — a
+  *second version* of the sales-funnel page added last week (v1 still live). Conversion page, not
+  editorial, no topic gap, **no backlog item.** DBM has published **no new editorial content in 21
+  days** — three consecutive diffs of nothing but funnel iterations.
+- **Slamdot:** 9 deck/decking/contractor URLs, unchanged.
+- **SERP top 10** ("deck builder marketing", "marketing for deck builders"): the familiar field
+  (footbridgemedia, clicksgeek, sociusmarketing). New faces: **emulent.com** (two ranking posts) and a
+  **Townsquare Media radio-station network** serving one syndicated "deck builder digital marketing"
+  landing page across kpel965.com, kfyo.com, talkradio960.com and tuscaloosathread.com — the same page
+  on four local-radio domains. Worth knowing as a SERP-dilution pattern; not an authority target and
+  not a content gap. **MJC is absent from both top 10s**, consistent with the last real 0/12.
+
+### 3. Footer credits — 7 of 37 live, zero regressions
+
+All 37 domains curled live (follow redirects, 20s, browser UA, looking for an
+`<a href="https://morejobcalls.com…">` with anchor text `MoreJobCalls.com`).
+
+- **live: 7** — apdecks.com, bivianomodularbuilders.com, oasiscustomdecks.com, paynterconstruction.com,
+  thewindowprofessor.pro, www.bivianocontracting.com, www.mrpatiocover.com. Every one still carries
+  `rel="nofollow noopener"` intact. **No "missing" flips** — nothing that was live has gone away.
+- **pending: 30**, unchanged for three weeks. This is still the largest unblocked authority item on the board.
+- **Two pending domains cannot be deployed as-is:** `deckoutyourhomebuilds.com` returns **404** and
+  `sidingatlantadecks.com` **does not resolve at all**. The VA cannot add a footer to a site that
+  isn't serving; these two need Spencer to check whether the client sites still exist before they
+  count toward the 35.
+
+### 4. Backlog changes
+
+Phase 0 had been emptied by the Builder (every item shipped), leaving only 4 unchecked items on the
+whole board. Added three new Phase 0 items and promoted one, in order:
+
+1. **Optimize `/learn/best-marketing-agency-for-deck-builders/` for brand-naming liftability** — the
+   one page with proof of retrieval. Surgical: brand as the subject of the first sentence, keep the
+   first-person voice behind it, plus one quotable answer-first line naming brand + trade + channel +
+   appointment promise. No keyword change, no new sections.
+2. **First-50-words naming audit of the 8 hire-intent /learn/ pages** — same gate, applied where it
+   pays next. Opening-paragraph edits only.
+3. **`/learn/best-marketing-agency-for-fence-companies/`** — kw *best marketing agency for fence
+   companies*. Replicates the only page shape an engine has cited us for, into vertical #2, against a
+   cited field of five thin agency pages. Does not touch `/trades/fence-company-marketing/`'s keyword.
+4. **Promoted `/trades/roofing-leads/` refresh from Phase 2 to Phase 0** — kw *roofing marketing
+   company*. Its hire-intent question drew 10 citations (joint-largest field we track), it is the one
+   cluster where inclusion pitches and our own page both have a path, and the page already has the best
+   GSC demand of any MJC page (707 impressions / 6 clicks / 90 days) — being looked at and
+   under-converting, not undiscovered.
+
+Phase 2 keeps 3 items; Phase 3 untouched (needs Spencer). **7 unchecked Phase 0/1/2 items queued.**
+No ticked items removed, no keyword collisions, page rules header intact.
+
+### Binding constraint this week: **ON-PAGE / TOPICAL — brand-naming liftability.**
+
+For three weeks this log has named authority/mentions, correctly: DR 0, 7 of 37 footer credits, Clutch
+at 1 review. That work is still the volume lever and still belongs to Spencer. But this week produced
+first-party evidence that a harder gate sits in front of it. An answer engine retrieved an MJC page and
+came away without the brand, because the passage it read says "my company" instead of "MoreJobCalls.com".
+At 0/18 named, more citations cannot score while that is true — authority buys retrieval, and retrieval
+is now demonstrably reachable, but naming converts it. The gate is cheap to fix, it is entirely inside
+the Builder's remit, and the top two Phase 0 items are that fix. Expect authority to return to the top
+of this line once naming is closed.

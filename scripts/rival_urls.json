@@ -1,6 +1,6 @@
 {
   "_note": "Baseline of rival URLs. The weekly strategist diffs live sitemaps against these lists; anything not present here is a NEW rival page. Sources: deckbuildermarketers.com post/page/learn/case-study sitemaps; www.slamdot.com/sitemap.xml filtered to deck|decking|contractor.",
-  "updated": "2026-09-28",
+  "updated": "2026-10-05",
   "baseline_established": "2026-09-14",
   "dbm": [
     "https://deckbuildermarketers.com/",
@@ -283,6 +283,7 @@
     "https://deckbuildermarketers.com/websites/",
     "https://deckbuildermarketers.com/worksheets/",
     "https://deckbuildermarketers.com/workshop-signup/",
+    "https://deckbuildermarketers.com/your-journey-with-deck-builder-marketers-v2/",
     "https://deckbuildermarketers.com/your-journey-with-deck-builder-marketers/"
   ],
   "slamdot": [
@@ -296,5 +297,5 @@
     "https://www.slamdot.com/industries/decking/",
     "https://www.slamdot.com/work/sosa-and-sons-general-contractors/"
   ],
-  "last_diff": "2026-09-28: ONE new DBM URL vs the 09-21 list (281 vs 280), zero removed; Slamdot unchanged at 9. New: /your-journey-with-deck-builder-marketers/ — a 3-step sales/onboarding funnel page (H1 \"Your Journey with Deck Builder Marketers\", exit-intent popup, strategy-call CTA), not editorial and not a topic gap, so no backlog item was added. DBM has now published no new editorial content in 14 days."
+  "last_diff": "2026-10-05: ONE new DBM URL vs the 09-28 list (282 vs 281), zero removed; Slamdot unchanged at 9. New: /your-journey-with-deck-builder-marketers-v2/ — a second version of the 3-step sales/onboarding funnel page added last week (/your-journey-with-deck-builder-marketers/, still live). Both are conversion pages, not editorial, and not a topic gap, so no backlog item was added. DBM has now published no new EDITORIAL content in 21 days — three consecutive weekly diffs with nothing but funnel-page iterations. Their content lane is idle; ours is not."
 }

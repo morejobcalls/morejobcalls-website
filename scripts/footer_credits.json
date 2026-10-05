@@ -19,7 +19,8 @@
       "platform": "wordpress-flywheel",
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "live",
-      "note": "verified live 2026-09-28; Elementor footer template #1535, text widget next to the copyright line"
+      "note": "verified live 2026-09-28; Elementor footer template #1535, text widget next to the copyright line",
+      "verified": "2026-10-05"
     },
     {
       "domain": "athensdeckpros.com",
@@ -44,7 +45,7 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/",
       "status": "live",
-      "verified": "2026-09-14",
+      "verified": "2026-10-05",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28, 45 pages; 404/feedback/your-ads have no copyright line"
     },
@@ -70,7 +71,8 @@
       "domain": "deckoutyourhomebuilds.com",
       "platform": "ghl-funnel",
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-      "status": "pending-va"
+      "status": "pending-va",
+      "note": "2026-10-05: homepage returned 404 — site down or domain unresolved; credit cannot be deployed until it serves"
     },
     {
       "domain": "deckssncompany.com",
@@ -149,7 +151,7 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "live",
-      "verified": "2026-09-14",
+      "verified": "2026-10-05",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28 on apex + oasis-website-s94.pages.dev, 23 pages"
     },
@@ -158,7 +160,8 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "live",
-      "note": "verified live 2026-09-28, 4 pages (repo: 05 - Landing Pages/paynter-website)"
+      "note": "verified live 2026-09-28, 4 pages (repo: 05 - Landing Pages/paynter-website)",
+      "verified": "2026-10-05"
     },
     {
       "domain": "paynterconstructions.com",
@@ -170,7 +173,8 @@
       "domain": "sidingatlantadecks.com",
       "platform": "ghl-funnel",
       "target": "https://morejobcalls.com/trades/siding-leads/",
-      "status": "pending-va"
+      "status": "pending-va",
+      "note": "2026-10-05: homepage returned 000 — site down or domain unresolved; credit cannot be deployed until it serves"
     },
     {
       "domain": "simplelivingcontractor.com",
@@ -195,7 +199,8 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/trades/window-replacement-leads/",
       "status": "live",
-      "note": "verified live 2026-09-28, 15 of 15 pages; pricing-event paid LP intentionally excluded"
+      "note": "verified live 2026-09-28, 15 of 15 pages; pricing-event paid LP intentionally excluded",
+      "verified": "2026-10-05"
     },
     {
       "domain": "throldahldeckpros.com",
@@ -226,7 +231,7 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/",
       "status": "live",
-      "verified": "2026-09-14",
+      "verified": "2026-10-05",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28, 20 pages"
     },
@@ -235,10 +240,11 @@
       "platform": "cf-pages",
       "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
       "status": "live",
-      "verified": "2026-09-14",
+      "verified": "2026-10-05",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28, 40 pages; paid LPs google-estimate + meta-offer intentionally credit-free; /archive/ still public until next deploy via _dev/ship-lp.sh"
     }
   ],
-  "last_verified": "2026-09-28"
+  "last_verified": "2026-10-05",
+  "verification": "2026-10-05 sweep of all 37 domains (curl, follow redirects, 20s, browser UA, looking for an <a href=\"https://morejobcalls.com...\"> with anchor text MoreJobCalls.com): 7 live, 30 not yet carrying the credit, 0 regressions. Every site previously marked live still carries it with rel=\"nofollow noopener\" intact. Two pending domains cannot be deployed as-is: deckoutyourhomebuilds.com returns 404 and sidingatlantadecks.com does not resolve at all."
 }
