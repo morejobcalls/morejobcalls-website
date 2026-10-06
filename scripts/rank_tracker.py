@@ -18,7 +18,7 @@ Usage:
 The keyword basket is deliberately stable. ADD keywords if you must; never edit or remove,
 or the trend stops being comparable.
 """
-import json, os, sys, urllib.request, urllib.error, datetime
+import json, os, sys, time, urllib.request, urllib.error, datetime
 
 
 class NoData(Exception):
@@ -27,6 +27,7 @@ from urllib.parse import urlparse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 HISTORY = os.path.join(HERE, "rank_history.jsonl")
+RUN_TIMEOUT_SECS = 600  # actor budget (the 10/05 run needed ~5 min); the GitHub job allows 15 min total
 
 # CORE = the win condition. EXTENDED = tracked for opportunity, not scored.
 CORE = [
@@ -104,10 +105,26 @@ def fetch(keywords):
         "mobileResults": False,
         "saveHtml": False,
     }
-    url = f"https://api.apify.com/v2/acts/apify~google-search-scraper/run-sync-get-dataset-items?token={tok}&timeout=290"
-    req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
+    # 2026-10-06: the run-sync endpoint hard-caps at 300 s, and 20 keywords x DEPTH_PAGES pages takes ~5 min,
+    # so runs TIMED-OUT one page short (run uzexbTmKaEmJvLeFU: 99/100 pages). Start the run, poll it, then read the dataset.
+    base = "https://api.apify.com/v2"
+    hdr = {"Content-Type": "application/json", "Authorization": f"Bearer {tok}"}
     try:
-        return json.loads(urllib.request.urlopen(req, timeout=320).read())
+        req = urllib.request.Request(f"{base}/acts/apify~google-search-scraper/runs?timeout={RUN_TIMEOUT_SECS}&memory=2048",
+                                     data=json.dumps(body).encode(), headers=hdr)
+        run = json.loads(urllib.request.urlopen(req, timeout=60).read())["data"]
+        run_id, ds = run["id"], run["defaultDatasetId"]
+        deadline = time.time() + RUN_TIMEOUT_SECS + 60
+        status = run.get("status")
+        while status in ("READY", "RUNNING", "TIMING-OUT", "ABORTING") and time.time() < deadline:
+            time.sleep(15)
+            r = urllib.request.Request(f"{base}/actor-runs/{run_id}", headers=hdr)
+            status = json.loads(urllib.request.urlopen(r, timeout=60).read())["data"]["status"]
+        if status != "SUCCEEDED":
+            raise NoData(f"apify run {run_id} ended {status} after {RUN_TIMEOUT_SECS}s budget "
+                         f"(https://console.apify.com/view/runs/{run_id})")
+        r = urllib.request.Request(f"{base}/datasets/{ds}/items?clean=true&limit=5000", headers=hdr)
+        return json.loads(urllib.request.urlopen(r, timeout=120).read())
     except urllib.error.HTTPError as e:
         # A broken instrument must SAY it is broken. Returning nothing here is what
         # let the 2026-09-28 strategist read four straight quota 403s as "only the
@@ -123,6 +140,8 @@ def fetch(keywords):
                 f"free plan ($5/mo). Check https://console.apify.com/billing. {detail}"
             )
         raise NoData(f"apify HTTP {e.code}. {detail}")
+    except NoData:
+        raise
     except Exception as e:
         raise NoData(f"apify request failed: {e.__class__.__name__}: {e}")
 
