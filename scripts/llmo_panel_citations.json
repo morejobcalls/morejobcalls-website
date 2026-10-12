@@ -1,49 +1,37 @@
 {
- "date": "2026-10-06",
+ "date": "2026-10-12",
  "by_engine": {
   "claude": [
    [
     "clicksgeek.com",
-    33.3
+    25.9
    ],
    [
     "footbridgemedia.com",
     25.0
    ],
    [
-    "comradeweb.com",
-    20.4
-   ],
-   [
     "sociusmarketing.com",
-    18.5
+    24.1
    ],
    [
     "designrush.com",
-    16.7
-   ],
-   [
-    "hookagency.com",
-    15.7
-   ],
-   [
-    "deckbuildermarketers.com",
-    13.9
-   ],
-   [
-    "builtrightdigital.com",
-    13.0
+    17.6
    ],
    [
     "contractorgorilla.com",
+    14.8
+   ],
+   [
+    "comradeweb.com",
+    13.9
+   ],
+   [
+    "hookagency.com",
     13.0
    ],
    [
-    "minyona.com",
-    12.0
-   ],
-   [
-    "serviceallies.com",
+    "builtrightdigital.com",
     12.0
    ],
    [
@@ -51,35 +39,55 @@
     12.0
    ],
    [
-    "slamdot.com",
-    11.1
-   ],
-   [
-    "7ten.marketing",
-    11.1
-   ],
-   [
-    "webfx.com",
+    "deckbuildermarketers.com",
     10.2
    ],
    [
-    "superpath.com",
+    "serviceallies.com",
     10.2
    ],
    [
-    "deckfencemarketers.com",
-    8.3
+    "fatcatstrategies.com",
+    9.3
    ],
    [
     "linkedin.com",
-    6.5
+    9.3
+   ],
+   [
+    "webfx.com",
+    9.3
    ],
    [
     "constructionleadpro.com",
-    6.5
+    9.3
    ],
    [
-    "wearetg.com",
+    "slamdot.com",
+    8.3
+   ],
+   [
+    "superpath.com",
+    8.3
+   ],
+   [
+    "7ten.marketing",
+    7.4
+   ],
+   [
+    "minyona.com",
+    7.4
+   ],
+   [
+    "adaptdigitalsolutions.com",
+    7.4
+   ],
+   [
+    "deckfencemarketers.com",
+    7.4
+   ],
+   [
+    "leadtruffle.co",
     6.5
    ],
    [
@@ -87,19 +95,11 @@
     5.6
    ],
    [
-    "stratedia.com",
+    "serpwars.com",
     5.6
    ],
    [
-    "consumeraffairs.com",
-    5.6
-   ],
-   [
-    "allforcontractor.com",
-    5.6
-   ],
-   [
-    "silverbackstrategies.com",
+    "99calls.com",
     5.6
    ]
   ]
