@@ -1,6 +1,6 @@
 {
   "_note": "Baseline of rival URLs. The weekly strategist diffs live sitemaps against these lists; anything not present here is a NEW rival page. Sources: deckbuildermarketers.com post/page/learn/case-study sitemaps; www.slamdot.com/sitemap.xml filtered to deck|decking|contractor.",
-  "updated": "2026-10-05",
+  "updated": "2026-10-12",
   "baseline_established": "2026-09-14",
   "dbm": [
     "https://deckbuildermarketers.com/",
@@ -248,6 +248,7 @@
     "https://deckbuildermarketers.com/schedule-team/",
     "https://deckbuildermarketers.com/search-engine-optimization/",
     "https://deckbuildermarketers.com/search/",
+    "https://deckbuildermarketers.com/senior-marketing-specialist-remote-marketing-agency-jobs/",
     "https://deckbuildermarketers.com/seo-specialist-2026/",
     "https://deckbuildermarketers.com/signup/",
     "https://deckbuildermarketers.com/site-map/",
@@ -282,9 +283,7 @@
     "https://deckbuildermarketers.com/website-design-development/",
     "https://deckbuildermarketers.com/websites/",
     "https://deckbuildermarketers.com/worksheets/",
-    "https://deckbuildermarketers.com/workshop-signup/",
-    "https://deckbuildermarketers.com/your-journey-with-deck-builder-marketers-v2/",
-    "https://deckbuildermarketers.com/your-journey-with-deck-builder-marketers/"
+    "https://deckbuildermarketers.com/workshop-signup/"
   ],
   "slamdot": [
     "https://www.slamdot.com/blog/13-lead-generation-ideas-to-grow-your-decking-business/",
@@ -297,5 +296,5 @@
     "https://www.slamdot.com/industries/decking/",
     "https://www.slamdot.com/work/sosa-and-sons-general-contractors/"
   ],
-  "last_diff": "2026-10-05: ONE new DBM URL vs the 09-28 list (282 vs 281), zero removed; Slamdot unchanged at 9. New: /your-journey-with-deck-builder-marketers-v2/ — a second version of the 3-step sales/onboarding funnel page added last week (/your-journey-with-deck-builder-marketers/, still live). Both are conversion pages, not editorial, and not a topic gap, so no backlog item was added. DBM has now published no new EDITORIAL content in 21 days — three consecutive weekly diffs with nothing but funnel-page iterations. Their content lane is idle; ours is not."
+  "last_diff": "2026-10-12: DBM 281 live vs 282 stored. ONE new URL: /senior-marketing-specialist-remote-marketing-agency-jobs/ — a job posting, not content. TWO removed: /your-journey-with-deck-builder-marketers-v2/ and /your-journey-with-deck-builder-marketers/ (both the funnel pages tracked last week are now gone from the sitemap — they unpublished the v1 and the v2). Slamdot unchanged at 9 deck/decking/contractor URLs for the sixth consecutive week. ZERO new editorial content from DBM for the fourth straight weekly diff — 28 days. Their content lane is idle and now shedding pages; no rival-gap backlog item warranted this week."
 }
