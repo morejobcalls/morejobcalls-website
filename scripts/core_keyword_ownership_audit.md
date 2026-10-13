@@ -1,15 +1,17 @@
 # Core-keyword URL ownership audit
 
-Baseline established **2026-10-12** by the daily builder. Measured against the
-**2026-10-08** scoreboard (`scripts/rank_history.jsonl`, status OK).
+Baseline established **2026-10-12** by the daily builder. **Remediated 2026-10-13** against
+the **2026-10-12** scoreboard (`scripts/rank_history.jsonl`, status OK).
 
-This file exists so the audit is a **diff next time, not a re-derivation**. The backlog
-item that commissioned it is still open (`scripts/outrank_backlog.md`, Phase 0) because
-remediation is blocked, not because the diagnosis is missing. Re-run the two scripts in
-`Method` below and compare.
+This file exists so the audit is a **diff next time, not a re-derivation**. Re-run the two
+scripts in `Method` below and compare against the table.
 
-> **Status: DIAGNOSIS COMPLETE, REMEDIATION BLOCKED.** See `Blocker` at the bottom.
-> Nothing was shipped to the site on 2026-10-12.
+> **Status: ANCHOR LAYER COMPLETE. PHRASE LAYER COMPLETE except where blocked.**
+> Shipped 2026-10-13: 11 of 12 core keywords now have **exactly one** exact-match internal
+> anchor pointing at their nominated owner (was 1 of 12), and the three missing owner
+> phrases that were in scope are on their owner pages. Two items remain, both out of a
+> mechanical pass's scope: `deck builder advertising` (no page exists) and the site-wide
+> guarantee sweep (10 of 51 files done, see `Blocker`).
 
 ## Nomination table
 
@@ -17,109 +19,124 @@ One owner URL per core keyword. "On page" = exact-phrase occurrences in that pag
 "Anchors" = internal `<a>` elements site-wide whose anchor text is *exactly* the keyword.
 Target state is **exactly 1** anchor per keyword, pointing at the owner.
 
-| # | core keyword | nominated owner | on page | anchors | 10-08 MJC | verdict |
+| # | core keyword | nominated owner | on page | anchors | 10-12 MJC | verdict |
 |---|---|---|---|---|---|---|
-| 1 | deck builder marketing | `/trades/deck-builder-marketing/` | 26 | **6** | — | anchors diluted, 5 too many |
-| 2 | marketing for deck builders | `/trades/deck-builder-marketing/` | **0** | 1 | — | phrase absent from owner |
-| 3 | deck builder marketing agency | `/trades/deck-builder-marketing/` | 4 | **0** | #8 wrong URL | **primary defect** |
-| 4 | deck contractor marketing | `/trades/deck-builder-marketing/` | **0** | 0 | — | phrase absent from owner |
-| 5 | best marketing agency for deck builders | `/learn/best-marketing-agency-for-deck-builders/` | 12 | **0** | — | needs 1 anchor |
+| 1 | deck builder marketing | `/trades/deck-builder-marketing/` | 24 | 1 ✓ | #8 (companies-compared) | at target; see note A |
+| 2 | marketing for deck builders | `/trades/deck-builder-marketing/` | 2 ✓ | 1 ✓ | — | **fixed 10-13** |
+| 3 | deck builder marketing agency | `/trades/deck-builder-marketing/` | 4 | 1 ✓ | — | **fixed 10-13** |
+| 4 | deck contractor marketing | `/trades/deck-builder-marketing/` | 2 ✓ | 1 ✓ | — | **fixed 10-13** |
+| 5 | best marketing agency for deck builders | `/learn/best-marketing-agency-for-deck-builders/` | 12 | 1 ✓ | — | **fixed 10-13** |
 | 6 | deck builder advertising | **none** | **0 site-wide** | 0 | — | **no page targets it** |
-| 7 | deck builder seo | `/learn/deck-builder-seo/` | 21 | **0** | — | needs 1 anchor |
-| 8 | deck builder leads | `/learn/deck-builder-leads/` | 14 | **0** | — | needs 1 anchor |
-| 9 | deck builder lead generation | `/learn/deck-builder-lead-generation/` | 16 | **0** | #20 ✓ | correct URL ranking |
-| 10 | leads for deck builders | `/learn/deck-builder-leads/` (secondary) | **0** | 0 | — | phrase absent from owner |
-| 11 | facebook ads for deck builders | `/learn/facebook-ads-for-deck-builders/` | 12 | 1 ✓ | — | **at target state** |
-| 12 | how to get more deck jobs | `/learn/deck-builder-lead-generation/` | **0** | 0 | #40 wrong URL | see correction below |
+| 7 | deck builder seo | `/learn/deck-builder-seo/` | 21 | 1 ✓ | — | **fixed 10-13** |
+| 8 | deck builder leads | `/learn/deck-builder-leads/` | 14 | 1 ✓ | — | **fixed 10-13** |
+| 9 | deck builder lead generation | `/learn/deck-builder-lead-generation/` | 16 | 1 ✓ | — | **fixed 10-13** |
+| 10 | leads for deck builders | `/learn/deck-builder-lead-generation/` | **0** | 1 ✓ | **#8, beats both** | re-nominated; see note B |
+| 11 | facebook ads for deck builders | `/learn/facebook-ads-for-deck-builders/` | 12 | 1 ✓ | — | at target since 10-08 |
+| 12 | how to get more deck jobs | `/learn/deck-builder-one-crew-to-five/` | 2 ✓ | 1 ✓ | #34 | re-nominated; see note C |
 
-Nominations 1–4 are fixed by the page rules in `outrank_backlog.md` (the pillar owns
-those five commercial phrases, incl. ext `deck company marketing`). 10 is a secondary on
-the same page as 8 because the intent is identical and a third leads page would deepen
-the cannibalisation this audit exists to fix.
+**Note A — keyword 1 is an anchor-complete miss, so anchors were not the cause.** All six
+exact-match anchors already pointed at the pillar on 10-12 and Google still ranked
+`/learn/deck-builder-marketing-companies-compared/` at #8 instead. That page carries the
+exact phrase in its title and slug, so it out-matches the pillar on title relevance no
+matter how the internal anchors are arranged. Surplus anchors were cut 6 → 1 as specified,
+but **do not expect keyword 1 to move from anchor work.** If the pillar is still not the
+ranking URL on the next two scoreboards, the question is a title/H1 decision on the pillar
+and belongs with the strategist, not another anchor pass.
+
+**Note B — keyword 10 was re-nominated from `/learn/deck-builder-leads/` to
+`/learn/deck-builder-lead-generation/`.** The 10-12 scoreboard shows the lead-generation
+page at **#8 and beating both rivals** on this keyword, which is the site's only win on the
+board. The phrase still occurs 0 times on that page, so it is ranking on intent alone. It
+was **deliberately not edited**: the commissioning backlog item puts it under a do-not-touch
+order while it is re-crawled, and nothing should be risked on the one keyword we are
+winning. The exact-match anchor now points at it from `/learn/deck-builder-leads/`.
+**If the next run wants the phrase on the page, confirm the do-not-touch order has expired first.**
+
+**Note C — keyword 12 was re-nominated to `/learn/deck-builder-one-crew-to-five/`.** The
+10-12 scoreboard ranks that URL at #34 for the keyword, so it is the page Google already
+picked. The 10-12 audit nominated `/learn/deck-builder-lead-generation/` (the merge
+destination), but that page is under the same do-not-touch order, and the dedicated
+`/learn/how-to-get-more-deck-jobs/` is still a 597-byte `noindex` + meta-refresh stub and
+should stay that way: reviving it would re-create the duplicate the 09-28 merge removed.
+The phrase is now in an H2 and the answer box on the ranking page.
 
 ## Findings
 
-**1. The anchor thesis is confirmed and quantified.** 9 of 12 core keywords have **zero**
-exact-match internal anchors anywhere on the site. Exactly one keyword
-(`facebook ads for deck builders`) is at the intended target state, and it is the one the
-2026-10-08 run fixed by hand. Nothing tells Google which URL owns which core query, so it
-picks, which is how `/learn/deck-builder-marketing-companies-compared/` came to rank #8
-for `deck builder marketing agency` instead of the pillar.
+**1. The anchor layer is now at target state and should not be re-derived.** 1,864 internal
+anchors across 78 files. 11 of 12 core keywords have exactly one exact-match anchor at their
+owner; keyword 6 has none because no page targets it. The 10-12 finding that 9 of 12 had
+**zero** anchors is resolved. Next audit should be a one-line confirmation, not a project.
 
-**2. But anchors are only half of it. 5 of 12 core keywords have no exact-phrase presence
-on any indexable MJC page at all:** 2, 4, 6, 10 and 12. You cannot rank for a phrase that
-is not on the page, so for these five no amount of anchor work can succeed. The
-commissioning backlog item diagnosed this as anchor text only; that is incomplete.
+**2. The 10-12 finding that 5 of 12 keywords had no exact-phrase presence anywhere is
+resolved for 3 of them** (2, 4, 12). Keyword 10 is deliberately left (note B) and keyword 6
+has no page. So the live gap is **one missing page**, not a layer defect.
 
-**3. `deck builder advertising` has no page and no mention.** The phrase appears nowhere
-on morejobcalls.com. Four rivals rank in the top 15 on it (DBM #5, the DR 56 rival #14,
-plus two others at #2 and #3). This is a missing-page gap, not a layer gap, and it needs a
-strategist decision, so it is out of a mechanical pass's scope.
+**3. `deck builder advertising` (#6) remains the only true content gap on the core board.**
+The phrase still appears nowhere on morejobcalls.com. This needs a strategist decision on
+whether it gets its own page or a pillar section, and it is the last core keyword with no
+MJC surface at all.
 
-**4. `leads for deck builders` is the most winnable core keyword on the board and we have
-nothing on it.** DBM's best position is only #16 and the DR 56 rival is #28 — the weakest
-rival pair of all 12. The phrase occurs 0 times on its nominated owner.
-
-**5. Correction to the 2026-10-12 strategist note.** That note reads the
-`how to get more deck jobs` fall (#3 on 10-06 to gone on 10-08) as SERP noise. It is not.
-`/learn/how-to-get-more-deck-jobs/` has been a `noindex` + meta-refresh stub since commit
-`bef23a5` on **2026-09-28**, when it was merged into `/learn/deck-builder-lead-generation/`
-as a 90-95% duplicate. The 10-06 row records the ranking URL as the stub itself, i.e.
-Google was still serving a stale index entry; by 10-08 it had re-crawled and dropped it,
-exactly as the `noindex` instructed. **We de-indexed our own best core-keyword position.**
-The merge itself was sound and should not be reverted (the content was ported and the
-overlap was real), but the merge **did not carry the phrase `how to get more deck jobs`
-into the destination page** — it occurs 0 times there. So the keyword's owner is now a
-page that never says it. That is the whole defect for #12, and it is a layer fix on the
-destination page, not a revert.
+**4. Anchor work alone will not win this board, and the table above now proves it.** Keyword
+1 had a full set of correct anchors on 10-12 and still ranked the wrong URL; keyword 10 has
+no phrase presence at all and ranks #8 beating both rivals. Internal linking disambiguates
+which URL Google picks. It does not decide whether MJC outranks a DR 28 domain. The
+strategist's 10-12 read that the binding constraint is **authority** is consistent with
+everything in this file.
 
 ## Blocker
 
-Every page this audit needs to edit carries the **superseded three-part guarantee remedy**
-(fee-back plus a cash sum plus continued work at no charge), which current hard rules
-prohibit publishing. Occurrences in the files involved: pillar 6,
-`/learn/deck-builder-leads/` 3, `/learn/deck-builder-seo/` 1, and all five source pages
-holding the surplus `deck builder marketing` anchors (7, 3, 3, 2, 1). Site-wide the old
-remedy is live on **52 files, ~140 instances**, including the homepage and `/terms/`.
+The site-wide guarantee sweep is **still open and still Spencer's call.** The superseded
+three-part remedy (fee back plus a cash sum plus continued work at no charge) is prohibited
+by the builder's hard rules, so every file this audit touched was migrated as it was edited:
+**10 files and 17 instances done 2026-10-13**, leaving **41 files and ~141 instances** live,
+including the homepage, all ten `/trades/` pages and `/terms/`.
 
-The two most recently built pages (`/learn/deck-builder-lead-generation/`,
-`/learn/best-marketing-agency-for-fence-companies/`) already use the safe formulation —
-the 100-appointments-in-100-days promise, "guaranteed in writing", and a link to the
-published terms, with no remedy restated in body copy — so recent runs have been migrating
-pages off the old remedy one at a time without a sweep.
+Two reasons it was not swept unilaterally, both unchanged from 10-12:
 
-This was **not** swept unilaterally for two reasons: the current remedy wording is
-Spencer's to confirm (the SOP named as the single source of truth,
-`Fulfillment/Operations/SOPs/public-copy-guardrails.md`, is not in this repo), and on
-`/learn/contractor-appointment-guarantees-explained/` the three-part remedy is the
-substance of the argument ("that's three remedies stacked"), so it is a copy rewrite, not
-a find-and-replace. Spencer was asked on 2026-10-12.
+1. **The replacement remedy is not confirmed.** The routine prompt states a single-remedy
+   wording (a cash figure), but `scripts/outrank_backlog.md` explicitly warns not to trust
+   guarantee wording restated in a routine prompt, the SOP named as the single source of
+   truth (`Fulfillment/Operations/SOPs/public-copy-guardrails.md`) is **not in this repo**,
+   and the local `/terms/` page documents a *different* remedy structure. So the 10-13 pass
+   asserted **no remedy at all**: every migrated instance now reads "100 exclusive sales
+   appointment opportunities in 100 days or less, guaranteed in writing" with the remedy
+   pointed to the published terms. That matches the formulation already live on the two
+   most recently built pages and introduces no new dollar figure. **Do not broadcast a cash
+   figure across 41 files until Spencer confirms it against the SOP.**
+2. **Two files are a copy rewrite, not a find-and-replace.**
+   `/learn/contractor-appointment-guarantees-explained/` argues the three-part remedy as its
+   substance, and `/terms/` is legal copy. Neither was touched.
+   `/learn/deck-builder-marketing-companies-compared/` is a third exclusion for a different
+   reason: it uses the words "refund" and "money-back" to describe **rivals'** published
+   guarantees and rival price points, which is accurate comparison content, but it means the
+   builder's banned-term grep fires on the file and it cannot be edited under the current
+   verification rule. **The kw3 anchor was hosted on `/learn/best-marketing-agency-for-deck-builders/`
+   instead for exactly this reason.** If that page ever needs an edit, the grep rule needs a
+   rival-quotation carve-out first.
 
 ## Next run
 
-1. **Wait for Spencer's guarantee wording.** Then do the guarantee sweep and this audit in
-   **one pass**, because they touch the same files and a second pass re-crawls them again
-   for nothing.
-2. Layer fixes, no new sections: put phrase 2 and 4 into pillar H2s and intro copy; put 10
-   into `/learn/deck-builder-leads/` meta and one H2; put 12 into
-   `/learn/deck-builder-lead-generation/` as an H2 and one sentence.
-3. Anchors: create exactly one exact-match anchor per keyword at its owner, and cut
-   `deck builder marketing` from 6 to 1. Vary every other inbound anchor that contains a
-   core phrase but points at a sibling — specifically the two anchors carrying
-   "deck builder marketing agency" that point at `/learn/best-marketing-agency-for-deck-builders/`
-   and `/learn/deck-builder-marketing-companies-compared/` rather than the pillar.
-4. Raise `deck builder advertising` (#6) with the strategist as a new-page item.
-5. Re-run the method below and update this table.
+1. **Do not re-run this as a project.** Confirm the table with the two scripts below; it
+   should come back 11/12 at one anchor each. If it does, the audit is closed.
+2. Raise `deck builder advertising` (#6) with the strategist as a new-page item. It is the
+   last core keyword with no MJC surface.
+3. Leave keywords 10 and 12's owners alone until the do-not-touch order on
+   `/learn/deck-builder-lead-generation/` has expired, then decide whether to add phrase 10.
+4. The guarantee sweep stays blocked on Spencer. When he confirms the wording, sweep the
+   remaining 41 files in **one pass**, and handle the two rewrite files by hand.
+5. Watch keyword 1: if the pillar is still not the ranking URL on the next two scoreboards,
+   it is a title decision, not an anchor decision (note A).
 
 ## Method
 
-Reproduce with the two scripts the 2026-10-12 run used (kept out of the repo deliberately;
-they are ~40 lines each and re-derivable from this spec):
+Reproduce with the two scripts the 2026-10-12 and 2026-10-13 runs used (kept out of the repo
+deliberately; they are ~40 lines each and re-derivable from this spec):
 
-- **anchor inventory** — walk every `*.html` outside `_archive/` and `v2/`, extract every
-  `<a>` with an internal `href`, strip tags from the inner HTML, normalise whitespace and
-  punctuation, lowercase, then count anchors whose normalised text equals a core keyword
-  exactly, grouped by target. 2026-10-12: 2,103 internal anchors across 78 files.
+- **anchor inventory** — walk every `*.html` outside `_archive/`, `v2/`, `scripts/` and
+  `assets/`, extract every `<a>` with an internal `href`, strip tags from the inner HTML,
+  unescape entities, normalise whitespace and punctuation, lowercase, then count anchors
+  whose normalised text equals a core keyword exactly, grouped by target.
+  2026-10-13: 1,864 internal anchors across 78 files.
 - **owner check** — for each nominated owner, test the exact phrase against `<title>`,
   `<meta name="description">`, `<h1>`, every `<h2>`, and the page's raw HTML.
 
