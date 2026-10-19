@@ -224,7 +224,7 @@
 
   <url>
     <loc>https://morejobcalls.com/learn/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -293,6 +293,12 @@
   <url>
     <loc>https://morejobcalls.com/learn/google-ads-for-deck-builders/</loc>
     <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://morejobcalls.com/learn/deck-builder-advertising/</loc>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
