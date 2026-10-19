@@ -20,7 +20,7 @@
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "live",
       "note": "verified live 2026-09-28; Elementor footer template #1535, text widget next to the copyright line",
-      "verified": "2026-10-12"
+      "verified": "2026-10-19"
     },
     {
       "domain": "athensdeckpros.com",
@@ -45,7 +45,7 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/",
       "status": "live",
-      "verified": "2026-10-12",
+      "verified": "2026-10-19",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28, 45 pages; 404/feedback/your-ads have no copyright line"
     },
@@ -151,7 +151,7 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "live",
-      "verified": "2026-10-12",
+      "verified": "2026-10-19",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28 on apex + oasis-website-s94.pages.dev, 23 pages"
     },
@@ -161,7 +161,7 @@
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "live",
       "note": "verified live 2026-09-28, 4 pages (repo: 05 - Landing Pages/paynter-website)",
-      "verified": "2026-10-12"
+      "verified": "2026-10-19"
     },
     {
       "domain": "paynterconstructions.com",
@@ -200,7 +200,7 @@
       "target": "https://morejobcalls.com/trades/window-replacement-leads/",
       "status": "live",
       "note": "verified live 2026-09-28, 15 of 15 pages; pricing-event paid LP intentionally excluded",
-      "verified": "2026-10-12"
+      "verified": "2026-10-19"
     },
     {
       "domain": "throldahldeckpros.com",
@@ -231,7 +231,7 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/",
       "status": "live",
-      "verified": "2026-10-12",
+      "verified": "2026-10-19",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28, 20 pages"
     },
@@ -240,11 +240,13 @@
       "platform": "cf-pages",
       "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
       "status": "live",
-      "verified": "2026-10-12",
+      "verified": "2026-10-19",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28, 40 pages; paid LPs google-estimate + meta-offer intentionally credit-free; /archive/ still public until next deploy via _dev/ship-lp.sh"
     }
   ],
   "last_verified": "2026-10-12",
-  "verification": "2026-10-12 sweep of all 37 domains (curl, follow redirects, 20s, browser UA, looking for an <a href=\"https://morejobcalls.com...\"> with anchor text MoreJobCalls.com): 7 live, 30 not yet carrying the credit, 0 regressions — every site previously marked live still carries it. Unchanged from the 2026-10-05 sweep: no credit has been deployed in 7 days. THREE pending domains cannot be deployed as-is, one more than last week: deckoutyourhomebuilds.com returns 404, sidingatlantadecks.com fails the TLS handshake (no valid cert), and mrpatiocoverdecks.com NEWLY stopped resolving this week (connect fails; it returned a 200 page on 2026-10-05). Note mrpatiocover.com (the live-credit sibling) is unaffected and still carries its credit. Effective deployable base is 34 of 37."
+  "verification": "2026-10-12 sweep of all 37 domains (curl, follow redirects, 20s, browser UA, looking for an <a href=\"https://morejobcalls.com...\"> with anchor text MoreJobCalls.com): 7 live, 30 not yet carrying the credit, 0 regressions — every site previously marked live still carries it. Unchanged from the 2026-10-05 sweep: no credit has been deployed in 7 days. THREE pending domains cannot be deployed as-is, one more than last week: deckoutyourhomebuilds.com returns 404, sidingatlantadecks.com fails the TLS handshake (no valid cert), and mrpatiocoverdecks.com NEWLY stopped resolving this week (connect fails; it returned a 200 page on 2026-10-05). Note mrpatiocover.com (the live-credit sibling) is unaffected and still carries its credit. Effective deployable base is 34 of 37.",
+  "last_verified_run": "2026-10-19",
+  "last_verified_result": "7 of 37 live (unchanged from 2026-10-12; no regressions). 30 still pending-va."
 }
