@@ -1,69 +1,77 @@
 {
- "date": "2026-10-12",
+ "date": "2026-10-19",
  "by_engine": {
   "claude": [
    [
     "clicksgeek.com",
-    25.9
+    23.1
    ],
    [
     "footbridgemedia.com",
-    25.0
+    23.1
    ],
    [
     "sociusmarketing.com",
-    24.1
+    21.3
    ],
    [
-    "designrush.com",
-    17.6
+    "minyona.com",
+    15.7
    ],
    [
-    "contractorgorilla.com",
+    "linkedin.com",
     14.8
    ],
    [
     "comradeweb.com",
+    14.8
+   ],
+   [
+    "thriveagency.com",
     13.9
    ],
    [
-    "hookagency.com",
+    "deckbuildermarketers.com",
     13.0
    ],
    [
-    "builtrightdigital.com",
-    12.0
-   ],
-   [
     "housecallpro.com",
+    13.0
+   ],
+   [
+    "7ten.marketing",
     12.0
    ],
    [
-    "deckbuildermarketers.com",
-    10.2
+    "contractorgorilla.com",
+    12.0
    ],
    [
-    "serviceallies.com",
-    10.2
-   ],
-   [
-    "fatcatstrategies.com",
-    9.3
-   ],
-   [
-    "linkedin.com",
-    9.3
-   ],
-   [
-    "webfx.com",
-    9.3
-   ],
-   [
-    "constructionleadpro.com",
-    9.3
+    "designrush.com",
+    11.1
    ],
    [
     "slamdot.com",
+    11.1
+   ],
+   [
+    "hookagency.com",
+    11.1
+   ],
+   [
+    "morejobcalls.com",
+    10.2
+   ],
+   [
+    "99calls.com",
+    9.3
+   ],
+   [
+    "deckfencemarketers.com",
+    8.3
+   ],
+   [
+    "serviceallies.com",
     8.3
    ],
    [
@@ -71,35 +79,27 @@
     8.3
    ],
    [
-    "7ten.marketing",
-    7.4
-   ],
-   [
-    "minyona.com",
-    7.4
-   ],
-   [
-    "adaptdigitalsolutions.com",
-    7.4
-   ],
-   [
-    "deckfencemarketers.com",
-    7.4
-   ],
-   [
-    "leadtruffle.co",
+    "handoff.ai",
     6.5
    ],
    [
-    "hearth.marketing",
+    "webfx.com",
+    6.5
+   ],
+   [
+    "builtrightdigital.com",
     5.6
    ],
    [
-    "serpwars.com",
+    "flyingvgroup.com",
     5.6
    ],
    [
-    "99calls.com",
+    "allforcontractor.com",
+    5.6
+   ],
+   [
+    "peakmarketingservice.com",
     5.6
    ]
   ]
