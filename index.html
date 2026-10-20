@@ -806,11 +806,11 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);paddin
         </div>
         <div id="svCalEmpty" class="sv-cal-state" style="display:none;">
           <p><strong>The next few days are spoken for.</strong></p>
-          <p>Text us at <a href="sms:+15012363920">(501) 236-3920</a> and we'll find you a time.</p>
+          <p>Text us at <a href="sms:+15012632597">(501) 263-2597</a> and we'll find you a time.</p>
         </div>
         <div id="svCalError" class="sv-cal-state" style="display:none;">
           <p><strong>Couldn't load the calendar.</strong></p>
-          <p><a href="#" onclick="svLoadSlots(event, true)">Try again</a> or text us at <a href="sms:+15012363920">(501) 236-3920</a>.</p>
+          <p><a href="#" onclick="svLoadSlots(event, true)">Try again</a> or text us at <a href="sms:+15012632597">(501) 263-2597</a>.</p>
         </div>
       </div>
 
@@ -1135,9 +1135,9 @@ function svBook() {
     }
     btn.disabled = false; btn.textContent = 'Lock In My Call →';
     if (res.status === 409) { svBookErr('That time was just taken. Pick another one.'); svSlot = null; svLoadSlots(null, true); }
-    else { svBookErr('Something hiccuped. Try again, or text us at (501) 236-3920.'); }
+    else { svBookErr('Something hiccuped. Try again, or text us at (501) 263-2597.'); }
   })
-  .catch(function(){ btn.disabled = false; btn.textContent = 'Lock In My Call →'; svBookErr('Something hiccuped. Try again, or text us at (501) 236-3920.'); });
+  .catch(function(){ btn.disabled = false; btn.textContent = 'Lock In My Call →'; svBookErr('Something hiccuped. Try again, or text us at (501) 263-2597.'); });
 }
 
 // ── MODAL ────────────────────────────────────────────
