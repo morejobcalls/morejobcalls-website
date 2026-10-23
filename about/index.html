@@ -16,6 +16,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/mjc.css">
+    <style>
+        .team-row{display:flex;flex-wrap:wrap;gap:16px;margin:26px 0 6px}
+        .team-card{display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--pebble);border-radius:14px;padding:14px 22px 14px 14px;flex:1 1 260px;max-width:340px}
+        .team-card img{width:88px;height:88px;border-radius:50%;object-fit:cover;flex-shrink:0}
+        .team-card .name{display:block;font-weight:800;font-size:17px;color:var(--charcoal);letter-spacing:-.02em}
+        .team-card .role{display:block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dark);margin-top:4px}
+    </style>
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -32,7 +39,7 @@
             "@type": "Person",
             "@id": "https://morejobcalls.com/#spencer",
             "name": "Spencer Wright",
-            "jobTitle": "Founder",
+            "jobTitle": "Founder and CEO",
             "worksFor": {
                 "@id": "https://morejobcalls.com/#organization"
             },
@@ -135,6 +142,16 @@
     <div class="container">
         <p class="crumb"><a href="/">Home</a> › About</p>
         <h1>Your High-Performance Marketing Team</h1>
+        <div class="team-row">
+            <a class="team-card" href="#spencer" style="text-decoration:none;">
+                <img width="600" height="600" src="/assets/team/spencer-wright.jpg" alt="Spencer Wright, Founder and CEO of More Job Calls">
+                <div><span class="name">Spencer Wright</span><span class="role">Founder &amp; CEO</span></div>
+            </a>
+            <a class="team-card" href="#chung" style="text-decoration:none;">
+                <img width="600" height="600" src="/assets/team/chung-tang.jpg" alt="Chung Tang, Partner at More Job Calls">
+                <div><span class="name">Chung Tang</span><span class="role">Partner</span></div>
+            </a>
+        </div>
         <p class="sub">We become your high-performance marketing team and fill your calendar consistently with qualified, booked appointments, so you can focus on selling. No account managers, no fresh grad with a checklist, no outsourced media buyer.</p>
 
         <div class="answer-box">
@@ -159,10 +176,10 @@
         </ol>
         <p>And one more thing most agencies won't offer: the <strong>reference roster</strong>. Past clients have agreed to take live phone calls from on-the-fence prospects. Not a testimonial video — an unscripted call with a builder who was exactly where you are now.</p>
 
-        <h2 style="margin-top:44px;">Spencer Wright</h2>
+        <h2 id="spencer" style="margin-top:44px;">Spencer Wright</h2>
         <div class="article-meta" style="margin-bottom:16px;">
-            <img width="1563" height="1563" src="/founder-photo.png" alt="Spencer Wright, founder of More Job Calls">
-            <div class="byline"><strong>Spencer Wright</strong><br>Founder, More Job Calls</div>
+            <img width="1563" height="1563" src="/founder-photo.png" alt="Spencer Wright, Founder and CEO of More Job Calls">
+            <div class="byline"><strong>Spencer Wright</strong><br>Founder &amp; CEO, More Job Calls</div>
         </div>
         <p>Spencer runs every client growth system personally and documents the work in public — weekly YouTube breakdowns with the actual ad accounts on screen: spend, cost per lead, appointments, closed jobs. Real campaigns, named clients, no stock-footage case studies.</p>
         <p>That's deliberate. In a niche full of "lead gen gurus," the fastest way to prove the system works is to show the numbers and let clients like Justin W. (deck and patio builder, San Antonio), Brian W. (fence and deck builder, Oregon), and Jeff H. (window replacement contractor, Michigan) say it in their own words.</p>
