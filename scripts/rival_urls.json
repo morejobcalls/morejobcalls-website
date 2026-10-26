@@ -1,6 +1,6 @@
 {
   "_note": "Baseline of rival URLs. The weekly strategist diffs live sitemaps against these lists; anything not present here is a NEW rival page. Sources: deckbuildermarketers.com post/page/learn/case-study sitemaps; www.slamdot.com/sitemap.xml filtered to deck|decking|contractor.",
-  "updated": "2026-10-19",
+  "updated": "2026-10-26",
   "baseline_established": "2026-09-14",
   "dbm": [
     "https://deckbuildermarketers.com/",
@@ -296,5 +296,5 @@
     "https://www.slamdot.com/industries/decking/",
     "https://www.slamdot.com/work/sosa-and-sons-general-contractors/"
   ],
-  "last_diff": "2026-10-19: ZERO new, ZERO removed across all five sitemaps. DBM 281 URLs, Slamdot 9 filtered — both identical to the 2026-10-12 snapshot. Fifth consecutive weekly diff with no new DBM editorial (33 days)."
+  "last_diff": "2026-10-26: ZERO new, ZERO removed across all five sitemaps. DBM 281 URLs (post 123 / page 131 / learn 20 / case-study 7), Slamdot 9 filtered — both byte-identical to the 2026-10-19 and 2026-10-12 snapshots. **Sixth consecutive weekly diff with no new DBM editorial (40 days, since 2026-09-16).** DBM has published nothing in 40 days and still holds #1 on five of the twelve core keywords; Slamdot has held the same 9 deck/contractor URLs since the 2026-09-10 baseline. Neither rival is outpublishing MJC — MJC shipped ~15 pages in the same window — so the gap they hold is not a content gap. No rival-gap backlog item is warranted from new content, because there is none."
 }

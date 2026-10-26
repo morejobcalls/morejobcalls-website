@@ -855,3 +855,80 @@ this program has surfaced in a month.
 the homepage and `/terms/`, the builder's hard rules prohibit publishing it, so every remediation pass that has
 to touch an older page is either blocked or has to migrate wording file-by-file as it goes. It also now gates
 the new pay-per-appointment page, which sits closer to the guarantee than anything else in the queue.
+
+---
+
+## 2026-10-26 — Google flat (7th week); the 10-19 spike reverted. AI: the first-ever naming did NOT hold, but MJC is now the 5th most-cited domain in the probe. Constraint: AUTHORITY / MENTIONS.
+
+**Both Actions healthy. No Apify quota problem.** `rank-tracker.yml` runs 18–19 and `llmo-probe.yml` runs 12–13 all `success`. Newest rows on both boards: **2026-10-22**, four days old — not stale. Today's Monday runs had not fired at read time (12:19 UTC); the Mon/Thu schedules land 15:30–18:45 UTC, so a Monday-morning strategist read always sees Thursday's data.
+
+### Google scoreboard (2026-10-22 vs 2026-10-15 — the true 7-day comparison, both `status: OK`)
+
+| | 10-15 | 10-22 |
+|---|---|---|
+| beats BOTH (core) | 0/12 | **0/12** |
+| beats DBM | 0 | 0 |
+| beats Slamdot | 0 | 0 |
+| MJC in top 50 (core) | 3 | **3** |
+| MJC in top 10 (core) | 1 | **0** |
+
+Flat for a seventh consecutive week, with the one top-10 lost. **The 2026-10-19 row was a one-run spike and has fully reverted** — it read top-50 7 and a beat-both at `best marketing agency for deck builders` #6; on 10-22 that keyword has no MJC URL in the top 50 at all. By this file's two-runs rule the 10-19 reading never happened.
+
+**Movers (10-15 → 10-22):** `deck builder marketing` — → **#20** (new, comparison page) · `deck builder marketing agency` #9 → **#19** (−10) · `best marketing agency for deck builders` #14 → **gone** · `deck company marketing` (ext) #35 → #60 (−25) · `patio cover marketing` (ext) #8 → #9 (held, and still **no rival in the top 50** for a third run) · `how to get more deck jobs` #33 → #31.
+
+**Striking distance (#11–30), both on the same URL:** `deck builder marketing` #20 and `deck builder marketing agency` #19, both `/learn/deck-builder-marketing-companies-compared/`.
+
+**The one real Google finding — the two agency-intent URLs are cannibalising each other.** Four runs, three keywords, two MJC pages, and Google has never held the same URL across two consecutive runs; every switch lands lower than the run before (#9 → #17 → #19):
+
+| run | `best marketing agency for deck builders` | `deck builder marketing agency` | `deck builder marketing` |
+|---|---|---|---|
+| 10-15 | #14 comparison | #9 comparison | — |
+| 10-19 | **#6 dedicated** | #17 dedicated | — |
+| 10-22 | — (gone) | #19 comparison | #20 comparison |
+
+On the evidence the comparison page is the stronger surface (held the intent on 2 of 3 runs; holds both live positions). **The re-nomination is deliberately deferred one run** — three points on an alternating signal is one short of a decision, the page-rules header nominates the pillar for both keywords and that header is not the strategist's to rewrite, and the comparison page has already been edited twice in 17 days with its position falling after each. Decide on the 10-26 + 10-29 rows. Both pages frozen until then.
+
+**No striking-distance promotion this run.** Both #11–30 keywords sit on one URL that is under a standing do-not-touch order on title/H1/slug/meta, whose anchor layer is already at target state, and whose positions are single-run readings inside the alternation above. The #11–30 exception was spent on an ordering override (a read-only diagnosis) instead of a page edit.
+
+### AI-answer scoreboard (2026-10-22 vs 2026-10-15, `llmo_grounded_history.jsonl`)
+
+| | 10-15 | 10-22 |
+|---|---|---|
+| MJC named | 1/18 | **0/18** |
+| hire-intent named | 1/13 | **0/13** |
+| MJC URLs cited | 1 | **2** |
+
+**The first-ever naming did not hold.** Flagged on 10-19 as one run only; it is now lost and named is back to the 09-18 baseline, 0 on five of six runs. *(Footnote: `llmo_history.jsonl`, the retired no-search probe, last ran 2026-09-01 at 0/10 and is not used here.)*
+
+**The citation side moved, and it is the week's most important number.** In the 2026-10-22 snapshot (92 URLs, 77 domains, 123 total citations — down from 106 URLs) `morejobcalls.com` is tied **5th of 77 domains by total citations (4)** and tied **3rd by distinct URLs cited (2)**: `/learn/best-marketing-agency-for-deck-builders/` (held since 10-01, four runs, real) and, newly, `/learn/deck-builder-marketing-companies-compared/`. Only clicksgeek (11), footbridgemedia (5), sociusmarketing (4) and housecallpro (4) are cited more. **The answer engine reads our pages as a source and still recommends somebody else.** Retrieval is no longer the bottleneck; corroboration is. The 2-URL count is one run old, so treat the *count* as unconfirmed — the ≥1 cited URL has held four runs and is real.
+
+**Most-cited sources:** clicksgeek.com (11 / 6 URLs), footbridgemedia.com (5 / 3), sociusmarketing.com (4 / 2) and housecallpro.com (4 / 2), then morejobcalls.com (4 / 2). `designrush.com/agency/profile/deck-builder-marketers` was cited **3 times** — DBM's directory profile is feeding its name straight into AI answers and MJC has no profile on that site.
+
+**Citation classification (all 92 URLs, recorded in full in `authority_pipeline.md`):** majority (a) competitor agency service pages; a large (c) block of marketplaces, lead sellers and software; **(b) two added, two rejected, two unverifiable.**
+- **Added:** `insidea.com/blog/marketing/roofing-companies/leading-digital-marketing-agencies/` — 21 slots, 20 independent agencies, updated 2026-10-19, the widest proven inclusion precedent in the file; and `jivesmedia.com/services/seo/7-best-roofing-marketing-agencies-in-2026/` — a numbered 1–7 list with six independent agencies, **reclassified (a) → (b), correcting the 2026-10-19 pass** which read it as a service page off the `/services/` path. Both roofing-vertical: the deck lane has no pitchable list left.
+- **Rejected and recorded so nobody re-pitches:** `minyona.com/best-lead-generation-services-for-contractors` (the highest-cited new candidate at 2, but marketplace-roster pattern — Minyona ranks itself first and the only agency entry is an unnamed, critically-framed "Generic Monthly Retainer Agencies" category) and `acegrowth.net/blog/angi-homeadvisor-alternatives.html` (listicle title, but the body names only channels plus Ace Growth's own service — an (a) page in disguise).
+- **Could not verify, left for the next pass:** `homelogs.io/blog/angi-leads-alternatives-for-contractors` (fetch returned only site title and tagline) and `allbetterapp.com/contractor-lead-costs/` (fetch returned empty, despite 2 citations).
+- **Saturation note, now 20 of 22 AI-cited roundups checked:** the listicle lane is exhausted. The directory lane is the lane.
+
+### Rival watch — completely quiet, sixth consecutive week
+
+DBM **281 URLs** (post 123 / page 131 / learn 20 / case-study 7) and Slamdot **9 filtered** — zero new, zero removed, byte-identical to both the 10-19 and 10-12 snapshots. **40 days with no new DBM editorial** (since 2026-09-16); Slamdot unchanged since the 09-10 baseline. In those same 40 days MJC shipped roughly fifteen pages and DBM still holds #1 on five of twelve core keywords.
+
+WebSearch of `deck builder marketing` and `marketing for deck builders` surfaced **no new domain worth tracking**: footbridgemedia, sociusmarketing, clicksgeek and emulent are already classified in `authority_pipeline.md`; the rest of the top ten is one syndicated "deck builder digital marketing" advertorial republished across Townsquare Media radio sites (kfyo, kpel965, talkradio960, tuscaloosathread) — paid syndication, not a competitor and not a link target. Neither named rival appeared in those result sets, which is a reminder that WebSearch is not Google; the Apify top-50 scrape remains the only Google truth here. **No rival-gap backlog item is warranted, because there is no new rival content to gap against.**
+
+### Footer credits — 7 of 37 live, third sweep in a row, 21 days with zero deployed
+
+All 37 domains curled (follow redirects, 20s, browser UA, looking for an `<a href="https://morejobcalls.com…">` whose anchor text is exactly `MoreJobCalls.com`). **7 live, 30 pending, 0 regressions** — every previously-live site still carries its credit and every href still points at its assigned trade page: apdecks.com, bivianomodularbuilders.com, oasiscustomdecks.com, paynterconstruction.com, thewindowprofessor.pro, www.bivianocontracting.com, www.mrpatiocover.com. Unchanged from 10-19 and 10-12.
+
+**Deployability improved: effective base is now 36 of 37, up from 34.** Two blockers cleared — sidingatlantadecks.com now completes the TLS handshake and serves HTTP 200 (no valid cert on 10-12), and mrpatiocoverdecks.com resolves and serves 200 again (it stopped resolving entirely on 10-12). One remains: deckoutyourhomebuilds.com still HTTP 404.
+
+### Backlog changes
+
+- **Closed** the 10-19 striking-distance item (`best marketing agency for deck builders`) as **superseded, nothing built**. Its premise — Google ranking the comparison page instead of the dedicated page — was removed by the 10-22 data: the dedicated page's #6 was a one-run spike and the keyword now has no MJC URL in the top 50. The builder's 10-21 audit had already confirmed all four on-page conditions present and no page defect. Step (2)'s exact-match anchor stays unadded; on the 10-22 data it would point at the weaker page.
+- **Added, Phase 0 ×2** (from the citation pass, both axis gaps beside a page MJC already owns, both with explicit anti-cannibalisation guards): `/learn/lead-generation-websites-for-contractors/` — kw **lead generation websites for contractors**, the densest uncovered cited cluster in the snapshot (12 citations across 6 URLs, every one a marketplace roster the prospector has already rejected for inclusion, so ranking our own page *is* the strategy for the cluster); and `/learn/contractor-cost-per-lead-by-channel/` — kw **contractor cost per lead by channel**, six cited pages that cite nothing and two of which would not even load this week, on the one axis MJC has first-party numbers for.
+- **Added, Phase 1 ×2:** (1) an **indexability + exact-phrase sweep of the nine core keywords with no MJC top-50 presence**, flagged **RUN FIRST this week ahead of Phase 0** as the ordering override — read-only by default, fix hard defects only, deliver a table in `scripts/`; (2) a depth + inbound-link pass on `/learn/facebook-ads-for-deck-builders/` for the **open-field CORE keyword** `facebook ads for deck builders`, where no domain of the three ranks at all and MJC has only to appear, gated behind the sweep clearing that URL.
+- **Unchanged:** the Phase 2 GBP item (open since the baseline, Slamdot's deepest lane) and the Phase 3 benchmarks item (Spencer-gated, untouched). Page rules header intact. No ticked item removed. **Five open Phase 0/1/2 items queued.**
+
+### Binding constraint: AUTHORITY / MENTIONS — third consecutive week, and now for a sharper reason
+
+Not "we need more links" in the abstract. **MJC is already one of the five most-cited domains in the grounded AI probe and is named in zero of eighteen answers.** The engine retrieves us, reads us, and recommends someone else. That gap is corroboration, and three independent lines point at it: a rival that has published nothing for 40 days still owns #1 on five core keywords; three fields with no rival in the top 50 remain unentered by MJC pages that exist and were refreshed this month; and every authority asset is still unexecuted — 7/37 footer credits for 21 days, Clutch at 1 review against a bar of 3, and DesignRush (cited 3× for DBM this week), UpCity, GoodFirms, Sortlist, TopMarketingAgencies and the LinkedIn company page all still `new` across 107 pipeline rows. **Every one of those is Spencer-gated; neither robot routine can move any of them.** The indexability sweep added above exists to close the last cheap alternative explanation for good.
