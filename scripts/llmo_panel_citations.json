@@ -1,85 +1,93 @@
 {
- "date": "2026-10-19",
+ "date": "2026-10-26",
  "by_engine": {
   "claude": [
    [
-    "clicksgeek.com",
-    23.1
-   ],
-   [
     "footbridgemedia.com",
-    23.1
-   ],
-   [
-    "sociusmarketing.com",
     21.3
    ],
    [
-    "minyona.com",
-    15.7
+    "clicksgeek.com",
+    19.4
    ],
    [
-    "linkedin.com",
-    14.8
-   ],
-   [
-    "comradeweb.com",
-    14.8
-   ],
-   [
-    "thriveagency.com",
-    13.9
-   ],
-   [
-    "deckbuildermarketers.com",
-    13.0
+    "sociusmarketing.com",
+    17.6
    ],
    [
     "housecallpro.com",
-    13.0
-   ],
-   [
-    "7ten.marketing",
-    12.0
-   ],
-   [
-    "contractorgorilla.com",
-    12.0
-   ],
-   [
-    "designrush.com",
-    11.1
-   ],
-   [
-    "slamdot.com",
-    11.1
+    17.6
    ],
    [
     "hookagency.com",
-    11.1
+    16.7
+   ],
+   [
+    "linkedin.com",
+    15.7
+   ],
+   [
+    "contractorgorilla.com",
+    14.8
+   ],
+   [
+    "7ten.marketing",
+    13.9
+   ],
+   [
+    "comradeweb.com",
+    13.0
+   ],
+   [
+    "minyona.com",
+    13.0
+   ],
+   [
+    "designrush.com",
+    10.2
    ],
    [
     "morejobcalls.com",
     10.2
    ],
    [
-    "99calls.com",
+    "deckfencemarketers.com",
     9.3
    ],
    [
-    "deckfencemarketers.com",
-    8.3
-   ],
-   [
     "serviceallies.com",
+    9.3
+   ],
+   [
+    "slamdot.com",
     8.3
    ],
    [
-    "superpath.com",
+    "deckbuildermarketers.com",
     8.3
+   ],
+   [
+    "homeservicedirect.net",
+    8.3
+   ],
+   [
+    "builtrightdigital.com",
+    7.4
+   ],
+   [
+    "abstraktmg.com",
+    7.4
    ],
    [
     "handoff.ai",
+    7.4
+   ],
+   [
+    "kmm-agency.com",
+    7.4
+   ],
+   [
+    "thriveagency.com",
     6.5
    ],
    [
@@ -87,19 +95,11 @@
     6.5
    ],
    [
-    "builtrightdigital.com",
-    5.6
-   ],
-   [
-    "flyingvgroup.com",
-    5.6
-   ],
-   [
-    "allforcontractor.com",
-    5.6
-   ],
-   [
     "peakmarketingservice.com",
+    5.6
+   ],
+   [
+    "wearetg.com",
     5.6
    ]
   ]
