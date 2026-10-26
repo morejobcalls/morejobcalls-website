@@ -264,10 +264,9 @@ nav.main .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .rcard .body{padding:14px 16px 18px}
 .rcard b{display:block;font-family:Poppins,sans-serif;font-size:17px;margin-bottom:3px}
 .rcard span{font-size:13px;color:var(--ink-2)}
-.receipts{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:22px}
-.receipts figure{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
-.receipts img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top}
-.receipts img.fit{object-fit:contain;object-position:center;background:#232e37}
+.receipts{columns:3;column-gap:16px;margin-top:22px}
+.receipts figure{margin:0 0 16px;break-inside:avoid;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.receipts img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover;object-position:top}
 .receipts figcaption{font-size:12.5px;padding:10px 12px;color:var(--ink-2);line-height:1.4}
 .receipts figcaption b{color:var(--charcoal)}
 /* guarantee */
@@ -337,7 +336,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);paddin
   .srow{grid-template-columns:1fr}
   .tgrid,.rgrid{grid-template-columns:1fr 1fr}
   .qgrid{grid-template-columns:1fr 1fr}
-  .receipts{grid-template-columns:1fr 1fr}
+  .receipts{columns:2}
   .feat{grid-template-columns:1fr}
   footer .wrap{grid-template-columns:1fr 1fr}
 }
@@ -346,7 +345,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);paddin
   .nav-links{display:none;position:absolute;top:78px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 24px 20px;border-bottom:1px solid var(--line);gap:14px}
   .nav-links.open{display:flex}
   .hamb{display:block}
-  .tgrid,.rgrid,.qgrid,.receipts{grid-template-columns:1fr}
+  .tgrid,.rgrid,.qgrid{grid-template-columns:1fr}
+  .receipts{columns:1}
   .stats .n{font-size:32px}
   footer .wrap{grid-template-columns:1fr}
   .pill{right:12px;bottom:12px}
@@ -604,9 +604,9 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);paddin
   </div>
 
   <div class="receipts">
-    <figure><img class="fit" width="546" height="244" src="/assets/wins/win-david-l-very-impressed-2026-10-26.png" alt="David L. message: we are very impressed, never seen such measurable results so quickly" loading="lazy"><figcaption><b>David L.</b> · "Never seen such measurable results so quickly"</figcaption></figure>
-    <figure><img width="1179" height="2556" src="/assets/wins/win-justin-w-492k.png" alt="Justin W. text: $492K sales week" loading="lazy"><figcaption><b>Justin W.</b> · $492K sales week, 12 appointments → 11 jobs</figcaption></figure>
+    <figure><img width="546" height="244" src="/assets/wins/win-david-l-very-impressed-2026-10-26.png" alt="David L. message: we are very impressed, never seen such measurable results so quickly" loading="lazy"><figcaption><b>David L.</b> · "Never seen such measurable results so quickly"</figcaption></figure>
     <figure><img width="714" height="360" src="/assets/wins/win-antonio-c-80k-deck-2026-05-21.png" alt="Antonio C. text: biggest deck he's ever done, $80,000" loading="lazy"><figcaption><b>Antonio C.</b> · "Biggest deck I've ever done" · $80,000 job</figcaption></figure>
+    <figure><img width="1179" height="2556" src="/assets/wins/win-justin-w-492k.png" alt="Justin W. text: $492K sales week" loading="lazy"><figcaption><b>Justin W.</b> · $492K sales week, 12 appointments → 11 jobs</figcaption></figure>
     <figure><img width="1440" height="1304" src="/assets/wins/win-mike-b-100k-deck-appt-2026-06-30.png" alt="Mike B. text: ~$100K deck in the pipeline" loading="lazy"><figcaption><b>Mike B.</b> · ~$100,000 deck from one booked appointment</figcaption></figure>
     <figure><img width="690" height="223" src="/assets/wins/win-roofer-12of20-roofs-from-marketing-2026-06-19.png" alt="Roofing client text: 12 of 20 roofs this month from marketing" loading="lazy"><figcaption><b>Roofing contractor</b> · 12 of 20 roofs this month from the system, by the 19th</figcaption></figure>
   </div>
@@ -618,7 +618,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);paddin
   <div>
     <span class="eyebrow">The guarantee</span>
     <h2>We put our money where our mouth is.</h2>
-    <p class="big">The More Jobs System delivers <em>100 exclusive appointment opportunities in 100 days, or you get paid three ways: a 100% refund, a $2,000 check from us, and we keep working for free until we hit 100</em>, or you get paid <em>three ways</em>: a 100% refund, a $2,000 check from us, and we keep working for free until we hit 100. In writing.</p>
+    <p class="big">The More Jobs System delivers <em>100 exclusive appointment opportunities in 100 days, or you get paid three ways: a 100% refund, a $2,000 check from us, and we keep working for free until we hit 100</em>. In writing.</p>
     <p>We're the only company we know of that stacks all three, which is why we only make this offer to good-fit partners, and why there's an application and a strategy call first. If you close two out of every ten of those appointments, that's twenty jobs in a hundred days. The guarantee is on the appointments; the math on the jobs is yours.</p>
     <p class="fine">Full terms on the <a href="/terms/">terms page</a>. The refund covers our fees. Ad budget is not included. Guarantee conditions include a sustained ad budget, capacity to run 3 to 5 appointments a day, and following the lead-handling rules we set up together.</p>
   </div>
