@@ -180,7 +180,7 @@ to every screenshot: no business names, no logos.
       `/learn/` case study, or index them
 - [ ] Multiply the top 3 accounts into full asset ecosystems
 
-Live: morejobcalls-review-deck-builder-ran-8-sold-6 (2026-10-22, 1,487w) · 400-to-30-per-lead-in-14-days · 60-deck-estimates-in-6-weeks ·
+Live: morejobcalls-review-countertop-installer-30k (2026-10-30, 1,645w) · morejobcalls-review-deck-builder-ran-8-sold-6 (2026-10-22, 1,487w) · 400-to-30-per-lead-in-14-days · 60-deck-estimates-in-6-weeks ·
 contractor-105k-from-1000-ads · deck-builder-10-appointments-7-days ·
 deck-builder-1m-in-4-months · deck-builder-300k-in-17-days ·
 deck-builder-320k-in-60-days · deck-builder-500k-month ·
