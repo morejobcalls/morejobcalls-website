@@ -1,57 +1,61 @@
 {
- "date": "2026-10-26",
+ "date": "2026-11-02",
  "by_engine": {
   "claude": [
    [
     "footbridgemedia.com",
-    21.3
-   ],
-   [
-    "clicksgeek.com",
-    19.4
+    22.2
    ],
    [
     "sociusmarketing.com",
-    17.6
+    19.4
    ],
    [
     "housecallpro.com",
+    18.5
+   ],
+   [
+    "clicksgeek.com",
     17.6
    ],
    [
-    "hookagency.com",
-    16.7
-   ],
-   [
-    "linkedin.com",
+    "contractorgorilla.com",
     15.7
    ],
    [
-    "contractorgorilla.com",
-    14.8
-   ],
-   [
-    "7ten.marketing",
-    13.9
+    "morejobcalls.com",
+    15.7
    ],
    [
     "comradeweb.com",
     13.0
    ],
    [
-    "minyona.com",
-    13.0
-   ],
-   [
     "designrush.com",
-    10.2
+    11.1
    ],
    [
-    "morejobcalls.com",
-    10.2
+    "hookagency.com",
+    11.1
+   ],
+   [
+    "minyona.com",
+    11.1
    ],
    [
     "deckfencemarketers.com",
+    11.1
+   ],
+   [
+    "deckbuildermarketers.com",
+    10.2
+   ],
+   [
+    "linkedin.com",
+    9.3
+   ],
+   [
+    "homeservicedirect.net",
     9.3
    ],
    [
@@ -59,15 +63,15 @@
     9.3
    ],
    [
-    "slamdot.com",
+    "thriveagency.com",
     8.3
    ],
    [
-    "deckbuildermarketers.com",
+    "webfx.com",
     8.3
    ],
    [
-    "homeservicedirect.net",
+    "7ten.marketing",
     8.3
    ],
    [
@@ -75,11 +79,11 @@
     7.4
    ],
    [
-    "abstraktmg.com",
+    "slamdot.com",
     7.4
    ],
    [
-    "handoff.ai",
+    "superpath.com",
     7.4
    ],
    [
@@ -87,19 +91,15 @@
     7.4
    ],
    [
-    "thriveagency.com",
+    "99calls.com",
     6.5
-   ],
-   [
-    "webfx.com",
-    6.5
-   ],
-   [
-    "peakmarketingservice.com",
-    5.6
    ],
    [
     "wearetg.com",
+    5.6
+   ],
+   [
+    "abstraktmg.com",
     5.6
    ]
   ]
