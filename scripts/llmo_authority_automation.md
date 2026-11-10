@@ -126,7 +126,7 @@ connectors. Attaching Gmail + Slack is the one upgrade that turns "pitches waiti
 It runs *before* the Authority Prospector (Tue/Thu 15:13) and touches only the Status column, so the two
 never collide. The Prospector keeps filling the top of the funnel; the Operator empties it.
 
-### 6.2 MJC Benchmarks Publisher (spec at `scripts/routines/benchmarks_publisher.md`; first run done 2026-11-10)
+### 6.2 MJC Benchmarks Publisher (Routine created 2026-11-10, monthly on the 1st 15:00 UTC; prompt at `scripts/routines/benchmarks_publisher.md`; first numbers pulled 2026-11-10)
 
 First cut pulled read-only from 38 client ad accounts (account level, last 90 and last 30 days,
 qualification $500 spend and 10 inquiries per account): deck cohort n=17, median cost per inquiry
@@ -134,7 +134,9 @@ $68.63 (IQR $54.12 to $86.70) over 90 days and $93.51 (n=13) over 30 days; whole
 $68.40 over 90 days and $89.28 (n=24) over 30 days. Late-fall cost per inquiry runs about 30% above the
 trailing 90 days. No per-trade row other than deck clears the 10-account floor yet. The draft page for
 Spencer's approval is the private artifact "MJC Benchmarks Draft v1". Create the Routine from the
-claude.ai UI with Meta + Slack attached so it refreshes monthly.
+All three Routines exist; attaching Meta + Slack to this one in the claude.ai Routines UI is what
+makes the monthly refresh real. Without the connector it posts one line to a private "MJC Benchmarks
+Digest" page and stops.
 
 Monthly, Meta + Slack connectors. Pulls account-level spend, leads and cost per lead for the last 30 and
 90 days across every queryable client account except MJC's own, drops accounts with under $500 spend or
@@ -145,7 +147,11 @@ booked-appointment and show-rate medians from the data-brain workers where avail
 numbers only; Spencer approves which rows go public; thereafter publish via the merge gate and email the
 refreshed figures to every outlet in `MJC Outreach/2 Sent` and `4 Live`.
 
-### 6.3 MJC YouTube Entity Sync (spec at `scripts/routines/youtube_entity_sync.md`; create after Spencer completes vidIQ YouTube verification, with vidIQ + Slack attached)
+### 6.3 MJC YouTube Entity Sync (Routine created 2026-11-10, Wednesdays 16:00 UTC, DRY_RUN on; prompt at `scripts/routines/youtube_entity_sync.md`)
+
+Runs in dry-run until Spencer attaches vidIQ + Slack in the Routines UI and completes vidIQ's YouTube
+verification; without the connector it posts one line to a private "MJC YouTube Sync Digest" page and
+stops. Flip DRY_RUN to no after reading one dry-run report.
 
 Weekly, vidIQ + Slack. For each of the 149 videos: title ≤ 100 chars keeps the hook and adds the
 category phrase where it fits; description gets the entity sentence, the locked guarantee, the
