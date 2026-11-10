@@ -120,8 +120,16 @@ as its source. A smoke test in that worker showed Gmail, Slack, Meta, vidIQ and 
 now point at a worker of their own, so no UI step is needed for them to run in full mode. The Operator
 still keeps the private "MJC Authority Digest" page as its run log and as the record of every pitch
 drafted, so the state survives even if a worker is ever recreated. Earlier connector-less runs (four on
-2026-11-10) worked 12 prospects and wrote 11 pitches to that page; those pitches are the first batch
-the full-mode runs turn into Gmail drafts.
+2026-11-10) worked 12 prospects and wrote 11 pitches to that page.
+
+**First full-mode run, 2026-11-10 03:52 to 03:59 UTC (fired on the worker):** 4 new Gmail drafts
+(Hardscape Marketing Crew, Owl Roofing, Jives Media, Fervor Studio) plus one form application text;
+16 pipeline rows moved from new to drafted or form-ready; commit ed009ba pushed to main touching only
+the Status column of `authority_pipeline.md` and the new `authority_operator_log.md`; digest DM'd to
+Spencer on Slack and appended to the Digest page. Eight Gmail drafts now wait on Send. Two mechanics
+worth knowing: a *manual* fire that carries an extra message spins up a throwaway connector-less
+session instead of waking the worker, so test with a plain fire; and a scheduled fire wakes a dormant
+worker in about 20 seconds (verified separately on the Benchmarks worker).
 
 It runs *before* the Authority Prospector (Tue/Thu 15:13) and touches only the Status column, so the two
 never collide. The Prospector keeps filling the top of the funnel; the Operator empties it.
@@ -169,9 +177,9 @@ lists the copy for each field.
    the MJC Ops environment (approve-to-send mode, delivery chain); this document; the VA footer-credit
    sheet at `scripts/footer_credits_va_batch.md`.
 2. **Done 2026-11-10 (evening)**: all three Routines repointed at persistent worker sessions that hold
-   the repo and the connectors; the Operator's first full-mode run fired. From then on Spencer's daily
-   job in approve-to-send mode is: read the Slack digest, open Gmail drafts, hit Send on the ones he
-   likes.
+   the repo and the connectors; the Operator's first full-mode run completed (4 Gmail drafts, 16 rows
+   advanced, commit ed009ba on main, Slack digest). From then on Spencer's daily job in approve-to-send
+   mode is: read the Slack digest, open the Gmail drafts, hit Send on the ones he likes.
 3. **Spencer, 5 minutes**: complete vidIQ's YouTube verification once (the Operator will prompt when
    it needs it); add the Perplexity and Gemini keys as Action secrets if not already present so the
    panel reports all four engines.
