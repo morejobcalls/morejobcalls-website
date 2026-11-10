@@ -9,13 +9,31 @@ files = sorted(set(
     glob.glob("trades/*/index.html") + ["trades/index.html"]
     + glob.glob("learn/*/index.html") + ["learn/index.html", "about/index.html", "index.html", "wins.html"]
 ))
-BANNED = ["work for free", "free until", "working for free"]
+# Superseded guarantee wording. Canonical since 2026-09-21 = triple risk reversal:
+# fee refund + $2,000 + free work until 100 (ToS 3.2). The flat-$10K check version is retired.
+BANNED = ["write you a check for $10,000", "$10,000 check", "a check for $10,000"]
+# Public-copy policy (Spencer 2026-09-21): no ad-budget recommendations/minimums or all-in
+# figures (budget is set on the strategy call); exclusive territory is VIP-tier only.
+POLICY = [
+    (r"minimum (?:ad )?budget of|\$\d[\d,.]*K?(?:/| per | a )(?:mo|month)\s+minimum|minimum in ad budget", "public ad-budget minimum"),
+    (r"\$\d[\d,.]*K? (?:per|a) month all-in", "public all-in price"),
+    (r"one contractor per market|one deck builder per (?:market|territory)", "universal territory claim; VIP tier only"),
+]
+# Pages that legitimately DISCUSS these phrases about other companies.
+POLICY_EXEMPT = {"universal territory claim; VIP tier only": ("learn/deck-builder-marketing-companies-compared/index.html",)}
 errs = []
 for f in files:
     html = open(f).read()
     for bad in BANNED:
         if bad.lower() in html.lower():
-            errs.append(f"{f}: banned phrase '{bad}' (retired guarantee prong)")
+            errs.append(f"{f}: banned phrase '{bad}' (superseded $10K guarantee wording)")
+    for bad, why in POLICY:
+        if f in POLICY_EXEMPT.get(why, ()):
+            continue
+        if re.search(bad, html, re.I):
+            errs.append(f"{f}: '{bad}' ({why})")
+    if f != "index.html" and "/assets/mjc.css" in html and "<nav" in html and '<nav class="site-nav">' not in html:
+        errs.append(f"{f}: <nav> missing class=\"site-nav\" (header renders unstyled)")
     for i, m in enumerate(re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)):
         try:
             json.loads(m)

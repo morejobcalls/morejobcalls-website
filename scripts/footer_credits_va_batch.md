@@ -1,8 +1,8 @@
 # Footer-credit VA batch — 30 GHL funnels, one pass
 
-Generated 2026-09-19 from `scripts/footer_credits.json`. This is the single largest uncashed item in the authority
-program: these are contractor domains MJC already controls (GoHighLevel funnels). Each one is a real crawl path
-into morejobcalls.com and a relevant, nofollow-qualified link. Do all 30 in one sitting.
+Regenerated 2026-11-10 from `scripts/footer_credits.json`. Largest uncashed authority item: contractor domains MJC already
+controls (GoHighLevel funnels). Each is a real crawl path into morejobcalls.com and a relevant, nofollow-qualified link.
+Do all of them in one sitting. Unchanged at 7 live since 2026-09-19.
 
 ## Rules (non-negotiable)
 - Anchor text is always exactly `MoreJobCalls.com`.
@@ -57,5 +57,5 @@ into morejobcalls.com and a relevant, nofollow-qualified link. Do all 30 in one 
 - www.mrpatiocover.com → https://morejobcalls.com/trades/patio-cover-marketing/
 
 ## When the batch is done
-- Update each row in `scripts/footer_credits.json` from `pending-va` to `live` only after the curl/page-source check.
-- Tell the Strategist routine; the next weekly log should show live credits at 37/37 and Bing/Google discovering the site through them.
+- Update each row in `scripts/footer_credits.json` from `pending-va` to `live` only after the page-source check.
+- The Monday Strategist verifies every credit by curl and will show the new count.
