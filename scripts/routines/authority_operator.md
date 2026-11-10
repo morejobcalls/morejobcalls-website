@@ -39,8 +39,10 @@ moves prospects from "new" to "live". The Authority Prospector (Tue/Thu) fills t
    read it: it is the second source of truth for statuses when the repo could not be pushed last time.
 
 ## DELIVERY CHAIN (where drafts and the digest go; use the first that applies)
-A. Gmail present → each pitch is a Gmail draft to the contact, thread labelled "MJC Outreach/1 Pending".
-   Digest → Slack DM to Spencer if Slack is present, else the Artifact in B.
+A. Gmail present → each pitch is a Gmail draft to the contact. Gmail refuses labels on unsent drafts, so
+   "pending" = the draft exists (list_drafts, matched by recipient and subject); label the thread
+   "MJC Outreach/2 Sent" once Spencer has sent it. Digest → Slack DM to Spencer if Slack is present,
+   else the Artifact in B.
 B. Otherwise → ONE private Artifact titled "MJC Authority Digest" (republish the existing one by its url
    when it exists; create it once with icon "checklist" if not). Newest run at the top. Each run's entry:
    the digest, then every new pitch as a block (outlet, URL, contact path, subject line, pitch text).
@@ -51,9 +53,10 @@ Public repo: never an email address, a person's name taken from a contact page, 
 reached) so the Strategist can see the Operator ran.
 
 ## THE CRM IS GMAIL (when Gmail is present)
-Labels exist: "MJC Outreach/1 Pending", "MJC Outreach/2 Sent", "MJC Outreach/3 Replied",
-"MJC Outreach/4 Live". list_labels once per run for their ids. Every pitch is a Gmail thread carrying
-exactly one of these labels.
+Labels exist: "MJC Outreach/1 Pending" (unused for drafts; Gmail refuses labels on unsent drafts),
+"MJC Outreach/2 Sent", "MJC Outreach/3 Replied", "MJC Outreach/4 Live". list_labels once per run for
+their ids. Every sent pitch is a Gmail thread carrying exactly one of the last three labels; unsent
+pitches live in list_drafts and in the Digest Artifact.
 
 ## PROOF YOU MAY USE (verbatim, nothing else)
 - Entity sentence, first line of every pitch's description of us: "MoreJobCalls is a marketing company
@@ -94,8 +97,9 @@ than Spencer:
 Everything in "3 Replied" goes in the digest under "needs you". Replies are never auto-sent in any mode.
 
 ### 2. Recognise what Spencer sent (Gmail only)
-For every thread in "1 Pending": if it now contains a SENT message, move it to "2 Sent", Status →
-`pitched <date>`. A draft still unsent after 14 days is listed once in the digest as stale.
+For every pitch drafted on an earlier run (recipient + subject recorded in the Digest Artifact): if a
+message to that recipient with that subject is now in SENT, label the thread "2 Sent", Status →
+`pitched <date>`. A draft still in list_drafts after 14 days is listed once in the digest as stale.
 
 ### 3. Follow-ups (Gmail only)
 For every thread in "2 Sent" with no reply, where our last message is FOLLOW_UP_DAYS old (±1 day) and
