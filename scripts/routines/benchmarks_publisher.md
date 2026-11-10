@@ -1,9 +1,9 @@
 # Routine prompt: MJC Benchmarks Publisher (spec v1, 2026-11-10)
 
-Monthly, first weekday 15:00 UTC, fresh session per run. Connectors required: Meta (ads read) + Slack.
-Create this Routine from the claude.ai Routines UI so the connectors attach (session-created Routines
-cannot carry connectors in this account). First run is numbers-only; publishing starts after Spencer
-approves the metric list. No secrets in this file.
+Monthly, 1st at 15:00 UTC. Fires into a persistent worker session created with the website repo as its
+source in the "MJC Ops" environment; Meta (ads read), Slack and Gmail connector tools are present there
+under connector-id prefixes. Numbers-only until Spencer approves the metric list (PUBLISH = yes). No
+secrets in this file.
 
 ---
 

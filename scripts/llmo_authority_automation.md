@@ -112,16 +112,16 @@ drafts → up to five new personalised pitches → verify live for anything pitc
 the Status column of `authority_pipeline.md` → one digest with: drafts waiting on him, replies needing
 him, form-only pitches to paste, mentions that went live.
 
-It is live and enabled, and it has run twice (2026-11-10, 02:27 and 02:32 UTC). Routines created from a
-session cannot carry connectors in this account, so it runs with a **delivery chain**: Gmail + Slack
-when Spencer attaches them in the Routines UI (full mode: drafts in his mailbox, digest in Slack);
-otherwise it publishes a private Artifact page, "MJC Authority Digest", with the digest, every pitch
-(outlet, contact path, subject, text) and the pipeline statuses, and reads that page back at the start
-of the next run as its state. First two runs: 8 prospects worked (7ten.marketing, four Hook Agency
-lists, two ClicksGeek lists, DesignRush), 1 email pitch and 6 form pitches written, statuses tracked on
-the page; repo push was refused (403), so the page is the state until the Routine gets push access or
-connectors. Attaching Gmail + Slack is the one upgrade that turns "pitches waiting on a page" into
-"drafts waiting in Gmail".
+**How it gets its hands (solved 2026-11-10, 03:39 UTC).** Routines created from a session cannot carry
+connectors in this account, and a fresh Routine session has no repo and no push access. The fix that
+worked: the Routine fires into a **persistent worker session** that was created with the website repo
+as its source. A smoke test in that worker showed Gmail, Slack, Meta, vidIQ and GitHub tools present,
+`git push --dry-run` accepted, and the open network needed to read contact pages. All three Routines
+now point at a worker of their own, so no UI step is needed for them to run in full mode. The Operator
+still keeps the private "MJC Authority Digest" page as its run log and as the record of every pitch
+drafted, so the state survives even if a worker is ever recreated. Earlier connector-less runs (four on
+2026-11-10) worked 12 prospects and wrote 11 pitches to that page; those pitches are the first batch
+the full-mode runs turn into Gmail drafts.
 
 It runs *before* the Authority Prospector (Tue/Thu 15:13) and touches only the Status column, so the two
 never collide. The Prospector keeps filling the top of the funnel; the Operator empties it.
@@ -133,10 +133,9 @@ qualification $500 spend and 10 inquiries per account): deck cohort n=17, median
 $68.63 (IQR $54.12 to $86.70) over 90 days and $93.51 (n=13) over 30 days; whole book n=28, median
 $68.40 over 90 days and $89.28 (n=24) over 30 days. Late-fall cost per inquiry runs about 30% above the
 trailing 90 days. No per-trade row other than deck clears the 10-account floor yet. The draft page for
-Spencer's approval is the private artifact "MJC Benchmarks Draft v1". Create the Routine from the
-All three Routines exist; attaching Meta + Slack to this one in the claude.ai Routines UI is what
-makes the monthly refresh real. Without the connector it posts one line to a private "MJC Benchmarks
-Digest" page and stops.
+Spencer's approval is the private artifact "MJC Benchmarks Draft v1". The Routine fires into its own
+persistent worker session (repo attached, Meta + Slack present), so the monthly refresh runs in full
+mode from the first scheduled run on 2026-12-01; PUBLISH stays "no" until Spencer approves the rows.
 
 Monthly, Meta + Slack connectors. Pulls account-level spend, leads and cost per lead for the last 30 and
 90 days across every queryable client account except MJC's own, drops accounts with under $500 spend or
@@ -149,9 +148,9 @@ refreshed figures to every outlet in `MJC Outreach/2 Sent` and `4 Live`.
 
 ### 6.3 MJC YouTube Entity Sync (Routine created 2026-11-10, Wednesdays 16:00 UTC, DRY_RUN on; prompt at `scripts/routines/youtube_entity_sync.md`)
 
-Runs in dry-run until Spencer attaches vidIQ + Slack in the Routines UI and completes vidIQ's YouTube
-verification; without the connector it posts one line to a private "MJC YouTube Sync Digest" page and
-stops. Flip DRY_RUN to no after reading one dry-run report.
+Fires into its own persistent worker session (repo attached, vidIQ + Slack present). Runs in dry-run
+and DMs Spencer the exact blocks it would append; flip DRY_RUN to no after reading one report. vidIQ's
+one-time YouTube verification is still needed before the first real update is accepted.
 
 Weekly, vidIQ + Slack. For each of the 149 videos: title ≤ 100 chars keeps the hook and adds the
 category phrase where it fits; description gets the entity sentence, the locked guarantee, the
@@ -169,14 +168,15 @@ lists the copy for each field.
 1. **Done 2026-11-10**: Gmail labels created; Operator prompt written, Routine created and enabled in
    the MJC Ops environment (approve-to-send mode, delivery chain); this document; the VA footer-credit
    sheet at `scripts/footer_credits_va_batch.md`.
-2. **Spencer, 2 minutes**: open the Routine in the claude.ai Routines UI, attach Slack and Gmail. From
-   then on: open Gmail → `MJC Outreach/1 Pending` after each run, read the drafts, hit Send on the
-   ones he likes. That is the whole daily job in approve-to-send mode.
+2. **Done 2026-11-10 (evening)**: all three Routines repointed at persistent worker sessions that hold
+   the repo and the connectors; the Operator's first full-mode run fired. From then on Spencer's daily
+   job in approve-to-send mode is: read the Slack digest, open Gmail drafts, hit Send on the ones he
+   likes.
 3. **Spencer, 5 minutes**: complete vidIQ's YouTube verification once (the Operator will prompt when
    it needs it); add the Perplexity and Gemini keys as Action secrets if not already present so the
    panel reports all four engines.
-4. **Spencer, one decision**: reply "benchmarks: go" in Slack with any metric he wants excluded; the
-   Benchmarks Publisher is created from the spec in §6.2 the same day.
+4. **Spencer, one decision**: reply "benchmarks: publish" in Slack with any row he wants excluded;
+   PUBLISH flips to yes in the Benchmarks Routine and the page is built on the next run.
 5. **Spencer, one session**: the 90-minute co-pilot block for §6.4, and the VA afternoon for the
    30 footer credits.
 6. **After two clean weeks**: flip listicles and directories to auto-send in the Operator prompt.

@@ -1,10 +1,10 @@
-# Routine prompt: MJC Authority Operator (v3, 2026-11-10)
+# Routine prompt: MJC Authority Operator (v4, 2026-11-10)
 
-Weekdays 14:05 UTC, fresh session per run, environment "MJC Ops" (unrestricted network so contact pages
-can be fetched). Connectors: Slack + Gmail when attached in the Routines UI; without them the agent
-attaches the repo itself (add_repo) and reports through a private Artifact page in Spencer's gallery.
-v3 after the first run (2026-11-10 02:27 UTC) produced no visible output: the session had no repo, no
-connectors and no channel. This file is the versioned copy of the prompt stored on the Routine. No secrets.
+Weekdays 14:05 UTC. Fires into a persistent worker session created with the website repo as its source
+(push access verified by dry run) in the "MJC Ops" environment; Gmail, Slack and GitHub connector tools
+are present there under connector-id prefixes. v4 = v3 with SETUP rewritten for the worker model and a
+rule to record every drafted pitch on the private "MJC Authority Digest" page even in full mode. This
+file is the versioned copy of the prompt stored on the Routine. No secrets.
 
 ---
 
@@ -29,12 +29,15 @@ moves prospects from "new" to "live". The Authority Prospector (Tue/Thu) fills t
 - FOLLOW_UP_DAYS = [6, 13]      (days after the first send; never more than 3 touches per outlet in total)
 
 ## SETUP (first thing, every run)
-1. Repo. If /home/user/morejobcalls-website does not exist, call add_repo(owner "morejobcalls", repo
-   "morejobcalls-website", access "push"), run the clone command it returns, then register_repo_root.
-   If add_repo is refused, `git clone https://github.com/morejobcalls/morejobcalls-website` read-only and
-   note "no push" for the digest. SITE = that clone; work on main.
-2. Tools. Note which of these exist: Gmail (mcp__Gmail__*), Slack (mcp__Slack__*), Artifact. The
-   Artifact tool is always present in this environment; Gmail and Slack only when Spencer attached them.
+1. Repo. This session was created with the website repo as its source, cloned at
+   /home/user/morejobcalls-website with push access. SITE = that clone; `git checkout main && git pull
+   --rebase origin main`. Only if the clone is missing: add_repo(owner "morejobcalls", repo
+   "morejobcalls-website", access "push"), clone, register_repo_root; if refused, clone read-only and
+   note "no push" for the digest.
+2. Tools. Gmail, Slack and GitHub connector tools are attached; their names carry a connector-id prefix
+   (mcp__<id>__create_draft, mcp__<id>__slack_send_message), so identify them by the function name after
+   the last double underscore. Artifact is always present. WebFetch may be absent: use the web-fetch
+   agent or `curl -sL`.
 3. State. If a private Artifact titled "MJC Authority Digest" exists (Artifact action list, scope mine),
    read it: it is the second source of truth for statuses when the repo could not be pushed last time.
 

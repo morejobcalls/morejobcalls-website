@@ -1,8 +1,9 @@
 # Routine prompt: MJC YouTube Entity Sync (spec v1, 2026-11-10)
 
-Weekly, Wednesdays 16:00 UTC, fresh session per run. Connectors required: vidIQ for Claude + Slack.
-Precondition: Spencer completes vidIQ's YouTube verification once (the update tool returns
-verification_required until then). Create from the claude.ai Routines UI so the connectors attach.
+Weekly, Wednesdays 16:00 UTC. Fires into a persistent worker session created with the website repo as
+its source in the "MJC Ops" environment; vidIQ for Claude and Slack connector tools are present there
+under connector-id prefixes. DRY_RUN = yes until Spencer reads one report. Precondition for real
+updates: Spencer completes vidIQ's YouTube verification once.
 
 ---
 
