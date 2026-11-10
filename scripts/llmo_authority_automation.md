@@ -112,12 +112,16 @@ drafts → up to five new personalised pitches → verify live for anything pitc
 the Status column of `authority_pipeline.md` → one digest with: drafts waiting on him, replies needing
 him, form-only pitches to paste, mentions that went live.
 
-It is live and enabled. Routines created from a session cannot carry connectors in this account, so it
-runs with a **delivery chain**: Gmail + Slack when Spencer attaches them in the Routines UI (full mode:
-drafts in his mailbox, digest in Slack); until then it writes drafts privately to the seo-brain repo or
-a private GitHub issue, and if neither is reachable it still does contact discovery, verification and
-pipeline statuses, logging outlet names only to `scripts/authority_operator_log.md`. Attaching the two
-connectors is the one upgrade that turns "drafts waiting in a file" into "drafts waiting in Gmail".
+It is live and enabled, and it has run twice (2026-11-10, 02:27 and 02:32 UTC). Routines created from a
+session cannot carry connectors in this account, so it runs with a **delivery chain**: Gmail + Slack
+when Spencer attaches them in the Routines UI (full mode: drafts in his mailbox, digest in Slack);
+otherwise it publishes a private Artifact page, "MJC Authority Digest", with the digest, every pitch
+(outlet, contact path, subject, text) and the pipeline statuses, and reads that page back at the start
+of the next run as its state. First two runs: 8 prospects worked (7ten.marketing, four Hook Agency
+lists, two ClicksGeek lists, DesignRush), 1 email pitch and 6 form pitches written, statuses tracked on
+the page; repo push was refused (403), so the page is the state until the Routine gets push access or
+connectors. Attaching Gmail + Slack is the one upgrade that turns "pitches waiting on a page" into
+"drafts waiting in Gmail".
 
 It runs *before* the Authority Prospector (Tue/Thu 15:13) and touches only the Status column, so the two
 never collide. The Prospector keeps filling the top of the funnel; the Operator empties it.
