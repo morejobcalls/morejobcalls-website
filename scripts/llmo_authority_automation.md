@@ -104,13 +104,20 @@ The panel is noisy (CI ±5 points); call a move real only when it holds two runs
 
 ## 6. The agents
 
-### 6.1 MJC Authority Operator (created 2026-11-10; weekdays 14:05 UTC; Slack + Gmail)
+### 6.1 MJC Authority Operator (created 2026-11-10; weekdays 14:05 UTC; environment "MJC Ops")
 
 Prompt: `scripts/routines/authority_operator.md` (no secrets; safe in the public repo). One run:
 inbox pass (replies, follow-ups due) → recognise drafts Spencer sent → send any auto-send-category
-drafts → up to five new personalised pitches as Gmail drafts → verify live for anything pitched 7+
-days ago → update the Status column of `authority_pipeline.md` → one Slack digest with: drafts waiting
-on him, replies needing him, form-only pitches to paste, mentions that went live.
+drafts → up to five new personalised pitches → verify live for anything pitched 7+ days ago → update
+the Status column of `authority_pipeline.md` → one digest with: drafts waiting on him, replies needing
+him, form-only pitches to paste, mentions that went live.
+
+It is live and enabled. Routines created from a session cannot carry connectors in this account, so it
+runs with a **delivery chain**: Gmail + Slack when Spencer attaches them in the Routines UI (full mode:
+drafts in his mailbox, digest in Slack); until then it writes drafts privately to the seo-brain repo or
+a private GitHub issue, and if neither is reachable it still does contact discovery, verification and
+pipeline statuses, logging outlet names only to `scripts/authority_operator_log.md`. Attaching the two
+connectors is the one upgrade that turns "drafts waiting in a file" into "drafts waiting in Gmail".
 
 It runs *before* the Authority Prospector (Tue/Thu 15:13) and touches only the Status column, so the two
 never collide. The Prospector keeps filling the top of the funnel; the Operator empties it.
@@ -141,11 +148,12 @@ lists the copy for each field.
 
 ## 7. Build order (what happens this week)
 
-1. **Done 2026-11-10**: Gmail labels created; Operator prompt written and Routine created
-   (approve-to-send mode); this document; the VA footer-credit sheet restored at
-   `scripts/footer_credits_va_batch.md`.
-2. **Spencer, 10 minutes**: open Gmail → `MJC Outreach/1 Pending` after the first run, read the five
-   drafts, hit Send on the ones he likes. That is the whole daily job in approve-to-send mode.
+1. **Done 2026-11-10**: Gmail labels created; Operator prompt written, Routine created and enabled in
+   the MJC Ops environment (approve-to-send mode, delivery chain); this document; the VA footer-credit
+   sheet at `scripts/footer_credits_va_batch.md`.
+2. **Spencer, 2 minutes**: open the Routine in the claude.ai Routines UI, attach Slack and Gmail. From
+   then on: open Gmail → `MJC Outreach/1 Pending` after each run, read the drafts, hit Send on the
+   ones he likes. That is the whole daily job in approve-to-send mode.
 3. **Spencer, 5 minutes**: complete vidIQ's YouTube verification once (the Operator will prompt when
    it needs it); add the Perplexity and Gemini keys as Action secrets if not already present so the
    panel reports all four engines.
