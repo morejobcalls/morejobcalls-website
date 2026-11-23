@@ -12,7 +12,8 @@
       "domain": "alldeckedoutbuilds.com",
       "platform": "ghl-funnel",
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-      "status": "pending-va"
+      "status": "pending-va",
+      "note": "2026-11-23: homepage returned 000 — domain not resolving or refusing connections (checked twice)."
     },
     {
       "domain": "apdecks.com",
@@ -20,7 +21,7 @@
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "live",
       "note": "verified live 2026-09-28; Elementor footer template #1535, text widget next to the copyright line",
-      "verified": "2026-10-26"
+      "verified": "2026-11-23"
     },
     {
       "domain": "athensdeckpros.com",
@@ -45,7 +46,7 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/",
       "status": "live",
-      "verified": "2026-10-26",
+      "verified": "2026-11-23",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28, 45 pages; 404/feedback/your-ads have no copyright line"
     },
@@ -53,7 +54,8 @@
       "domain": "bobtbuilderdecks.com",
       "platform": "ghl-funnel",
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
-      "status": "pending-va"
+      "status": "pending-va",
+      "note": "2026-11-23: homepage returned 000 — domain not resolving or refusing connections (checked twice)."
     },
     {
       "domain": "deavilledeckpros.com",
@@ -72,7 +74,7 @@
       "platform": "ghl-funnel",
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "pending-va",
-      "note": "2026-10-05: homepage returned 404 — site down or domain unresolved; credit cannot be deployed until it serves"
+      "note": "2026-10-05: homepage returned 404 — site down or domain unresolved; credit cannot be deployed until it serves  2026-11-23: homepage returned 000 — domain not resolving or refusing connections (checked twice)."
     },
     {
       "domain": "deckssncompany.com",
@@ -138,7 +140,8 @@
       "domain": "mrpatiocoverdecks.com",
       "platform": "ghl-funnel",
       "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
-      "status": "pending-va"
+      "status": "pending-va",
+      "note": "2026-11-23: homepage returned 000 — domain not resolving or refusing connections (checked twice)."
     },
     {
       "domain": "naileditdecks.com",
@@ -151,7 +154,7 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "live",
-      "verified": "2026-10-26",
+      "verified": "2026-11-23",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28 on apex + oasis-website-s94.pages.dev, 23 pages"
     },
@@ -161,7 +164,7 @@
       "target": "https://morejobcalls.com/trades/deck-builder-marketing/",
       "status": "live",
       "note": "verified live 2026-09-28, 4 pages (repo: 05 - Landing Pages/paynter-website)",
-      "verified": "2026-10-26"
+      "verified": "2026-11-23"
     },
     {
       "domain": "paynterconstructions.com",
@@ -174,7 +177,7 @@
       "platform": "ghl-funnel",
       "target": "https://morejobcalls.com/trades/siding-leads/",
       "status": "pending-va",
-      "note": "2026-10-05: homepage returned 000 — site down or domain unresolved; credit cannot be deployed until it serves"
+      "note": "2026-10-05: homepage returned 000 — site down or domain unresolved; credit cannot be deployed until it serves  2026-11-23: homepage returned 000 — domain not resolving or refusing connections (checked twice)."
     },
     {
       "domain": "simplelivingcontractor.com",
@@ -200,7 +203,7 @@
       "target": "https://morejobcalls.com/trades/window-replacement-leads/",
       "status": "live",
       "note": "verified live 2026-09-28, 15 of 15 pages; pricing-event paid LP intentionally excluded",
-      "verified": "2026-10-26"
+      "verified": "2026-11-23"
     },
     {
       "domain": "throldahldeckpros.com",
@@ -231,7 +234,7 @@
       "platform": "github-pages",
       "target": "https://morejobcalls.com/",
       "status": "live",
-      "verified": "2026-10-26",
+      "verified": "2026-11-23",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28, 20 pages"
     },
@@ -240,13 +243,13 @@
       "platform": "cf-pages",
       "target": "https://morejobcalls.com/trades/patio-cover-marketing/",
       "status": "live",
-      "verified": "2026-10-26",
+      "verified": "2026-11-23",
       "rel": "nofollow noopener",
       "note": "verified live 2026-09-28, 40 pages; paid LPs google-estimate + meta-offer intentionally credit-free; /archive/ still public until next deploy via _dev/ship-lp.sh"
     }
   ],
-  "last_verified": "2026-10-26",
-  "verification": "2026-10-26 sweep of all 37 domains (curl, follow redirects, 20s, browser UA, looking for an <a href=\"https://morejobcalls.com...\"> whose anchor text is exactly MoreJobCalls.com): **7 live, 30 not yet carrying the credit, 0 regressions** — every site previously marked live still carries it, and every href still points at the trade page assigned in this file. Third consecutive sweep at 7/37: no credit has been deployed in 21 days (2026-10-05 → 2026-10-26). This is the single largest unexecuted item in `scripts/authority_pipeline.md` and it is the play the #1-ranking rival is built on (~20 client footer credits). **Deployability improved: effective base is now 36 of 37, up from 34.** Two blockers cleared this week — sidingatlantadecks.com now completes the TLS handshake and serves HTTP 200 (it had no valid cert on 2026-10-12), and mrpatiocoverdecks.com resolves and serves 200 again (it stopped resolving entirely on 2026-10-12). One blocker remains: deckoutyourhomebuilds.com still returns HTTP 404, unchanged since 2026-10-12. Note mrpatiocover.com (the live-credit sibling of mrpatiocoverdecks.com) is unaffected and still carries its credit.",
-  "last_verified_run": "2026-10-26",
-  "last_verified_result": "7 of 37 live (unchanged from 2026-10-19 and 2026-10-12; no regressions). 30 still pending-va — 21 days with zero credits deployed."
+  "last_verified": "2026-11-23",
+  "verification": "2026-11-23 sweep of all 37 domains (curl, follow redirects, 20s, browser UA, looking for an <a href=\"https://morejobcalls.com...\"> whose anchor text is exactly MoreJobCalls.com): **7 live, 30 not yet carrying the credit, 0 regressions.** Live and verified today: apdecks.com, bivianomodularbuilders.com, oasiscustomdecks.com, paynterconstruction.com, thewindowprofessor.pro, www.bivianocontracting.com, www.mrpatiocover.com — all seven hrefs match the trade page assigned in this file. Note: this is the first sweep since 2026-10-26; the 11-02, 11-09 and 11-16 strategist runs did not land a commit in this repo. Five domains would not serve a homepage at all on either https or http (000 on two consecutive checks): alldeckedoutbuilds.com, bobtbuilderdecks.com, deckoutyourhomebuilds.com, mrpatiocoverdecks.com, sidingatlantadecks.com. mrpatiocoverdecks.com and sidingatlantadecks.com had both recovered by 2026-10-26 and are down again; alldeckedoutbuilds.com and bobtbuilderdecks.com are newly down. Effective deployable base is 32 of 37 until those resolve.",
+  "last_verified_run": "2026-11-23",
+  "last_verified_result": "7 of 37 live (unchanged since 2026-09-28; no regressions, every live href still points at its assigned trade page). 30 still pending-va — 56 days with zero new credits deployed. Deployable base fell to 32 of 37: five domains returned 000 on both attempts (alldeckedoutbuilds.com, bobtbuilderdecks.com, deckoutyourhomebuilds.com, mrpatiocoverdecks.com, sidingatlantadecks.com), three of them newly unreachable since the 2026-10-26 sweep."
 }
